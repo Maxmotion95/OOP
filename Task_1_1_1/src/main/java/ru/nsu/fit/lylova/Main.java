@@ -23,6 +23,7 @@ public class Main {
         for (int i = 0; i < as.length; ++i) {
             a[i] = Integer.parseInt(as[i]);
         }
-        System.out.println("Sorted array: " + Arrays.toString(Heapsort.heapsort(a)));
+        Heapsort.heapsort(a);
+        System.out.println("Sorted array: " + Arrays.toString(a));
     }
 }
