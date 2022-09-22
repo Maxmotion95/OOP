@@ -9,9 +9,8 @@ public class Heapsort {
      * Time complexity is O(n*log(n)) and memory complexity is O(n) where n - array length.
      *
      * @param arr an array of integers
-     * @return an array of numbers sorted in ascending order
      */
-    public static int[] heapsort(int[] arr) {
+    public static void heapsort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; ++i) {
             int v = i + 1;
@@ -41,6 +40,5 @@ public class Heapsort {
                 }
             }
         }
-        return arr;
     }
 }
