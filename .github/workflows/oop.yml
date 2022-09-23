@@ -5,22 +5,21 @@ name: CI
 # Controls when the workflow will run
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]  
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./${{ github.event.pull_request.title }}
     steps:
       - uses: actions/checkout@v3
       
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
     
-      - name: chmod
-        run: chmod +x gradlew
-        
       - name: Execute Gradle build
         run: ./gradlew build
 
