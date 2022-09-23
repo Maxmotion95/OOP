@@ -5,7 +5,7 @@ package ru.nsu.fit.lylova;
  */
 public class Heapsort {
     /**
-     * Returns an array of numbers sorted in ascending order.
+     * Sort an array of numbers in ascending order.
      * Time complexity is O(n*log(n)) and memory complexity is O(n) where n - array length.
      *
      * @param arr an array of integers
