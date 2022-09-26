@@ -1,21 +1,5 @@
-@echo off
-set comp_flag = 0
-set doc_flag = 0
-set exec_flag = 0
-for %%i in (%*) do (
-    if %%i == -comp (
-        set /A comp_flag = 1
-    )
-    if %%i == -javadoc (
-        set /A doc_flag = 1
-    )
-    if %%i == -exec (
-        set /A exec_flag = 1
-    )
-)
-@echo on
-if [%doc_flag%] == [1] javadoc src\main\java\ru\nsu\fit\lylova\*.java -d for_javadoc
-if [%comp_flag%] == [1] javac src\main\java\ru\nsu\fit\lylova\*.java -d for_build
+javadoc src\main\java\ru\nsu\fit\lylova\*.java -d for_javadoc
+javac src\main\java\ru\nsu\fit\lylova\*.java -d for_build
 cd for_build
-if [%exec_flag%] == [1] java ru.nsu.fit.lylova.Main
+java ru.nsu.fit.lylova.Main
  
