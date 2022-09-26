@@ -18,7 +18,6 @@ class HeapsortTest {
                           {2, 3, 9, 0},
                           {-10, 100, 25, 37},
                           {637, 43627, 3547, 534, 33432, 143, 243, 25421}};
-
         int[][] heapsorted = init_arrays.clone();
         int[][] arrays = init_arrays.clone();
         for (int i = 0; i < arrays.length; ++i){
