@@ -23,7 +23,6 @@ jobs:
       - name: chmod
         run: chmod +x gradlew
         
-        main
       - name: Execute Gradle build
         run: ./gradlew build
 
