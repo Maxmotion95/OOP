@@ -1,19 +1,58 @@
 package ru.nsu.fit.lylova;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Stack<Integer> a = new Stack<>();
-        a.push(2);
-        a.push(7);
-        Stack<Integer> x = new Stack<>();
-        x.push(4);
-        x.push(8);
-        a.pushStack(x);
-        System.out.println(a.pop());
-        System.out.println(a.pop());
-        Stack<Integer> y = a.popStack(2);
-        System.out.println(y.toString());
-        System.out.println(a.count());
+        Scanner sc = new Scanner(System.in);
+        Stack<Integer> st = new Stack<>();
+        while (true){
+            System.out.println("Введите команду и её параметры, или введите 'q' чтобы закончить.");
+            String line  = sc.nextLine();
+            Scanner sc2 = new Scanner(line);
+            String type = sc2.next();
+            if (type.equals("q")){
+                break;
+            }
+            if (type.equals("pop")){
+                System.out.println("Элемент: " + st.pop());
+                continue;
+            }
+            if (type.equals("push")){
+                if (!sc2.hasNextInt()){
+                    System.out.println("Числа не найдено.");
+                    continue;
+                }
+                Integer next = sc2.nextInt();
+                st.push(next);
+                continue;
+            }
+            if (type.equals("popStack")){
+                if (!sc2.hasNextInt()){
+                    System.out.println("Числа не найдено.");
+                    continue;
+                }
+                int cnt = sc2.nextInt();
+                Stack<Integer> res = st.popStack(cnt);
+                System.out.println("Результат: " + res);
+                continue;
+            }
+            if (type.equals("count")){
+                System.out.println("Кол-во элементов в стеке: " + st.count());
+                continue;
+            }
+            if (type.equals("pushStack")){
+                Stack<Integer> tmp = new Stack<>();
+                while (sc2.hasNextInt()){
+                    tmp.push(sc2.nextInt());
+                }
+                System.out.println("В стек добавлен стек: " + tmp);
+                st.pushStack(tmp);
+                continue;
+            }
+            System.out.println("Не знаю такой команды :(");
+        }
+        sc.close();
     }
 }
