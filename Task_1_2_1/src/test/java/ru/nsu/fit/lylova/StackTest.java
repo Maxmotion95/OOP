@@ -1,6 +1,7 @@
 package ru.nsu.fit.lylova;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Random;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;

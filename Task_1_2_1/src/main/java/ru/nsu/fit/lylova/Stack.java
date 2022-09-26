@@ -119,7 +119,7 @@ public class Stack<T> {
      * @return A string of the form {element1, element2, ..., elementN},
      *         where elementN is the top element of the stack,
      *         and element1 is the lowest element of the stack
-     * To get a string representation of an element, the toString() function is used
+     *         To get a string representation of an element, the toString() function is used
      */
     @Override
     public String toString() {
