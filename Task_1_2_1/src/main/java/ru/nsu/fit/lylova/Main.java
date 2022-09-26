@@ -2,8 +2,17 @@ package ru.nsu.fit.lylova;
 
 import java.util.Scanner;
 
+/**
+ * Class with function main
+ */
 public class Main {
 
+    /**
+     * A function that communicates with the user and simulates stack actions
+     *
+     * @param args arguments of command line (don't used)
+     * @throws Exception when stack cannot do that operation
+     */
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Stack<Integer> st = new Stack<>();
