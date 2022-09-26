@@ -2,7 +2,7 @@ plugins {
     id 'java'
     id 'jacoco'
 }
-
+ 
 group 'ru.nsu.fit.lylova'
 version '1.0-SNAPSHOT'
 
