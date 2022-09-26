@@ -197,7 +197,8 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="Stack.html" title="class in ru.nsu.fit.lylova">Stack</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#popStack(int)">popStack</a></span>&#8203;(int&nbsp;count)</code></th>
 <td class="colLast">
-<div class="block">Throws the required number of elements from the stack, while returning a stack of these elements.</div>
+<div class="block">Throws the required number of elements from the stack
+ Return a stack that contain these elements.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -321,13 +322,14 @@ extends java.lang.Object</pre>
 <h4>popStack</h4>
 <pre class="methodSignature">public&nbsp;<a href="Stack.html" title="class in ru.nsu.fit.lylova">Stack</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;&nbsp;popStack&#8203;(int&nbsp;count)
                   throws java.lang.Exception</pre>
-<div class="block">Throws the required number of elements from the stack, while returning a stack of these elements.</div>
+<div class="block">Throws the required number of elements from the stack
+ Return a stack that contain these elements.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>count</code> - Number of top stack elements to be thrown out of the stack</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>A stack consisting of count of the top elements of the stack.
- The order of the elements in the stack is the same as in the original</dd>
+         The order of the elements in the stack is the same as in the original</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Exception</code> - if count is negative or there are not enough elements in the stack</dd>
 </dl>
@@ -359,7 +361,9 @@ extends java.lang.Object</pre>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="returnLabel">Returns:</span></dt>
-<dd>A string of the form {element1, element2, ..., elementN}, where elementN is the top element of the stack, and element1 is the lowest element of the stack
+<dd>A string of the form {element1, element2, ..., elementN},
+         where elementN is the top element of the stack,
+         and element1 is the lowest element of the stack
  To get a string representation of an element, the toString() function is used</dd>
 </dl>
 </li>
