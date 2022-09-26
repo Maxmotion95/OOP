@@ -11,7 +11,7 @@ public class Stack<T> {
     private T[] array;
 
     /**
-     * Creates an empty stack
+     * Creates an empty stack.
      */
     @SuppressWarnings("unchecked")
     public Stack() {
@@ -22,14 +22,13 @@ public class Stack<T> {
     @SuppressWarnings("unchecked")
     private void resize() {
         T[] tmp = (T[]) new Object[this.capacity * 2];
-        if (this.capacity >= 0)
-            System.arraycopy(this.array, 0, tmp, 0, this.capacity);
+        System.arraycopy(this.array, 0, tmp, 0, this.capacity);
         this.capacity *= 2;
         this.array = tmp;
     }
 
     /**
-     * Adds this element to the top of the stack
+     * Adds this element to the top of the stack.
      *
      * @param element The element to add to the stack
      */
@@ -43,7 +42,8 @@ public class Stack<T> {
 
 
     /**
-     * Adds a stack to the stack at the same time, the order of elements in the added stack does not change
+     * Adds a stack to the stack at the same time.
+     * The order of elements in the added stack does not change.
      *
      * @param stack The stack being added to this stack
      */
@@ -54,7 +54,7 @@ public class Stack<T> {
     }
 
     /**
-     * Throws the top element out of the stack, while returning its value
+     * Throws the top element out of the stack, while returning its value.
      *
      * @return The previous top element of the stack
      * @throws Exception if stack is empty
@@ -70,10 +70,11 @@ public class Stack<T> {
     }
 
     /**
-     * Throws the required number of elements from the stack, while returning a stack of these elements
+     * Throws the required number of elements from the stack, while returning a stack of these elements.
      *
      * @param count Number of top stack elements to be thrown out of the stack
-     * @return A stack consisting of count of the top elements of the stack. The order of the elements in the stack is the same as in the original
+     * @return A stack consisting of count of the top elements of the stack.
+     * The order of the elements in the stack is the same as in the original
      * @throws Exception if count is negative or there are not enough elements in the stack
      */
     public Stack<T> popStack(int count) throws Exception {
@@ -99,7 +100,7 @@ public class Stack<T> {
 
 
     /**
-     * Returns Number of elements in the stack
+     * Returns Number of elements in the stack.
      *
      * @return Number of elements in the stack
      */
@@ -112,7 +113,7 @@ public class Stack<T> {
     }
 
     /**
-     * Returns a string representation of the stack
+     * Returns a string representation of the stack.
      *
      * @return A string of the form {element1, element2, ..., elementN}, where elementN is the top element of the stack, and element1 is the lowest element of the stack
      * To get a string representation of an element, the toString() function is used

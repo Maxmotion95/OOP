@@ -1,11 +1,9 @@
 package ru.nsu.fit.lylova;
 
+import java.util.Random;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
-
-import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StackTest {
 
@@ -49,7 +47,7 @@ class StackTest {
         x.push(89723);
         st.pushStack(x);
         int[] all = {67823, 89534, 793587, 8346, 89723};
-        for (int i = all.length - 1; i >= 0; --i){
+        for (int i = all.length - 1; i >= 0; --i) {
             assertEquals(all[i], st.pop());
         }
     }
