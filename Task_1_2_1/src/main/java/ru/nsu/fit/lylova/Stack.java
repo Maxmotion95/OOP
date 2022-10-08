@@ -84,7 +84,7 @@ public class Stack<T> {
      *
      * @param count Number of top stack elements to be thrown out of the stack
      * @return A stack consisting of count of the top elements of the stack.
-     * The order of the elements in the stack is the same as in the original
+     *         The order of the elements in the stack is the same as in the original
      * @throws Exception if count is negative or there are not enough elements in the stack
      */
     public Stack<T> popStack(int count) throws Exception {
@@ -124,9 +124,9 @@ public class Stack<T> {
      * Returns a string representation of the stack.
      *
      * @return A string of the form {element1, element2, ..., elementN},
-     * where elementN is the top element of the stack,
-     * and element1 is the lowest element of the stack
-     * To get a string representation of an element, the toString() function is used
+     *         where elementN is the top element of the stack,
+     *         and element1 is the lowest element of the stack
+     *         To get a string representation of an element, the toString() function is used
      */
     @Override
     public String toString() {
