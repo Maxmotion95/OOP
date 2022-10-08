@@ -190,15 +190,14 @@ extends java.lang.Object</pre>
 <td class="colFirst"><code><a href="Stack.html" title="type parameter in Stack">T</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#pop()">pop</a></span>()</code></th>
 <td class="colLast">
-<div class="block">Throws the top element out of the stack, while returning its value.</div>
+<div class="block">Deletes and return the top element of the stack.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Stack.html" title="class in ru.nsu.fit.lylova">Stack</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#popStack(int)">popStack</a></span>&#8203;(int&nbsp;count)</code></th>
 <td class="colLast">
-<div class="block">Throws the required number of elements from the stack
- Return a stack that contain these elements.</div>
+<div class="block">Deletes and returns the required number of elements from the stack.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
@@ -305,7 +304,7 @@ extends java.lang.Object</pre>
 <h4>pop</h4>
 <pre class="methodSignature">public&nbsp;<a href="Stack.html" title="type parameter in Stack">T</a>&nbsp;pop()
       throws java.lang.Exception</pre>
-<div class="block">Throws the top element out of the stack, while returning its value.</div>
+<div class="block">Deletes and return the top element of the stack.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>The previous top element of the stack</dd>
@@ -322,8 +321,8 @@ extends java.lang.Object</pre>
 <h4>popStack</h4>
 <pre class="methodSignature">public&nbsp;<a href="Stack.html" title="class in ru.nsu.fit.lylova">Stack</a>&lt;<a href="Stack.html" title="type parameter in Stack">T</a>&gt;&nbsp;popStack&#8203;(int&nbsp;count)
                   throws java.lang.Exception</pre>
-<div class="block">Throws the required number of elements from the stack
- Return a stack that contain these elements.</div>
+<div class="block">Deletes and returns the required number of elements from the stack.
+ The order of the elements is the same as in the original stack.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>count</code> - Number of top stack elements to be thrown out of the stack</dd>
