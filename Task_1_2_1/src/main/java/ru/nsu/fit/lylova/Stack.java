@@ -15,7 +15,7 @@ public class Stack<T> {
      */
     @SuppressWarnings("unchecked")
     public Stack() {
-        this.capacity = 1;
+        this.capacity = 32;
         this.array = (T[]) new Object[this.capacity];
     }
 
@@ -61,9 +61,6 @@ public class Stack<T> {
      */
     public T pop() throws Exception {
         if (this.top == -1) {
-            // TO DO
-            // throw exception
-            // catch error ????
             throw new Exception("stack is empty, cannot do pop");
         }
         return this.array[this.top--];
@@ -80,15 +77,9 @@ public class Stack<T> {
      */
     public Stack<T> popStack(int count) throws Exception {
         if (count < 0) {
-            // TO DO
-            // throw exception
-            // catch error ????
             throw new Exception("invalid count of elements: must be non-negative");
         }
         if (this.count() < count) {
-            // TO DO
-            // throw exception
-            // catch error ????
             throw new Exception("the number of stack elements is less than count");
         }
         Stack<T> res = new Stack<>();
