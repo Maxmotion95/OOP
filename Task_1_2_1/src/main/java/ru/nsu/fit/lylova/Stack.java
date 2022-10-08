@@ -64,7 +64,7 @@ public class Stack<T> {
     }
 
     /**
-     * Throws the top element out of the stack, while returning its value.
+     * Deletes and return the top element of the stack.
      *
      * @return The previous top element of the stack
      * @throws Exception if stack is empty
@@ -77,8 +77,8 @@ public class Stack<T> {
     }
 
     /**
-     * Throws the required number of elements from the stack
-     * Return a stack that contain these elements.
+     * Deletes and returns the required number of elements from the stack.
+     * The order of the elements is the same as in the original stack.
      *
      * @param count Number of top stack elements to be thrown out of the stack
      * @return A stack consisting of count of the top elements of the stack.
