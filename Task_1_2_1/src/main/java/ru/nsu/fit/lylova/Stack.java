@@ -28,6 +28,7 @@ public class Stack<T> {
         this.capacity *= 2;
         this.array = tmp;
     }
+
     @SuppressWarnings("unchecked")
     private void resize(int newSize) {
         T[] tmp = (T[]) new Object[newSize];
@@ -57,8 +58,9 @@ public class Stack<T> {
      * @param stack The stack being added to this stack
      */
     public void pushStack(Stack<T> stack) {
-        if (this.count() + stack.count() > this.capacity)
+        if (this.count() + stack.count() > this.capacity) {
             this.resize(max(this.count(), stack.count()) * 2);
+        }
         System.arraycopy(stack.array, 0, this.array, this.top + 1, stack.count());
         this.top += stack.count();
     }
@@ -82,7 +84,7 @@ public class Stack<T> {
      *
      * @param count Number of top stack elements to be thrown out of the stack
      * @return A stack consisting of count of the top elements of the stack.
-     *         The order of the elements in the stack is the same as in the original
+     * The order of the elements in the stack is the same as in the original
      * @throws Exception if count is negative or there are not enough elements in the stack
      */
     public Stack<T> popStack(int count) throws Exception {
@@ -94,7 +96,7 @@ public class Stack<T> {
         }
         Stack<T> res = new Stack<>();
         int newCapacity = res.capacity;
-        while (newCapacity < count){
+        while (newCapacity < count) {
             newCapacity *= 2;
         }
         res.resize(newCapacity);
@@ -122,9 +124,9 @@ public class Stack<T> {
      * Returns a string representation of the stack.
      *
      * @return A string of the form {element1, element2, ..., elementN},
-     *         where elementN is the top element of the stack,
-     *         and element1 is the lowest element of the stack
-     *         To get a string representation of an element, the toString() function is used
+     * where elementN is the top element of the stack,
+     * and element1 is the lowest element of the stack
+     * To get a string representation of an element, the toString() function is used
      */
     @Override
     public String toString() {
