@@ -1,5 +1,7 @@
 package ru.nsu.fit.lylova;
 
+import static java.lang.Math.max;
+
 /**
  * Data structure stack with implemented functions push, push Stack, clap, clap stack, count.
  *
@@ -26,6 +28,13 @@ public class Stack<T> {
         this.capacity *= 2;
         this.array = tmp;
     }
+    @SuppressWarnings("unchecked")
+    private void resize(int newSize) {
+        T[] tmp = (T[]) new Object[newSize];
+        System.arraycopy(this.array, 0, tmp, 0, this.capacity);
+        this.capacity = newSize;
+        this.array = tmp;
+    }
 
     /**
      * Adds this element to the top of the stack.
@@ -48,9 +57,10 @@ public class Stack<T> {
      * @param stack The stack being added to this stack
      */
     public void pushStack(Stack<T> stack) {
-        for (int i = 0; i < stack.count(); ++i) {
-            this.push(stack.get(i));
-        }
+        if (this.count() + stack.count() > this.capacity)
+            this.resize(max(this.count(), stack.count()) * 2);
+        System.arraycopy(stack.array, 0, this.array, this.top + 1, stack.count());
+        this.top += stack.count();
     }
 
     /**
@@ -83,9 +93,13 @@ public class Stack<T> {
             throw new Exception("the number of stack elements is less than count");
         }
         Stack<T> res = new Stack<>();
-        for (int i = this.top - count + 1; i <= this.top; ++i) {
-            res.push(this.get(i));
+        int newCapacity = res.capacity;
+        while (newCapacity < count){
+            newCapacity *= 2;
         }
+        res.resize(newCapacity);
+        System.arraycopy(this.array, this.top - count + 1, res.array, 0, count);
+        res.top = count - 1;
         this.top -= count;
         return res;
     }
