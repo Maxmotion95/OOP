@@ -6,12 +6,7 @@ public class Tree<T> implements Collection<T> {
     private final Node<T> root;
     private int cntNodes;
 
-    Tree(T value) {
-        root = new Node<>(value);
-        cntNodes = 1;
-    }
-
-    Tree() {
+    public Tree() {
         root = new Node<>();
         cntNodes = 0;
     }
@@ -46,7 +41,19 @@ public class Tree<T> implements Collection<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new TreeDfsIterator();
+        return new Iterator<>() {
+            final Iterator<Node<T>> dfsIterator = new TreeDfsIterator();
+
+            @Override
+            public boolean hasNext() {
+                return dfsIterator.hasNext();
+            }
+
+            @Override
+            public T next() {
+                return dfsIterator.next().value;
+            }
+        };
     }
 
     @Override
@@ -79,88 +86,167 @@ public class Tree<T> implements Collection<T> {
 
     @Override
     public boolean remove(Object o) {
+        Iterator<Node<T>> iterator = new TreeDfsIterator();
+        while (iterator.hasNext()) {
+            Node<T> vertex = iterator.next();
+            if (o == vertex.value) {
+                try {
+                    removeVertexByNode(vertex);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean containsAll(Collection<?> c) {
-        return false;
+        for (var o : c) {
+            if (!this.contains(o))
+                return false;
+        }
+        return true;
     }
 
     @Override
     public boolean addAll(Collection<? extends T> c) {
-        return false;
+        for (var o : c) {
+            this.add(o);
+        }
+        return true;
     }
 
     @Override
     public boolean removeAll(Collection<?> c) {
-        return false;
+        for (var o : c) {
+            if (!this.remove(o))
+                return false;
+        }
+        return true;
     }
 
     @Override
     public boolean retainAll(Collection<?> c) {
-        return false;
+        Iterator<Node<T>> iterator = new TreeDfsIterator();
+        while (iterator.hasNext()) {
+            Node<T> vertex = iterator.next();
+            if (!c.contains(vertex.value)) {
+                this.remove(vertex);
+            }
+        }
+        return true;
     }
 
     @Override
     public void clear() {
-
+        root.children.clear();
+        cntNodes = 0;
     }
 
-    Node<T> addVertexByValue(T value) {
+    public Node<T> addVertexByValue(T value) {
         Node<T> newNode = new Node<>(root, value);
         root.addChild(newNode);
         ++cntNodes;
         return newNode;
     }
 
-    Node<T> addVertexByParentAndValue(Node<T> parent, T value) {
+    public Node<T> addVertexByParentAndValue(Node<T> parent, T value) {
         Node<T> newNode = new Node<>(parent, value);
         ++cntNodes;
         parent.addChild(newNode);
         return newNode;
     }
 
-    public class TreeDfsIterator implements Iterator<T> {
+    public boolean removeVertexByNode(Node<T> vertex) throws Exception {
+        if (vertex.parent == null)
+            throw new Exception();
+        Node<T> par = vertex.parent;
+        for (Node<T> child : vertex.children) {
+            child.parent = par;
+        }
+        par.children.remove(vertex);
+        par.children.addAll(vertex.children);
+        return true;
+    }
 
-        private final Map<Node<T>, Integer> pastChild;
+    public class TreeDfsIterator implements Iterator<Node<T>> {
+        private final Stack<Node<T>> stackNodes;
+        private final Stack<Integer> pastId;
+        int idNow;
         private Node<T> node;
-        private boolean isStartedDfs = false;
 
         public TreeDfsIterator() {
+            stackNodes = new Stack<>();
+            pastId = new Stack<>();
             node = root;
-            pastChild = new HashMap<>();
-            pastChild.put(root, -1);
+            idNow = -1;
         }
 
         @Override
         public boolean hasNext() {
-            Node<T> tmp = node;
-            while (tmp != null && pastChild.get(tmp) + 1 == tmp.cntChildren()) {
-                tmp = tmp.parent;
+            if (idNow + 1 != node.cntChildren())
+                return true;
+            while (!stackNodes.empty() && stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
+                node = stackNodes.pop();
+                idNow = pastId.pop();
             }
-            return tmp != null;
+            return !stackNodes.empty();
         }
 
         @Override
-        public T next() throws NoSuchElementException {
-            if (!isStartedDfs) {
-                isStartedDfs = true;
-                return node.value;
-            }
+        public Node<T> next() throws NoSuchElementException {
             if (!this.hasNext()) {
                 node = null;
                 throw new NoSuchElementException();
             }
-            while (pastChild.get(node) + 1 == node.cntChildren()) {
-                node = node.parent;
+            while (idNow + 1 == node.cntChildren()) {
+                node = stackNodes.pop();
+                idNow = pastId.pop();
             }
-            int id = pastChild.get(node);
-            ++id;
-            pastChild.put(node, id);
-            node = node.children.get(id);
-            pastChild.put(node, -1);
-            return node.value;
+            ++idNow;
+            stackNodes.push(node);
+            pastId.push(idNow);
+            node = node.children.get(idNow);
+            idNow = -1;
+            return node;
+        }
+    }
+
+    public class TreeBfsIterator implements Iterator<Node<T>> {
+        private final Queue<Node<T>> queueNodes;
+        private Node<T> nodeNow;
+        private int idNow;
+
+        public TreeBfsIterator() {
+            queueNodes = new LinkedList<>();
+            nodeNow = root;
+            idNow = -1;
+        }
+
+        @Override
+        public boolean hasNext() {
+            if (idNow + 1 != nodeNow.cntChildren())
+                return true;
+            while (!queueNodes.isEmpty() && idNow + 1 == nodeNow.cntChildren()) {
+                nodeNow = queueNodes.remove();
+                idNow = -1;
+            }
+            return !queueNodes.isEmpty();
+        }
+
+        @Override
+        public Node<T> next() throws NoSuchElementException {
+            if (!this.hasNext())
+                throw new NoSuchElementException();
+            while (idNow + 1 == nodeNow.cntChildren()) {
+                nodeNow = queueNodes.remove();
+                idNow = -1;
+            }
+            ++idNow;
+            queueNodes.add(nodeNow.children.get(idNow));
+            return nodeNow.children.get(idNow);
         }
     }
 }
