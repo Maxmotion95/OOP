@@ -23,6 +23,11 @@ public class Node<T> {
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return value.toString();
+    }
+
     public void addChild(Node<T> child) {
         this.children.add(child);
     }

@@ -1,28 +1,24 @@
 package ru.nsu.fit.lylova;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.stream.Stream;
 
 public class Main {
+    /**
+     * @param args command line
+     */
     public static void main(String[] args) {
         Tree<String> tree = new Tree<>();
-        Node<String> v = tree.addVertexByValue("kek");
-        Node<String> u = tree.addVertexByValue("foo");
-        tree.addVertexByParentAndValue(v, "1234");
-        tree.addVertexByParentAndValue(u, "76325");
-        System.out.println(v.value);
-        for (String s : tree) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-        ArrayList<String> delete = new ArrayList<>();
-        delete.add("kek");
-        delete.add("76325");
-        tree.removeAll(delete);
-        System.out.println("After deleting:");
-        for (var s : tree) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-        System.out.println("Hello world!");
+        tree.add("A");
+        var nodeB = tree.addVertexByValue("B");
+        tree.addVertexByParentAndValue(nodeB, "AB");
+        tree.addVertexByParentAndValue(nodeB, "BB");
+        Iterator<Node<String>> iterator = tree.new TreeDfsIterator();
+        var streamNodes = Stream.generate(() -> null)
+                .takeWhile(x -> iterator.hasNext())
+                .map(n -> iterator.next());
+        System.out.println("Array of strings that are lists in tree: " +
+                Arrays.toString(streamNodes.filter(node -> node.value.contains("B") && node.cntChildren() == 0).toArray()));
     }
 }
