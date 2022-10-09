@@ -233,7 +233,7 @@ public class Tree<T> implements Collection<T> {
                 nodeNow = queueNodes.remove();
                 idNow = -1;
             }
-            return !queueNodes.isEmpty();
+            return idNow + 1 != nodeNow.cntChildren();
         }
 
         @Override
