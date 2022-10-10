@@ -4,8 +4,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
+/**
+ * Class that contains function main.
+ */
 public class Main {
     /**
+     * Implementation of example in task
+     *
      * @param args command line
      */
     public static void main(String[] args) {
