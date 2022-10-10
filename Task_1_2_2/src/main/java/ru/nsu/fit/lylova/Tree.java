@@ -1,6 +1,11 @@
 package ru.nsu.fit.lylova;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Class that implement collection tree. Tree is a connected, acyclic, oriented graph.
@@ -20,7 +25,7 @@ public class Tree<T> implements Collection<T> {
     }
 
     /**
-     * Returns number of vertices in tree
+     * Returns number of vertices in tree.
      *
      * @return number of vertices in the tree
      */
@@ -316,8 +321,8 @@ public class Tree<T> implements Collection<T> {
             if (idNow + 1 != node.cntChildren()) {
                 return true;
             }
-            while (!stackNodes.empty() &&
-                    stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
+            while (!stackNodes.empty()
+                    && stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
                 node = stackNodes.pop();
                 idNow = pastId.pop();
             }
