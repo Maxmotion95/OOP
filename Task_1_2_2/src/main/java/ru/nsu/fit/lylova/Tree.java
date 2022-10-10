@@ -12,7 +12,7 @@ public class Tree<T> implements Collection<T> {
     private int cntNodes;
 
     /**
-     * Creates empty tree
+     * Creates empty tree.
      */
     public Tree() {
         root = new Node<>();
@@ -170,8 +170,9 @@ public class Tree<T> implements Collection<T> {
     @Override
     public boolean containsAll(Collection<?> c) {
         for (var o : c) {
-            if (!this.contains(o))
+            if (!this.contains(o)) {
                 return false;
+            }
         }
         return true;
     }
@@ -200,8 +201,9 @@ public class Tree<T> implements Collection<T> {
     @Override
     public boolean removeAll(Collection<?> c) {
         for (var o : c) {
-            if (!this.remove(o))
+            if (!this.remove(o)) {
                 return false;
+            }
         }
         return true;
     }
@@ -229,7 +231,7 @@ public class Tree<T> implements Collection<T> {
     }
 
     /**
-     * Clear tree
+     * Clear tree.
      */
     @Override
     public void clear() {
@@ -272,8 +274,9 @@ public class Tree<T> implements Collection<T> {
      * @throws Exception if vertex parent is null
      */
     public boolean removeVertexByNode(Node<T> vertex) throws Exception {
-        if (vertex.parent == null)
+        if (vertex.parent == null) {
             throw new Exception();
+        }
         Node<T> par = vertex.parent;
         for (Node<T> child : vertex.children) {
             child.parent = par;
@@ -310,9 +313,11 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public boolean hasNext() {
-            if (idNow + 1 != node.cntChildren())
+            if (idNow + 1 != node.cntChildren()) {
                 return true;
-            while (!stackNodes.empty() && stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
+            }
+            while (!stackNodes.empty() &&
+                    stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
                 node = stackNodes.pop();
                 idNow = pastId.pop();
             }
@@ -369,8 +374,9 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public boolean hasNext() {
-            if (idNow + 1 != nodeNow.cntChildren())
+            if (idNow + 1 != nodeNow.cntChildren()) {
                 return true;
+            }
             while (!queueNodes.isEmpty() && idNow + 1 == nodeNow.cntChildren()) {
                 nodeNow = queueNodes.remove();
                 idNow = -1;
@@ -386,8 +392,9 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public Node<T> next() throws NoSuchElementException {
-            if (!this.hasNext())
+            if (!this.hasNext()) {
                 throw new NoSuchElementException();
+            }
             while (idNow + 1 == nodeNow.cntChildren()) {
                 nodeNow = queueNodes.remove();
                 idNow = -1;
