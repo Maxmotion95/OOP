@@ -148,13 +148,12 @@ public class Tree<T> implements Collection<T> {
         Iterator<Node<T>> iterator = new TreeDfsIterator();
         while (iterator.hasNext()) {
             Node<T> vertex = iterator.next();
-            if (o == vertex.value) {
+            if (o.equals(vertex.value)) {
                 try {
                     removeVertexByNode(vertex);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                --this.cntNodes;
                 return true;
             }
         }
@@ -230,7 +229,7 @@ public class Tree<T> implements Collection<T> {
                 res = true;
             }
         }
-        for (var vertex: toDelete){
+        for (var vertex : toDelete) {
             this.remove(vertex);
         }
         return res;
