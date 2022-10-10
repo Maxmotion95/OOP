@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  */
 public class Main {
     /**
-     * Implementation of example in task
+     * Implementation of example in task.
      *
      * @param args command line
      */
@@ -23,7 +23,10 @@ public class Main {
         var streamNodes = Stream.generate(() -> null)
                 .takeWhile(x -> iterator.hasNext())
                 .map(n -> iterator.next());
-        System.out.println("Array of strings that are lists in tree: " +
-                Arrays.toString(streamNodes.filter(node -> node.value.contains("B") && node.cntChildren() == 0).toArray()));
+        var resArray = streamNodes
+                .filter(node -> node.value.contains("B") && node.cntChildren() == 0)
+                .toArray();
+        System.out.println("Array of strings that are lists in tree: "
+                + Arrays.toString(resArray));
     }
 }
