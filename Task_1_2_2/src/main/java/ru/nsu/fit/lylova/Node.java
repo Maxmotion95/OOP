@@ -63,6 +63,7 @@ public class Node<T> {
      * @param child child vertex
      */
     public void addChild(Node<T> child) {
+        child.parent = this;
         this.children.add(child);
     }
 
