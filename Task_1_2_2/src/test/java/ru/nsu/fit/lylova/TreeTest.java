@@ -2,6 +2,8 @@ package ru.nsu.fit.lylova;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -66,5 +68,40 @@ class TreeTest {
             assertEquals(arrDFS[i], node.value);
             ++i;
         }
+        for (i = 0; i < arrBFS.length; ++i) {
+            assertTrue(tree.contains(arrBFS[i]));
+            assertTrue(tree.contains(arrBFS[i]));
+        }
+        assertFalse(tree.contains(342134));
+        assertFalse(tree.contains(3));
+        assertFalse(tree.contains(320));
+        var arr = tree.toArray();
+        assertEquals(arrDFS.length, arr.length);
+        for (i = 0; i < arrDFS.length; ++i) {
+            assertEquals(arrDFS[i], arr[i]);
+        }
+        ArrayList<Integer> collection = new ArrayList<>();
+        for (i = 0; i < arrDFS.length; ++i){
+            collection.add(arrDFS[i]);
+        }
+        assertTrue(tree.containsAll(collection));
+        collection.remove(1);
+        assertTrue(tree.containsAll(collection));
+        collection.add(21334);
+        assertFalse(tree.containsAll(collection));
     }
+
+    @Test
+    void test3() {
+        Tree<Integer> tree = new Tree<>();
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(34);
+        arr.add(244);
+        Node<Integer> v = tree.addVertexByValue(324);
+        tree.addVertexByParentAndValue(v, 5);
+        tree.addAll(arr);
+        assertEquals("[324, 5, 1, 34, 244]", Arrays.toString(tree.toArray()));
+    }
+
 }
