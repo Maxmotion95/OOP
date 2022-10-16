@@ -1,13 +1,16 @@
 package ru.nsu.fit.lylova;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Random;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class TreeTest {
 
@@ -42,47 +45,50 @@ class TreeTest {
         Tree<Integer> tree = new Tree<>();
         tree.add(123);
         tree.add(321);
-        Node<Integer> v1 = tree.addVertexByValue(1), v2 = tree.addVertexByValue(2);
+        Node<Integer> v1 = tree.addVertexByValue(1);
+        Node<Integer> v2 = tree.addVertexByValue(2);
         tree.addVertexByParentAndValue(v1, 0);
         tree.addVertexByParentAndValue(v2, 723);
         tree.addVertexByParentAndValue(v1, 68326);
-//                    Tree image
-//                 _______root_______
-//                 /    \    \      \
-//               123   321  1(v1)  2(v2)
-//                          /  \      \
-//                         0  68326   723
-        int[] arrBFS = new int[]{123, 321, 1, 2, 0, 68326, 723};
-        int[] arrDFS = new int[]{123, 321, 1, 0, 68326, 2, 723};
+        //                    Tree image
+        //                 _______root_______
+        //                 /    \    \      \
+        //               123   321  1(v1)  2(v2)
+        //                          /  \      \
+        //                         0  68326   723
+        int[] arrBfs = new int[]{123, 321, 1, 2, 0, 68326, 723};
+        int[] arrDfs = new int[]{123, 321, 1, 0, 68326, 2, 723};
         Iterator<Node<Integer>> bfs = tree.new TreeBfsIterator();
         int i = 0;
         while (bfs.hasNext()) {
             Node<Integer> node = bfs.next();
-            assertEquals(arrBFS[i], node.value);
+            assertEquals(arrBfs[i], node.value);
             ++i;
         }
+        assertThrows(NoSuchElementException.class, bfs::next);
         Iterator<Node<Integer>> dfs = tree.new TreeDfsIterator();
         i = 0;
         while (dfs.hasNext()) {
             Node<Integer> node = dfs.next();
-            assertEquals(arrDFS[i], node.value);
+            assertEquals(arrDfs[i], node.value);
             ++i;
         }
-        for (i = 0; i < arrBFS.length; ++i) {
-            assertTrue(tree.contains(arrBFS[i]));
-            assertTrue(tree.contains(arrBFS[i]));
+        assertThrows(NoSuchElementException.class, dfs::next);
+        for (i = 0; i < arrBfs.length; ++i) {
+            assertTrue(tree.contains(arrBfs[i]));
+            assertTrue(tree.contains(arrBfs[i]));
         }
         assertFalse(tree.contains(342134));
         assertFalse(tree.contains(3));
         assertFalse(tree.contains(320));
         var arr = tree.toArray();
-        assertEquals(arrDFS.length, arr.length);
-        for (i = 0; i < arrDFS.length; ++i) {
-            assertEquals(arrDFS[i], arr[i]);
+        assertEquals(arrDfs.length, arr.length);
+        for (i = 0; i < arrDfs.length; ++i) {
+            assertEquals(arrDfs[i], arr[i]);
         }
         ArrayList<Integer> collection = new ArrayList<>();
-        for (i = 0; i < arrDFS.length; ++i){
-            collection.add(arrDFS[i]);
+        for (i = 0; i < arrDfs.length; ++i) {
+            collection.add(arrDfs[i]);
         }
         assertTrue(tree.containsAll(collection));
         collection.remove(1);
@@ -102,6 +108,19 @@ class TreeTest {
         tree.addVertexByParentAndValue(v, 5);
         tree.addAll(arr);
         assertEquals("[324, 5, 1, 34, 244]", Arrays.toString(tree.toArray()));
+        assertEquals(5, tree.size());
+        assertTrue(tree.removeAll(arr));
+        assertEquals(2, tree.size());
+        assertEquals("[324, 5]", Arrays.toString(tree.toArray()));
+        assertFalse(tree.removeAll(arr));
+        tree.addAll(arr);
+        arr.remove(2);
+        tree.retainAll(arr);
+        assertEquals(2, tree.size());
+        assertEquals("[1, 34]", Arrays.toString(tree.toArray()));
+        tree.clear();
+        assertEquals(0, tree.size());
+        assertEquals("[]", Arrays.toString(tree.toArray()));
     }
 
 }
