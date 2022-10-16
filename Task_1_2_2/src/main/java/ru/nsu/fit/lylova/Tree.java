@@ -62,7 +62,7 @@ public class Tree<T> implements Collection<T> {
     @Override
     public boolean contains(Object o) {
         for (T value : this) {
-            if (value == o) {
+            if (o.equals(value)) {
                 return true;
             }
         }
