@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
-import org.junit.jupiter.api.Test;
 
 class TreeTest {
 
@@ -123,4 +125,20 @@ class TreeTest {
         assertEquals("[]", Arrays.toString(tree.toArray()));
     }
 
+    @Test
+    void testConcurrentModificationException() {
+        Tree<Integer> tree = new Tree<>();
+        tree.add(123);
+        tree.add(321);
+        Node<Integer> v1 = tree.addVertexByValue(1);
+        Node<Integer> v2 = tree.addVertexByValue(2);
+        tree.addVertexByParentAndValue(v1, 0);
+        tree.addVertexByParentAndValue(v2, 723);
+        tree.addVertexByParentAndValue(v1, 68326);
+        Iterator<Node<Integer>> iterator = tree.new TreeBfsIterator();
+        iterator.next();
+        assertFalse(tree.remove(324));
+        assertTrue(tree.remove(68326));
+        assertThrows(ConcurrentModificationException.class, iterator::next);
+    }
 }
