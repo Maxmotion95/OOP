@@ -24,7 +24,7 @@ public class Main {
                 .takeWhile(x -> iterator.hasNext())
                 .map(n -> iterator.next());
         var resArray = streamNodes
-                .filter(node -> node.value.contains("B") && node.cntChildren() == 0)
+                .filter(node -> node.value.contains("B") && node.childrenCount() == 0)
                 .toArray();
         System.out.println("Array of strings that are lists in tree: "
                 + Arrays.toString(resArray));
