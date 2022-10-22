@@ -87,7 +87,7 @@ public class Tree<T> implements Collection<T> {
 
             @Override
             public T next() {
-                return dfsIterator.next().value;
+                return dfsIterator.next().getValue();
             }
         };
     }
@@ -148,7 +148,7 @@ public class Tree<T> implements Collection<T> {
         Iterator<Node<T>> iterator = new TreeDfsIterator();
         while (iterator.hasNext()) {
             Node<T> vertex = iterator.next();
-            if (o.equals(vertex.value)) {
+            if (o.equals(vertex.getValue())) {
                 iterator.remove();
                 return true;
             }
@@ -219,7 +219,7 @@ public class Tree<T> implements Collection<T> {
         ArrayList<Node<T>> toDelete = new ArrayList<>();
         while (iterator.hasNext()) {
             Node<T> vertex = iterator.next();
-            if (!c.contains(vertex.value)) {
+            if (!c.contains(vertex.getValue())) {
                 toDelete.add(vertex);
                 res = true;
             }
@@ -239,7 +239,7 @@ public class Tree<T> implements Collection<T> {
      */
     @Override
     public void clear() {
-        root.children.clear();
+        root.getChildren().clear();
         nodesCount = 0;
     }
 
@@ -278,15 +278,15 @@ public class Tree<T> implements Collection<T> {
      * @throws Exception if vertex parent is null
      */
     public boolean removeVertexByNode(Node<T> vertex) throws Exception {
-        if (vertex.parent == null) {
+        if (vertex.getParent() == null) {
             throw new Exception();
         }
-        Node<T> par = vertex.parent;
-        for (Node<T> child : vertex.children) {
-            child.parent = par;
+        Node<T> par = vertex.getParent();
+        for (Node<T> child : vertex.getChildren()) {
+            child.setParent(par);
         }
-        par.children.remove(vertex);
-        par.children.addAll(vertex.children);
+        par.getChildren().remove(vertex);
+        par.getChildren().addAll(vertex.getChildren());
         --nodesCount;
         return true;
     }
@@ -315,15 +315,15 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public void remove() {
-            if (nodeNow.parent == null) {
+            if (nodeNow.getParent() == null) {
                 return;
             }
-            Node<T> par = nodeNow.parent;
-            for (Node<T> child : nodeNow.children) {
-                child.parent = par;
+            Node<T> par = nodeNow.getParent();
+            for (Node<T> child : nodeNow.getChildren()) {
+                child.setParent(par);
             }
-            par.children.remove(nodeNow);
-            par.children.addAll(nodeNow.children);
+            par.getChildren().remove(nodeNow);
+            par.getChildren().addAll(nodeNow.getChildren());
             --nodesCount;
         }
 
@@ -339,8 +339,8 @@ public class Tree<T> implements Collection<T> {
                 return true;
             }
             while (!stackNodes.isEmpty() && stackNodes.getLast().childrenCount() == pastId.getLast() + 1) {
-                nodeNow = stackNodes.pop();
-                idNow = pastId.pop();
+                nodeNow = stackNodes.removeLast();
+                idNow = pastId.removeLast();
             }
             return !stackNodes.isEmpty();
         }
@@ -358,13 +358,13 @@ public class Tree<T> implements Collection<T> {
                 throw new NoSuchElementException();
             }
             while (idNow + 1 == nodeNow.childrenCount()) {
-                nodeNow = stackNodes.pop();
-                idNow = pastId.pop();
+                nodeNow = stackNodes.removeLast();
+                idNow = pastId.removeLast();
             }
             ++idNow;
-            stackNodes.push(nodeNow);
-            pastId.push(idNow);
-            nodeNow = nodeNow.children.get(idNow);
+            stackNodes.addLast(nodeNow);
+            pastId.addLast(idNow);
+            nodeNow = nodeNow.getChildren().get(idNow);
             idNow = -1;
             return nodeNow;
         }
@@ -392,15 +392,15 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public void remove() {
-            if (nodeNow.parent == null) {
+            if (nodeNow.getParent() == null) {
                 return;
             }
-            Node<T> par = nodeNow.parent;
-            for (Node<T> child : nodeNow.children) {
-                child.parent = par;
+            Node<T> par = nodeNow.getParent();
+            for (Node<T> child : nodeNow.getChildren()) {
+                child.setParent(par);
             }
-            par.children.remove(nodeNow);
-            par.children.addAll(nodeNow.children);
+            par.getChildren().remove(nodeNow);
+            par.getChildren().addAll(nodeNow.getChildren());
             --nodesCount;
         }
 
@@ -416,7 +416,7 @@ public class Tree<T> implements Collection<T> {
                 return true;
             }
             while (!queueNodes.isEmpty() && idNow + 1 == nodeNow.childrenCount()) {
-                nodeNow = queueNodes.remove();
+                nodeNow = queueNodes.removeFirst();
                 idNow = -1;
             }
             return idNow + 1 != nodeNow.childrenCount();
@@ -434,12 +434,12 @@ public class Tree<T> implements Collection<T> {
                 throw new NoSuchElementException();
             }
             while (idNow + 1 == nodeNow.childrenCount()) {
-                nodeNow = queueNodes.remove();
+                nodeNow = queueNodes.removeFirst();
                 idNow = -1;
             }
             ++idNow;
-            queueNodes.add(nodeNow.children.get(idNow));
-            return nodeNow.children.get(idNow);
+            queueNodes.addLast(nodeNow.getChildren().get(idNow));
+            return nodeNow.getChildren().get(idNow);
         }
     }
 }

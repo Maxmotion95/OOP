@@ -62,7 +62,7 @@ class TreeTest {
         int i = 0;
         while (bfs.hasNext()) {
             Node<Integer> node = bfs.next();
-            assertEquals(arrBfs[i], node.value);
+            assertEquals(arrBfs[i], node.getValue());
             ++i;
         }
         assertThrows(NoSuchElementException.class, bfs::next);
@@ -70,7 +70,7 @@ class TreeTest {
         i = 0;
         while (dfs.hasNext()) {
             Node<Integer> node = dfs.next();
-            assertEquals(arrDfs[i], node.value);
+            assertEquals(arrDfs[i], node.getValue());
             ++i;
         }
         assertThrows(NoSuchElementException.class, dfs::next);

@@ -19,12 +19,13 @@ public class Main {
         var nodeB = tree.addVertexByValue("B");
         tree.addVertexByParentAndValue(nodeB, "AB");
         tree.addVertexByParentAndValue(nodeB, "BB");
-        Iterator<Node<String>> iterator = tree.new TreeDfsIterator();
+        Iterator<Node<String>> iterator;
+        iterator = tree.new TreeDfsIterator();
         var streamNodes = Stream.generate(() -> null)
                 .takeWhile(x -> iterator.hasNext())
                 .map(n -> iterator.next());
         var resArray = streamNodes
-                .filter(node -> node.value.contains("B") && node.childrenCount() == 0)
+                .filter(node -> node.getValue().contains("B") && node.childrenCount() == 0)
                 .toArray();
         System.out.println("Array of strings that are lists in tree: "
                 + Arrays.toString(resArray));

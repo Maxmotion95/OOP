@@ -23,28 +23,28 @@ class NodeTest {
     @Test
     void testConstructors() {
         Node<Integer> node = new Node<>();
-        assertNull(node.parent);
-        assertNull(node.value);
-        assertNotEquals(null, node.children);
-        assertEquals(0, node.children.size());
+        assertNull(node.getParent());
+        assertNull(node.getValue());
+        assertNotEquals(null, node.getChildren());
+        assertEquals(0, node.getChildren().size());
 
         node = new Node<>(1123);
-        assertNull(node.parent);
-        assertEquals(1123, node.value);
-        assertNotEquals(null, node.children);
-        assertEquals(0, node.children.size());
+        assertNull(node.getParent());
+        assertEquals(1123, node.getValue());
+        assertNotEquals(null, node.getChildren());
+        assertEquals(0, node.childrenCount());
 
         Node<Integer> node1 = new Node<>(node, 1342);
-        assertEquals(node, node1.parent);
-        assertEquals(1342, node1.value);
-        assertNotEquals(null, node1.children);
-        assertEquals(0, node1.children.size());
+        assertEquals(node, node1.getParent());
+        assertEquals(1342, node1.getValue());
+        assertNotEquals(null, node1.getChildren());
+        assertEquals(0, node1.childrenCount());
 
         node1 = new Node<>(node);
-        assertEquals(node, node1.parent);
-        assertNull(node1.value);
-        assertNotEquals(null, node1.children);
-        assertEquals(0, node1.children.size());
+        assertEquals(node, node1.getParent());
+        assertNull(node1.getValue());
+        assertNotEquals(null, node1.getChildren());
+        assertEquals(0, node1.childrenCount());
     }
 
     @Test
@@ -56,11 +56,11 @@ class NodeTest {
             arr[i] = random.nextInt();
             Node<Integer> newNode = new Node<>(arr[i]);
             node.addChild(newNode);
-            assertEquals(newNode, node.children.get(i));
+            assertEquals(newNode, node.getChildren().get(i));
         }
-        assertEquals(100, node.children.size());
+        assertEquals(100, node.childrenCount());
         for (int i = 0; i < 100; ++i) {
-            assertEquals(node, node.children.get(i).parent);
+            assertEquals(node, node.getChildren().get(i).getParent());
         }
     }
 
