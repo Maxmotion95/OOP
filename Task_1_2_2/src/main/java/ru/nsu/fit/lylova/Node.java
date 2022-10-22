@@ -8,9 +8,9 @@ import java.util.ArrayList;
  * @param <T> type of value in {@code Node}
  */
 public class Node<T> {
-    public final ArrayList<Node<T>> children = new ArrayList<>();
-    public T value = null;
-    public Node<T> parent = null;
+    private final ArrayList<Node<T>> getChildren = new ArrayList<>();
+    private T value = null;
+    private Node<T> parent = null;
 
     /**
      * Creates empty vertex with {@code parent} = {@code null}, {@code value} = {@code null}.
@@ -64,7 +64,7 @@ public class Node<T> {
      */
     public void addChild(Node<T> child) {
         child.parent = this;
-        this.children.add(child);
+        this.getChildren.add(child);
     }
 
     /**
@@ -73,6 +73,34 @@ public class Node<T> {
      * @return children count of vertex
      */
     public int childrenCount() {
-        return this.children.size();
+        return this.getChildren.size();
     }
+
+    /**
+     * Returns children array of vertex.
+     *
+     * @return children array of vertex
+     */
+    public ArrayList<Node<T>> getChildren() { return this.getChildren; }
+
+    /**
+     * Returns value of vertex.
+     *
+     * @return value of vertex
+     */
+    public T getValue() { return this.value; }
+
+    /**
+     * Returns parent of vertex.
+     *
+     * @return parent of vertex
+     */
+    public Node<T> getParent() { return this.parent; }
+
+    /**
+     * Set vertex parent to {@code newParent}.
+     *
+     * @param newParent vertex that is new parent
+     */
+    public void setParent(Node<T> newParent) { this.parent = newParent; }
 }
