@@ -72,7 +72,7 @@ public class Node<T> {
      *
      * @return children count of vertex
      */
-    public int cntChildren() {
+    public int childrenCount() {
         return this.children.size();
     }
 }
