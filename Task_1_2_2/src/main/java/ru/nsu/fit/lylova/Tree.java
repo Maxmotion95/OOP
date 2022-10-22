@@ -1,6 +1,12 @@
 package ru.nsu.fit.lylova;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 /**
  * Class that implement collection tree. Tree is a connected, acyclic, oriented graph.
@@ -10,6 +16,7 @@ import java.util.*;
 public class Tree<T> implements Collection<T> {
     private final Node<T> root;
     private int nodesCount;
+    private int modificationCount;
 
     /**
      * Creates empty tree.
@@ -50,6 +57,7 @@ public class Tree<T> implements Collection<T> {
         Node<T> newNode = new Node<>(root, t);
         root.addChild(newNode);
         ++nodesCount;
+        modificationCount = 0;
         return true;
     }
 
@@ -150,6 +158,7 @@ public class Tree<T> implements Collection<T> {
             Node<T> vertex = iterator.next();
             if (o.equals(vertex.getValue())) {
                 iterator.remove();
+                modificationCount++;
                 return true;
             }
         }
@@ -253,6 +262,7 @@ public class Tree<T> implements Collection<T> {
         Node<T> newNode = new Node<>(root, value);
         root.addChild(newNode);
         ++nodesCount;
+        modificationCount++;
         return newNode;
     }
 
@@ -267,6 +277,7 @@ public class Tree<T> implements Collection<T> {
         Node<T> newNode = new Node<>(parent, value);
         ++nodesCount;
         parent.addChild(newNode);
+        modificationCount++;
         return newNode;
     }
 
@@ -288,6 +299,7 @@ public class Tree<T> implements Collection<T> {
         par.getChildren().remove(vertex);
         par.getChildren().addAll(vertex.getChildren());
         --nodesCount;
+        modificationCount++;
         return true;
     }
 
@@ -297,6 +309,7 @@ public class Tree<T> implements Collection<T> {
     public class TreeDfsIterator implements Iterator<Node<T>> {
         private final Deque<Node<T>> stackNodes;
         private final Deque<Integer> pastId;
+        private final int modificationCountOnStart;
         private int idNow;
         private Node<T> nodeNow;
 
@@ -308,10 +321,12 @@ public class Tree<T> implements Collection<T> {
             pastId = new LinkedList<>();
             nodeNow = root;
             idNow = -1;
+            modificationCountOnStart = modificationCount;
         }
 
         /**
          * Remove vertex pointed by iterator.
+         * Iterator will throw {@code ConcurrentModificationException} after use of this method.
          */
         @Override
         public void remove() {
@@ -325,6 +340,7 @@ public class Tree<T> implements Collection<T> {
             par.getChildren().remove(nodeNow);
             par.getChildren().addAll(nodeNow.getChildren());
             --nodesCount;
+            modificationCount++;
         }
 
         /**
@@ -353,6 +369,9 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public Node<T> next() throws NoSuchElementException {
+            if (modificationCount != modificationCountOnStart) {
+                throw new ConcurrentModificationException();
+            }
             if (!this.hasNext()) {
                 nodeNow = null;
                 throw new NoSuchElementException();
@@ -375,6 +394,7 @@ public class Tree<T> implements Collection<T> {
      */
     public class TreeBfsIterator implements Iterator<Node<T>> {
         private final Deque<Node<T>> queueNodes;
+        private final int modificationCountOnStart;
         private Node<T> nodeNow;
         private int idNow;
 
@@ -385,10 +405,12 @@ public class Tree<T> implements Collection<T> {
             queueNodes = new LinkedList<>();
             nodeNow = root;
             idNow = -1;
+            modificationCountOnStart = modificationCount;
         }
 
         /**
          * Remove vertex pointed by iterator.
+         * Iterator will throw {@code ConcurrentModificationException} after use of this method.
          */
         @Override
         public void remove() {
@@ -402,6 +424,7 @@ public class Tree<T> implements Collection<T> {
             par.getChildren().remove(nodeNow);
             par.getChildren().addAll(nodeNow.getChildren());
             --nodesCount;
+            modificationCount++;
         }
 
         /**
@@ -430,6 +453,9 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public Node<T> next() throws NoSuchElementException {
+            if (modificationCount != modificationCountOnStart) {
+                throw new ConcurrentModificationException();
+            }
             if (!this.hasNext()) {
                 throw new NoSuchElementException();
             }
