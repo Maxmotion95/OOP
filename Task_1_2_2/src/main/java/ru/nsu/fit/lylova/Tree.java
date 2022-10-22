@@ -1,12 +1,6 @@
 package ru.nsu.fit.lylova;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Class that implement collection tree. Tree is a connected, acyclic, oriented graph.
@@ -305,8 +299,8 @@ public class Tree<T> implements Collection<T> {
      * An iterator that returns the elements of the tree in the order of DFS traversal.
      */
     public class TreeDfsIterator implements Iterator<Node<T>> {
-        private final Stack<Node<T>> stackNodes;
-        private final Stack<Integer> pastId;
+        private final Deque<Node<T>> stackNodes;
+        private final Deque<Integer> pastId;
         private int idNow;
         private Node<T> node;
 
@@ -314,8 +308,8 @@ public class Tree<T> implements Collection<T> {
          * Creates a tree iterator using a DFS traversal.
          */
         public TreeDfsIterator() {
-            stackNodes = new Stack<>();
-            pastId = new Stack<>();
+            stackNodes = new LinkedList<>();
+            pastId = new LinkedList<>();
             node = root;
             idNow = -1;
         }
@@ -331,12 +325,12 @@ public class Tree<T> implements Collection<T> {
             if (idNow + 1 != node.cntChildren()) {
                 return true;
             }
-            while (!stackNodes.empty()
-                    && stackNodes.lastElement().cntChildren() == pastId.lastElement() + 1) {
+            while (!stackNodes.isEmpty()
+                    && stackNodes.getLast().cntChildren() == pastId.getLast() + 1) {
                 node = stackNodes.pop();
                 idNow = pastId.pop();
             }
-            return !stackNodes.empty();
+            return !stackNodes.isEmpty();
         }
 
         /**
@@ -368,7 +362,7 @@ public class Tree<T> implements Collection<T> {
      * An iterator that returns the elements of the tree in the order of BFS traversal.
      */
     public class TreeBfsIterator implements Iterator<Node<T>> {
-        private final Queue<Node<T>> queueNodes;
+        private final Deque<Node<T>> queueNodes;
         private Node<T> nodeNow;
         private int idNow;
 
