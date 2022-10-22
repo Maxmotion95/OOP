@@ -73,7 +73,7 @@ class NodeTest {
             arr[i] = random.nextInt();
             Node<Integer> newNode = new Node<>(arr[i]);
             node.addChild(newNode);
-            assertEquals(i + 1, node.cntChildren());
+            assertEquals(i + 1, node.childrenCount());
         }
     }
 }
