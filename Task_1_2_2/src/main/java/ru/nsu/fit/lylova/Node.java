@@ -81,26 +81,34 @@ public class Node<T> {
      *
      * @return children array of vertex
      */
-    public ArrayList<Node<T>> getChildren() { return this.getChildren; }
+    public ArrayList<Node<T>> getChildren() {
+        return this.getChildren;
+    }
 
     /**
      * Returns value of vertex.
      *
      * @return value of vertex
      */
-    public T getValue() { return this.value; }
+    public T getValue() {
+        return this.value;
+    }
 
     /**
      * Returns parent of vertex.
      *
      * @return parent of vertex
      */
-    public Node<T> getParent() { return this.parent; }
+    public Node<T> getParent() {
+        return this.parent;
+    }
 
     /**
      * Set vertex parent to {@code newParent}.
      *
      * @param newParent vertex that is new parent
      */
-    public void setParent(Node<T> newParent) { this.parent = newParent; }
+    public void setParent(Node<T> newParent) {
+        this.parent = newParent;
+    }
 }

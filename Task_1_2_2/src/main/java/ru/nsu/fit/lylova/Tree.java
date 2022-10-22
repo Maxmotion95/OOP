@@ -354,7 +354,8 @@ public class Tree<T> implements Collection<T> {
             if (idNow + 1 != nodeNow.childrenCount()) {
                 return true;
             }
-            while (!stackNodes.isEmpty() && stackNodes.getLast().childrenCount() == pastId.getLast() + 1) {
+            while (!stackNodes.isEmpty()
+                    && stackNodes.getLast().childrenCount() == pastId.getLast() + 1) {
                 nodeNow = stackNodes.removeLast();
                 idNow = pastId.removeLast();
             }
