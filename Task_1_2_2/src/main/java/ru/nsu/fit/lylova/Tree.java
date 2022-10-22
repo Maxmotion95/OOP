@@ -335,10 +335,10 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public boolean hasNext() {
-            if (idNow + 1 != nodeNow.cntChildren()) {
+            if (idNow + 1 != nodeNow.childrenCount()) {
                 return true;
             }
-            while (!stackNodes.isEmpty() && stackNodes.getLast().cntChildren() == pastId.getLast() + 1) {
+            while (!stackNodes.isEmpty() && stackNodes.getLast().childrenCount() == pastId.getLast() + 1) {
                 nodeNow = stackNodes.pop();
                 idNow = pastId.pop();
             }
@@ -357,7 +357,7 @@ public class Tree<T> implements Collection<T> {
                 nodeNow = null;
                 throw new NoSuchElementException();
             }
-            while (idNow + 1 == nodeNow.cntChildren()) {
+            while (idNow + 1 == nodeNow.childrenCount()) {
                 nodeNow = stackNodes.pop();
                 idNow = pastId.pop();
             }
@@ -412,14 +412,14 @@ public class Tree<T> implements Collection<T> {
          */
         @Override
         public boolean hasNext() {
-            if (idNow + 1 != nodeNow.cntChildren()) {
+            if (idNow + 1 != nodeNow.childrenCount()) {
                 return true;
             }
-            while (!queueNodes.isEmpty() && idNow + 1 == nodeNow.cntChildren()) {
+            while (!queueNodes.isEmpty() && idNow + 1 == nodeNow.childrenCount()) {
                 nodeNow = queueNodes.remove();
                 idNow = -1;
             }
-            return idNow + 1 != nodeNow.cntChildren();
+            return idNow + 1 != nodeNow.childrenCount();
         }
 
         /**
@@ -433,7 +433,7 @@ public class Tree<T> implements Collection<T> {
             if (!this.hasNext()) {
                 throw new NoSuchElementException();
             }
-            while (idNow + 1 == nodeNow.cntChildren()) {
+            while (idNow + 1 == nodeNow.childrenCount()) {
                 nodeNow = queueNodes.remove();
                 idNow = -1;
             }
