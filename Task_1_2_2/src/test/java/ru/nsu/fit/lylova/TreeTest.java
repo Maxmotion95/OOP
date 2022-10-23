@@ -143,7 +143,7 @@ class TreeTest {
     }
 
     @Test
-    void testRemoveAll(){
+    void testRemoveAll() {
         Tree<Integer> tree = new Tree<>();
         tree.add(123);
         tree.add(321);
