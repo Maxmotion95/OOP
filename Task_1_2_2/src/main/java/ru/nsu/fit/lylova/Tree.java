@@ -195,14 +195,18 @@ public class Tree<T> implements Collection<T> {
      * tree.
      *
      * @param c collection containing elements to be removed from this collection
-     * @return {@code true} if all elements removed
+     * @return {@code true} if all elements removed, otherwise tree don't changed
      */
     @Override
     public boolean removeAll(Collection<?> c) {
-        for (var o : c) {
-            if (!this.remove(o)) {
+        ArrayList<T> all = new ArrayList<>(this);
+        for (var o : c){
+            if (!all.contains(o))
                 return false;
-            }
+            all.remove(o);
+        }
+        for (var o : c) {
+            this.remove(o);
         }
         return true;
     }
