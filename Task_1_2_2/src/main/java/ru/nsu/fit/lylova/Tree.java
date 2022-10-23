@@ -1,6 +1,12 @@
 package ru.nsu.fit.lylova;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.ConcurrentModificationException;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Class that implement collection tree. Tree is a connected, acyclic, oriented graph.
@@ -200,9 +206,10 @@ public class Tree<T> implements Collection<T> {
     @Override
     public boolean removeAll(Collection<?> c) {
         ArrayList<T> all = new ArrayList<>(this);
-        for (var o : c){
-            if (!all.contains(o))
+        for (var o : c) {
+            if (!all.contains(o)) {
                 return false;
+            }
             all.remove(o);
         }
         for (var o : c) {
