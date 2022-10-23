@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @param <T> type of value in {@code Node}
  */
 public class Node<T> {
-    private final ArrayList<Node<T>> getChildren = new ArrayList<>();
+    private final ArrayList<Node<T>> children = new ArrayList<>();
     private T value = null;
     private Node<T> parent = null;
 
@@ -64,7 +64,7 @@ public class Node<T> {
      */
     public void addChild(Node<T> child) {
         child.parent = this;
-        this.getChildren.add(child);
+        this.children.add(child);
     }
 
     /**
@@ -73,7 +73,7 @@ public class Node<T> {
      * @return children count of vertex
      */
     public int childrenCount() {
-        return this.getChildren.size();
+        return this.children.size();
     }
 
     /**
@@ -82,7 +82,7 @@ public class Node<T> {
      * @return children array of vertex
      */
     public ArrayList<Node<T>> getChildren() {
-        return this.getChildren;
+        return this.children;
     }
 
     /**
