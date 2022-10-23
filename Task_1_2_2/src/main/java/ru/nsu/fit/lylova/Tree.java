@@ -1,12 +1,6 @@
 package ru.nsu.fit.lylova;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.ConcurrentModificationException;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 /**
  * Class that implement collection tree. Tree is a connected, acyclic, oriented graph.
@@ -317,8 +311,8 @@ public class Tree<T> implements Collection<T> {
          * Creates a tree iterator using a DFS traversal.
          */
         public TreeDfsIterator() {
-            stackNodes = new LinkedList<>();
-            pastId = new LinkedList<>();
+            stackNodes = new ArrayDeque<>();
+            pastId = new ArrayDeque<>();
             nodeNow = root;
             idNow = -1;
             modificationCountOnStart = modificationCount;
@@ -403,7 +397,7 @@ public class Tree<T> implements Collection<T> {
          * Creates a tree iterator using a BFS traversal.
          */
         public TreeBfsIterator() {
-            queueNodes = new LinkedList<>();
+            queueNodes = new ArrayDeque<>();
             nodeNow = root;
             idNow = -1;
             modificationCountOnStart = modificationCount;
