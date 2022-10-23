@@ -141,4 +141,38 @@ class TreeTest {
         assertTrue(tree.remove(68326));
         assertThrows(ConcurrentModificationException.class, iterator::next);
     }
+
+    @Test
+    void testRemoveAll(){
+        Tree<Integer> tree = new Tree<>();
+        tree.add(123);
+        tree.add(321);
+        Node<Integer> v1 = tree.addVertexByValue(1);
+        Node<Integer> v2 = tree.addVertexByValue(2);
+        tree.addVertexByParentAndValue(v1, 0);
+        tree.addVertexByParentAndValue(v2, 723);
+        tree.addVertexByParentAndValue(v1, 68326);
+        //                    Tree image
+        //                 _______root_______
+        //                 /    \    \      \
+        //               123   321  1(v1)  2(v2)
+        //                          /  \      \
+        //                         0  68326   723
+        ArrayList<Integer> toDel = new ArrayList<>();
+        toDel.add(1);
+        toDel.add(3);
+        toDel.add(123);
+        assertFalse(tree.removeAll(toDel));
+        toDel.remove(1);
+        assertTrue(tree.removeAll(toDel));
+        assertFalse(tree.removeAll(toDel));
+        toDel = new ArrayList<>();
+        toDel.add(0);
+        toDel.add(0);
+        toDel.add(321);
+        assertFalse(tree.removeAll(toDel));
+        tree.add(0);
+        assertTrue(tree.removeAll(toDel));
+        assertFalse(tree.removeAll(toDel));
+    }
 }
