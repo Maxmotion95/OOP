@@ -3,6 +3,7 @@ package ru.nsu.fit.lylova;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,10 +35,14 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
         matrix.remove(v);
         for (var u : vertexes) {
             var row = matrix.get(u);
+            List<E> toDel = new ArrayList<>();
             for (var i : row.keySet()) {
                 if (row.get(i).equals(v)) {
-                    row.remove(i);
+                    toDel.add(i);
                 }
+            }
+            for (var i: toDel) {
+                row.remove(i);
             }
         }
         return true;
