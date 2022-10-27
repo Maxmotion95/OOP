@@ -6,14 +6,15 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class IncidenceMatrixGraph<V, E> implements Graph<V, E>{
-    Map<V, Map<E, V>> matrix;
-    Set<V> vertexes;
+public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
+    private final Map<V, Map<E, V>> matrix;
+    private final Set<V> vertexes;
 
-    IncidenceMatrixGraph(){
+    IncidenceMatrixGraph() {
         matrix = new HashMap<>();
         vertexes = new HashSet<>();
     }
+
     @Override
     public boolean addVertex(V v) {
         if (vertexes.contains(v)) {

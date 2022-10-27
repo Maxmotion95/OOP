@@ -2,49 +2,6 @@ package ru.nsu.fit.lylova;
 
 public class Main {
 
-    static class IntWeight implements GraphEdgeWeight<IntWeight>, Comparable<IntWeight> {
-        Integer weight;
-
-        IntWeight(){
-            weight = 0;
-        }
-
-        IntWeight(Integer w){
-            weight = w;
-        }
-
-        @Override
-        public IntWeight sum(IntWeight w) {
-            IntWeight res = new IntWeight(this.weight);
-            res.weight += w.weight;
-            return res;
-        }
-
-        @Override
-        public int compareTo(IntWeight o) {
-            if (this.weight < o.weight)
-                return -1;
-            if (this.weight.equals(o.weight))
-                return 0;
-            return 1;
-        }
-    }
-
-    static class Edge implements GraphEdge<IntWeight>{
-        Integer weight;
-
-        Edge(){
-            weight = 0;
-        }
-
-        Edge(Integer a){
-            weight = a;
-        }
-        @Override
-        public IntWeight getWeight() {
-            return new IntWeight(weight);
-        }
-    }
     public static void main(String[] args) {
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
         String[] v = {"A", "B", "C", "D", "E", "F", "G"};
@@ -72,10 +29,55 @@ public class Main {
         g.addEdge("F", "G", new Edge(5));
         g.addEdge("G", "F", new Edge(5));
         ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a = new ShortestPathInGraph<>();
-        var ans = a.calc(g, "C", new IntWeight(0));
-        for (var i : v){
+        var ans = a.calculate(g, "C", new IntWeight(0));
+        for (var i : v) {
             System.out.println(i + ": " + ans.get(i).weight);
         }
 //        ShortestPathInGraph
+    }
+
+    static class IntWeight implements GraphEdgeWeight<IntWeight>, Comparable<IntWeight> {
+        Integer weight;
+
+        IntWeight() {
+            weight = 0;
+        }
+
+        IntWeight(Integer w) {
+            weight = w;
+        }
+
+        @Override
+        public IntWeight sum(IntWeight w) {
+            IntWeight res = new IntWeight(this.weight);
+            res.weight += w.weight;
+            return res;
+        }
+
+        @Override
+        public int compareTo(IntWeight o) {
+            if (this.weight < o.weight)
+                return -1;
+            if (this.weight.equals(o.weight))
+                return 0;
+            return 1;
+        }
+    }
+
+    static class Edge implements GraphEdge<IntWeight> {
+        Integer weight;
+
+        Edge() {
+            weight = 0;
+        }
+
+        Edge(Integer a) {
+            weight = a;
+        }
+
+        @Override
+        public IntWeight getWeight() {
+            return new IntWeight(weight);
+        }
     }
 }

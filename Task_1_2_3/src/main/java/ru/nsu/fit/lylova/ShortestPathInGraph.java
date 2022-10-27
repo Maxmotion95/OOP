@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W>, W extends GraphEdgeWeight<W> & Comparable<W>> {
-    ShortestPathInGraph(){
+    ShortestPathInGraph() {
     }
-    public Map<V, W> calc(G graph, V start, W startDist) {
+
+    public Map<V, W> calculate(G graph, V start, W startDist) {
         if (!graph.arrayVertexes().contains(start))
             return null;
         Map<V, W> result = new HashMap<>();
