@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Set;
 
 public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
-    Set<Vertex> vertexes;
-    Map<Vertex, Map<Vertex, Edge>> matrix;
+    private final Set<Vertex> vertexes;
+    private final Map<Vertex, Map<Vertex, Edge>> matrix;
 
-    AdjacencyMatrixGraph(){
+    AdjacencyMatrixGraph() {
         vertexes = new HashSet<>();
         matrix = new HashMap<>();
     }
