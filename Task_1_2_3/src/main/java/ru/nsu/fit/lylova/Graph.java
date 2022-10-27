@@ -28,7 +28,7 @@ public interface Graph<Vertex, Edge> {
     boolean removeVertex(Vertex v);
 
     /**
-     * Add edge from vertex {@code a} to vertex {@code b} with value e.
+     * Add edge from vertex {@code a} to vertex {@code b} with value {@code e}.
      * Return {@code true} if edge was added.
      *
      * @param a start vertex of edge
