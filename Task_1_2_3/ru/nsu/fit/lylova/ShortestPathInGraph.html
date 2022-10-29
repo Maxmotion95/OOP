@@ -128,9 +128,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>G</code> - Graph class</dd>
+<dd><code>V</code> - Vertex class</dd>
+<dd><code>E</code> - Edge class</dd>
+<dd><code>W</code> - Weight class</dd>
+</dl>
 <hr>
 <pre>public class <span class="typeNameLabel">ShortestPathInGraph&lt;G extends <a href="Graph.html" title="interface in ru.nsu.fit.lylova">Graph</a>&lt;V,&#8203;E&gt;,&#8203;V,&#8203;E extends <a href="GraphEdge.html" title="interface in ru.nsu.fit.lylova">GraphEdge</a>&lt;W&gt;,&#8203;W extends <a href="GraphEdgeWeight.html" title="interface in ru.nsu.fit.lylova">GraphEdgeWeight</a>&lt;W&gt; &amp; java.lang.Comparable&lt;W&gt;&gt;</span>
 extends java.lang.Object</pre>
+<div class="block">Class with function calculate for calculating distance of the shortest paths from some vertex.</div>
 </li>
 </ul>
 </div>
@@ -156,7 +164,10 @@ extends java.lang.Object</pre>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculate(G,V,W)">calculate</a></span>&#8203;(<a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">G</a>&nbsp;graph,
          <a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">V</a>&nbsp;start,
          <a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">W</a>&nbsp;startDist)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Function that calculate the shortest distance from vertex <code>start</code>
+ to every vertex from graph.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -193,6 +204,17 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;java.util.Map&lt;<a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">V</a>,&#8203;<a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">W</a>&gt;&nbsp;calculate&#8203;(<a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">G</a>&nbsp;graph,
                                           <a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">V</a>&nbsp;start,
                                           <a href="ShortestPathInGraph.html" title="type parameter in ShortestPathInGraph">W</a>&nbsp;startDist)</pre>
+<div class="block">Function that calculate the shortest distance from vertex <code>start</code>
+ to every vertex from graph. If the vertex is unreachable from
+ the starting point, then distance is <code>null</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>graph</code> - graph</dd>
+<dd><code>start</code> - start vertex</dd>
+<dd><code>startDist</code> - distance start vertex</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Map from vertex to the shortest distance</dd>
+</dl>
 </li>
 </ul>
 </li>
