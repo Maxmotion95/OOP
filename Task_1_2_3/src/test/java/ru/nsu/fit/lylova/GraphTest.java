@@ -72,8 +72,8 @@ class GraphTest {
     }
 
     @Test
-    void AdjacencyListTest() {
-        Graph<Integer, String> g = new AdjacencyMatrixGraph<>();
+    void adjacencyListTest() {
+        Graph<Integer, String> g = new AdjacencyListGraph<>();
         test(g);
     }
 }
