@@ -4,10 +4,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class with function calculate for calculating distance of the shortest paths from some vertex.
+ *
+ * @param <G> Graph class
+ * @param <V> Vertex class
+ * @param <E> Edge class
+ * @param <W> Weight class
+ */
 public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W>, W extends GraphEdgeWeight<W> & Comparable<W>> {
+    /**
+     * Constructor of class
+     */
     ShortestPathInGraph() {
     }
 
+    /**
+     * Function that calculate the shortest distance from vertex {@code start}
+     * to every vertex from graph. If the vertex is unreachable from
+     * the starting point, then distance is {@code null}.
+     *
+     * @param graph     graph
+     * @param start     start vertex
+     * @param startDist distance start vertex
+     * @return Map from vertex to the shortest distance
+     */
     public Map<V, W> calculate(G graph, V start, W startDist) {
         if (!graph.arrayVertexes().contains(start))
             return null;
