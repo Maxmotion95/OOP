@@ -68,8 +68,12 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
 
     @Override
     public Edge getEdge(Vertex a, Vertex b) throws java.lang.Exception {
-        if (!vertexes.contains(a) || !vertexes.contains(b))
+        if (!vertexes.contains(a) || !vertexes.contains(b)) {
             throw new java.lang.Exception();
+        }
+        if (matrix.get(a).get(b) == null) {
+            throw new Exception();
+        }
         return matrix.get(a).get(b);
     }
 }
