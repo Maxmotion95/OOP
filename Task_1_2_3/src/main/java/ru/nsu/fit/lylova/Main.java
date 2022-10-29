@@ -1,7 +1,15 @@
 package ru.nsu.fit.lylova;
 
+/**
+ * Class Main with function main
+ */
 public class Main {
 
+    /**
+     * Implementation of example from task description
+     *
+     * @param args command line arguments (not used)
+     */
     public static void main(String[] args) {
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
         String[] v = {"A", "B", "C", "D", "E", "F", "G"};
