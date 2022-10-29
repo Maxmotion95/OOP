@@ -8,11 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class IncidenceMatrixGraphTest {
+class GraphTest {
 
-    @Test
-    void test() {
-        Graph<Integer, String> g = new IncidenceMatrixGraph<>();
+    void test(Graph<Integer, String> g) {
         ArrayList<Integer> vertexes = new ArrayList<>();
 
         assertFalse(g.removeVertex(0));
@@ -59,5 +57,23 @@ class IncidenceMatrixGraphTest {
         for (int i = 0; i < 5; ++i) {
             assertTrue(g.removeVertex(i));
         }
+    }
+
+    @Test
+    void incidenceMatrixTest() {
+        Graph<Integer, String> g = new IncidenceMatrixGraph<>();
+        test(g);
+    }
+
+    @Test
+    void adjacencyMatrixTest() {
+        Graph<Integer, String> g = new AdjacencyMatrixGraph<>();
+        test(g);
+    }
+
+    @Test
+    void AdjacencyListTest() {
+        Graph<Integer, String> g = new AdjacencyMatrixGraph<>();
+        test(g);
     }
 }
