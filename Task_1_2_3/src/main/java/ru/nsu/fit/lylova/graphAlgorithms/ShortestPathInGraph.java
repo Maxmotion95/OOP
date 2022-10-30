@@ -1,10 +1,9 @@
-package ru.nsu.fit.lylova.GraphAlgorithms;
-
-import ru.nsu.fit.lylova.Graph.Graph;
+package ru.nsu.fit.lylova.graphAlgorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import ru.nsu.fit.lylova.graph.Graph;
 
 /**
  * Class with function calculate for calculating distance of the shortest paths from some vertex.
@@ -14,9 +13,10 @@ import java.util.Map;
  * @param <E> Edge class
  * @param <W> Weight class
  */
-public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W>, W extends GraphEdgeWeight<W> & Comparable<W>> {
+public class ShortestPathInGraph<G extends Graph<V, E>, V,
+        E extends GraphEdge<W>, W extends GraphEdgeWeight<W> & Comparable<W>> {
     /**
-     * Constructor of class
+     * Constructor of class.
      */
     public ShortestPathInGraph() {
     }
@@ -32,8 +32,9 @@ public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W
      * @return Map from vertex to the shortest distance
      */
     public Map<V, W> calculate(G graph, V start, W startDist) {
-        if (!graph.arrayVertexes().contains(start))
+        if (!graph.arrayVertexes().contains(start)) {
             return null;
+        }
         Map<V, W> result = new HashMap<>();
         ArrayList<V> vertexes = graph.arrayVertexes();
         for (var v : vertexes) {
@@ -51,12 +52,12 @@ public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W
                         if (e == null) {
                             continue;
                         }
-                        if (result.get(v) == null || result.get(u).sum(e.getWeight()).compareTo(result.get(v)) < 0) {
+                        if (result.get(v) == null
+                                || result.get(u).sum(e.getWeight()).compareTo(result.get(v)) < 0) {
                             W newW = result.get(u).sum(e.getWeight());
                             result.put(v, newW);
                         }
-                    } catch (Exception ignored) {
-                    }
+                    } catch (Exception ignored){}
                 }
             }
         }

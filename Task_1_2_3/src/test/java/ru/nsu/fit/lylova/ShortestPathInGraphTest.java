@@ -1,13 +1,13 @@
 package ru.nsu.fit.lylova;
 
 import org.junit.jupiter.api.Test;
-import ru.nsu.fit.lylova.Graph.AdjacencyListGraph;
-import ru.nsu.fit.lylova.Graph.AdjacencyMatrixGraph;
-import ru.nsu.fit.lylova.Graph.Graph;
-import ru.nsu.fit.lylova.Graph.IncidenceMatrixGraph;
-import ru.nsu.fit.lylova.GraphAlgorithms.GraphEdge;
-import ru.nsu.fit.lylova.GraphAlgorithms.GraphEdgeWeight;
-import ru.nsu.fit.lylova.GraphAlgorithms.ShortestPathInGraph;
+import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
+import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
+import ru.nsu.fit.lylova.graph.Graph;
+import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
+import ru.nsu.fit.lylova.graphAlgorithms.GraphEdge;
+import ru.nsu.fit.lylova.graphAlgorithms.GraphEdgeWeight;
+import ru.nsu.fit.lylova.graphAlgorithms.ShortestPathInGraph;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

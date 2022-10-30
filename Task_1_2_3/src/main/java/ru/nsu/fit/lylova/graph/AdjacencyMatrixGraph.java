@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.Graph;
+package ru.nsu.fit.lylova.graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,15 +32,16 @@ public class AdjacencyMatrixGraph<V, E> implements Graph<V, E> {
      */
     @Override
     public boolean addVertex(V v) {
-        if (vertexes.contains(v))
+        if (vertexes.contains(v)) {
             return false;
-        Map<V, E> row_v = new HashMap<>();
-        row_v.put(v, null);
+        }
+        Map<V, E> rowV = new HashMap<>();
+        rowV.put(v, null);
         for (var u : vertexes) {
             matrix.get(u).put(v, null);
-            row_v.put(u, null);
+            rowV.put(u, null);
         }
-        matrix.put(v, row_v);
+        matrix.put(v, rowV);
         vertexes.add(v);
         return true;
     }

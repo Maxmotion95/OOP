@@ -1,18 +1,18 @@
 package ru.nsu.fit.lylova;
 
-import ru.nsu.fit.lylova.Graph.AdjacencyMatrixGraph;
-import ru.nsu.fit.lylova.Graph.Graph;
-import ru.nsu.fit.lylova.GraphAlgorithms.GraphEdge;
-import ru.nsu.fit.lylova.GraphAlgorithms.GraphEdgeWeight;
-import ru.nsu.fit.lylova.GraphAlgorithms.ShortestPathInGraph;
+import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
+import ru.nsu.fit.lylova.graph.Graph;
+import ru.nsu.fit.lylova.graphAlgorithms.GraphEdge;
+import ru.nsu.fit.lylova.graphAlgorithms.GraphEdgeWeight;
+import ru.nsu.fit.lylova.graphAlgorithms.ShortestPathInGraph;
 
 /**
- * Class Main with function main
+ * Class Main with function main.
  */
 public class Main {
 
     /**
-     * Implementation of example from task description
+     * Implementation of example from task description.
      *
      * @param args command line arguments (not used)
      */
@@ -42,7 +42,8 @@ public class Main {
         g.addEdge("G", "E", new Edge(5));
         g.addEdge("F", "G", new Edge(5));
         g.addEdge("G", "F", new Edge(5));
-        ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a = new ShortestPathInGraph<>();
+        ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a =
+                new ShortestPathInGraph<>();
         var ans = a.calculate(g, "C", new IntWeight(0));
         for (var i : v) {
             System.out.println(i + ": " + ans.get(i).weight);
@@ -69,10 +70,12 @@ public class Main {
 
         @Override
         public int compareTo(IntWeight o) {
-            if (this.weight < o.weight)
+            if (this.weight < o.weight) {
                 return -1;
-            if (this.weight.equals(o.weight))
+            }
+            if (this.weight.equals(o.weight)) {
                 return 0;
+            }
             return 1;
         }
     }
