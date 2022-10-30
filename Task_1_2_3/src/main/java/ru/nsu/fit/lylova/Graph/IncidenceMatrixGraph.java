@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
     private final Map<V, Map<E, V>> matrix;
     private final Set<V> vertexes;
 
-    IncidenceMatrixGraph() {
+    public IncidenceMatrixGraph() {
         matrix = new HashMap<>();
         vertexes = new HashSet<>();
     }

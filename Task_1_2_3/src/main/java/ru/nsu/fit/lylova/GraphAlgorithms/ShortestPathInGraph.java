@@ -1,4 +1,6 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.GraphAlgorithms;
+
+import ru.nsu.fit.lylova.Graph.Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +18,7 @@ public class ShortestPathInGraph<G extends Graph<V, E>, V, E extends GraphEdge<W
     /**
      * Constructor of class
      */
-    ShortestPathInGraph() {
+    public ShortestPathInGraph() {
     }
 
     /**

@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.Graph;
 
 import java.util.ArrayList;
 import java.util.HashSet;

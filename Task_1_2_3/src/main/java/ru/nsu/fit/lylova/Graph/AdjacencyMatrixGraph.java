@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     private final Set<Vertex> vertexes;
     private final Map<Vertex, Map<Vertex, Edge>> matrix;
 
-    AdjacencyMatrixGraph() {
+    public AdjacencyMatrixGraph() {
         vertexes = new HashSet<>();
         matrix = new HashMap<>();
     }
