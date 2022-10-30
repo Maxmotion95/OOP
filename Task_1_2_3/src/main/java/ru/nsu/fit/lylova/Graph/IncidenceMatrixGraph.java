@@ -35,13 +35,13 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
         matrix.remove(v);
         for (var u : vertexes) {
             var row = matrix.get(u);
-            List<E> toDel = new ArrayList<>();
+            List<E> forDelete = new ArrayList<>();
             for (var i : row.keySet()) {
                 if (row.get(i).equals(v)) {
-                    toDel.add(i);
+                    forDelete.add(i);
                 }
             }
-            for (var i: toDel) {
+            for (var i: forDelete) {
                 row.remove(i);
             }
         }
