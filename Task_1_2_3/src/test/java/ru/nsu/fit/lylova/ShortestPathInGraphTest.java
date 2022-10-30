@@ -2,6 +2,9 @@ package ru.nsu.fit.lylova;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
 import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
@@ -10,10 +13,6 @@ import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
 import ru.nsu.fit.lylova.graph.Graph;
 import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 class ShortestPathInGraphTest {
 
