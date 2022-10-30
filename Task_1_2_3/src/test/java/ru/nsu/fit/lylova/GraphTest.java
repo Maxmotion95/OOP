@@ -1,17 +1,17 @@
 package ru.nsu.fit.lylova;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
 import ru.nsu.fit.lylova.graph.Graph;
 import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
 
-import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class GraphTest {
 

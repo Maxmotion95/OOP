@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.graphAlgorithms;
+package ru.nsu.fit.lylova.algorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,7 +57,9 @@ public class ShortestPathInGraph<G extends Graph<V, E>, V,
                             W newW = result.get(u).sum(e.getWeight());
                             result.put(v, newW);
                         }
-                    } catch (Exception ignored){}
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
         }
