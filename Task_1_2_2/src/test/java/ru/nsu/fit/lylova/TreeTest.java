@@ -162,17 +162,15 @@ class TreeTest {
         toDel.add(1);
         toDel.add(3);
         toDel.add(123);
-        assertFalse(tree.removeAll(toDel));
-        toDel.remove(1);
         assertTrue(tree.removeAll(toDel));
+        toDel.remove(1);
         assertFalse(tree.removeAll(toDel));
         toDel = new ArrayList<>();
         toDel.add(0);
         toDel.add(0);
         toDel.add(321);
-        assertFalse(tree.removeAll(toDel));
+        assertTrue(tree.removeAll(toDel));
         tree.add(0);
         assertTrue(tree.removeAll(toDel));
-        assertFalse(tree.removeAll(toDel));
     }
 }
