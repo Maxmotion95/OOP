@@ -1,27 +1,25 @@
-package ru.nsu.fit.lylova.Graph;
+package ru.nsu.fit.lylova.graph;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
- * Implementation of {@code Graph} interface, that stores edges using incidence matrix.
+ * Implementation of {@code Graph} interface, that stores edges using adjacency list.
  *
  * @param <V> class of vertexes
  * @param <E> class of edge value
  */
-public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
-    private final Map<V, Map<E, V>> matrix;
+public class AdjacencyListGraph<V, E> implements Graph<V, E> {
+    private final List<AdjacencyListEdge> listEdges;
     private final Set<V> vertexes;
 
     /**
      * Constructs an empty graph.
      */
-    public IncidenceMatrixGraph() {
-        matrix = new HashMap<>();
+    public AdjacencyListGraph() {
+        listEdges = new ArrayList<>();
         vertexes = new HashSet<>();
     }
 
@@ -37,7 +35,6 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
             return false;
         }
         vertexes.add(v);
-        matrix.put(v, new HashMap<>());
         return true;
     }
 
@@ -52,20 +49,14 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
         if (!vertexes.contains(v)) {
             return false;
         }
-        vertexes.remove(v);
-        matrix.remove(v);
-        for (var u : vertexes) {
-            var row = matrix.get(u);
-            List<E> forDelete = new ArrayList<>();
-            for (var i : row.keySet()) {
-                if (row.get(i).equals(v)) {
-                    forDelete.add(i);
-                }
-            }
-            for (var i : forDelete) {
-                row.remove(i);
+        List<AdjacencyListEdge> forDelete = new ArrayList<>();
+        for (var e : listEdges) {
+            if (e.start.equals(v) || e.end.equals(v)) {
+                forDelete.add(e);
             }
         }
+        listEdges.removeAll(forDelete);
+        vertexes.remove(v);
         return true;
     }
 
@@ -83,7 +74,8 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
         if (!vertexes.contains(a) || !vertexes.contains(b)) {
             return false;
         }
-        matrix.get(a).put(e, b);
+        AdjacencyListEdge x = new AdjacencyListEdge(a, b, e);
+        listEdges.add(x);
         return true;
     }
 
@@ -97,13 +89,9 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
      */
     @Override
     public boolean removeEdge(V a, V b) {
-        if (!vertexes.contains(a) || !vertexes.contains(b)) {
-            return false;
-        }
-        var row = matrix.get(a);
-        for (var e : row.keySet()) {
-            if (row.get(e).equals(b)) {
-                row.remove(e);
+        for (var e : listEdges) {
+            if (e.start.equals(a) && e.end.equals(b)) {
+                listEdges.remove(e);
                 return true;
             }
         }
@@ -134,12 +122,23 @@ public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
         if (!vertexes.contains(a) || !vertexes.contains(b)) {
             throw new Exception();
         }
-        var row = matrix.get(a);
-        for (var e : row.keySet()) {
-            if (row.get(e).equals(b)) {
-                return e;
+        for (var e : listEdges) {
+            if (e.start.equals(a) && e.end.equals(b)) {
+                return e.value;
             }
         }
         throw new Exception();
+    }
+
+    private class AdjacencyListEdge {
+        private final V start;
+        private final V end;
+        private final E value;
+
+        private AdjacencyListEdge(V a, V b, E e) {
+            start = a;
+            end = b;
+            value = e;
+        }
     }
 }
