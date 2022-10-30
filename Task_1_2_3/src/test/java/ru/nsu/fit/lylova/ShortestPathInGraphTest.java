@@ -1,15 +1,15 @@
 package ru.nsu.fit.lylova;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
+import ru.nsu.fit.lylova.algorithms.GraphEdge;
+import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
+import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
 import ru.nsu.fit.lylova.graph.Graph;
 import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
-import ru.nsu.fit.lylova.algorithms.GraphEdge;
-import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
-import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShortestPathInGraphTest {
 
@@ -49,7 +49,8 @@ class ShortestPathInGraphTest {
     void test2() {
         Graph<Integer, Edge> g = new AdjacencyMatrixGraph<>();
         init(g);
-        ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a = new ShortestPathInGraph<>();
+        ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
+                = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
         int[] ans = {0, -2, 0, 0, -1, 1};
         for (int i = 1; i <= 5; ++i) {
@@ -61,7 +62,8 @@ class ShortestPathInGraphTest {
     void test3() {
         Graph<Integer, Edge> g = new IncidenceMatrixGraph<>();
         init(g);
-        ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a = new ShortestPathInGraph<>();
+        ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
+                = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
         int[] ans = {0, -2, 0, 0, -1, 1};
         for (int i = 1; i <= 5; ++i) {
