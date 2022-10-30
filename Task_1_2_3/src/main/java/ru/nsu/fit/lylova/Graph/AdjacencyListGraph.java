@@ -5,9 +5,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
+public class AdjacencyListGraph<V, E> implements Graph<V, E> {
     private final List<AdjacencyListEdge> listEdges;
-    private final Set<Vertex> vertexes;
+    private final Set<V> vertexes;
 
     public AdjacencyListGraph() {
         listEdges = new ArrayList<>();
@@ -15,7 +15,7 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean addVertex(Vertex v) {
+    public boolean addVertex(V v) {
         if (vertexes.contains(v)) {
             return false;
         }
@@ -24,7 +24,7 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean removeVertex(Vertex v) {
+    public boolean removeVertex(V v) {
         if (!vertexes.contains(v)) {
             return false;
         }
@@ -40,7 +40,7 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean addEdge(Vertex a, Vertex b, Edge e) {
+    public boolean addEdge(V a, V b, E e) {
         if (!vertexes.contains(a) || !vertexes.contains(b)) {
             return false;
         }
@@ -50,7 +50,7 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean removeEdge(Vertex a, Vertex b) {
+    public boolean removeEdge(V a, V b) {
         for (var e : listEdges) {
             if (e.start.equals(a) && e.end.equals(b)) {
                 listEdges.remove(e);
@@ -61,12 +61,12 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public ArrayList<Vertex> arrayVertexes() {
+    public ArrayList<V> arrayVertexes() {
         return new ArrayList<>(vertexes);
     }
 
     @Override
-    public Edge getEdge(Vertex a, Vertex b) throws Exception {
+    public E getEdge(V a, V b) throws Exception {
         if (!vertexes.contains(a) || !vertexes.contains(b)) {
             throw new Exception();
         }
@@ -79,11 +79,11 @@ public class AdjacencyListGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     private class AdjacencyListEdge {
-        private final Vertex start;
-        private final Vertex end;
-        private final Edge edge;
+        private final V start;
+        private final V end;
+        private final E edge;
 
-        private AdjacencyListEdge(Vertex a, Vertex b, Edge e) {
+        private AdjacencyListEdge(V a, V b, E e) {
             start = a;
             end = b;
             edge = e;

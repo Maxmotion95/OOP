@@ -3,12 +3,12 @@ package ru.nsu.fit.lylova.Graph;
 import java.util.ArrayList;
 
 /**
- * Interface of graph with vertexes of the {@code Vertex} class and edges of the {@code Edge} class.
+ * Interface of graph with vertexes of the {@code V} class and edges of the {@code E} class.
  *
- * @param <Vertex> class of vertexes
- * @param <Edge>   class of edges
+ * @param <V> class of vertexes
+ * @param <E>   class of edges
  */
-public interface Graph<Vertex, Edge> {
+public interface Graph<V, E> {
     /**
      * Add vertex with value {@code v}.
      * Returns {@code true} if vertex was added. Otherwise, return {@code false}.
@@ -16,7 +16,7 @@ public interface Graph<Vertex, Edge> {
      * @param v value of new vertex
      * @return {@code true} if vertex was added
      */
-    boolean addVertex(Vertex v);
+    boolean addVertex(V v);
 
     /**
      * Remove vertex with value {@code v}.
@@ -25,7 +25,7 @@ public interface Graph<Vertex, Edge> {
      * @param v value of vertex to remove
      * @return {@code true} if vertex was deleted
      */
-    boolean removeVertex(Vertex v);
+    boolean removeVertex(V v);
 
     /**
      * Add edge from vertex {@code a} to vertex {@code b} with value {@code e}.
@@ -36,7 +36,7 @@ public interface Graph<Vertex, Edge> {
      * @param e value of edge
      * @return {@code true} if edge was added
      */
-    boolean addEdge(Vertex a, Vertex b, Edge e);
+    boolean addEdge(V a, V b, E e);
 
     /**
      * Remove edge from vertex {@code a} to vertex {@code b}.
@@ -46,14 +46,14 @@ public interface Graph<Vertex, Edge> {
      * @param b end vertex of edge
      * @return {@code true} if edge was removed
      */
-    boolean removeEdge(Vertex a, Vertex b);
+    boolean removeEdge(V a, V b);
 
     /**
      * Returns ArrayList that contains all vertexes.
      *
      * @return ArrayList that contains all vertexes
      */
-    ArrayList<Vertex> arrayVertexes();
+    ArrayList<V> arrayVertexes();
 
     /**
      * @param a start vertex of edge
@@ -61,5 +61,5 @@ public interface Graph<Vertex, Edge> {
      * @return value of edge that starts from vertex {@code a} and ends in vertex {@code b}
      * @throws java.lang.Exception such edge doesn't exist
      */
-    Edge getEdge(Vertex a, Vertex b) throws java.lang.Exception;
+    E getEdge(V a, V b) throws java.lang.Exception;
 }
