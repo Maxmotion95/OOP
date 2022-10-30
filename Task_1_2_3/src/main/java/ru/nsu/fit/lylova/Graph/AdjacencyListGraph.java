@@ -72,7 +72,7 @@ public class AdjacencyListGraph<V, E> implements Graph<V, E> {
         }
         for (var e : listEdges) {
             if (e.start.equals(a) && e.end.equals(b)) {
-                return e.edge;
+                return e.value;
             }
         }
         throw new Exception();
@@ -81,12 +81,12 @@ public class AdjacencyListGraph<V, E> implements Graph<V, E> {
     private class AdjacencyListEdge {
         private final V start;
         private final V end;
-        private final E edge;
+        private final E value;
 
         private AdjacencyListEdge(V a, V b, E e) {
             start = a;
             end = b;
-            edge = e;
+            value = e;
         }
     }
 }
