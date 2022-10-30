@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Interface of graph with vertexes of the {@code V} class and edges of the {@code E} class.
  *
  * @param <V> class of vertexes
- * @param <E>   class of edges
+ * @param <E> class of edges
  */
 public interface Graph<V, E> {
     /**
@@ -56,6 +56,9 @@ public interface Graph<V, E> {
     ArrayList<V> arrayVertexes();
 
     /**
+     * Return value of edge that starts from vertex with value {@code a} and
+     * ends in vertex with value {@code b}.
+     *
      * @param a start vertex of edge
      * @param b end vertex of edge
      * @return value of edge that starts from vertex {@code a} and ends in vertex {@code b}
