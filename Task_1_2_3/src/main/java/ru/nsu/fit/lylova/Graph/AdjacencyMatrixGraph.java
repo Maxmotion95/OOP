@@ -6,9 +6,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
-    private final Set<Vertex> vertexes;
-    private final Map<Vertex, Map<Vertex, Edge>> matrix;
+public class AdjacencyMatrixGraph<V, E> implements Graph<V, E> {
+    private final Set<V> vertexes;
+    private final Map<V, Map<V, E>> matrix;
 
     public AdjacencyMatrixGraph() {
         vertexes = new HashSet<>();
@@ -16,10 +16,10 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean addVertex(Vertex v) {
+    public boolean addVertex(V v) {
         if (vertexes.contains(v))
             return false;
-        Map<Vertex, Edge> row_v = new HashMap<>();
+        Map<V, E> row_v = new HashMap<>();
         row_v.put(v, null);
         for (var u : vertexes) {
             matrix.get(u).put(v, null);
@@ -31,7 +31,7 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean removeVertex(Vertex v) {
+    public boolean removeVertex(V v) {
         if (!vertexes.contains(v)) {
             return false;
         }
@@ -44,7 +44,7 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean addEdge(Vertex a, Vertex b, Edge e) {
+    public boolean addEdge(V a, V b, E e) {
         if (!vertexes.contains(a) || !vertexes.contains(b) || matrix.get(a).get(b) != null) {
             return false;
         }
@@ -53,7 +53,7 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public boolean removeEdge(Vertex a, Vertex b) {
+    public boolean removeEdge(V a, V b) {
         if (!vertexes.contains(a) || !vertexes.contains(b) || matrix.get(a).get(b) == null) {
             return false;
         }
@@ -62,12 +62,12 @@ public class AdjacencyMatrixGraph<Vertex, Edge> implements Graph<Vertex, Edge> {
     }
 
     @Override
-    public ArrayList<Vertex> arrayVertexes() {
+    public ArrayList<V> arrayVertexes() {
         return new ArrayList<>(vertexes);
     }
 
     @Override
-    public Edge getEdge(Vertex a, Vertex b) throws java.lang.Exception {
+    public E getEdge(V a, V b) throws java.lang.Exception {
         if (!vertexes.contains(a) || !vertexes.contains(b)) {
             throw new java.lang.Exception();
         }
