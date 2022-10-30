@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ru.nsu.fit.lylova"},{"l":"ru.nsu.fit.lylova.Graph"},{"l":"ru.nsu.fit.lylova.GraphAlgorithms"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ru.nsu.fit.lylova"},{"l":"ru.nsu.fit.lylova.graph"},{"l":"ru.nsu.fit.lylova.graphAlgorithms"}]
