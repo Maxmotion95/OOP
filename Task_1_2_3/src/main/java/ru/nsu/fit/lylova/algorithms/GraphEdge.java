@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.graphAlgorithms;
+package ru.nsu.fit.lylova.algorithms;
 
 /**
  * The interface of the edge of the graph from which you can find out its weight.

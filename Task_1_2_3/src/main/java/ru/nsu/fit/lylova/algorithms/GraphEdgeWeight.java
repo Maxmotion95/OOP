@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.graphAlgorithms;
+package ru.nsu.fit.lylova.algorithms;
 
 /**
  * Interface of edge weight.
