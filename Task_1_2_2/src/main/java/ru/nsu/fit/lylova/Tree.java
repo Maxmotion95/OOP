@@ -205,17 +205,14 @@ public class Tree<T> implements Collection<T> {
      */
     @Override
     public boolean removeAll(Collection<?> c) {
-        ArrayList<T> all = new ArrayList<>(this);
+        boolean changed = false;
         for (var o : c) {
-            if (!all.contains(o)) {
-                return false;
+            while (this.contains(o)) {
+                changed = true;
+                this.remove(o);
             }
-            all.remove(o);
         }
-        for (var o : c) {
-            this.remove(o);
-        }
-        return true;
+        return changed;
     }
 
     /**
