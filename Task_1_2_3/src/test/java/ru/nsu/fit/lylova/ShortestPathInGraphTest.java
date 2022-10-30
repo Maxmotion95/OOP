@@ -11,31 +11,33 @@ import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
 import ru.nsu.fit.lylova.graph.Graph;
 import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 class ShortestPathInGraphTest {
 
-    void init(Graph<Integer, Edge> g) {
-        for (int i = 1; i <= 5; ++i) {
-            g.addVertex(i);
+    void init(Graph<Integer, Edge> g, String filepath) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File(filepath));
+        int n = sc.nextInt();
+        for (int i = 0; i < n; ++i) {
+            int v = sc.nextInt();
+            g.addVertex(v);
         }
-        g.addEdge(3, 4, new Edge(-1));
 
-        g.addEdge(3, 2, new Edge(1));
-        g.addEdge(2, 3, new Edge(1));
-
-        g.addEdge(2, 4, new Edge(1));
-        g.addEdge(4, 2, new Edge(1));
-
-        g.addEdge(2, 1, new Edge(-2));
-
-        g.addEdge(4, 1, new Edge(1));
-
-        g.addEdge(4, 5, new Edge(2));
+        int m = sc.nextInt();
+        for (int i = 0; i < m; ++i) {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            int w = sc.nextInt();
+            g.addEdge(u, v, new Edge(w));
+        }
     }
 
     @Test
-    void test1() {
+    void test1() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyListGraph<>();
-        init(g);
+        init(g, "src\\test\\graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
@@ -46,9 +48,9 @@ class ShortestPathInGraphTest {
     }
 
     @Test
-    void test2() {
+    void test2() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyMatrixGraph<>();
-        init(g);
+        init(g, "src\\test\\graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
@@ -59,9 +61,9 @@ class ShortestPathInGraphTest {
     }
 
     @Test
-    void test3() {
+    void test3() throws FileNotFoundException {
         Graph<Integer, Edge> g = new IncidenceMatrixGraph<>();
-        init(g);
+        init(g, "src\\test\\graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
