@@ -28,13 +28,13 @@ public class AdjacencyListGraph<V, E> implements Graph<V, E> {
         if (!vertexes.contains(v)) {
             return false;
         }
-        List<AdjacencyListEdge> toDel = new ArrayList<>();
+        List<AdjacencyListEdge> forDelete = new ArrayList<>();
         for (var e : listEdges) {
             if (e.start.equals(v) || e.end.equals(v)) {
-                toDel.add(e);
+                forDelete.add(e);
             }
         }
-        listEdges.removeAll(toDel);
+        listEdges.removeAll(forDelete);
         vertexes.remove(v);
         return true;
     }
