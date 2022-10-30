@@ -37,7 +37,7 @@ class ShortestPathInGraphTest {
     @Test
     void test1() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyListGraph<>();
-        init(g, "src\\test\\graph1.txt");
+        init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
@@ -50,7 +50,7 @@ class ShortestPathInGraphTest {
     @Test
     void test2() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyMatrixGraph<>();
-        init(g, "src\\test\\graph1.txt");
+        init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
@@ -63,7 +63,7 @@ class ShortestPathInGraphTest {
     @Test
     void test3() throws FileNotFoundException {
         Graph<Integer, Edge> g = new IncidenceMatrixGraph<>();
-        init(g, "src\\test\\graph1.txt");
+        init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
                 = new ShortestPathInGraph<>();
         var res = a.calculate(g, 3, new IntWeight(0));
