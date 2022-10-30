@@ -58,7 +58,7 @@ public class ShortestPathInGraph<G extends Graph<V, E>, V,
                             result.put(v, newW);
                         }
                     } catch (Exception e) {
-                        throw new RuntimeException(e);
+                        continue;
                     }
                 }
             }
