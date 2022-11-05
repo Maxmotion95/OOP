@@ -1,0 +1,27 @@
+removeVertex 0 false
+removeVertex 10 false
+addVertex 0 true
+addVertex 1 true
+addVertex 2 true
+addVertex 3 true
+addVertex 4 true
+addVertex 1 false
+
+addEdge 1 2 1->2 true
+addEdge 0 4 0->4 true
+addEdge 0 5 gg false
+addEdge 6 2 gg false
+addEdge 6 6 gg false
+addEdge 0 0 0->0 true
+
+removeEdge 6 6 false
+removeEdge 6 2 false
+removeEdge 2 1 false
+removeEdge 1 2 true
+
+removeVertex 4 true
+removeEdge 0 4 false
+addVertex 4 true
+removeEdge 0 4 false
+
+arrayVertexes 5 0 1 2 3 4
