@@ -34,7 +34,7 @@ class ShortestPathInGraphTest {
     }
 
     @Test
-    void test1() throws FileNotFoundException {
+    void testWithAdjacencyList() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyListGraph<>();
         init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
@@ -47,7 +47,7 @@ class ShortestPathInGraphTest {
     }
 
     @Test
-    void test2() throws FileNotFoundException {
+    void testWithAdjacencyMatrix() throws FileNotFoundException {
         Graph<Integer, Edge> g = new AdjacencyMatrixGraph<>();
         init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
@@ -60,7 +60,7 @@ class ShortestPathInGraphTest {
     }
 
     @Test
-    void test3() throws FileNotFoundException {
+    void testWithIncidenceMatrix() throws FileNotFoundException {
         Graph<Integer, Edge> g = new IncidenceMatrixGraph<>();
         init(g, "src/test/graph1.txt");
         ShortestPathInGraph<Graph<Integer, Edge>, Integer, Edge, IntWeight> a
