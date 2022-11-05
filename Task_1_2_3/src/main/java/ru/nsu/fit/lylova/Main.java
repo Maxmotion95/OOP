@@ -5,6 +5,11 @@ import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
 import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
 import ru.nsu.fit.lylova.graph.Graph;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 /**
@@ -17,36 +22,31 @@ public class Main {
      *
      * @param args command line arguments (not used)
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        System.setIn(new FileInputStream("Task_1_2_3/src/main/input.txt"));
+        Scanner sc = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
-        String[] v = {"A", "B", "C", "D", "E", "F", "G"};
-        for (var i : v) {
-            g.addVertex(i);
+
+        int n = sc.nextInt();
+        for (int i = 0; i < n; ++i) {
+            var kek = sc.next();
+            g.addVertex(kek);
         }
-        g.addEdge("A", "B", new Edge(5));
-        g.addEdge("B", "A", new Edge(5));
-        g.addEdge("A", "D", new Edge(12));
-        g.addEdge("D", "A", new Edge(12));
-        g.addEdge("A", "G", new Edge(25));
-        g.addEdge("G", "A", new Edge(25));
-        g.addEdge("D", "B", new Edge(8));
-        g.addEdge("B", "D", new Edge(8));
-        g.addEdge("C", "D", new Edge(2));
-        g.addEdge("D", "C", new Edge(2));
-        g.addEdge("C", "E", new Edge(4));
-        g.addEdge("E", "C", new Edge(4));
-        g.addEdge("C", "F", new Edge(5));
-        g.addEdge("F", "C", new Edge(5));
-        g.addEdge("C", "G", new Edge(10));
-        g.addEdge("G", "C", new Edge(10));
-        g.addEdge("E", "G", new Edge(5));
-        g.addEdge("G", "E", new Edge(5));
-        g.addEdge("F", "G", new Edge(5));
-        g.addEdge("G", "F", new Edge(5));
+
+        int m = sc.nextInt();
+        for (int i = 0; i < m; ++i) {
+            var u = sc.next();
+            var v = sc.next();
+            int w = sc.nextInt();
+            g.addEdge(u, v, new Edge(w));
+            g.addEdge(v, u, new Edge(w));
+        }
+
         ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a =
                 new ShortestPathInGraph<>();
         var ans = a.calculate(g, "C", new IntWeight(0));
-        for (var i : v) {
+        for (var i : g.arrayVertexes()) {
             System.out.println(i + ": " + ans.get(i).weight);
         }
     }
