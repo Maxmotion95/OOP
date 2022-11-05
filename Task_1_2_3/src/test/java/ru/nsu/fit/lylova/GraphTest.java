@@ -5,7 +5,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
@@ -15,35 +19,43 @@ import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
 
 class GraphTest {
 
-    void test(Graph<Integer, String> g) {
-        ArrayList<Integer> vertexes = new ArrayList<>();
+    void test(Graph<Integer, String> g) throws FileNotFoundException {
+        Scanner sc = new Scanner(new File("src/test/GraphTestSource/graph1.txt"));
 
-        assertFalse(g.removeVertex(0));
-        assertFalse(g.removeVertex(10));
-        for (int i = 0; i < 5; ++i) {
-            assertTrue(g.addVertex(i));
-            vertexes.add(i);
+        while (sc.hasNext()) {
+            String type = sc.next();
+            if (type.equals("removeVertex")) {
+                int v = sc.nextInt();
+                boolean res = sc.nextBoolean();
+                assertEquals(res, g.removeVertex(v));
+            }
+            if (type.equals("addVertex")) {
+                int v = sc.nextInt();
+                boolean res = sc.nextBoolean();
+                assertEquals(res, g.addVertex(v));
+            }
+            if (type.equals("addEdge")) {
+                int u = sc.nextInt();
+                int v = sc.nextInt();
+                String val = sc.next();
+                boolean res = sc.nextBoolean();
+                assertEquals(res, g.addEdge(u, v, val));
+            }
+            if (type.equals("removeEdge")) {
+                int u = sc.nextInt();
+                int v = sc.nextInt();
+                boolean res = sc.nextBoolean();
+                assertEquals(res, g.removeEdge(u, v));
+            }
+            if (type.equals("arrayVertexes")) {
+                ArrayList<Integer> vertexes = new ArrayList<>();
+                int n = sc.nextInt();
+                for (int i = 0; i < n; ++i) {
+                    vertexes.add(sc.nextInt());
+                }
+                assertEquals(vertexes, g.arrayVertexes());
+            }
         }
-        assertFalse(g.addVertex(1));
-
-        assertTrue(g.addEdge(1, 2, "1->2"));
-        assertTrue(g.addEdge(0, 4, "0->4"));
-        assertFalse(g.addEdge(0, 5, "gg"));
-        assertFalse(g.addEdge(6, 2, "gg"));
-        assertFalse(g.addEdge(6, 6, "gg"));
-        assertTrue(g.addEdge(0, 0, "0->0"));
-
-        assertFalse(g.removeEdge(6, 6));
-        assertFalse(g.removeEdge(6, 2));
-        assertFalse(g.removeEdge(2, 1));
-        assertTrue(g.removeEdge(1, 2));
-
-        assertTrue(g.removeVertex(4));
-        assertFalse(g.removeEdge(0, 4));
-        assertTrue(g.addVertex(4));
-        assertFalse(g.removeEdge(0, 4));
-
-        assertEquals(vertexes, g.arrayVertexes());
 
         assertThrows(Exception.class, () -> {
             g.getEdge(0, 6);
@@ -65,19 +77,19 @@ class GraphTest {
     }
 
     @Test
-    void incidenceMatrixTest() {
+    void incidenceMatrixTest() throws FileNotFoundException {
         Graph<Integer, String> g = new IncidenceMatrixGraph<>();
         test(g);
     }
 
     @Test
-    void adjacencyMatrixTest() {
+    void adjacencyMatrixTest() throws FileNotFoundException {
         Graph<Integer, String> g = new AdjacencyMatrixGraph<>();
         test(g);
     }
 
     @Test
-    void adjacencyListTest() {
+    void adjacencyListTest() throws FileNotFoundException {
         Graph<Integer, String> g = new AdjacencyListGraph<>();
         test(g);
     }
