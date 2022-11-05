@@ -201,7 +201,7 @@ public class Tree<T> implements Collection<T> {
      * tree.
      *
      * @param c collection containing elements to be removed from this collection
-     * @return {@code true} tree was changed
+     * @return {@code true} if tree was changed
      */
     @Override
     public boolean removeAll(Collection<?> c) {
