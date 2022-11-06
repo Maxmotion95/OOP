@@ -1,7 +1,6 @@
 package ru.nsu.fit.lylova;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,7 +8,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.graph.AdjacencyListGraph;
 import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
