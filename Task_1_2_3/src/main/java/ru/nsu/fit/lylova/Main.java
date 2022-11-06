@@ -1,15 +1,15 @@
 package ru.nsu.fit.lylova;
 
-import ru.nsu.fit.lylova.algorithms.GraphEdge;
-import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
-import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
-import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
-import ru.nsu.fit.lylova.graph.Graph;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import ru.nsu.fit.lylova.algorithms.GraphEdge;
+import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
+import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
+import ru.nsu.fit.lylova.graph.AdjacencyMatrixGraph;
+import ru.nsu.fit.lylova.graph.Graph;
 
 
 /**
