@@ -1,9 +1,9 @@
 package ru.nsu.fit.lylova;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
@@ -14,13 +14,11 @@ public class Main {
         String filename = sc.nextLine();
 
         File file = new File(filename);
-        BufferedReader input = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8));
+        InputStream input = new FileInputStream(file);
 
         String str;
         str = sc.nextLine();
         var ans = FindAllOccurrences.calc(input, str);
-        for (var i : ans) {
-            System.out.println(i);
-        }
+        System.out.println(ans);
     }
 }
