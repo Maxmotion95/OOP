@@ -1,5 +1,7 @@
 package ru.nsu.fit.lylova;
 
+import ru.nsu.fit.lylova.OccurencesFinder.KnuthMorrisPrattAlgorithmWithZFunction;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +20,7 @@ public class Main {
 
         String str;
         str = sc.nextLine();
-        var ans = FindAllOccurrences.calc(input, str);
+        var ans = KnuthMorrisPrattAlgorithmWithZFunction.find(input, str);
         System.out.println(ans);
     }
 }

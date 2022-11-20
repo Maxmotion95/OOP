@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.OccurencesFinder;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
@@ -9,30 +9,31 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-public class FindAllOccurrences {
-    public static ArrayList<Integer> calc(InputStream inStream, String str) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8));
+public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder {
+    private static final int bufferSize = 1024;
+    public static ArrayList<Integer> find(InputStream inputStream, String pattern) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         ArrayList<Integer> res = new ArrayList<>();
-        if (str.length() == 0) {
+        if (pattern.length() == 0) {
             return res;
         }
 
-        int[] strZFunc = zFunc(str);
+        int[] strZFunc = zFunction(pattern);
 
-        char[] buf1 = new char[max(str.length(), 1024)];
-        char[] buf2 = new char[max(str.length(), 1024)];
+        char[] buf1 = new char[max(pattern.length(), bufferSize)];
+        char[] buf2 = new char[max(pattern.length(), bufferSize)];
         int count1 = readBuf(buf1, in);
-        int posnow = 0;
+        int currentPos = 0;
 
         while (count1 != 0) {
             int count2 = readBuf(buf2, in);
-            int[] tmp = zFunc(str, strZFunc, buf1, count1, buf2, count2);
+            int[] tmp = zFunction(pattern, strZFunc, buf1, count1, buf2, count2);
             for (int i = 0; i < count1; ++i) {
-                if (tmp[i] == str.length()) {
-                    res.add(i + posnow);
+                if (tmp[i] == pattern.length()) {
+                    res.add(i + currentPos);
                 }
             }
-            posnow += count1;
+            currentPos += count1;
             count1 = count2;
             buf1 = buf2.clone();
         }
@@ -47,7 +48,7 @@ public class FindAllOccurrences {
         return offset;
     }
 
-    private static int[] zFunc(String str) {
+    private static int[] zFunction(String str) {
         int[] ans = new int[str.length()];
         ans[0] = 0;
         int left = 0, right = 0;
@@ -64,7 +65,7 @@ public class FindAllOccurrences {
         return ans;
     }
 
-    private static int[] zFunc(String str, int[] zStr, char[] buf1, int buf1size, char[] buf2, int buf2size) {
+    private static int[] zFunction(String str, int[] zStr, char[] buf1, int buf1size, char[] buf2, int buf2size) {
         int[] ans = new int[buf1size];
         StringBuilder bufSum = new StringBuilder();
         bufSum.append(buf1, 0, buf1size);
