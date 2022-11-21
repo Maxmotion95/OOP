@@ -2,6 +2,7 @@ package ru.nsu.fit.lylova.OccurencesFinder;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,8 +31,11 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    public static ArrayList<Integer> find(InputStream inputStream, String pattern) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+    public static ArrayList<Integer> find(InputStream inputStream, String pattern)
+            throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
+                                                                    StandardCharsets.UTF_8);
+        BufferedReader in = new BufferedReader(inputStreamReader);
         ArrayList<Integer> res = new ArrayList<>();
         if (pattern.length() == 0) {
             return res;
@@ -60,7 +64,8 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
     }
 
     private static int readBuf(char[] buf, BufferedReader in) throws IOException {
-        int count, offset = 0;
+        int count;
+        int offset = 0;
         while (offset < buf.length && (count = in.read(buf, offset, buf.length - offset)) != -1) {
             offset += count;
         }
@@ -70,7 +75,8 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
     private static int[] zFunction(String str) {
         int[] ans = new int[str.length()];
         ans[0] = 0;
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         for (int i = 1; i < str.length(); ++i) {
             ans[i] = max(0, min(right - i, ans[i - left]));
             while (i + ans[i] < str.length() && str.charAt(ans[i]) == str.charAt(i + ans[i])) {
@@ -84,13 +90,16 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
         return ans;
     }
 
-    private static int[] zFunction(String str, int[] zStr, char[] buf1, int buf1size, char[] buf2, int buf2size) {
+    private static int[] zFunction(String str, int[] zStr,
+                                   char[] buf1, int buf1size,
+                                   char[] buf2, int buf2size) {
         int[] ans = new int[buf1size];
         StringBuilder bufSum = new StringBuilder();
         bufSum.append(buf1, 0, buf1size);
         bufSum.append(buf2, 0, buf2size);
 
-        int left = -1, right = -1;
+        int left = -1;
+        int right = -1;
         for (int i = 0; i < buf1size; ++i) {
             if (i < right) {
                 ans[i] = zStr[i - left];
