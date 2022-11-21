@@ -21,7 +21,7 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
      * in the text that is contained in the stream {@code inputStream}.
      * The function is an implementation of the Apostolico-Crochemore algorithm.
      * Time complexity is O(n + m), space complexity is O(m)
-     * where n - length of text, m - length of string {&code pattern}.
+     * where n - length of text, m - length of string {@code pattern}.
      *
      * @param inputStream stream that contains text
      * @param pattern     pattern string

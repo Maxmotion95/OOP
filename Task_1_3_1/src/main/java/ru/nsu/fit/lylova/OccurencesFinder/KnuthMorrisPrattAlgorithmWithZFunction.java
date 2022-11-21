@@ -23,7 +23,7 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
      * The function is an implementation of the Knuth–Morris–Pratt algorithm using
      * the z-function instead of the prefix-function.
      * Time complexity is O(n + m), space complexity is O(m)
-     * where n - length of text, m - length of string {&code pattern}.
+     * where n - length of text, m - length of string {@code pattern}.
      *
      * @param inputStream stream that contains text
      * @param pattern     pattern string
