@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * using the z-function instead of the prefix-function.
  */
 public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder {
-    private static final int bufferSize = 1024;
+    private static final int minBufferSize = 1024;
 
     /**
      * Function that finds all occurrences of string {@code pattern}
@@ -39,8 +39,8 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
 
         int[] strZFunc = zFunction(pattern);
 
-        char[] buf1 = new char[max(pattern.length(), bufferSize)];
-        char[] buf2 = new char[max(pattern.length(), bufferSize)];
+        char[] buf1 = new char[max(pattern.length(), minBufferSize)];
+        char[] buf2 = new char[max(pattern.length(), minBufferSize)];
         int count1 = readBuf(buf1, in);
         int currentPos = 0;
 
