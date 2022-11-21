@@ -49,7 +49,9 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
 
             ArrayList<Integer> tmp = aG(pattern, stringBuilder);
             for (int i : tmp) {
-                result.add(i + currentPos);
+                if (i < count1) {
+                    result.add(i + currentPos);
+                }
             }
 
             currentPos += count1;
