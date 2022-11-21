@@ -16,8 +16,8 @@ import org.junit.jupiter.params.provider.ValueSource;
 class KnuthMorrisPrattAlgorithmWithZFunctionTest {
 
     @ParameterizedTest
-    @ValueSource(ints = {1})
-    void mainTest(int testNumber) throws IOException {
+    @ValueSource(ints = {1, 2, 3})
+    void findTest(int testNumber) throws IOException {
         File textFile = new File("src/test/resources/texts/text" + testNumber + ".txt");
         File patternFile = new File("src/test/resources/patterns/pattern" + testNumber + ".txt");
 
