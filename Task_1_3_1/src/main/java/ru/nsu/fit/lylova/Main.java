@@ -1,13 +1,12 @@
 package ru.nsu.fit.lylova;
 
-import ru.nsu.fit.lylova.OccurencesFinder.KnuthMorrisPrattAlgorithmWithZFunction;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import ru.nsu.fit.lylova.OccurencesFinder.KnuthMorrisPrattAlgorithmWithZFunction;
 
 /**
  * Class Main that contains function main.

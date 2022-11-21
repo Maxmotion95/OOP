@@ -1,13 +1,13 @@
 package ru.nsu.fit.lylova.OccurencesFinder;
 
+import static java.lang.Integer.max;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-
-import static java.lang.Integer.max;
 
 /**
  * Class that implements interface {@code OccurrencesFinder}.
@@ -44,8 +44,8 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
 
         while (count1 != 0) {
             int count2 = readBuf(buf2, in);
-            String stringBuilder = String.valueOf(buf1, 0, count1) +
-                    String.valueOf(buf2, 0, count2);
+            String stringBuilder = String.valueOf(buf1, 0, count1)
+                    + String.valueOf(buf2, 0, count2);
 
             ArrayList<Integer> tmp = aG(pattern, stringBuilder);
             for (int i : tmp) {
@@ -62,7 +62,8 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
     }
 
     private static int readBuf(char[] buf, BufferedReader in) throws IOException {
-        int count, offset = 0;
+        int count;
+        int offset = 0;
         while (offset < buf.length && (count = in.read(buf, offset, buf.length - offset)) != -1) {
             offset += count;
         }
@@ -111,8 +112,9 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
                 while (k < l && pattern.charAt(k) == text.charAt(j + k)) {
                     ++k;
                 }
-                if (k >= l)
+                if (k >= l) {
                     result.add(j);
+                }
             }
             j += i - t[i];
             if (i == l) {
