@@ -9,11 +9,29 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.max;
 
+/**
+ * Class that implements interface {@code OccurrencesFinder}.
+ * The find function is an implementation of the Apostolico-Crochemore algorithm.
+ */
 public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
     private static final int bufferSize = 1024;
 
-    public static ArrayList<Integer> find(InputStream inputStream, String pattern) throws IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
+    /**
+     * Function that finds all occurrences of string {@code pattern}
+     * in the text that is contained in the stream {@code inputStream}.
+     * The function is an implementation of the Apostolico-Crochemore algorithm.
+     * Time complexity is O(n + m), space complexity is O(m)
+     * where n - length of text, m - length of string {&code pattern}.
+     *
+     * @param inputStream stream that contains text
+     * @param pattern     pattern string
+     * @return list of indexes of all occurrences
+     * @throws IOException when inputStream throws IOException
+     */
+    public static ArrayList<Integer> find(InputStream inputStream,
+                                          String pattern) throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,
+                StandardCharsets.UTF_8));
         ArrayList<Integer> result = new ArrayList<>();
         if (pattern.length() == 0) {
             return result;
@@ -30,7 +48,7 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
                     String.valueOf(buf2, 0, count2);
 
             ArrayList<Integer> tmp = aG(pattern, stringBuilder);
-            for (int i: tmp) {
+            for (int i : tmp) {
                 result.add(i + currentPos);
             }
 
@@ -97,10 +115,10 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             j += i - t[i];
             if (i == l) {
                 k = max(0, k - 1);
-            }else if (t[i] <= l) {
+            } else if (t[i] <= l) {
                 k = max(0, t[i]);
                 i = l;
-            }else {
+            } else {
                 k = l;
                 i = t[i];
             }

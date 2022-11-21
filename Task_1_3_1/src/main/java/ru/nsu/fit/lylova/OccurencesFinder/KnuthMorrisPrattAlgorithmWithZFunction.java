@@ -9,8 +9,27 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
+/**
+ * Class that implements interface {@code OccurrencesFinder}.
+ * The find function is an implementation of the Knuth–Morris–Pratt algorithm
+ * using the z-function instead of the prefix-function.
+ */
 public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder {
     private static final int bufferSize = 1024;
+
+    /**
+     * Function that finds all occurrences of string {@code pattern}
+     * in the text that is contained in the stream {@code inputStream}.
+     * The function is an implementation of the Knuth–Morris–Pratt algorithm using
+     * the z-function instead of the prefix-function.
+     * Time complexity is O(n + m), space complexity is O(m)
+     * where n - length of text, m - length of string {&code pattern}.
+     *
+     * @param inputStream stream that contains text
+     * @param pattern     pattern string
+     * @return list of indexes of all occurrences
+     * @throws IOException when inputStream throws IOException
+     */
     public static ArrayList<Integer> find(InputStream inputStream, String pattern) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
         ArrayList<Integer> res = new ArrayList<>();

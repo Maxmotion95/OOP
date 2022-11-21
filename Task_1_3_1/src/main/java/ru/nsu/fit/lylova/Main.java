@@ -9,7 +9,19 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+/**
+ * Class Main that contains function main.
+ */
 public class Main {
+    /**
+     * The main function that counts all indexes of the occurrence
+     * of some string in the text that is contained in some file.
+     * The path to the file should be entered in the first line.
+     * In the second line, the string to be found should be entered.
+     *
+     * @param args command line arguments (not used)
+     * @throws IOException when something bad with files
+     */
     public static void main(String[] args)
             throws IOException {
         Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8);
