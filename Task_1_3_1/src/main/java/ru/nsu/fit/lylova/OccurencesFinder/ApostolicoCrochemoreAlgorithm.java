@@ -14,7 +14,7 @@ import static java.lang.Integer.max;
  * The find function is an implementation of the Apostolico-Crochemore algorithm.
  */
 public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
-    private static final int bufferSize = 1024;
+    private static final int minBufferSize = 1024;
 
     /**
      * Function that finds all occurrences of string {@code pattern}
@@ -37,8 +37,8 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             return result;
         }
 
-        char[] buf1 = new char[Math.max(pattern.length(), bufferSize)];
-        char[] buf2 = new char[Math.max(pattern.length(), bufferSize)];
+        char[] buf1 = new char[Math.max(pattern.length(), minBufferSize)];
+        char[] buf2 = new char[Math.max(pattern.length(), minBufferSize)];
         int count1 = readBuf(buf1, in);
         int currentPos = 0;
 
