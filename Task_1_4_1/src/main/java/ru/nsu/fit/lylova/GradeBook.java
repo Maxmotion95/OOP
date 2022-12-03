@@ -29,10 +29,16 @@ public class GradeBook {
             for (var jsonSubject : (JSONArray) semester) {
                 var kek = (JSONObject) jsonSubject;
                 var type = kek.getString("form");
-                Subject.ExamType type1 = switch (type) {
-                    case "exam" -> Subject.ExamType.Exam;
-                    case "credit" -> Subject.ExamType.Credit;
-                    default -> Subject.ExamType.DifCredit;
+                Subject.ExamType type1;
+                switch (type) {
+                    case "exam" :
+                        type1 = Subject.ExamType.Exam;
+                        break;
+                    case "credit":
+                        type1 = Subject.ExamType.Credit;
+                        break;
+                    default :
+                        type1 = Subject.ExamType.DifCredit;
                 };
                 ArrayList<Teacher> teachers = new ArrayList<>();
                 for (var teacher : kek.getJSONArray("teachers")) {
@@ -92,5 +98,18 @@ public class GradeBook {
         int subjectsCount = semesters.stream().mapToInt(Semester::getCountOfSubjects).sum();
         int gradesSum = semesters.stream().mapToInt(Semester::getSumOfGrades).sum();
         return (double) gradesSum / subjectsCount;
+    }
+
+    public boolean diplomaWithHonours() {
+        int subjectsCount = semesters.stream().mapToInt(Semester::getCountOfSubjects).sum();
+        int excellentGradesCount = semesters
+                .stream()
+                .mapToInt(s -> s.getSubjects()
+                        .stream()
+                        .mapToInt(subj -> subj
+                                .getExamGrade() == 5 ? 1 : 0
+                        ).sum()
+                ).sum();
+        return subjectsCount * 3 <= 4 * excellentGradesCount;
     }
 }
