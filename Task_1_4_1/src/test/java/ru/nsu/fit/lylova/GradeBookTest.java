@@ -20,7 +20,7 @@ class GradeBookTest {
         JSONObject root = new JSONObject(tokener);
 
         GradeBook gradebook = new GradeBook(root);
-       // assertEquals("4,8", String.format("%.1f", gradebook.getAverageGrade()));
+        assertEquals("4.8", String.format("%.1f", gradebook.getAverageGrade()));
         assertTrue(gradebook.diplomaWithHonours());
 //        assertTrue(false);
 
