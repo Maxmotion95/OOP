@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Subject {
     private String subjectName;
-    private Date examDate;
+    private String examDate;
     private List<Teacher> teachers;
-    public enum ExamType {Exam, DifCredit, Credit};
     private ExamType examType;
-    private int examGrade;
 
+    ;
+    private int examGrade;
     Subject() {
     }
 
     Subject(String subjectName,
-            Date examDate,
+            String examDate,
             List<Teacher> teachers,
             ExamType examType,
             int examGrade) {
@@ -34,11 +34,11 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
-    public Date getExamDate() {
+    public String getExamDate() {
         return examDate;
     }
 
-    public void setExamDate(Date examDate) {
+    public void setExamDate(String examDate) {
         this.examDate = examDate;
     }
 
@@ -56,6 +56,7 @@ public class Subject {
 
     public void setExamType(ExamType examType) {
         this.examType = examType;
+        this.examGrade = 0;
     }
 
     public int getExamGrade() {
@@ -65,4 +66,6 @@ public class Subject {
     public void setExamGrade(int examGrade) {
         this.examGrade = examGrade;
     }
+
+    public enum ExamType {Exam, DifCredit, Credit}
 }
