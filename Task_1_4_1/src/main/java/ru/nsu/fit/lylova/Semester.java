@@ -25,4 +25,12 @@ public class Semester {
     public void addSubject(Subject subject) {
         subjects.add(subject);
     }
+
+    public int getCountOfSubjects(){
+        return subjects.size();
+    }
+
+    public int getSumOfGrades(){
+        return subjects.stream().mapToInt(Subject::getExamGrade).sum();
+    }
 }
