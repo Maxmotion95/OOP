@@ -1,0 +1,282 @@
+{
+  "student": {
+    "name": "Софья",
+    "surname": "Лылова",
+    "patronymic": "Сергеевна",
+    "group": 21214
+  },
+  "grade_book_id": 210611,
+  "semesters": [
+    [
+      {
+        "subject": "Введение в алгебру и анализ",
+        "date": "11.01.2022",
+        "form": "exam",
+        "teachers": [
+          {
+            "name": "Владимир",
+            "surname": "Васкевич",
+            "patronymic": "Леонтьевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Иностранный язык",
+        "date": "29.12.2021",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Ольга",
+            "surname": "Хоцкина",
+            "patronymic": "Валерьевна"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Физическая культура и спорт (элективная дисциплина)",
+        "date": "29.12.2021",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Григорий",
+            "surname": "Опарин",
+            "patronymic": "Андреевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Введение в дискретную математику и математическую логику",
+        "date": "18.01.2022",
+        "form": "exam",
+        "teachers": [
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "История",
+        "date": "29.12.2021",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Рената",
+            "surname": "Оплаканская",
+            "patronymic": "Валерьевна"
+          }
+        ],
+        "grade": 4
+      },
+      {
+        "subject": "Цифровые платформы",
+        "date": "29.12.2021",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Дмитрий",
+            "surname": "Иртегов",
+            "patronymic": "Валентинович"
+          },
+          {
+            "name": "Анатолий",
+            "surname": "Ананько",
+            "patronymic": "Григорьевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Декларативное программирование",
+        "date": "29.12.2021",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Андрей",
+            "surname": "Куталев",
+            "patronymic": "Витальевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Основы культуры речи",
+        "date": "29.12.2021",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Татьяна",
+            "surname": "Заворина",
+            "patronymic": "Ивановна"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Императивное программирование",
+        "date": "29.12.2021",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Вадим",
+            "surname": "Зайцев",
+            "patronymic": "Евгеньевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Физическая культура и спорт",
+        "date": "29.12.2021",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Григорий",
+            "surname": "Опарин",
+            "patronymic": "Андреевич"
+          }
+        ],
+        "grade": 5
+      }
+    ],
+    [
+      {
+        "subject": "Введение в алгебру и анализ",
+        "date": "16.06.2022",
+        "form": "exam",
+        "teachers": [
+          {
+            "name": "Владимир",
+            "surname": "Васкевич",
+            "patronymic": "Леонтьевич"
+          },
+          {
+            "name": "Анна",
+            "surname": "Рудометова",
+            "patronymic": "Сергеевна"
+          },
+          {
+            "name": "Ирина",
+            "surname": "Шваб",
+            "patronymic": "Васильевна"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Императивное программирование",
+        "date": "27.06.2022",
+        "form": "exam",
+        "teachers": [
+          {
+            "name": "Татьяна",
+            "surname": "Нестеренко",
+            "patronymic": "Викторовна"
+          },
+          {
+            "name": "Денис",
+            "surname": "Кирин",
+            "patronymic": "Леонидович"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Цифровые платформы",
+        "date": "10.06.2022",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Дмитрий",
+            "surname": "Иртегов",
+            "patronymic": "Валентинович"
+          }
+        ],
+        "grade": 4
+      },
+      {
+        "subject": "Введение в дискретную математику и математическую логику",
+        "date": "20.06.2022",
+        "form": "exam",
+        "teachers": [
+          {
+            "name": "Зинаида",
+            "surname": "Апанович",
+            "patronymic": "Владимировна"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Физическая культура и спорт",
+        "date": "10.06.2022",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Григорий",
+            "surname": "Опарин",
+            "patronymic": "Андреевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Декларативное программирование",
+        "date": "10.06.2022",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Андрей",
+            "surname": "Куталев",
+            "patronymic": "Витальевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Физическая культура и спорт (элективная дисциплина)",
+        "date": "10.06.2022",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Григорий",
+            "surname": "Опарин",
+            "patronymic": "Андреевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Измерительный практикум",
+        "date": "06.06.2022",
+        "form": "credit",
+        "teachers": [
+          {
+            "name": "Олег",
+            "surname": "Брагин",
+            "patronymic": "Анатольевич"
+          },
+          {
+            "name": "Роман",
+            "surname": "Белоусов",
+            "patronymic": "Геннадьевич"
+          }
+        ],
+        "grade": 5
+      },
+      {
+        "subject": "Иностранный язык",
+        "date": "10.06.2022",
+        "form": "dif credit",
+        "teachers": [
+          {
+            "name": "Ольга",
+            "surname": "Хоцкина",
+            "patronymic": "Валерьевна"
+          }
+        ],
+        "grade": 4
+      }
+    ]
+  ]
+}
