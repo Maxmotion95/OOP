@@ -7,6 +7,7 @@ import org.json.JSONString;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collector;
 
 public class GradeBook {
     private final ArrayList<Semester> semesters = new ArrayList<>();
@@ -37,8 +38,14 @@ public class GradeBook {
                     case "credit":
                         type1 = Subject.ExamType.Credit;
                         break;
-                    default :
+                    case "dif credit" :
                         type1 = Subject.ExamType.DifCredit;
+                        break;
+                    case "defense FQW" :
+                        type1 = Subject.ExamType.defenseFQW;
+                        break;
+                    default:
+                        type1 = Subject.ExamType.ProtectionOfThePracticeReport;
                 };
                 ArrayList<Teacher> teachers = new ArrayList<>();
                 for (var teacher : kek.getJSONArray("teachers")) {
@@ -110,6 +117,43 @@ public class GradeBook {
                                 .getExamGrade() == 5 ? 1 : 0
                         ).sum()
                 ).sum();
-        return subjectsCount * 3 <= 4 * excellentGradesCount;
+
+        // check that 75% grades is excellent
+        // 3/4 <= excellentGradesCount / subjectsCount
+        // <=> 3 * subjectsCount <= 4 * excellentGradesCount
+        if (3 * subjectsCount > 4 * excellentGradesCount) {
+            return false;
+        }
+
+        boolean noSat = semesters
+                .stream()
+                .allMatch(semester -> semester
+                        .getSubjects()
+                        .stream()
+                        .allMatch(subject -> subject
+                                .getExamGrade() > 3));
+
+        if (!noSat) {
+            return false;
+        }
+
+        return semesters
+                .stream()
+                .anyMatch(semester -> semester
+                        .getSubjects()
+                        .stream()
+                        .anyMatch(subject -> subject.getExamType() == Subject.ExamType.defenseFQW && subject.getExamGrade() == 5));
+    }
+
+    boolean isIncreasedScholarshipInSemester(int semesterID) {
+        if (semesterID <= 0 || semesterID - 1 >= semesters.size()) {
+            return false;
+        }
+        return semesters
+                .get(semesterID - 1)
+                .getSubjects()
+                .stream()
+                .allMatch(subject -> subject
+                        .getExamGrade() == 5);
     }
 }
