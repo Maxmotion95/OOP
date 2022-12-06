@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,11 +21,12 @@ class GradeBookTest {
         JSONObject root = new JSONObject(tokener);
 
         GradeBook gradebook = new GradeBook(root);
-        assertEquals("4.8", String.format("%.1f", gradebook.getAverageGrade()));
-        assertTrue(gradebook.diplomaWithHonours());
-//        assertTrue(false);
+        assertEquals("4.8", String.format(Locale.US, "%.1f", gradebook.getAverageGrade()));
+        assertFalse(gradebook.diplomaWithHonours());
 
-//        System.out.println(gradebook.getAverageGrade());
+        for (int i = 0; i < gradebook.getSemesters().size(); ++i) {
+            assertFalse(gradebook.isIncreasedScholarshipInSemester(i));
+        }
     }
 
 }
