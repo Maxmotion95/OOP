@@ -67,5 +67,5 @@ public class Subject {
         this.examGrade = examGrade;
     }
 
-    public enum ExamType {Exam, DifCredit, Credit}
+    public enum ExamType {Exam, DifCredit, Credit, defenseFQW, ProtectionOfThePracticeReport}
 }
