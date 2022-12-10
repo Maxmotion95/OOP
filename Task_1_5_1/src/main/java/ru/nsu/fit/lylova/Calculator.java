@@ -23,7 +23,7 @@ public class Calculator {
             }
 
             FunctionType operationType = null;
-            switch (token){
+            switch (token) {
                 case "log":
                     operationType = FunctionType.LOG;
                     break;
