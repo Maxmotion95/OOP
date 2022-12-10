@@ -5,7 +5,7 @@ import ru.nsu.fit.lylova.functions.FunctionMultiply;
 import ru.nsu.fit.lylova.functions.FunctionSub;
 
 public class CalculatorFunctionFactory {
-    public CalculatorFunction createFunction(FunctionType type) {
+    static public CalculatorFunction createFunction(FunctionType type) {
         CalculatorFunction function = null;
 
         switch (type) {
