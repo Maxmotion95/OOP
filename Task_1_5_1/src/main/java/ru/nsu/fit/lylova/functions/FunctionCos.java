@@ -4,22 +4,22 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 
 import java.util.Stack;
 
-import static java.lang.Math.pow;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
 
-public class FunctionSub extends CalculatorFunction {
-    public FunctionSub() {
+public class FunctionCos extends CalculatorFunction {
+    public FunctionCos() {
     }
 
     @Override
     public void produce(Stack<Double> calculatorStack) throws Exception {
-        if (calculatorStack.size() < 2) {
+        if (calculatorStack.size() < 1) {
             throw new Exception("Not enough elements in calculatorStack");
         }
         double a = calculatorStack.pop();
-        double b = calculatorStack.pop();
-        double result = a - b;
+        double result = cos(a);
         if (Double.isNaN(result)) {
-            throw new Exception("Cannot subtract");
+            throw new Exception("Cannot calculate cos");
         }
         calculatorStack.push(result);
     }

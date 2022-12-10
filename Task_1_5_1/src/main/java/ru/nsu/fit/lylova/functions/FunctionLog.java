@@ -4,22 +4,22 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 
 import java.util.Stack;
 
-import static java.lang.Math.pow;
+import static java.lang.Math.log;
+import static java.lang.Math.sin;
 
-public class FunctionSub extends CalculatorFunction {
-    public FunctionSub() {
+public class FunctionLog extends CalculatorFunction {
+    public FunctionLog() {
     }
 
     @Override
     public void produce(Stack<Double> calculatorStack) throws Exception {
-        if (calculatorStack.size() < 2) {
+        if (calculatorStack.size() < 1) {
             throw new Exception("Not enough elements in calculatorStack");
         }
         double a = calculatorStack.pop();
-        double b = calculatorStack.pop();
-        double result = a - b;
+        double result = log(a);
         if (Double.isNaN(result)) {
-            throw new Exception("Cannot subtract");
+            throw new Exception("Cannot calculate log");
         }
         calculatorStack.push(result);
     }
