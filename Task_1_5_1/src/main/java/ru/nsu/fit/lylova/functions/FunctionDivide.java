@@ -6,8 +6,8 @@ import java.util.Stack;
 
 import static java.lang.Math.pow;
 
-public class FunctionSub extends CalculatorFunction {
-    public FunctionSub() {
+public class FunctionDivide extends CalculatorFunction {
+    public FunctionDivide() {
     }
 
     @Override
@@ -17,9 +17,9 @@ public class FunctionSub extends CalculatorFunction {
         }
         double a = calculatorStack.pop();
         double b = calculatorStack.pop();
-        double result = a - b;
+        double result = a / b;
         if (Double.isNaN(result)) {
-            throw new Exception("Cannot subtract");
+            throw new Exception("Cannot divide");
         }
         calculatorStack.push(result);
     }
