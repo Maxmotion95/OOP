@@ -29,4 +29,26 @@ class GradeBookTest {
         }
     }
 
+    @Test
+    void testGetAverageGrade() {
+        Student owner = new Student("Ivan", "Ivanov", "Ivanovich", 23456);
+        GradeBook gradeBook = new GradeBook(owner, 753232);
+
+        assertEquals( 23456, gradeBook.getStudent().getGroup());
+        assertEquals( 753232, gradeBook.getGradeBookNumber());
+        assertEquals("Ivan", gradeBook.getStudent().getName());
+        assertEquals("Ivanov", gradeBook.getStudent().getSurname());
+        assertEquals("Ivanovich", gradeBook.getStudent().getPatronymic());
+
+        gradeBook.addSemester();
+        Subject s = new Subject();
+        s.setExamDate("06.12.22");
+        s.setExamType(Subject.ExamType.Exam);
+        s.setExamGrade(2);
+        s.setSubjectName("Subject 1");
+        gradeBook.addSubjectToSemester(s, 0);
+        assertEquals(2, gradeBook.getAverageGrade());
+        assertFalse(gradeBook.isIncreasedScholarshipInSemester(0));
+        assertFalse(gradeBook.diplomaWithHonours());
+    }
 }
