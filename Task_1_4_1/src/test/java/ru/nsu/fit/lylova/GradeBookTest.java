@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -34,16 +36,17 @@ class GradeBookTest {
         Student owner = new Student("Ivan", "Ivanov", "Ivanovich", 23456);
         GradeBook gradeBook = new GradeBook(owner, 753232);
 
-        assertEquals( 23456, gradeBook.getStudent().getGroup());
-        assertEquals( 753232, gradeBook.getGradeBookNumber());
+        assertEquals(23456, gradeBook.getStudent().getGroup());
+        assertEquals(753232, gradeBook.getGradeBookNumber());
         assertEquals("Ivan", gradeBook.getStudent().getName());
         assertEquals("Ivanov", gradeBook.getStudent().getSurname());
         assertEquals("Ivanovich", gradeBook.getStudent().getPatronymic());
 
         gradeBook.addSemester();
         Subject s = new Subject();
-        s.setExamDate("06.12.22");
-        s.setExamType(Subject.ExamType.Exam);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        s.setExamDate(LocalDate.parse("06.12.2022", formatter));
+        s.setExamType(Subject.ExamType.EXAM);
         s.setExamGrade(2);
         s.setSubjectName("Subject 1");
         gradeBook.addSubjectToSemester(s, 0);

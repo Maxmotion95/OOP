@@ -1,21 +1,22 @@
 package ru.nsu.fit.lylova;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Subject {
     private String subjectName;
-    private String examDate;
+    private LocalDate examDate;
     private List<Teacher> teachers;
     private ExamType examType;
 
     ;
     private int examGrade;
+
     Subject() {
     }
 
     Subject(String subjectName,
-            String examDate,
+            LocalDate examDate,
             List<Teacher> teachers,
             ExamType examType,
             int examGrade) {
@@ -34,11 +35,11 @@ public class Subject {
         this.subjectName = subjectName;
     }
 
-    public String getExamDate() {
+    public LocalDate getExamDate() {
         return examDate;
     }
 
-    public void setExamDate(String examDate) {
+    public void setExamDate(LocalDate examDate) {
         this.examDate = examDate;
     }
 
@@ -67,5 +68,11 @@ public class Subject {
         this.examGrade = examGrade;
     }
 
-    public enum ExamType {Exam, DifCredit, Credit, defenseFQW, ProtectionOfThePracticeReport}
+    public enum ExamType {
+        EXAM,
+        DIF_CREDIT,
+        CREDIT,
+        DEFENSE_FQW,
+        PROTECTION_OF_THE_PRACTICE_REPORT
+    }
 }
