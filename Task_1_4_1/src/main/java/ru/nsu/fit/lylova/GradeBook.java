@@ -85,8 +85,8 @@ public class GradeBook {
         semesters.add(new Semester());
     }
 
-    public void addSubjectToSemester(Subject subject, int semester_id) {
-        semesters.get(semester_id).addSubject(subject);
+    public void addSubjectToSemester(Subject subject, int semesterId) {
+        semesters.get(semesterId).addSubject(subject);
     }
 
     public double getAverageGrade() {
@@ -113,7 +113,7 @@ public class GradeBook {
             return false;
         }
 
-        boolean noSat = semesters
+        boolean noSatisfactoryGrade = semesters
                 .stream()
                 .allMatch(semester -> semester
                         .getSubjects()
@@ -121,7 +121,7 @@ public class GradeBook {
                         .allMatch(subject -> subject
                                 .getExamGrade() > 3));
 
-        if (!noSat) {
+        if (!noSatisfactoryGrade) {
             return false;
         }
 
@@ -130,7 +130,9 @@ public class GradeBook {
                 .anyMatch(semester -> semester
                         .getSubjects()
                         .stream()
-                        .anyMatch(subject -> subject.getExamType() == Subject.ExamType.DEFENSE_FQW && subject.getExamGrade() == 5));
+                        .anyMatch(subject -> subject.getExamType() == Subject.ExamType.DEFENSE_FQW
+                                && subject.getExamGrade() == 5
+                        ));
     }
 
     public boolean isIncreasedScholarshipInSemester(int semesterID) {
