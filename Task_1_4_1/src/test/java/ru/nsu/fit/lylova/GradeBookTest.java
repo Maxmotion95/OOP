@@ -22,7 +22,8 @@ class GradeBookTest {
         JSONTokener tokener = new JSONTokener(new FileReader(initialFile, StandardCharsets.UTF_8));
         JSONObject root = new JSONObject(tokener);
 
-        GradeBook gradebook = new GradeBook(root);
+        GradeBook gradebook = new GradeBook();
+        gradebook.loadGradeBookFromJson(root);
         assertEquals("4.8", String.format(Locale.US, "%.1f", gradebook.getAverageGrade()));
         assertFalse(gradebook.diplomaWithHonours());
 
