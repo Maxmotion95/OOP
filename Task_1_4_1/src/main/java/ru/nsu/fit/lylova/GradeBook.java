@@ -1,13 +1,11 @@
 package ru.nsu.fit.lylova;
 
-import netscape.javascript.JSObject;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.json.JSONString;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collector;
 
 public class GradeBook {
     private final ArrayList<Semester> semesters = new ArrayList<>();
@@ -32,21 +30,22 @@ public class GradeBook {
                 var type = kek.getString("form");
                 Subject.ExamType type1;
                 switch (type) {
-                    case "exam" :
-                        type1 = Subject.ExamType.Exam;
+                    case "exam":
+                        type1 = Subject.ExamType.EXAM;
                         break;
                     case "credit":
-                        type1 = Subject.ExamType.Credit;
+                        type1 = Subject.ExamType.CREDIT;
                         break;
-                    case "dif credit" :
-                        type1 = Subject.ExamType.DifCredit;
+                    case "dif credit":
+                        type1 = Subject.ExamType.DIF_CREDIT;
                         break;
-                    case "defense FQW" :
-                        type1 = Subject.ExamType.defenseFQW;
+                    case "defense FQW":
+                        type1 = Subject.ExamType.DEFENSE_FQW;
                         break;
                     default:
-                        type1 = Subject.ExamType.ProtectionOfThePracticeReport;
-                };
+                        type1 = Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT;
+                }
+                ;
                 ArrayList<Teacher> teachers = new ArrayList<>();
                 for (var teacher : kek.getJSONArray("teachers")) {
                     var kek2 = (JSONObject) teacher;
@@ -56,9 +55,11 @@ public class GradeBook {
                             kek2.getString("patronymic")
                     ));
                 }
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
                 this.addSubjectToSemester(new Subject(
                         kek.getString("subject"),
-                        kek.getString("date"),
+                        LocalDate.parse(kek.getString("date"), formatter),
                         teachers,
                         type1,
                         kek.getInt("grade")
@@ -142,7 +143,7 @@ public class GradeBook {
                 .anyMatch(semester -> semester
                         .getSubjects()
                         .stream()
-                        .anyMatch(subject -> subject.getExamType() == Subject.ExamType.defenseFQW && subject.getExamGrade() == 5));
+                        .anyMatch(subject -> subject.getExamType() == Subject.ExamType.DEFENSE_FQW && subject.getExamGrade() == 5));
     }
 
     boolean isIncreasedScholarshipInSemester(int semesterID) {
