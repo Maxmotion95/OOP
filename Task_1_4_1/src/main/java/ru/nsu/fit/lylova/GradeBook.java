@@ -12,8 +12,16 @@ public class GradeBook {
     private Student student;
     private int gradeBookNumber;
 
-    GradeBook(JSONObject gradeBook) {
-        JSONObject jsonStudent = (JSONObject) gradeBook.getJSONObject("student");
+    public GradeBook() {
+    }
+
+    public GradeBook(Student student, int gradebookNumber) {
+        this.student = student;
+        this.gradeBookNumber = gradebookNumber;
+    }
+
+    public void loadGradeBookFromJson(JSONObject gradeBook) {
+        JSONObject jsonStudent = gradeBook.getJSONObject("student");
         student = new Student(
                 jsonStudent.getString("name"),
                 jsonStudent.getString("surname"),
@@ -67,11 +75,6 @@ public class GradeBook {
             }
             ++semester_id;
         }
-    }
-
-    GradeBook(Student student, int gradebookNumber) {
-        this.student = student;
-        this.gradeBookNumber = gradebookNumber;
     }
 
     public Student getStudent() {
@@ -146,7 +149,7 @@ public class GradeBook {
                         .anyMatch(subject -> subject.getExamType() == Subject.ExamType.DEFENSE_FQW && subject.getExamGrade() == 5));
     }
 
-    boolean isIncreasedScholarshipInSemester(int semesterID) {
+    public boolean isIncreasedScholarshipInSemester(int semesterID) {
         if (semesterID <= 0 || semesterID - 1 >= semesters.size()) {
             return false;
         }
