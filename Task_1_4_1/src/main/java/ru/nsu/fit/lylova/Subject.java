@@ -8,8 +8,6 @@ public class Subject {
     private LocalDate examDate;
     private List<Teacher> teachers;
     private ExamType examType;
-
-    ;
     private int examGrade;
 
     Subject() {
@@ -57,15 +55,26 @@ public class Subject {
 
     public void setExamType(ExamType examType) {
         this.examType = examType;
-        this.examGrade = 0;
+        this.examGrade = 2;
     }
 
     public int getExamGrade() {
         return examGrade;
     }
 
-    public void setExamGrade(int examGrade) {
+    public boolean setExamGrade(int examGrade) {
+        if (examGrade > 5 || examGrade < 2) {
+            return false;
+        }
+        if (examType == ExamType.CREDIT) {
+            if (examGrade == 5 || examGrade == 2) {
+                this.examGrade = examGrade;
+                return true;
+            }
+            return false;
+        }
         this.examGrade = examGrade;
+        return true;
     }
 
     public enum ExamType {
