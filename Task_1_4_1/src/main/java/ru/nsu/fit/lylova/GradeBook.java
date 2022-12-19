@@ -34,43 +34,27 @@ public class GradeBook {
         for (var semester : semesters) {
             this.addSemester();
             for (var jsonSubject : (JSONArray) semester) {
-                var kek = (JSONObject) jsonSubject;
-                var type = kek.getString("form");
-                Subject.ExamType type1;
-                switch (type) {
-                    case "exam":
-                        type1 = Subject.ExamType.EXAM;
-                        break;
-                    case "credit":
-                        type1 = Subject.ExamType.CREDIT;
-                        break;
-                    case "dif credit":
-                        type1 = Subject.ExamType.DIF_CREDIT;
-                        break;
-                    case "defense FQW":
-                        type1 = Subject.ExamType.DEFENSE_FQW;
-                        break;
-                    default:
-                        type1 = Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT;
-                }
-                ;
+                JSONObject subject = (JSONObject) jsonSubject;
+                String type = subject.getString("form");
+                Subject.ExamType type1 = Subject.ExamType.valueOf(type);
+
                 ArrayList<Teacher> teachers = new ArrayList<>();
-                for (var teacher : kek.getJSONArray("teachers")) {
-                    var kek2 = (JSONObject) teacher;
+                for (var teacher : subject.getJSONArray("teachers")) {
+                    JSONObject teacherJSONObject = (JSONObject) teacher;
                     teachers.add(new Teacher(
-                            kek2.getString("name"),
-                            kek2.getString("surname"),
-                            kek2.getString("patronymic")
+                            teacherJSONObject.getString("name"),
+                            teacherJSONObject.getString("surname"),
+                            teacherJSONObject.getString("patronymic")
                     ));
                 }
 
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
                 this.addSubjectToSemester(new Subject(
-                        kek.getString("subject"),
-                        LocalDate.parse(kek.getString("date"), formatter),
+                        subject.getString("subject"),
+                        LocalDate.parse(subject.getString("date"), formatter),
                         teachers,
                         type1,
-                        kek.getInt("grade")
+                        subject.getInt("grade")
                 ), semester_id);
             }
             ++semester_id;
