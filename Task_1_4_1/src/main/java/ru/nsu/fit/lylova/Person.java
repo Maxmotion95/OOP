@@ -16,12 +16,12 @@ public class Person {
 
     @Override
     public String toString() {
-        String shortName = new String();
+        String shortName = "";
         if (name.length() > 0) {
             shortName += name.charAt(0);
             shortName += '.';
         }
-        String shortPatronymic = new String();
+        String shortPatronymic = "";
         if (patronymic.length() > 0) {
             shortPatronymic += patronymic.charAt(0);
             shortPatronymic += '.';
