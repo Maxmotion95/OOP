@@ -8,7 +8,7 @@ public class Subject {
     private LocalDate examDate;
     private List<Teacher> teachers;
     private ExamType examType;
-    private int examGrade;
+    private int examGrade = 0;
 
     Subject() {
     }
@@ -22,7 +22,7 @@ public class Subject {
         this.examDate = examDate;
         this.teachers = teachers;
         this.examType = examType;
-        this.examGrade = examGrade;
+        this.setExamGrade(examGrade);
     }
 
     public String getSubjectName() {
