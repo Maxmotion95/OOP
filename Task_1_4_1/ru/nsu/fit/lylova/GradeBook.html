@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -138,6 +138,32 @@ extends java.lang.Object</pre>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">GradeBook</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ru.nsu.fit.lylova.Student,int)">GradeBook</a></span>&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student,
+         int&nbsp;gradebookNumber)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ========== METHOD SUMMARY =========== -->
 <section>
 <ul class="blockList">
@@ -160,7 +186,7 @@ extends java.lang.Object</pre>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubjectToSemester(ru.nsu.fit.lylova.Subject,int)">addSubjectToSemester</a></span>&#8203;(<a href="Subject.html" title="class in ru.nsu.fit.lylova">Subject</a>&nbsp;subject,
-                    int&nbsp;semester_id)</code></th>
+                    int&nbsp;semesterId)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
@@ -175,27 +201,48 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGradeBookNumber()">getGradeBookNumber</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">getCountOfSubjectWithExamTypeInSemester</a></span>&#8203;(int&nbsp;semesterID,
+                                       <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i5" class="rowColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemesters()">getSemesters</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGradeBookNumber()">getGradeBookNumber</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i6" class="altColor">
+<td class="colFirst"><code>java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemesters()">getSemesters</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStudent()">getStudent</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncreasedScholarshipInSemester(int)">isIncreasedScholarshipInSemester</a></span>&#8203;(int&nbsp;semesterID)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadGradeBookFromJson(org.json.JSONObject)">loadGradeBookFromJson</a></span>&#8203;(org.json.JSONObject&nbsp;gradeBook)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGradeBookNumber(int)">setGradeBookNumber</a></span>&#8203;(int&nbsp;gradeBookNumber)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStudent(ru.nsu.fit.lylova.Student)">setStudent</a></span>&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i12" class="altColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -204,7 +251,7 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -215,6 +262,35 @@ extends java.lang.Object</pre>
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a id="&lt;init&gt;()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>GradeBook</h4>
+<pre>public&nbsp;GradeBook()</pre>
+</li>
+</ul>
+<a id="&lt;init&gt;(ru.nsu.fit.lylova.Student,int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>GradeBook</h4>
+<pre>public&nbsp;GradeBook&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student,
+                 int&nbsp;gradebookNumber)</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ============ METHOD DETAIL ========== -->
 <section>
 <ul class="blockList">
@@ -222,6 +298,28 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="toString()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>toString</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
+<dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+</dl>
+</li>
+</ul>
+<a id="loadGradeBookFromJson(org.json.JSONObject)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadGradeBookFromJson</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;loadGradeBookFromJson&#8203;(org.json.JSONObject&nbsp;gradeBook)</pre>
+</li>
+</ul>
 <a id="getStudent()">
 <!--   -->
 </a>
@@ -264,7 +362,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getSemesters</h4>
-<pre class="methodSignature">public&nbsp;java.util.ArrayList&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;&nbsp;getSemesters()</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;&nbsp;getSemesters()</pre>
 </li>
 </ul>
 <a id="addSemester()">
@@ -283,7 +381,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addSubjectToSemester</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSubjectToSemester&#8203;(<a href="Subject.html" title="class in ru.nsu.fit.lylova">Subject</a>&nbsp;subject,
-                                 int&nbsp;semester_id)</pre>
+                                 int&nbsp;semesterId)</pre>
 </li>
 </ul>
 <a id="getAverageGrade()">
@@ -298,10 +396,29 @@ extends java.lang.Object</pre>
 <a id="diplomaWithHonours()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>diplomaWithHonours</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;diplomaWithHonours()</pre>
+</li>
+</ul>
+<a id="isIncreasedScholarshipInSemester(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isIncreasedScholarshipInSemester</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isIncreasedScholarshipInSemester&#8203;(int&nbsp;semesterID)</pre>
+</li>
+</ul>
+<a id="getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getCountOfSubjectWithExamTypeInSemester</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getCountOfSubjectWithExamTypeInSemester&#8203;(int&nbsp;semesterID,
+                                                   <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</pre>
 </li>
 </ul>
 </li>
@@ -356,13 +473,13 @@ extends java.lang.Object</pre>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
