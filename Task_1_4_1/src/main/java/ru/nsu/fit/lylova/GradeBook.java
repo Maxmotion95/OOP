@@ -167,4 +167,11 @@ public class GradeBook {
                 .allMatch(subject -> subject
                         .getExamGrade() == 5);
     }
+
+    public int getCountOfSubjectWithExamTypeInSemester(int semesterID, Subject.ExamType examType) {
+        if (semesterID < 0 || semesterID >= semesters.size()) {
+            return 0;
+        }
+        return semesters.get(semesterID).getCountOfSubjectWithExamType(examType);
+    }
 }
