@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Semester {
     private List<Subject> subjects;
@@ -35,7 +36,7 @@ public class Semester {
                     subject.getExamType().toString(),
                     Integer.toString(subject.getExamGrade()),
                     subject.getExamDate().format(formatter),
-                    String.join(", ", subject.getTeachers().stream().map(Person::toString).toList())
+                    subject.getTeachers().stream().map(Person::toString).collect(Collectors.joining(", "))
             };
 
             for (int i = 0; i < widthOfTableColumn.length; ++i) {
