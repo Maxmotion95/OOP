@@ -1,9 +1,11 @@
 package ru.nsu.fit.lylova;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,8 +13,6 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GradeBookTest {
 
