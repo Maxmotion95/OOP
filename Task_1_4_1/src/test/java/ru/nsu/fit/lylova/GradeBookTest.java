@@ -27,6 +27,8 @@ class GradeBookTest {
         assertEquals("4.8", String.format(Locale.US, "%.1f", gradebook.getAverageGrade()));
         assertFalse(gradebook.diplomaWithHonours());
 
+        System.out.println(gradebook);
+
         for (int i = 0; i < gradebook.getSemesters().size(); ++i) {
             assertFalse(gradebook.isIncreasedScholarshipInSemester(i));
         }
