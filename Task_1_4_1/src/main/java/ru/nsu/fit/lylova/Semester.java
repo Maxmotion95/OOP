@@ -70,4 +70,8 @@ public class Semester {
     public int getSumOfGrades() {
         return subjects.stream().mapToInt(Subject::getExamGrade).sum();
     }
+
+    public int getCountOfSubjectWithExamType(Subject.ExamType examType) {
+        return (int) subjects.stream().filter(subject -> subject.getExamType() == examType).count();
+    }
 }
