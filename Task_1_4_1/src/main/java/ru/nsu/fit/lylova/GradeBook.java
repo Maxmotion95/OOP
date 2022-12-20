@@ -6,9 +6,10 @@ import org.json.JSONObject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GradeBook {
-    private final ArrayList<Semester> semesters = new ArrayList<>();
+    private final List<Semester> semesters = new ArrayList<>();
     private Student student;
     private int gradeBookNumber;
 
@@ -18,6 +19,26 @@ public class GradeBook {
     public GradeBook(Student student, int gradebookNumber) {
         this.student = student;
         this.gradeBookNumber = gradebookNumber;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("GradeBook #");
+        result.append(gradeBookNumber);
+        result.append("\nStudent: ");
+        result.append(student.getSurname())
+                .append(" ")
+                .append(student.getName())
+                .append(" ")
+                .append(student.getPatronymic());
+        result.append("\n");
+        for (int i = 0; i < semesters.size(); ++i) {
+            result.append("Semester ");
+            result.append(i + 1);
+            result.append("\n").append(semesters.get(i));
+            result.append("\n");
+        }
+        return result.toString();
     }
 
     public void loadGradeBookFromJson(JSONObject gradeBook) {
@@ -77,7 +98,7 @@ public class GradeBook {
         this.gradeBookNumber = gradeBookNumber;
     }
 
-    public ArrayList<Semester> getSemesters() {
+    public List<Semester> getSemesters() {
         return semesters;
     }
 

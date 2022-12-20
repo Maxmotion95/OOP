@@ -14,6 +14,21 @@ public class Person {
         this.patronymic = patronymic;
     }
 
+    @Override
+    public String toString() {
+        String shortName = new String();
+        if (name.length() > 0) {
+            shortName += name.charAt(0);
+            shortName += '.';
+        }
+        String shortPatronymic = new String();
+        if (patronymic.length() > 0) {
+            shortPatronymic += patronymic.charAt(0);
+            shortPatronymic += '.';
+        }
+        return surname + ' ' + shortName + shortPatronymic;
+    }
+
     public String getName() {
         return name;
     }
