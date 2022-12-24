@@ -1,22 +1,21 @@
 package ru.nsu.fit.lylova;
 
 import java.io.*;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Class Main with method main that implements the logic of the notebook console application.
+ */
 public class Main {
-    public static void main(String[] args) throws InterruptedException, IOException {
-//        String[] args = args_.clone();
-//        for (int i = 0; i < args.length; ++i) {
-//            var bytes = args[i].getBytes();
-//            args[i] = new String(bytes, StandardCharsets.UTF_8);
-//        }
-
+    /**
+     * The main method that implements the logic of the notebook console application.
+     * @param args arguments of command line
+     */
+    public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("Invalid command line arguments");
             return;
@@ -80,10 +79,25 @@ public class Main {
                 break;
         }
 
-        FileOutputStream outputStream = new FileOutputStream("data.json");
+        FileOutputStream outputStream = null;
+        try {
+            outputStream = new FileOutputStream("data.json");
+        } catch (FileNotFoundException e) {
+            System.out.println("Loading changes broke :(((((((");
+            return;
+        }
         byte[] strToBytes = notebook.getDataInJson().getBytes(StandardCharsets.UTF_8);
-        outputStream.write(strToBytes);
+        try {
+            outputStream.write(strToBytes);
+        } catch (IOException e) {
+            System.out.println("Loading changes broke :(((((((");
+            return;
+        }
 
-        outputStream.close();
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            System.out.println("Loading changes broke :(((((((");
+        }
     }
 }
