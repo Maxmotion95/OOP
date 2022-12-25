@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 
 /**
- * Interface of graph with vertexes of the {@code V} class and edges of the {@code E} class.
+ * Abstract class of graph with vertexes of the {@code V} class and edges of the {@code E} class.
  *
  * @param <V> class of vertexes
  * @param <E> class of edges

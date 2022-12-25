@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Implementation of {@code Graph} interface, that stores edges using adjacency list.
+ * Implementation of abstract class {@code Graph}, that stores edges using adjacency list.
  *
  * @param <V> class of vertexes
  * @param <E> class of edge value
