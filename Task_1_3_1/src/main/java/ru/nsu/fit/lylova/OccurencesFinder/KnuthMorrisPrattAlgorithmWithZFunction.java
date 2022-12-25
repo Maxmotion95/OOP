@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * using the z-function instead of the prefix-function.
  */
 public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder {
-    private static final int minBufferSize = 1024;
+    private static final int MIN_BUFFER_SIZE = 1024;
 
     /**
      * Function that finds all occurrences of string {@code pattern}
@@ -43,22 +43,29 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
 
         int[] strZFunc = zFunction(pattern);
 
-        char[] buf1 = new char[max(pattern.length(), minBufferSize)];
-        char[] buf2 = new char[max(pattern.length(), minBufferSize)];
-        int count1 = readBuf(buf1, in);
+        char[] firstPartOfText = new char[max(pattern.length(), MIN_BUFFER_SIZE)];
+        char[] secondPartOfText = new char[max(pattern.length(), MIN_BUFFER_SIZE)];
+        int countSymbolsInFirstPartOfText = readBuf(firstPartOfText, in);
         int currentPos = 0;
 
-        while (count1 != 0) {
-            int count2 = readBuf(buf2, in);
-            int[] tmp = zFunction(pattern, strZFunc, buf1, count1, buf2, count2);
-            for (int i = 0; i < count1; ++i) {
-                if (tmp[i] == pattern.length()) {
+        while (countSymbolsInFirstPartOfText != 0) {
+            int countSymbolsInSecondPartOfText = readBuf(secondPartOfText, in);
+            int[] zFunctionOfFirstPartOfText = zFunction(
+                    pattern,
+                    strZFunc,
+                    firstPartOfText,
+                    countSymbolsInFirstPartOfText,
+                    secondPartOfText,
+                    countSymbolsInSecondPartOfText
+            );
+            for (int i = 0; i < countSymbolsInFirstPartOfText; ++i) {
+                if (zFunctionOfFirstPartOfText[i] == pattern.length()) {
                     res.add(i + currentPos);
                 }
             }
-            currentPos += count1;
-            count1 = count2;
-            buf1 = buf2.clone();
+            currentPos += countSymbolsInFirstPartOfText;
+            countSymbolsInFirstPartOfText = countSymbolsInSecondPartOfText;
+            firstPartOfText = secondPartOfText.clone();
         }
         return res;
     }

@@ -37,26 +37,26 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             return result;
         }
 
-        char[] buf1 = new char[Math.max(pattern.length(), minBufferSize)];
-        char[] buf2 = new char[Math.max(pattern.length(), minBufferSize)];
-        int count1 = readBuf(buf1, in);
+        char[] firstPartOfText = new char[Math.max(pattern.length(), minBufferSize)];
+        char[] secondPartOfText = new char[Math.max(pattern.length(), minBufferSize)];
+        int countSymbolsInFirstPartOfText = readBuf(firstPartOfText, in);
         int currentPos = 0;
 
-        while (count1 != 0) {
-            int count2 = readBuf(buf2, in);
-            String stringBuilder = String.valueOf(buf1, 0, count1)
-                    + String.valueOf(buf2, 0, count2);
+        while (countSymbolsInFirstPartOfText != 0) {
+            int countSymbolsInSecondPartOfText = readBuf(secondPartOfText, in);
+            String text = String.valueOf(firstPartOfText, 0, countSymbolsInFirstPartOfText)
+                    + String.valueOf(secondPartOfText, 0, countSymbolsInSecondPartOfText);
 
-            ArrayList<Integer> tmp = aG(pattern, stringBuilder);
+            ArrayList<Integer> tmp = apostolicoCrochemoreAlgorithm(pattern, text);
             for (int i : tmp) {
-                if (i < count1) {
+                if (i < countSymbolsInFirstPartOfText) {
                     result.add(i + currentPos);
                 }
             }
 
-            currentPos += count1;
-            count1 = count2;
-            buf1 = buf2.clone();
+            currentPos += countSymbolsInFirstPartOfText;
+            countSymbolsInFirstPartOfText = countSymbolsInSecondPartOfText;
+            firstPartOfText = secondPartOfText.clone();
         }
         return result;
     }
@@ -87,7 +87,7 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
         }
     }
 
-    private static ArrayList<Integer> aG(String pattern, String text) {
+    private static ArrayList<Integer> apostolicoCrochemoreAlgorithm(String pattern, String text) {
         int[] t = new int[pattern.length() + 1];
         ArrayList<Integer> result = new ArrayList<>();
 
