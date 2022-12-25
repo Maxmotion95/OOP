@@ -6,17 +6,24 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Class Semester to collect subjects of one semester.
+ */
 public class Semester {
     private List<Subject> subjects;
 
+    /**
+     * Constructs semester that does not contain subjects.
+     */
     Semester() {
         subjects = new ArrayList<>();
     }
 
-    Semester(List<Subject> subjects) {
-        this.subjects = subjects;
-    }
-
+    /**
+     * Returns string that contains table view of all subject in this semester.
+     *
+     * @return string that contains table view of all subject in this semester
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
@@ -52,26 +59,57 @@ public class Semester {
         return result.toString();
     }
 
+    /**
+     * Returns list of all subjects in this semester.
+     *
+     * @return list of all subjects
+     */
     public List<Subject> getSubjects() {
         return subjects;
     }
 
+    /**
+     * Changes list of subjects to specified one.
+     *
+     * @param subjects new list of subjects
+     */
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
     }
 
+    /**
+     * Adds specified subject to this semester.
+     *
+     * @param subject subject to be added in this semester
+     */
     public void addSubject(Subject subject) {
         subjects.add(subject);
     }
 
+    /**
+     * Returns count of subjects in this semester.
+     *
+     * @return count of subjects
+     */
     public int getCountOfSubjects() {
         return subjects.size();
     }
 
+    /**
+     * Returns sum of grades in this semester.
+     *
+     * @return sum of grades
+     */
     public int getSumOfGrades() {
         return subjects.stream().mapToInt(Subject::getExamGrade).sum();
     }
 
+    /**
+     * Returns count of subjects with specified exam type in this semester.
+     *
+     * @param examType exam type
+     * @return count of subjects with specified exam type
+     */
     public int getCountOfSubjectWithExamType(Subject.ExamType examType) {
         return (int) subjects.stream().filter(subject -> subject.getExamType() == examType).count();
     }
