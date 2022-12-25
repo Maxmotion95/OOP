@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class that implements interface {@code OccurrencesFinder}.
@@ -31,7 +32,7 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    public static ArrayList<Integer> find(InputStream inputStream, String pattern)
+    public static List<Integer> find(InputStream inputStream, String pattern)
             throws IOException {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
                 StandardCharsets.UTF_8);
