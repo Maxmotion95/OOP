@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">GradeBook</span>
 extends java.lang.Object</pre>
+<div class="block">Class grade book.</div>
 </li>
 </ul>
 </div>
@@ -153,12 +154,16 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">GradeBook</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs an empty grade book.</div>
+</td>
 </tr>
 <tr class="rowColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(ru.nsu.fit.lylova.Student,int)">GradeBook</a></span>&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student,
          int&nbsp;gradebookNumber)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs grade book with specified owner and number of grade book.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -181,69 +186,97 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSemester()">addSemester</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds one semester to grade book.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addSubjectToSemester(ru.nsu.fit.lylova.Subject,int)">addSubjectToSemester</a></span>&#8203;(<a href="Subject.html" title="class in ru.nsu.fit.lylova">Subject</a>&nbsp;subject,
                     int&nbsp;semesterId)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds specified subject to semester with number <code>semesterId</code>.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#diplomaWithHonours()">diplomaWithHonours</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks whether a student can get a diploma with honors based on the grades received.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAverageGrade()">getAverageGrade</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns average grade of all subjects in grade book.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">getCountOfSubjectWithExamTypeInSemester</a></span>&#8203;(int&nbsp;semesterID,
                                        <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns count of subjects with exam type - <code>examType</code>
+ in semester with number <code>semesterID</code>.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getGradeBookNumber()">getGradeBookNumber</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns number of this grade book.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSemesters()">getSemesters</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns list of Semesters.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStudent()">getStudent</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns owner of this grade book.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncreasedScholarshipInSemester(int)">isIncreasedScholarshipInSemester</a></span>&#8203;(int&nbsp;semesterID)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks whether a student can have an increased scholarship
+ in semester with number <code>semesterID</code>.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#loadGradeBookFromJson(org.json.JSONObject)">loadGradeBookFromJson</a></span>&#8203;(org.json.JSONObject&nbsp;gradeBook)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Initializes grade book with data from <code>gradeBook</code>.</div>
+</td>
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setGradeBookNumber(int)">setGradeBookNumber</a></span>&#8203;(int&nbsp;gradeBookNumber)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes number of this grade book to specified number.</div>
+</td>
 </tr>
 <tr id="i11" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStudent(ru.nsu.fit.lylova.Student)">setStudent</a></span>&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes owner of this grade book to specified student.</div>
+</td>
 </tr>
 <tr id="i12" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#toString()">toString</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns string that contains table view of grade book data.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -276,6 +309,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>GradeBook</h4>
 <pre>public&nbsp;GradeBook()</pre>
+<div class="block">Constructs an empty grade book.</div>
 </li>
 </ul>
 <a id="&lt;init&gt;(ru.nsu.fit.lylova.Student,int)">
@@ -286,6 +320,12 @@ extends java.lang.Object</pre>
 <h4>GradeBook</h4>
 <pre>public&nbsp;GradeBook&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student,
                  int&nbsp;gradebookNumber)</pre>
+<div class="block">Constructs grade book with specified owner and number of grade book.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>student</code> - owner of this grade book</dd>
+<dd><code>gradebookNumber</code> - grade book number</dd>
+</dl>
 </li>
 </ul>
 </li>
@@ -305,9 +345,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>toString</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;toString()</pre>
+<div class="block">Returns string that contains table view of grade book data.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>toString</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>string that contains table view of grade book data</dd>
 </dl>
 </li>
 </ul>
@@ -318,6 +361,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>loadGradeBookFromJson</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;loadGradeBookFromJson&#8203;(org.json.JSONObject&nbsp;gradeBook)</pre>
+<div class="block">Initializes grade book with data from <code>gradeBook</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>gradeBook</code> - json object that contain all data of grade book.</dd>
+</dl>
 </li>
 </ul>
 <a id="getStudent()">
@@ -327,6 +375,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getStudent</h4>
 <pre class="methodSignature">public&nbsp;<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;getStudent()</pre>
+<div class="block">Returns owner of this grade book.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>owner of this grade book</dd>
+</dl>
 </li>
 </ul>
 <a id="setStudent(ru.nsu.fit.lylova.Student)">
@@ -336,6 +389,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setStudent</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setStudent&#8203;(<a href="Student.html" title="class in ru.nsu.fit.lylova">Student</a>&nbsp;student)</pre>
+<div class="block">Changes owner of this grade book to specified student.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>student</code> - new owner of this grade book.</dd>
+</dl>
 </li>
 </ul>
 <a id="getGradeBookNumber()">
@@ -345,6 +403,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getGradeBookNumber</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getGradeBookNumber()</pre>
+<div class="block">Returns number of this grade book.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of this grade book.</dd>
+</dl>
 </li>
 </ul>
 <a id="setGradeBookNumber(int)">
@@ -354,6 +417,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setGradeBookNumber</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setGradeBookNumber&#8203;(int&nbsp;gradeBookNumber)</pre>
+<div class="block">Changes number of this grade book to specified number.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>gradeBookNumber</code> - new number of this grade book</dd>
+</dl>
 </li>
 </ul>
 <a id="getSemesters()">
@@ -363,6 +431,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getSemesters</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Semester.html" title="class in ru.nsu.fit.lylova">Semester</a>&gt;&nbsp;getSemesters()</pre>
+<div class="block">Returns list of Semesters.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of Semesters</dd>
+</dl>
 </li>
 </ul>
 <a id="addSemester()">
@@ -372,6 +445,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addSemester</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSemester()</pre>
+<div class="block">Adds one semester to grade book.</div>
 </li>
 </ul>
 <a id="addSubjectToSemester(ru.nsu.fit.lylova.Subject,int)">
@@ -382,6 +456,13 @@ extends java.lang.Object</pre>
 <h4>addSubjectToSemester</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addSubjectToSemester&#8203;(<a href="Subject.html" title="class in ru.nsu.fit.lylova">Subject</a>&nbsp;subject,
                                  int&nbsp;semesterId)</pre>
+<div class="block">Adds specified subject to semester with number <code>semesterId</code>.
+ Semesters are numbered from 0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subject</code> - subject to add</dd>
+<dd><code>semesterId</code> - number of semester</dd>
+</dl>
 </li>
 </ul>
 <a id="getAverageGrade()">
@@ -391,6 +472,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getAverageGrade</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;getAverageGrade()</pre>
+<div class="block">Returns average grade of all subjects in grade book.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>average grade of all subjects in grade book</dd>
+</dl>
 </li>
 </ul>
 <a id="diplomaWithHonours()">
@@ -400,6 +486,17 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>diplomaWithHonours</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;diplomaWithHonours()</pre>
+<div class="block">Checks whether a student can get a diploma with honors based on the grades received.
+ Requirements for a diploma with honors:
+ <ul>
+     <li>75% of the grades in the diploma supplement (the last grade) – "excellent"</li>
+     <li>There are no final grades "satisfactory" in the record book</li>
+     <li>The qualification work is protected with "excellent"</li>
+ </ul></div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if student will have diploma with honours</dd>
+</dl>
 </li>
 </ul>
 <a id="isIncreasedScholarshipInSemester(int)">
@@ -409,6 +506,20 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>isIncreasedScholarshipInSemester</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;isIncreasedScholarshipInSemester&#8203;(int&nbsp;semesterID)</pre>
+<div class="block">Checks whether a student can have an increased scholarship
+ in semester with number <code>semesterID</code>.
+ Requirements for an increased scholarship:
+ <ul>
+     <li>All grades in previous semester are excellent (5)</li>
+ </ul>
+ Semesters are numbered from 0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>semesterID</code> - number of semester</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if student will have increased scholarship
+ in semester with number <code>semesterID</code></dd>
+</dl>
 </li>
 </ul>
 <a id="getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">
@@ -419,6 +530,16 @@ extends java.lang.Object</pre>
 <h4>getCountOfSubjectWithExamTypeInSemester</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getCountOfSubjectWithExamTypeInSemester&#8203;(int&nbsp;semesterID,
                                                    <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</pre>
+<div class="block">Returns count of subjects with exam type - <code>examType</code>
+ in semester with number <code>semesterID</code>.
+ Semesters are numbered from 0.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>semesterID</code> - number of semester</dd>
+<dd><code>examType</code> - exam type</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>count of subjects with specified exam type in specified semester</dd>
+</dl>
 </li>
 </ul>
 </li>

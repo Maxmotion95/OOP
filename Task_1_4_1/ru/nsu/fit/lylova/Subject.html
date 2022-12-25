@@ -132,6 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Subject</span>
 extends java.lang.Object</pre>
+<div class="block">Class subject</div>
 </li>
 </ul>
 </div>
@@ -155,7 +156,9 @@ extends java.lang.Object</pre>
 <tr class="altColor">
 <td class="colFirst"><code>static class&nbsp;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a></span></code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Enum class with all exam types.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -178,52 +181,72 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>java.time.LocalDate</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExamDate()">getExamDate</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns exam date of this subject.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExamGrade()">getExamGrade</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns exam grade of this subject.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExamType()">getExamType</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns exam type of this subject.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubjectName()">getSubjectName</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns name of this subject.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>java.util.List&lt;<a href="Teacher.html" title="class in ru.nsu.fit.lylova">Teacher</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTeachers()">getTeachers</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns list of teachers of this subject.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExamDate(java.time.LocalDate)">setExamDate</a></span>&#8203;(java.time.LocalDate&nbsp;examDate)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes subject's exam date to the specified one.</div>
+</td>
 </tr>
 <tr id="i6" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExamGrade(int)">setExamGrade</a></span>&#8203;(int&nbsp;examGrade)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes exam grade of this subject to the specified one.</div>
+</td>
 </tr>
 <tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setExamType(ru.nsu.fit.lylova.Subject.ExamType)">setExamType</a></span>&#8203;(<a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes subject's exam type to the specified one.</div>
+</td>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setSubjectName(java.lang.String)">setSubjectName</a></span>&#8203;(java.lang.String&nbsp;subjectName)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes subject's name to the specified one.</div>
+</td>
 </tr>
 <tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTeachers(java.util.List)">setTeachers</a></span>&#8203;(java.util.List&lt;<a href="Teacher.html" title="class in ru.nsu.fit.lylova">Teacher</a>&gt;&nbsp;teachers)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Changes list of teachers to the specified one.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -256,6 +279,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getSubjectName</h4>
 <pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getSubjectName()</pre>
+<div class="block">Returns name of this subject.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>subject's name</dd>
+</dl>
 </li>
 </ul>
 <a id="setSubjectName(java.lang.String)">
@@ -265,6 +293,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setSubjectName</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setSubjectName&#8203;(java.lang.String&nbsp;subjectName)</pre>
+<div class="block">Changes subject's name to the specified one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subjectName</code> - new subject's name</dd>
+</dl>
 </li>
 </ul>
 <a id="getExamDate()">
@@ -274,6 +307,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExamDate</h4>
 <pre class="methodSignature">public&nbsp;java.time.LocalDate&nbsp;getExamDate()</pre>
+<div class="block">Returns exam date of this subject.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>subject's exam date</dd>
+</dl>
 </li>
 </ul>
 <a id="setExamDate(java.time.LocalDate)">
@@ -283,6 +321,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setExamDate</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setExamDate&#8203;(java.time.LocalDate&nbsp;examDate)</pre>
+<div class="block">Changes subject's exam date to the specified one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>examDate</code> - new subject's exam date</dd>
+</dl>
 </li>
 </ul>
 <a id="getTeachers()">
@@ -292,6 +335,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getTeachers</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Teacher.html" title="class in ru.nsu.fit.lylova">Teacher</a>&gt;&nbsp;getTeachers()</pre>
+<div class="block">Returns list of teachers of this subject.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>list of teachers</dd>
+</dl>
 </li>
 </ul>
 <a id="setTeachers(java.util.List)">
@@ -301,6 +349,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setTeachers</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setTeachers&#8203;(java.util.List&lt;<a href="Teacher.html" title="class in ru.nsu.fit.lylova">Teacher</a>&gt;&nbsp;teachers)</pre>
+<div class="block">Changes list of teachers to the specified one.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>teachers</code> - new list of teachers.</dd>
+</dl>
 </li>
 </ul>
 <a id="getExamType()">
@@ -310,6 +363,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExamType</h4>
 <pre class="methodSignature">public&nbsp;<a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;getExamType()</pre>
+<div class="block">Returns exam type of this subject.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>subject's exam type</dd>
+</dl>
 </li>
 </ul>
 <a id="setExamType(ru.nsu.fit.lylova.Subject.ExamType)">
@@ -319,6 +377,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setExamType</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;setExamType&#8203;(<a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</pre>
+<div class="block">Changes subject's exam type to the specified one.
+ Subject's exam grade changes to <code>2</code>.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>examType</code> - new subject's exam type</dd>
+</dl>
 </li>
 </ul>
 <a id="getExamGrade()">
@@ -328,6 +392,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getExamGrade</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getExamGrade()</pre>
+<div class="block">Returns exam grade of this subject.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>subject's exam grade</dd>
+</dl>
 </li>
 </ul>
 <a id="setExamGrade(int)">
@@ -337,6 +406,17 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>setExamGrade</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;setExamGrade&#8203;(int&nbsp;examGrade)</pre>
+<div class="block">Changes exam grade of this subject to the specified one.
+ The new grade is validated according to the type of exam.
+ If the exam type is <code>CREDIT</code>, then the grade should be 2 or 5.
+ If the exam type is different from <code>CREDIT</code>,
+ then the grade should be between 2 and 5.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>examGrade</code> - new subject's exam grade</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if subject's grade changed</dd>
+</dl>
 </li>
 </ul>
 </li>
