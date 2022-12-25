@@ -34,49 +34,59 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
     public static ArrayList<Integer> find(InputStream inputStream, String pattern)
             throws IOException {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
-                                                                    StandardCharsets.UTF_8);
+                StandardCharsets.UTF_8);
         BufferedReader in = new BufferedReader(inputStreamReader);
-        ArrayList<Integer> res = new ArrayList<>();
+        ArrayList<Integer> result = new ArrayList<>();
         if (pattern.length() == 0) {
-            return res;
+            return result;
         }
 
         int[] strZFunc = zFunction(pattern);
 
-        char[] firstPartOfText = new char[max(pattern.length(), MIN_BUFFER_SIZE)];
-        char[] secondPartOfText = new char[max(pattern.length(), MIN_BUFFER_SIZE)];
-        int countSymbolsInFirstPartOfText = readBuf(firstPartOfText, in);
+        char[] buf = new char[max(2 * pattern.length(), MIN_BUFFER_SIZE)];
+        int offset = 0;
+        int l = -1;
+        int r = -1;
+        int i = 0;
         int currentPos = 0;
 
-        while (countSymbolsInFirstPartOfText != 0) {
-            int countSymbolsInSecondPartOfText = readBuf(secondPartOfText, in);
-            int[] zFunctionOfFirstPartOfText = zFunction(
-                    pattern,
-                    strZFunc,
-                    firstPartOfText,
-                    countSymbolsInFirstPartOfText,
-                    secondPartOfText,
-                    countSymbolsInSecondPartOfText
-            );
-            for (int i = 0; i < countSymbolsInFirstPartOfText; ++i) {
-                if (zFunctionOfFirstPartOfText[i] == pattern.length()) {
-                    res.add(i + currentPos);
-                }
-            }
-            currentPos += countSymbolsInFirstPartOfText;
-            countSymbolsInFirstPartOfText = countSymbolsInSecondPartOfText;
-            firstPartOfText = secondPartOfText.clone();
-        }
-        return res;
-    }
+        int countReadSymbols;
+        while ((countReadSymbols = in.read(buf, offset, buf.length - offset)) != -1) {
+            offset += countReadSymbols;
+            while (i + pattern.length() - 1 < offset) {
+                int ans;
+                if (i < r) {
+                    ans = strZFunc[i - l];
+                } else ans = 0;
 
-    private static int readBuf(char[] buf, BufferedReader in) throws IOException {
-        int count;
-        int offset = 0;
-        while (offset < buf.length && (count = in.read(buf, offset, buf.length - offset)) != -1) {
-            offset += count;
+                while (ans < pattern.length() && i + ans < offset && buf[i + ans] == pattern.charAt(ans)) {
+                    ++ans;
+                }
+
+                if (i + ans > r) {
+                    l = i;
+                    r = i + ans;
+                }
+
+                if (ans == pattern.length()) {
+                    result.add(currentPos + i);
+                }
+
+                ++i;
+            }
+            if (i >= pattern.length()) {
+                l -= i;
+                r -= i;
+                currentPos += i;
+
+                for (int j = i; j < offset; ++j) {
+                    buf[j - i] = buf[j];
+                }
+                offset -= i;
+                i = 0;
+            }
         }
-        return offset;
+        return result;
     }
 
     private static int[] zFunction(String str) {
@@ -87,35 +97,6 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
         for (int i = 1; i < str.length(); ++i) {
             ans[i] = max(0, min(right - i, ans[i - left]));
             while (i + ans[i] < str.length() && str.charAt(ans[i]) == str.charAt(i + ans[i])) {
-                ++ans[i];
-            }
-            if (i + ans[i] > right) {
-                left = i;
-                right = i + ans[i];
-            }
-        }
-        return ans;
-    }
-
-    private static int[] zFunction(String str, int[] zStr,
-                                   char[] buf1, int buf1size,
-                                   char[] buf2, int buf2size) {
-        int[] ans = new int[buf1size];
-        StringBuilder bufSum = new StringBuilder();
-        bufSum.append(buf1, 0, buf1size);
-        bufSum.append(buf2, 0, buf2size);
-
-        int left = -1;
-        int right = -1;
-        for (int i = 0; i < buf1size; ++i) {
-            if (i < right) {
-                ans[i] = zStr[i - left];
-            } else {
-                ans[i] = 0;
-            }
-            while (ans[i] < str.length()
-                    && i + ans[i] < bufSum.length()
-                    && str.charAt(ans[i]) == bufSum.charAt(i + ans[i])) {
                 ++ans[i];
             }
             if (i + ans[i] > right) {
