@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.function.Function;
+
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
 import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
 import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
@@ -27,20 +29,13 @@ public class Main {
 
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
 
-        int n = sc.nextInt();
-        for (int i = 0; i < n; ++i) {
-            var kek = sc.next();
-            g.addVertex(kek);
-        }
+        Function<String, String> vertexParser = str -> str;
+        Function<String, Edge> edgeParser = str -> {
+            Scanner strScanner = new Scanner(str);
+            return new Edge(strScanner.nextInt());
+        };
 
-        int m = sc.nextInt();
-        for (int i = 0; i < m; ++i) {
-            var u = sc.next();
-            var v = sc.next();
-            int w = sc.nextInt();
-            g.addEdge(u, v, new Edge(w));
-            g.addEdge(v, u, new Edge(w));
-        }
+        g.initializationFromScanner(vertexParser, edgeParser, sc);
 
         ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a =
                 new ShortestPathInGraph<>();

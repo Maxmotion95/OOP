@@ -13,7 +13,7 @@ import java.util.Set;
  * @param <V> class of vertexes
  * @param <E> class of edge value
  */
-public class IncidenceMatrixGraph<V, E> implements Graph<V, E> {
+public class IncidenceMatrixGraph<V, E> extends Graph<V, E> {
     private final Map<V, Map<E, V>> matrix;
     private final Set<V> vertexes;
 
