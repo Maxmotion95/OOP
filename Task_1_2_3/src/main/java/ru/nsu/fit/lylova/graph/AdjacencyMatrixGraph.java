@@ -12,7 +12,7 @@ import java.util.Set;
  * @param <V> class of vertexes
  * @param <E> class of edge value
  */
-public class AdjacencyMatrixGraph<V, E> implements Graph<V, E> {
+public class AdjacencyMatrixGraph<V, E> extends Graph<V, E> {
     private final Set<V> vertexes;
     private final Map<V, Map<V, E>> matrix;
 

@@ -11,7 +11,7 @@ import java.util.Set;
  * @param <V> class of vertexes
  * @param <E> class of edge value
  */
-public class AdjacencyListGraph<V, E> implements Graph<V, E> {
+public class AdjacencyListGraph<V, E> extends Graph<V, E> {
     private final List<AdjacencyListEdge> listEdges;
     private final Set<V> vertexes;
 

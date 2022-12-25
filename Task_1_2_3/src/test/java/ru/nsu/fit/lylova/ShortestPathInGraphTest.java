@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.function.Function;
+
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
 import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
@@ -17,20 +19,18 @@ import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
 class ShortestPathInGraphTest {
 
     void init(Graph<Integer, Edge> g, String filepath) throws FileNotFoundException {
-        Scanner sc = new Scanner(new File(filepath));
-        int n = sc.nextInt();
-        for (int i = 0; i < n; ++i) {
-            int v = sc.nextInt();
-            g.addVertex(v);
-        }
+        Function<String, Integer> vertexParser = str -> {
+            Scanner sc = new Scanner(str);
+            return sc.nextInt();
+        };
 
-        int m = sc.nextInt();
-        for (int i = 0; i < m; ++i) {
-            int u = sc.nextInt();
-            int v = sc.nextInt();
-            int w = sc.nextInt();
-            g.addEdge(u, v, new Edge(w));
-        }
+        Function<String, Edge> edgeParser = str -> {
+            Scanner sc = new Scanner(str);
+            return new Edge(sc.nextInt());
+        };
+
+        Scanner sc = new Scanner(new File(filepath));
+        g.initializationFromScanner(vertexParser, edgeParser, sc);
     }
 
     @Test
