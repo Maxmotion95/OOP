@@ -23,8 +23,7 @@ public class Main {
      * @param args command line arguments (not used)
      */
     public static void main(String[] args) throws FileNotFoundException {
-        System.setIn(new FileInputStream("Task_1_2_3/src/main/input.txt"));
-        Scanner sc = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
+        Scanner sc = new Scanner(new FileInputStream("Task_1_2_3/src/main/input.txt"));
 
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
 
