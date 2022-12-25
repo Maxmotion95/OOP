@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Implementation of {@code Graph} interface, that stores edges using incidence matrix.
+ * Implementation of abstract class {@code Graph}, that stores edges using incidence matrix.
  *
  * @param <V> class of vertexes
  * @param <E> class of edge value

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Implementation of {@code Graph} interface, that stores edges using adjacency matrix.
+ * Implementation of abstract class {@code Graph}, that stores edges using adjacency matrix.
  *
  * @param <V> class of vertexes
  * @param <E> class of edge value
