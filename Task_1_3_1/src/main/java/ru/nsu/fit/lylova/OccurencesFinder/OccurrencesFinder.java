@@ -3,6 +3,7 @@ package ru.nsu.fit.lylova.OccurencesFinder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The interface of a class that has a find function
@@ -18,7 +19,7 @@ public interface OccurrencesFinder {
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    static ArrayList<Integer> find(InputStream inputStream, String pattern) throws IOException {
+    static List<Integer> find(InputStream inputStream, String pattern) throws IOException {
         return null;
     }
 }
