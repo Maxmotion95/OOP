@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6};
-var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":10,"i5":6,"i6":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -90,13 +90,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -116,9 +116,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <main role="main">
 <div class="header">
 <div class="subTitle"><span class="packageLabelInType">Package</span>&nbsp;<a href="package-summary.html">ru.nsu.fit.lylova.graph</a></div>
-<h2 title="Interface Graph" class="title">Interface Graph&lt;V,&#8203;E&gt;</h2>
+<h2 title="Class Graph" class="title">Class Graph&lt;V,&#8203;E&gt;</h2>
 </div>
 <div class="contentContainer">
+<ul class="inheritance">
+<li>java.lang.Object</li>
+<li>
+<ul class="inheritance">
+<li>ru.nsu.fit.lylova.graph.Graph&lt;V,&#8203;E&gt;</li>
+</ul>
+</li>
+</ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
@@ -128,11 +136,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>E</code> - class of edges</dd>
 </dl>
 <dl>
-<dt>All Known Implementing Classes:</dt>
+<dt>Direct Known Subclasses:</dt>
 <dd><code><a href="AdjacencyListGraph.html" title="class in ru.nsu.fit.lylova.graph">AdjacencyListGraph</a></code>, <code><a href="AdjacencyMatrixGraph.html" title="class in ru.nsu.fit.lylova.graph">AdjacencyMatrixGraph</a></code>, <code><a href="IncidenceMatrixGraph.html" title="class in ru.nsu.fit.lylova.graph">IncidenceMatrixGraph</a></code></dd>
 </dl>
 <hr>
-<pre>public interface <span class="typeNameLabel">Graph&lt;V,&#8203;E&gt;</span></pre>
+<pre>public abstract class <span class="typeNameLabel">Graph&lt;V,&#8203;E&gt;</span>
+extends java.lang.Object</pre>
 <div class="block">Interface of graph with vertexes of the <code>V</code> class and edges of the <code>E</code> class.</div>
 </li>
 </ul>
@@ -140,6 +149,27 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">Graph</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ========== METHOD SUMMARY =========== -->
 <section>
 <ul class="blockList">
@@ -148,14 +178,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code>abstract boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addEdge(V,V,E)">addEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
        <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b,
        <a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;e)</code></th>
@@ -164,21 +194,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code>abstract boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addVertex(V)">addVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</code></th>
 <td class="colLast">
 <div class="block">Add vertex with value <code>v</code>.</div>
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
+<td class="colFirst"><code>abstract java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#arrayVertexes()">arrayVertexes</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns ArrayList that contains all vertexes.</div>
 </td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code><a href="Graph.html" title="type parameter in Graph">E</a></code></td>
+<td class="colFirst"><code>abstract <a href="Graph.html" title="type parameter in Graph">E</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEdge(V,V)">getEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
        <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)</code></th>
 <td class="colLast">
@@ -187,21 +217,37 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i4" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializationFromScanner(java.util.function.Function,java.util.function.Function,java.util.Scanner)">initializationFromScanner</a></span>&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
+                         java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
+                         java.util.Scanner&nbsp;scanner)</code></th>
+<td class="colLast">
+<div class="block">Initializes graph from scanner data.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>abstract boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeEdge(V,V)">removeEdge</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
           <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)</code></th>
 <td class="colLast">
 <div class="block">Remove edge from vertex <code>a</code> to vertex <code>b</code>.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>abstract boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeVertex(V)">removeVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</code></th>
 <td class="colLast">
 <div class="block">Remove vertex with value <code>v</code>.</div>
 </td>
 </tr>
 </table>
+<ul class="blockList">
+<li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
+<!--   -->
+</a>
+<h3>Methods inherited from class&nbsp;java.lang.Object</h3>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
+</ul>
 </li>
 </ul>
 </section>
@@ -211,6 +257,25 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a id="&lt;init&gt;()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>Graph</h4>
+<pre>public&nbsp;Graph()</pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ============ METHOD DETAIL ========== -->
 <section>
 <ul class="blockList">
@@ -226,7 +291,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>addVertex</h4>
-<pre class="methodSignature">boolean&nbsp;addVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</pre>
+<pre class="methodSignature">public abstract&nbsp;boolean&nbsp;addVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</pre>
 <div class="block">Add vertex with value <code>v</code>.
  Returns <code>true</code> if vertex was added. Otherwise, return <code>false</code>.</div>
 <dl>
@@ -245,7 +310,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>removeVertex</h4>
-<pre class="methodSignature">boolean&nbsp;removeVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</pre>
+<pre class="methodSignature">public abstract&nbsp;boolean&nbsp;removeVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;v)</pre>
 <div class="block">Remove vertex with value <code>v</code>.
  Returns <code>true</code> if vertex was removed. Otherwise, return <code>false</code>.</div>
 <dl>
@@ -264,9 +329,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>addEdge</h4>
-<pre class="methodSignature">boolean&nbsp;addEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
-                <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b,
-                <a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;e)</pre>
+<pre class="methodSignature">public abstract&nbsp;boolean&nbsp;addEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
+                                <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b,
+                                <a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;e)</pre>
 <div class="block">Add edge from vertex <code>a</code> to vertex <code>b</code> with value <code>e</code>.
  Return <code>true</code> if edge was added.</div>
 <dl>
@@ -287,8 +352,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>removeEdge</h4>
-<pre class="methodSignature">boolean&nbsp;removeEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
-                   <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)</pre>
+<pre class="methodSignature">public abstract&nbsp;boolean&nbsp;removeEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
+                                   <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)</pre>
 <div class="block">Remove edge from vertex <code>a</code> to vertex <code>b</code>.
  Return <code>true</code> if edge was removed.</div>
 <dl>
@@ -306,7 +371,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>arrayVertexes</h4>
-<pre class="methodSignature">java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;arrayVertexes()</pre>
+<pre class="methodSignature">public abstract&nbsp;java.util.ArrayList&lt;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;arrayVertexes()</pre>
 <div class="block">Returns ArrayList that contains all vertexes.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -319,12 +384,12 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </a><a id="getEdge(V,V)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getEdge</h4>
-<pre class="methodSignature"><a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;getEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
-          <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)
-   throws java.lang.Exception</pre>
+<pre class="methodSignature">public abstract&nbsp;<a href="Graph.html" title="type parameter in Graph">E</a>&nbsp;getEdge&#8203;(<a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;a,
+                          <a href="Graph.html" title="type parameter in Graph">V</a>&nbsp;b)
+                   throws java.lang.Exception</pre>
 <div class="block">Return value of edge that starts from vertex with value <code>a</code> and
  ends in vertex with value <code>b</code>.</div>
 <dl>
@@ -335,6 +400,38 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>value of edge that starts from vertex <code>a</code> and ends in vertex <code>b</code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Exception</code> - such edge doesn't exist</dd>
+</dl>
+</li>
+</ul>
+<a id="initializationFromScanner(java.util.function.Function,java.util.function.Function,java.util.Scanner)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>initializationFromScanner</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;initializationFromScanner&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
+                                      java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
+                                      java.util.Scanner&nbsp;scanner)</pre>
+<div class="block">Initializes graph from scanner data.
+ Does not clean the graph before initialization,
+ but only adds the graph described in the scanner.
+ To parse the scanner token into a vertex, the <code>vertexParser</code> function is used.
+ To parse the scanner token into an edge, the <code>edgeParser</code> function is used.
+ <br>Format of graph data:
+ <ul>
+     <li>First token of scanner is integer number, which is equal to the number of vertices.</li>
+     <li>The following n tokens contain vertices.</li>
+     <li>Next token is integer number, which is equal to the number of edges.</li>
+     <li>The next n triples of tokens describe the edges.
+     Each edge is described by two vertices and an edge.
+     The first two tokens in the triple are the starting and ending vertices of the edge.
+     The third token is the content of the edge.</li>
+ </ul></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>vertexParser</code> - function that parses vertex</dd>
+<dd><code>edgeParser</code> - function that parses edge</dd>
+<dd><code>scanner</code> - scanner with graph data</dd>
 </dl>
 </li>
 </ul>
@@ -391,13 +488,13 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
