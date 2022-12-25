@@ -1,12 +1,15 @@
 package ru.nsu.fit.lylova;
 
+/**
+ * Class with method main.
+ */
 public class Main {
+    /**
+     * Method main, that prints to the standard output stream "Hello World!".
+     *
+     * @param args command line arguments (ignored)
+     */
     public static void main(String[] args) {
-        Student kek = new Student("aba", "kek", "patr", 1224);
-        kek = new Student();
-        System.out.println(kek.getName());
-        System.out.println(kek.getSurname());
-        System.out.println(kek.getPatronymic());
-        System.out.println(kek.getGroup());
+        System.out.println("Hello world!");
     }
 }
