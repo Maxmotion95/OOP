@@ -4,9 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
 import java.util.function.Function;
-
 import org.junit.jupiter.api.Test;
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
 import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
