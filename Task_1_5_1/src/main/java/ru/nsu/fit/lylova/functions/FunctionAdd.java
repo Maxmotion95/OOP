@@ -2,12 +2,9 @@ package ru.nsu.fit.lylova.functions;
 
 import ru.nsu.fit.lylova.CalculatorFunction;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
-import static java.lang.Math.pow;
-
-public class FunctionAdd extends CalculatorFunction {
+public class FunctionAdd implements CalculatorFunction {
     public FunctionAdd(){
     }
 
@@ -23,5 +20,10 @@ public class FunctionAdd extends CalculatorFunction {
             throw new Exception("Cannot add");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("+");
     }
 }

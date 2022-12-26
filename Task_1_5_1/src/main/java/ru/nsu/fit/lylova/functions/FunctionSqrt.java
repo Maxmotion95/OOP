@@ -6,7 +6,7 @@ import java.util.Stack;
 
 import static java.lang.Math.sqrt;
 
-public class FunctionSqrt extends CalculatorFunction {
+public class FunctionSqrt implements CalculatorFunction {
     public FunctionSqrt() {
     }
 
@@ -21,5 +21,10 @@ public class FunctionSqrt extends CalculatorFunction {
             throw new Exception("Cannot calculate sqrt");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("sqrt");
     }
 }

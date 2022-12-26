@@ -5,9 +5,8 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 import java.util.Stack;
 
 import static java.lang.Math.cos;
-import static java.lang.Math.sin;
 
-public class FunctionCos extends CalculatorFunction {
+public class FunctionCos implements CalculatorFunction {
     public FunctionCos() {
     }
 
@@ -22,5 +21,10 @@ public class FunctionCos extends CalculatorFunction {
             throw new Exception("Cannot calculate cos");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("cos");
     }
 }
