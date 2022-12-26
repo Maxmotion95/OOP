@@ -26,11 +26,61 @@ public class GradeBook {
      * Constructs grade book with specified owner and number of grade book.
      *
      * @param student         owner of this grade book
-     * @param gradebookNumber grade book number
+     * @param gradeBookNumber grade book number
      */
-    public GradeBook(Student student, int gradebookNumber) {
+    public GradeBook(Student student, int gradeBookNumber) {
         this.student = student;
-        this.gradeBookNumber = gradebookNumber;
+        this.gradeBookNumber = gradeBookNumber;
+    }
+
+    /**
+     * Initializes grade book with data from {@code gradeBook}.
+     *
+     * @param gradeBook json object that contain all data of grade book
+     * @return grade book with data from {@code gradeBook}
+     */
+    public static GradeBook loadGradeBookFromJson(JSONObject gradeBook) {
+
+        JSONObject jsonStudent = gradeBook.getJSONObject("student");
+        Student student = new Student(
+                jsonStudent.getString("name"),
+                jsonStudent.getString("surname"),
+                jsonStudent.getString("patronymic"),
+                jsonStudent.getInt("group"));
+        int gradeBookNumber = gradeBook.getInt("grade_book_id");
+        GradeBook result = new GradeBook(student, gradeBookNumber);
+
+        var semesters = gradeBook.getJSONArray("semesters");
+        int semester_id = 0;
+        for (var semester : semesters) {
+            result.addSemester();
+            for (var jsonSubject : (JSONArray) semester) {
+                JSONObject subject = (JSONObject) jsonSubject;
+                String typeString = subject.getString("form");
+                Subject.ExamType type = Subject.ExamType.valueOf(typeString);
+
+                ArrayList<Teacher> teachers = new ArrayList<>();
+                for (var teacher : subject.getJSONArray("teachers")) {
+                    JSONObject teacherJSONObject = (JSONObject) teacher;
+                    teachers.add(new Teacher(
+                            teacherJSONObject.getString("name"),
+                            teacherJSONObject.getString("surname"),
+                            teacherJSONObject.getString("patronymic")
+                    ));
+                }
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                result.addSubjectToSemester(new Subject(
+                        subject.getString("subject"),
+                        LocalDate.parse(subject.getString("date"), formatter),
+                        teachers,
+                        type,
+                        subject.getInt("grade")
+                ), semester_id);
+            }
+            ++semester_id;
+        }
+        return result;
     }
 
     /**
@@ -56,52 +106,6 @@ public class GradeBook {
             result.append("\n");
         }
         return result.toString();
-    }
-
-    /**
-     * Initializes grade book with data from {@code gradeBook}.
-     *
-     * @param gradeBook json object that contain all data of grade book.
-     */
-    public void loadGradeBookFromJson(JSONObject gradeBook) {
-        JSONObject jsonStudent = gradeBook.getJSONObject("student");
-        student = new Student(
-                jsonStudent.getString("name"),
-                jsonStudent.getString("surname"),
-                jsonStudent.getString("patronymic"),
-                jsonStudent.getInt("group")
-        );
-        gradeBookNumber = gradeBook.getInt("grade_book_id");
-        var semesters = gradeBook.getJSONArray("semesters");
-        int semester_id = 0;
-        for (var semester : semesters) {
-            this.addSemester();
-            for (var jsonSubject : (JSONArray) semester) {
-                JSONObject subject = (JSONObject) jsonSubject;
-                String type = subject.getString("form");
-                Subject.ExamType type1 = Subject.ExamType.valueOf(type);
-
-                ArrayList<Teacher> teachers = new ArrayList<>();
-                for (var teacher : subject.getJSONArray("teachers")) {
-                    JSONObject teacherJSONObject = (JSONObject) teacher;
-                    teachers.add(new Teacher(
-                            teacherJSONObject.getString("name"),
-                            teacherJSONObject.getString("surname"),
-                            teacherJSONObject.getString("patronymic")
-                    ));
-                }
-
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-                this.addSubjectToSemester(new Subject(
-                        subject.getString("subject"),
-                        LocalDate.parse(subject.getString("date"), formatter),
-                        teachers,
-                        type1,
-                        subject.getInt("grade")
-                ), semester_id);
-            }
-            ++semester_id;
-        }
     }
 
     /**
@@ -260,7 +264,7 @@ public class GradeBook {
      * Semesters are numbered from 0.
      *
      * @param semesterID number of semester
-     * @param examType exam type
+     * @param examType   exam type
      * @return count of subjects with specified exam type in specified semester
      */
     public int getCountOfSubjectWithExamTypeInSemester(int semesterID, Subject.ExamType examType) {
