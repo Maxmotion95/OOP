@@ -7,7 +7,8 @@ import java.util.Scanner;
  */
 public class Main {
     /**
-     * implementation of calculator with functions:
+     * Implementation of calculator. <br>
+     * List of calculator's functions:
      * <ul>
      *     <li>addition</li>
      *     <li>cosine</li>
@@ -17,7 +18,7 @@ public class Main {
      *     <li>pow</li>
      *     <li>sine</li>
      *     <li>square root</li>
-     *     <li>subtraction.</li>
+     *     <li>subtraction</li>
      * </ul>
      *
      * @param args command line arguments (not used)

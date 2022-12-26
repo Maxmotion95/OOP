@@ -24,7 +24,8 @@ public class Calculator {
     private final List<CalculatorFunction> functions = new ArrayList<>();
 
     /**
-     * Constructs calculator with functions:
+     * Constructs calculator. <br>
+     * List of calculator's functions:
      * <ul>
      *     <li>addition</li>
      *     <li>cosine</li>
