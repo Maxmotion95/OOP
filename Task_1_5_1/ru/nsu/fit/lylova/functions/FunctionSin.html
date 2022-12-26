@@ -138,6 +138,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">FunctionSin</span>
 extends java.lang.Object
 implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></pre>
+<div class="block">Function sine which implements interface <code>CalculatorFunction</code>.</div>
 </li>
 </ul>
 </div>
@@ -159,7 +160,9 @@ implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.l
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">FunctionSin</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs function sine.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -182,12 +185,16 @@ implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.l
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String)">parse</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks that specified token is token of sine function.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#produce(java.util.Stack)">produce</a></span>&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)</code></th>
-<td class="colLast">&nbsp;</td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#use(java.util.Stack)">use</a></span>&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)</code></th>
+<td class="colLast">
+<div class="block">Uses sine function on calculator stack.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -220,6 +227,7 @@ implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.l
 <li class="blockList">
 <h4>FunctionSin</h4>
 <pre>public&nbsp;FunctionSin()</pre>
+<div class="block">Constructs function sine.</div>
 </li>
 </ul>
 </li>
@@ -232,19 +240,22 @@ implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.l
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="produce(java.util.Stack)">
+<a id="use(java.util.Stack)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>produce</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;produce&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)
-             throws java.lang.Exception</pre>
+<h4>use</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;use&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)
+         throws java.lang.Exception</pre>
+<div class="block">Uses sine function on calculator stack.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code><a href="../CalculatorFunction.html#produce(java.util.Stack)">produce</a></code>&nbsp;in interface&nbsp;<code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
+<dd><code><a href="../CalculatorFunction.html#use(java.util.Stack)">use</a></code>&nbsp;in interface&nbsp;<code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>calculatorStack</code> - calculator stack</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd>
+<dd><code>java.lang.Exception</code> - if sine cannot be used</dd>
 </dl>
 </li>
 </ul>
@@ -255,9 +266,15 @@ implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.l
 <li class="blockList">
 <h4>parse</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;parse&#8203;(java.lang.String&nbsp;token)</pre>
+<div class="block">Checks that specified token is token of sine function.
+ Token of sine function is <code>"sin"</code>.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="../CalculatorFunction.html#parse(java.lang.String)">parse</a></code>&nbsp;in interface&nbsp;<code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>token</code> - expression token</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if token is <code>"sin"</code>.</dd>
 </dl>
 </li>
 </ul>

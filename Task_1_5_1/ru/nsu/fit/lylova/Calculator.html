@@ -133,6 +133,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Calculator</span>
 extends java.lang.Object</pre>
+<div class="block">Class calculator.</div>
 </li>
 </ul>
 </div>
@@ -156,17 +157,23 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addAllFunctions(java.util.Collection)">addAllFunctions</a></span>&#8203;(java.util.Collection&lt;<a href="CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a>&gt;&nbsp;collectionFunctions)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds all functions from collection <code>collectionFunctions</code> to this calculator.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addFunction(ru.nsu.fit.lylova.CalculatorFunction)">addFunction</a></span>&#8203;(<a href="CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a>&nbsp;function)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds specified function to this calculator.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>double</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#calculateExpression(java.lang.String)">calculateExpression</a></span>&#8203;(java.lang.String&nbsp;expression)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Calculates specified expression.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -200,9 +207,14 @@ extends java.lang.Object</pre>
 <h4>calculateExpression</h4>
 <pre class="methodSignature">public&nbsp;double&nbsp;calculateExpression&#8203;(java.lang.String&nbsp;expression)
                            throws java.lang.Exception</pre>
+<div class="block">Calculates specified expression.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>expression</code> - expression to be calculated</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>result of calculation</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd>
+<dd><code>java.lang.Exception</code> - if expression is incorrect</dd>
 </dl>
 </li>
 </ul>
@@ -213,6 +225,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addFunction</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addFunction&#8203;(<a href="CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a>&nbsp;function)</pre>
+<div class="block">Adds specified function to this calculator.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>function</code> - function to be added</dd>
+</dl>
 </li>
 </ul>
 <a id="addAllFunctions(java.util.Collection)">
@@ -222,6 +239,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addAllFunctions</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addAllFunctions&#8203;(java.util.Collection&lt;<a href="CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a>&gt;&nbsp;collectionFunctions)</pre>
+<div class="block">Adds all functions from collection <code>collectionFunctions</code> to this calculator.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>collectionFunctions</code> - functions collection</dd>
+</dl>
 </li>
 </ul>
 </li>
