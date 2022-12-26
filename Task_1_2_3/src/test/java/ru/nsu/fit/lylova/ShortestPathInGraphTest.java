@@ -24,10 +24,7 @@ class ShortestPathInGraphTest {
             return sc.nextInt();
         };
 
-        Function<String, Edge> edgeParser = str -> {
-            Scanner sc = new Scanner(str);
-            return new Edge(sc.nextInt());
-        };
+        Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
         Scanner sc = new Scanner(new File(filepath));
         g.initializationFromScanner(vertexParser, edgeParser, sc);
