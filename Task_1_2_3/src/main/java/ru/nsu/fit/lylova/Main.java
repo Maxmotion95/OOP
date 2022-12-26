@@ -30,10 +30,7 @@ public class Main {
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
 
         Function<String, String> vertexParser = str -> str;
-        Function<String, Edge> edgeParser = str -> {
-            Scanner strScanner = new Scanner(str);
-            return new Edge(strScanner.nextInt());
-        };
+        Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
         g.initializationFromScanner(vertexParser, edgeParser, sc);
 
