@@ -48,6 +48,75 @@ class CalculatorTest {
         assertEquals(2014, calculator.calculateExpression(expr));
     }
 
+    @Test
+    void testExceptions() {
+        Calculator calculator = new Calculator();
+        Exception exception;
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression(""));
+        assertEquals("bad expression :(", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("1 2"));
+        assertEquals("bad expression :(", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("kek 1"));
+        assertEquals("No such function :(", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("+ 1"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("cos"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("/ 1"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("log"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("* 1"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("pow 1"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sin"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sqrt"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("- 1"));
+        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("/ 0 0"));
+        assertEquals("Cannot divide", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sqrt -1"));
+        assertEquals("Cannot calculate sqrt", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("pow -1 0.5"));
+        assertEquals("Cannot pow", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sin / 1 0"));
+        assertEquals("Cannot calculate sin", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("- / 1 0 / 1 0"));
+        assertEquals("Cannot subtract", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("+ / 1 0 / -1 0"));
+        assertEquals("Cannot add", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("cos / 1 0"));
+        assertEquals("Cannot calculate cos", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("log -1"));
+        assertEquals("Cannot calculate log", exception.getMessage());
+
+        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("* / 1 0 0"));
+        assertEquals("Cannot multiply", exception.getMessage());
+    }
+
     private static class FunctionAddConstant implements CalculatorFunction {
         double number;
 
