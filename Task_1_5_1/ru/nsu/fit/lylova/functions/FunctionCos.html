@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10};
+var data = {"i0":10,"i1":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -123,21 +123,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li><a href="../CalculatorFunction.html" title="class in ru.nsu.fit.lylova">ru.nsu.fit.lylova.CalculatorFunction</a></li>
-<li>
-<ul class="inheritance">
 <li>ru.nsu.fit.lylova.functions.FunctionCos</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
+</dl>
 <hr>
 <pre>public class <span class="typeNameLabel">FunctionCos</span>
-extends <a href="../CalculatorFunction.html" title="class in ru.nsu.fit.lylova">CalculatorFunction</a></pre>
+extends java.lang.Object
+implements <a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></pre>
 </li>
 </ul>
 </div>
@@ -180,6 +180,11 @@ extends <a href="../CalculatorFunction.html" title="class in ru.nsu.fit.lylova">
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#parse(java.lang.String)">parse</a></span>&#8203;(java.lang.String&nbsp;token)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#produce(java.util.Stack)">produce</a></span>&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -230,16 +235,29 @@ extends <a href="../CalculatorFunction.html" title="class in ru.nsu.fit.lylova">
 <a id="produce(java.util.Stack)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>produce</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;produce&#8203;(java.util.Stack&lt;java.lang.Double&gt;&nbsp;calculatorStack)
              throws java.lang.Exception</pre>
 <dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="../CalculatorFunction.html#produce(java.util.Stack)">produce</a></code>&nbsp;in class&nbsp;<code><a href="../CalculatorFunction.html" title="class in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../CalculatorFunction.html#produce(java.util.Stack)">produce</a></code>&nbsp;in interface&nbsp;<code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code>java.lang.Exception</code></dd>
+</dl>
+</li>
+</ul>
+<a id="parse(java.lang.String)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>parse</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;parse&#8203;(java.lang.String&nbsp;token)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../CalculatorFunction.html#parse(java.lang.String)">parse</a></code>&nbsp;in interface&nbsp;<code><a href="../CalculatorFunction.html" title="interface in ru.nsu.fit.lylova">CalculatorFunction</a></code></dd>
 </dl>
 </li>
 </ul>
