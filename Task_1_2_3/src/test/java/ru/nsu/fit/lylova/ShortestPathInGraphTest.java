@@ -2,7 +2,6 @@ package ru.nsu.fit.lylova;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -27,7 +26,7 @@ class ShortestPathInGraphTest {
 
         Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
-        g.initializationFromScanner(vertexParser, edgeParser, new FileInputStream(filepath));
+        g.initializeFromScanner(vertexParser, edgeParser, new FileInputStream(filepath));
     }
 
     @Test

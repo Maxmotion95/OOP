@@ -1,10 +1,7 @@
 package ru.nsu.fit.lylova;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 import java.util.function.Function;
 
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
@@ -32,7 +29,7 @@ public class Main {
         Function<String, String> vertexParser = str -> str;
         Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
-        g.initializationFromScanner(vertexParser, edgeParser, fileInputStream);
+        g.initializeFromScanner(vertexParser, edgeParser, fileInputStream);
 
         ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a =
                 new ShortestPathInGraph<>();
