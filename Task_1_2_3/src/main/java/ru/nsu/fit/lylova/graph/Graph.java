@@ -19,7 +19,7 @@ public abstract class Graph<V, E> {
      * @param v value of new vertex
      * @return {@code true} if vertex was added
      */
-    abstract public boolean addVertex(V v);
+    public abstract boolean addVertex(V v);
 
     /**
      * Remove vertex with value {@code v}.
@@ -28,7 +28,7 @@ public abstract class Graph<V, E> {
      * @param v value of vertex to remove
      * @return {@code true} if vertex was deleted
      */
-    abstract public boolean removeVertex(V v);
+    public abstract boolean removeVertex(V v);
 
     /**
      * Add edge from vertex {@code a} to vertex {@code b} with value {@code e}.
@@ -39,7 +39,7 @@ public abstract class Graph<V, E> {
      * @param e value of edge
      * @return {@code true} if edge was added
      */
-    abstract public boolean addEdge(V a, V b, E e);
+    public abstract boolean addEdge(V a, V b, E e);
 
     /**
      * Remove edge from vertex {@code a} to vertex {@code b}.
@@ -49,14 +49,14 @@ public abstract class Graph<V, E> {
      * @param b end vertex of edge
      * @return {@code true} if edge was removed
      */
-    abstract public boolean removeEdge(V a, V b);
+    public abstract boolean removeEdge(V a, V b);
 
     /**
      * Returns ArrayList that contains all vertexes.
      *
      * @return ArrayList that contains all vertexes
      */
-    abstract public ArrayList<V> arrayVertexes();
+    public abstract ArrayList<V> arrayVertexes();
 
     /**
      * Return value of edge that starts from vertex with value {@code a} and
@@ -67,7 +67,7 @@ public abstract class Graph<V, E> {
      * @return value of edge that starts from vertex {@code a} and ends in vertex {@code b}
      * @throws java.lang.Exception such edge doesn't exist
      */
-    abstract public E getEdge(V a, V b) throws java.lang.Exception;
+    public abstract E getEdge(V a, V b) throws java.lang.Exception;
 
     /**
      * Initializes graph from scanner data.
@@ -78,7 +78,8 @@ public abstract class Graph<V, E> {
      * To parse the scanner token into an edge, the {@code edgeParser} function is used.
      * <br>Format of graph data:
      * <ul>
-     *     <li>First token of scanner is integer number, which is equal to the number of vertices.</li>
+     *     <li>First token of scanner is integer number,
+     *     which is equal to the number of vertices.</li>
      *     <li>The following n tokens contain vertices.</li>
      *     <li>Next token is integer number, which is equal to the number of edges.</li>
      *     <li>The next n triples of tokens describe the edges.
@@ -88,10 +89,14 @@ public abstract class Graph<V, E> {
      * </ul>
      *
      * @param vertexParser function that parses vertex
-     * @param edgeParser function that parses edge
-     * @param inputStream stream with graph data
+     * @param edgeParser   function that parses edge
+     * @param inputStream  stream with graph data
      */
-    public void initializeFromScanner(Function<String, V> vertexParser, Function<String, E> edgeParser, InputStream inputStream) {
+    public void initializeFromScanner(
+            Function<String, V> vertexParser,
+            Function<String, E> edgeParser,
+            InputStream inputStream
+    ) {
         Scanner scanner = new Scanner(inputStream);
 
         int n = scanner.nextInt();

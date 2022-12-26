@@ -3,7 +3,6 @@ package ru.nsu.fit.lylova;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.function.Function;
-
 import ru.nsu.fit.lylova.algorithms.GraphEdge;
 import ru.nsu.fit.lylova.algorithms.GraphEdgeWeight;
 import ru.nsu.fit.lylova.algorithms.ShortestPathInGraph;
