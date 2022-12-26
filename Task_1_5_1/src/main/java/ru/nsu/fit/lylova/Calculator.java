@@ -34,6 +34,10 @@ public class Calculator {
         functions.add(new FunctionSub());
     }
 
+    Calculator(Collection<CalculatorFunction> functions) {
+        this.functions.addAll(functions);
+    }
+
     public double calculateExpression(String expression) throws Exception {
         Scanner scanner = new Scanner(expression);
         Stack<Double> numbersStack = new Stack<>();
@@ -45,11 +49,16 @@ public class Calculator {
         Collections.reverse(expressionTokens);
 
         for (String token : expressionTokens) {
+            boolean tokenUsed = false;
             for (var function : functions) {
                 if (function.parse(token)) {
                     function.produce(numbersStack);
+                    tokenUsed = true;
                     break;
                 }
+            }
+            if (!tokenUsed) {
+                throw new Exception("No such function :(");
             }
         }
 
