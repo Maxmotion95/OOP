@@ -91,7 +91,7 @@ public abstract class Graph<V, E> {
      * @param edgeParser function that parses edge
      * @param inputStream stream with graph data
      */
-    public void initializationFromScanner(Function<String, V> vertexParser, Function<String, E> edgeParser, InputStream inputStream) {
+    public void initializeFromScanner(Function<String, V> vertexParser, Function<String, E> edgeParser, InputStream inputStream) {
         Scanner scanner = new Scanner(inputStream);
 
         int n = scanner.nextInt();
