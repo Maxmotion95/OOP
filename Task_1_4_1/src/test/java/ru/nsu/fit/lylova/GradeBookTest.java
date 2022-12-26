@@ -2,10 +2,12 @@ package ru.nsu.fit.lylova;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static ru.nsu.fit.lylova.GradeBook.loadGradeBookFromJson;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,8 +24,7 @@ class GradeBookTest {
         JSONTokener tokener = new JSONTokener(new FileReader(initialFile, StandardCharsets.UTF_8));
         JSONObject root = new JSONObject(tokener);
 
-        GradeBook gradebook = new GradeBook();
-        gradebook.loadGradeBookFromJson(root);
+        GradeBook gradebook = loadGradeBookFromJson(root);
         assertEquals("4.8", String.format(Locale.US, "%.1f", gradebook.getAverageGrade()));
         assertFalse(gradebook.diplomaWithHonours());
 
