@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 import ru.nsu.fit.lylova.OccurencesFinder.KnuthMorrisPrattAlgorithmWithZFunction;
+import ru.nsu.fit.lylova.OccurencesFinder.OccurrencesFinder;
 
 /**
  * Class Main that contains function main.
@@ -31,7 +32,9 @@ public class Main {
 
         String str;
         str = sc.nextLine();
-        var ans = KnuthMorrisPrattAlgorithmWithZFunction.find(input, str);
+
+        OccurrencesFinder occurrencesFinder = new KnuthMorrisPrattAlgorithmWithZFunction();
+        var ans = occurrencesFinder.find(input, str);
         System.out.println(ans);
     }
 }

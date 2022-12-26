@@ -20,6 +20,12 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
     private static final int MIN_BUFFER_SIZE = 1024;
 
     /**
+     * Constructs OccurrencesFinder that uses Knuth-Morris-Pratt algorithm with z-function.
+     */
+    public KnuthMorrisPrattAlgorithmWithZFunction(){
+    }
+
+    /**
      * Function that finds all occurrences of string {@code pattern}
      * in the text that is contained in the stream {@code inputStream}.
      * The function is an implementation of the Knuth–Morris–Pratt algorithm using
@@ -32,7 +38,7 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    public static List<Integer> find(InputStream inputStream, String pattern)
+    public List<Integer> find(InputStream inputStream, String pattern)
             throws IOException {
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream,
                 StandardCharsets.UTF_8);

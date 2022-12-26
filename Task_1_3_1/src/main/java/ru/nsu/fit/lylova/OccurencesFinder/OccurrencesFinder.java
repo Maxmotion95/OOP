@@ -19,7 +19,5 @@ public interface OccurrencesFinder {
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    static List<Integer> find(InputStream inputStream, String pattern) throws IOException {
-        return null;
-    }
+    List<Integer> find(InputStream inputStream, String pattern) throws IOException;
 }

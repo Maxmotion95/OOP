@@ -18,6 +18,12 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
     private static final int MIN_BUFFER_SIZE = 1024;
 
     /**
+     * Constructs OccurrencesFinder that uses Apostolico Crochemore algorithm.
+     */
+    public ApostolicoCrochemoreAlgorithm() {
+    }
+
+    /**
      * Function that finds all occurrences of string {@code pattern}
      * in the text that is contained in the stream {@code inputStream}.
      * The function is an implementation of the Apostolico-Crochemore algorithm.
@@ -29,7 +35,7 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
      * @return list of indexes of all occurrences
      * @throws IOException when inputStream throws IOException
      */
-    public static List<Integer> find(InputStream inputStream,
+    public List<Integer> find(InputStream inputStream,
                                      String pattern) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,
                 StandardCharsets.UTF_8));
