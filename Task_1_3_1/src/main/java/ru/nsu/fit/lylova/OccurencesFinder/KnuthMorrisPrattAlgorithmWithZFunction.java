@@ -22,7 +22,25 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
     /**
      * Constructs OccurrencesFinder that uses Knuth-Morris-Pratt algorithm with z-function.
      */
-    public KnuthMorrisPrattAlgorithmWithZFunction(){
+    public KnuthMorrisPrattAlgorithmWithZFunction() {
+    }
+
+    private static int[] zFunction(String str) {
+        int[] ans = new int[str.length()];
+        ans[0] = 0;
+        int left = 0;
+        int right = 0;
+        for (int i = 1; i < str.length(); ++i) {
+            ans[i] = max(0, min(right - i, ans[i - left]));
+            while (i + ans[i] < str.length() && str.charAt(ans[i]) == str.charAt(i + ans[i])) {
+                ++ans[i];
+            }
+            if (i + ans[i] > right) {
+                left = i;
+                right = i + ans[i];
+            }
+        }
+        return ans;
     }
 
     /**
@@ -64,9 +82,12 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
                 int ans;
                 if (i < r) {
                     ans = strZFunc[i - l];
-                } else ans = 0;
+                } else {
+                    ans = 0;
+                }
 
-                while (ans < pattern.length() && i + ans < offset && buf[i + ans] == pattern.charAt(ans)) {
+                while (ans < pattern.length()
+                        && i + ans < offset && buf[i + ans] == pattern.charAt(ans)) {
                     ++ans;
                 }
 
@@ -94,23 +115,5 @@ public class KnuthMorrisPrattAlgorithmWithZFunction implements OccurrencesFinder
             }
         }
         return result;
-    }
-
-    private static int[] zFunction(String str) {
-        int[] ans = new int[str.length()];
-        ans[0] = 0;
-        int left = 0;
-        int right = 0;
-        for (int i = 1; i < str.length(); ++i) {
-            ans[i] = max(0, min(right - i, ans[i - left]));
-            while (i + ans[i] < str.length() && str.charAt(ans[i]) == str.charAt(i + ans[i])) {
-                ++ans[i];
-            }
-            if (i + ans[i] > right) {
-                left = i;
-                right = i + ans[i];
-            }
-        }
-        return ans;
     }
 }
