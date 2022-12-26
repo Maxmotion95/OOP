@@ -125,7 +125,7 @@ class CalculatorTest {
         }
 
         @Override
-        public void produce(Stack<Double> calculatorStack) throws Exception {
+        public void use(Stack<Double> calculatorStack) throws Exception {
             if (calculatorStack.size() < 1) {
                 throw new Exception("Not enough elements in calculatorStack");
             }
@@ -145,7 +145,7 @@ class CalculatorTest {
         }
 
         @Override
-        public void produce(Stack<Double> calculatorStack) throws Exception {
+        public void use(Stack<Double> calculatorStack) throws Exception {
             if (calculatorStack.size() < 1) {
                 throw new Exception("Not enough elements in calculatorStack");
             }
@@ -165,7 +165,7 @@ class CalculatorTest {
         }
 
         @Override
-        public void produce(Stack<Double> calculatorStack) throws Exception {
+        public void use(Stack<Double> calculatorStack) throws Exception {
             calculatorStack.push(37.0);
         }
 

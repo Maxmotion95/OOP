@@ -6,12 +6,24 @@ import java.util.Stack;
 
 import static java.lang.Math.sqrt;
 
+/**
+ * Function square root which implements interface {@code CalculatorFunction}.
+ */
 public class FunctionSqrt implements CalculatorFunction {
+    /**
+     * Constructs function square root.
+     */
     public FunctionSqrt() {
     }
 
+    /**
+     * Uses square root function on calculator stack.
+     *
+     * @param calculatorStack calculator stack
+     * @throws Exception if square root cannot be used
+     */
     @Override
-    public void produce(Stack<Double> calculatorStack) throws Exception {
+    public void use(Stack<Double> calculatorStack) throws Exception {
         if (calculatorStack.size() < 1) {
             throw new Exception("Not enough elements in calculatorStack");
         }
@@ -23,6 +35,13 @@ public class FunctionSqrt implements CalculatorFunction {
         calculatorStack.push(result);
     }
 
+    /**
+     * Checks that specified token is token of square root function.
+     * Token of square root function is {@code "sqrt"}.
+     *
+     * @param token expression token
+     * @return {@code true} if token is {@code "sqrt"}.
+     */
     @Override
     public boolean parse(String token) {
         return token.equals("sqrt");

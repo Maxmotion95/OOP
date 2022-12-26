@@ -6,12 +6,24 @@ import java.util.Stack;
 
 import static java.lang.Math.pow;
 
+/**
+ * Function pow which implements interface {@code CalculatorFunction}.
+ */
 public class FunctionPow implements CalculatorFunction {
+    /**
+     * Constructs function pow.
+     */
     public FunctionPow() {
     }
 
+    /**
+     * Uses pow function on calculator stack.
+     *
+     * @param calculatorStack calculator stack
+     * @throws Exception if pow cannot be used
+     */
     @Override
-    public void produce(Stack<Double> calculatorStack) throws Exception {
+    public void use(Stack<Double> calculatorStack) throws Exception {
         if (calculatorStack.size() < 2) {
             throw new Exception("Not enough elements in calculatorStack");
         }
@@ -24,6 +36,13 @@ public class FunctionPow implements CalculatorFunction {
         calculatorStack.push(result);
     }
 
+    /**
+     * Checks that specified token is token of pow function.
+     * Token of pow function is {@code "pow"}.
+     *
+     * @param token expression token
+     * @return {@code true} if token is {@code "pow"}.
+     */
     @Override
     public boolean parse(String token) {
         return token.equals("pow");

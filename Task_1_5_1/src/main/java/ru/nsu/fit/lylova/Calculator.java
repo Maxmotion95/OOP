@@ -18,9 +18,26 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * Class calculator.
+ */
 public class Calculator {
     private final List<CalculatorFunction> functions = new ArrayList<>();
 
+    /**
+     * Constructs calculator with functions:
+     * <ul>
+     *     <li>addition</li>
+     *     <li>cosine</li>
+     *     <li>division</li>
+     *     <li>logarithm</li>
+     *     <li>multiplication</li>
+     *     <li>pow</li>
+     *     <li>sine</li>
+     *     <li>square root</li>
+     *     <li>subtraction</li>
+     * </ul>
+     */
     Calculator() {
         functions.add(new FunctionAdd());
         functions.add(new FunctionCos());
@@ -34,10 +51,22 @@ public class Calculator {
         functions.add(new FunctionSub());
     }
 
+    /**
+     * Constructs calculator with specified functions.
+     *
+     * @param functions collection of functions
+     */
     Calculator(Collection<CalculatorFunction> functions) {
         this.functions.addAll(functions);
     }
 
+    /**
+     * Calculates specified expression.
+     *
+     * @param expression expression to be calculated
+     * @return result of calculation
+     * @throws Exception if expression is incorrect
+     */
     public double calculateExpression(String expression) throws Exception {
         Scanner scanner = new Scanner(expression);
         Stack<Double> numbersStack = new Stack<>();
@@ -52,7 +81,7 @@ public class Calculator {
             boolean tokenUsed = false;
             for (var function : functions) {
                 if (function.parse(token)) {
-                    function.produce(numbersStack);
+                    function.use(numbersStack);
                     tokenUsed = true;
                     break;
                 }
@@ -68,10 +97,20 @@ public class Calculator {
         return numbersStack.peek();
     }
 
+    /**
+     * Adds specified function to this calculator.
+     *
+     * @param function function to be added
+     */
     public void addFunction(CalculatorFunction function) {
         functions.add(function);
     }
 
+    /**
+     * Adds all functions from collection {@code collectionFunctions} to this calculator.
+     *
+     * @param collectionFunctions functions collection
+     */
     public void addAllFunctions(Collection<CalculatorFunction> collectionFunctions) {
         functions.addAll(collectionFunctions);
     }
