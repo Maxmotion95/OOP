@@ -1,12 +1,12 @@
 package ru.nsu.fit.lylova;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
     @Test
@@ -53,68 +53,38 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
         Exception exception;
 
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression(""));
-        assertEquals("bad expression :(", exception.getMessage());
+        String[][] expressionAndMessage = new String[][] {
+                {"", "bad expression :("},
+                {"1 2", "bad expression :("},
+                {"kek 1", "No such function :("},
+                {"+ 1", "Not enough elements in calculatorStack"},
+                {"cos", "Not enough elements in calculatorStack"},
+                {"/ 1", "Not enough elements in calculatorStack"},
+                {"log", "Not enough elements in calculatorStack"},
+                {"* 1", "Not enough elements in calculatorStack"},
+                {"pow 1", "Not enough elements in calculatorStack"},
+                {"sin", "Not enough elements in calculatorStack"},
+                {"sqrt", "Not enough elements in calculatorStack"},
+                {"- 1", "Not enough elements in calculatorStack"},
+                {"/ 0 0", "Cannot divide"},
+                {"sqrt -1", "Cannot calculate sqrt"},
+                {"pow -1 0.5", "Cannot pow"},
+                {"sin / 1 0", "Cannot calculate sin"},
+                {"- / 1 0 / 1 0", "Cannot subtract"},
+                {"+ / 1 0 / -1 0", "Cannot add"},
+                {"cos / 1 0", "Cannot calculate cos"},
+                {"log -1", "Cannot calculate log"},
+                {"* / 1 0 0", "Cannot multiply"}
+        };
 
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("1 2"));
-        assertEquals("bad expression :(", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("kek 1"));
-        assertEquals("No such function :(", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("+ 1"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("cos"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("/ 1"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("log"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("* 1"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("pow 1"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sin"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sqrt"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("- 1"));
-        assertEquals("Not enough elements in calculatorStack", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("/ 0 0"));
-        assertEquals("Cannot divide", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sqrt -1"));
-        assertEquals("Cannot calculate sqrt", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("pow -1 0.5"));
-        assertEquals("Cannot pow", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("sin / 1 0"));
-        assertEquals("Cannot calculate sin", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("- / 1 0 / 1 0"));
-        assertEquals("Cannot subtract", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("+ / 1 0 / -1 0"));
-        assertEquals("Cannot add", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("cos / 1 0"));
-        assertEquals("Cannot calculate cos", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("log -1"));
-        assertEquals("Cannot calculate log", exception.getMessage());
-
-        exception = assertThrows(Exception.class, () -> calculator.calculateExpression("* / 1 0 0"));
-        assertEquals("Cannot multiply", exception.getMessage());
+        for (int i = 0; i < expressionAndMessage.length; ++i) {
+            int finalI = i;
+            exception = assertThrows(
+                    Exception.class,
+                    () -> calculator.calculateExpression(expressionAndMessage[finalI][0])
+            );
+            assertEquals(expressionAndMessage[finalI][1], exception.getMessage());
+        }
     }
 
     private static class FunctionAddConstant implements CalculatorFunction {
