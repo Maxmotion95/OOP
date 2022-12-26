@@ -25,14 +25,14 @@ public class Main {
      * @param args command line arguments (not used)
      */
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(new FileInputStream("Task_1_2_3/src/main/input.txt"));
+        FileInputStream fileInputStream = new FileInputStream("Task_1_2_3/src/main/input.txt");
 
         Graph<String, Edge> g = new AdjacencyMatrixGraph<>();
 
         Function<String, String> vertexParser = str -> str;
         Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
-        g.initializationFromScanner(vertexParser, edgeParser, sc);
+        g.initializationFromScanner(vertexParser, edgeParser, fileInputStream);
 
         ShortestPathInGraph<Graph<String, Edge>, String, Edge, IntWeight> a =
                 new ShortestPathInGraph<>();

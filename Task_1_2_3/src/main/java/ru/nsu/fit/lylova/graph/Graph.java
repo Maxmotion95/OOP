@@ -72,7 +72,8 @@ public abstract class Graph<V, E> {
     /**
      * Initializes graph from scanner data.
      * Does not clean the graph before initialization,
-     * but only adds the graph described in the scanner.
+     * but only adds the graph described in the {@code inputStream}.
+     * A scanner is used to split {@code inputStream} into tokens.
      * To parse the scanner token into a vertex, the {@code vertexParser} function is used.
      * To parse the scanner token into an edge, the {@code edgeParser} function is used.
      * <br>Format of graph data:
@@ -88,9 +89,11 @@ public abstract class Graph<V, E> {
      *
      * @param vertexParser function that parses vertex
      * @param edgeParser function that parses edge
-     * @param scanner scanner with graph data
+     * @param inputStream stream with graph data
      */
-    public void initializationFromScanner(Function<String, V> vertexParser, Function<String, E> edgeParser, Scanner scanner) {
+    public void initializationFromScanner(Function<String, V> vertexParser, Function<String, E> edgeParser, InputStream inputStream) {
+        Scanner scanner = new Scanner(inputStream);
+
         int n = scanner.nextInt();
         for (int i = 0; i < n; ++i) {
             this.addVertex(vertexParser.apply(scanner.next()));
