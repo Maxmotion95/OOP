@@ -1,12 +1,11 @@
 package ru.nsu.fit.lylova;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * Class grade book.
@@ -51,7 +50,7 @@ public class GradeBook {
         GradeBook result = new GradeBook(student, gradeBookNumber);
 
         var semesters = gradeBook.getJSONArray("semesters");
-        int semester_id = 0;
+        int semesterID = 0;
         for (var semester : semesters) {
             result.addSemester();
             for (var jsonSubject : (JSONArray) semester) {
@@ -76,9 +75,9 @@ public class GradeBook {
                         teachers,
                         type,
                         subject.getInt("grade")
-                ), semester_id);
+                ), semesterID);
             }
-            ++semester_id;
+            ++semesterID;
         }
         return result;
     }
@@ -244,7 +243,7 @@ public class GradeBook {
      *
      * @param semesterID number of semester
      * @return {@code true} if student will have increased scholarship
-     * in semester with number {@code semesterID}
+     *         in semester with number {@code semesterID}
      */
     public boolean isIncreasedScholarshipInSemester(int semesterID) {
         if (semesterID <= 0 || semesterID - 1 >= semesters.size()) {

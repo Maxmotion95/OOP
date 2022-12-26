@@ -11,7 +11,7 @@ public class Student extends Person {
      * Student's name, surname, patronymic are set to {@code ""}.
      * Student's number of group is set to {@code 0}.
      */
-    Student(){
+    Student() {
         super();
     }
 

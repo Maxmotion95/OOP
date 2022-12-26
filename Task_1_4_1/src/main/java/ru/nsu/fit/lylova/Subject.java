@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Class subject
+ * Class subject.
  */
 public class Subject {
     private String subjectName;

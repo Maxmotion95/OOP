@@ -1,5 +1,8 @@
 package ru.nsu.fit.lylova;
 
+/**
+ * Class person.
+ */
 public class Person {
     private String name = "";
     private String surname = "";
