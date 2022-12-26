@@ -28,7 +28,8 @@ public class Semester {
     public String toString() {
         StringBuilder result = new StringBuilder();
         int[] widthOfTableColumn = new int[]{25, 11, 1, 10, 30};
-        int widthOfTable = Arrays.stream(widthOfTableColumn).sum() + (widthOfTableColumn.length) * 3 + 1;
+        int widthOfTable = Arrays.stream(widthOfTableColumn).sum()
+                + widthOfTableColumn.length * 3 + 1;
         String delimiterLine = "-".repeat(widthOfTable) + '\n';
         if (subjects.isEmpty()) {
             return "";
@@ -43,12 +44,21 @@ public class Semester {
                     subject.getExamType().toString(),
                     Integer.toString(subject.getExamGrade()),
                     subject.getExamDate().format(formatter),
-                    subject.getTeachers().stream().map(Person::toString).collect(Collectors.joining(", "))
+                    subject.getTeachers()
+                            .stream()
+                            .map(Person::toString)
+                            .collect(Collectors.joining(", "))
             };
 
             for (int i = 0; i < widthOfTableColumn.length; ++i) {
                 result.append("| ");
-                String shortValueOfRow = valuesOfTableRow[i].substring(0, Math.min(valuesOfTableRow[i].length(), widthOfTableColumn[i]));
+                String shortValueOfRow = valuesOfTableRow[i].substring(
+                        0,
+                        Math.min(
+                                valuesOfTableRow[i].length(),
+                                widthOfTableColumn[i]
+                        )
+                );
                 shortValueOfRow += " ".repeat(widthOfTableColumn[i] - shortValueOfRow.length());
                 result.append(shortValueOfRow);
                 result.append(" ");

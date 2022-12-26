@@ -4,10 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static ru.nsu.fit.lylova.GradeBook.loadGradeBookFromJson;
 
-import org.json.JSONObject;
-import org.json.JSONTokener;
-import org.junit.jupiter.api.Test;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,6 +11,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.junit.jupiter.api.Test;
 
 class GradeBookTest {
 
@@ -30,17 +29,77 @@ class GradeBookTest {
 
         System.out.println(gradebook);
 
-        assertEquals(2, gradebook.getCountOfSubjectWithExamTypeInSemester(0, Subject.ExamType.EXAM));
-        assertEquals(4, gradebook.getCountOfSubjectWithExamTypeInSemester(0, Subject.ExamType.CREDIT));
-        assertEquals(0, gradebook.getCountOfSubjectWithExamTypeInSemester(0, Subject.ExamType.DEFENSE_FQW));
-        assertEquals(4, gradebook.getCountOfSubjectWithExamTypeInSemester(0, Subject.ExamType.DIF_CREDIT));
-        assertEquals(0, gradebook.getCountOfSubjectWithExamTypeInSemester(0, Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT));
+        assertEquals(
+                2,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        0,
+                        Subject.ExamType.EXAM
+                )
+        );
+        assertEquals(
+                4,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        0,
+                        Subject.ExamType.CREDIT
+                )
+        );
+        assertEquals(
+                0,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        0,
+                        Subject.ExamType.DEFENSE_FQW
+                )
+        );
+        assertEquals(
+                4,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        0,
+                        Subject.ExamType.DIF_CREDIT
+                )
+        );
+        assertEquals(
+                0,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        0,
+                        Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT
+                )
+        );
 
-        assertEquals(3, gradebook.getCountOfSubjectWithExamTypeInSemester(1, Subject.ExamType.EXAM));
-        assertEquals(3, gradebook.getCountOfSubjectWithExamTypeInSemester(1, Subject.ExamType.CREDIT));
-        assertEquals(0, gradebook.getCountOfSubjectWithExamTypeInSemester(1, Subject.ExamType.DEFENSE_FQW));
-        assertEquals(3, gradebook.getCountOfSubjectWithExamTypeInSemester(1, Subject.ExamType.DIF_CREDIT));
-        assertEquals(0, gradebook.getCountOfSubjectWithExamTypeInSemester(1, Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT));
+        assertEquals(
+                3,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        1,
+                        Subject.ExamType.EXAM
+                )
+        );
+        assertEquals(
+                3,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        1,
+                        Subject.ExamType.CREDIT
+                )
+        );
+        assertEquals(
+                0,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        1,
+                        Subject.ExamType.DEFENSE_FQW
+                )
+        );
+        assertEquals(
+                3,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        1,
+                        Subject.ExamType.DIF_CREDIT
+                )
+        );
+        assertEquals(
+                0,
+                gradebook.getCountOfSubjectWithExamTypeInSemester(
+                        1,
+                        Subject.ExamType.PROTECTION_OF_THE_PRACTICE_REPORT
+                )
+        );
 
         for (int i = 0; i < gradebook.getSemesters().size(); ++i) {
             assertFalse(gradebook.isIncreasedScholarshipInSemester(i));
