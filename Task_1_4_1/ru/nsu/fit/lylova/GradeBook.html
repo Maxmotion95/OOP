@@ -214,11 +214,11 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">getCountOfSubjectWithExamTypeInSemester</a></span>&#8203;(int&nbsp;semesterID,
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCountOfSubjectWithExamTypeInSemester(int,ru.nsu.fit.lylova.Subject.ExamType)">getCountOfSubjectWithExamTypeInSemester</a></span>&#8203;(int&nbsp;semesterId,
                                        <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</code></th>
 <td class="colLast">
 <div class="block">Returns count of subjects with exam type - <code>examType</code>
- in semester with number <code>semesterID</code>.</div>
+ in semester with number <code>semesterId</code>.</div>
 </td>
 </tr>
 <tr id="i5" class="rowColor">
@@ -244,10 +244,10 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i8" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncreasedScholarshipInSemester(int)">isIncreasedScholarshipInSemester</a></span>&#8203;(int&nbsp;semesterID)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isIncreasedScholarshipInSemester(int)">isIncreasedScholarshipInSemester</a></span>&#8203;(int&nbsp;semesterId)</code></th>
 <td class="colLast">
 <div class="block">Checks whether a student can have an increased scholarship
- in semester with number <code>semesterID</code>.</div>
+ in semester with number <code>semesterId</code>.</div>
 </td>
 </tr>
 <tr id="i9" class="rowColor">
@@ -507,9 +507,9 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>isIncreasedScholarshipInSemester</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;isIncreasedScholarshipInSemester&#8203;(int&nbsp;semesterID)</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;isIncreasedScholarshipInSemester&#8203;(int&nbsp;semesterId)</pre>
 <div class="block">Checks whether a student can have an increased scholarship
- in semester with number <code>semesterID</code>.
+ in semester with number <code>semesterId</code>.
  Requirements for an increased scholarship:
  <ul>
      <li>All grades in previous semester are excellent (5)</li>
@@ -517,10 +517,10 @@ extends java.lang.Object</pre>
  Semesters are numbered from 0.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>semesterID</code> - number of semester</dd>
+<dd><code>semesterId</code> - number of semester</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd><code>true</code> if student will have increased scholarship
-         in semester with number <code>semesterID</code></dd>
+         in semester with number <code>semesterId</code></dd>
 </dl>
 </li>
 </ul>
@@ -530,14 +530,14 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>getCountOfSubjectWithExamTypeInSemester</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getCountOfSubjectWithExamTypeInSemester&#8203;(int&nbsp;semesterID,
+<pre class="methodSignature">public&nbsp;int&nbsp;getCountOfSubjectWithExamTypeInSemester&#8203;(int&nbsp;semesterId,
                                                    <a href="Subject.ExamType.html" title="enum in ru.nsu.fit.lylova">Subject.ExamType</a>&nbsp;examType)</pre>
 <div class="block">Returns count of subjects with exam type - <code>examType</code>
- in semester with number <code>semesterID</code>.
+ in semester with number <code>semesterId</code>.
  Semesters are numbered from 0.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>semesterID</code> - number of semester</dd>
+<dd><code>semesterId</code> - number of semester</dd>
 <dd><code>examType</code> - exam type</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>count of subjects with specified exam type in specified semester</dd>
