@@ -1,8 +1,7 @@
 package ru.nsu.fit.lylova.functions;
 
-import ru.nsu.fit.lylova.CalculatorFunction;
-
 import java.util.Stack;
+import ru.nsu.fit.lylova.CalculatorFunction;
 
 /**
  * Function division which implements interface {@code CalculatorFunction}.

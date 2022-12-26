@@ -1,10 +1,9 @@
 package ru.nsu.fit.lylova.functions;
 
-import ru.nsu.fit.lylova.CalculatorFunction;
+import static java.lang.Math.log;
 
 import java.util.Stack;
-
-import static java.lang.Math.log;
+import ru.nsu.fit.lylova.CalculatorFunction;
 
 /**
  * Function logarithm which implements interface {@code CalculatorFunction}.

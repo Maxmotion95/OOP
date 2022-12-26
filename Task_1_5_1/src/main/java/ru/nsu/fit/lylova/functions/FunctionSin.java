@@ -1,10 +1,9 @@
 package ru.nsu.fit.lylova.functions;
 
-import ru.nsu.fit.lylova.CalculatorFunction;
+import static java.lang.Math.sin;
 
 import java.util.Stack;
-
-import static java.lang.Math.sin;
+import ru.nsu.fit.lylova.CalculatorFunction;
 
 /**
  * Function sine which implements interface {@code CalculatorFunction}.

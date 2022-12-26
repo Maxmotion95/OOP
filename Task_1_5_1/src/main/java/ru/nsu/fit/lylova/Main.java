@@ -17,7 +17,7 @@ public class Main {
      *     <li>pow</li>
      *     <li>sine</li>
      *     <li>square root</li>
-     *     <li>subtraction</li>
+     *     <li>subtraction.</li>
      * </ul>
      *
      * @param args command line arguments (not used)

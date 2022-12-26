@@ -1,10 +1,9 @@
 package ru.nsu.fit.lylova.functions;
 
-import ru.nsu.fit.lylova.CalculatorFunction;
+import static java.lang.Math.sqrt;
 
 import java.util.Stack;
-
-import static java.lang.Math.sqrt;
+import ru.nsu.fit.lylova.CalculatorFunction;
 
 /**
  * Function square root which implements interface {@code CalculatorFunction}.

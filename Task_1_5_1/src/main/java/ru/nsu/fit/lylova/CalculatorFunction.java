@@ -15,7 +15,7 @@ public interface CalculatorFunction {
     void use(Stack<Double> calculatorStack) throws Exception;
 
     /**
-     * Checks that specified token matches this function
+     * Checks that specified token matches this function.
      *
      * @param token expression token
      * @return {@code true} if that token matches this function
