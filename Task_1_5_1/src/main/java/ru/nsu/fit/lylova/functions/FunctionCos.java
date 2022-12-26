@@ -6,12 +6,24 @@ import java.util.Stack;
 
 import static java.lang.Math.cos;
 
+/**
+ * Function cosine which implements interface {@code CalculatorFunction}.
+ */
 public class FunctionCos implements CalculatorFunction {
+    /**
+     * Constructs function cosine.
+     */
     public FunctionCos() {
     }
 
+    /**
+     * Uses cosine function on calculator stack.
+     *
+     * @param calculatorStack calculator stack
+     * @throws Exception if cosine cannot be used
+     */
     @Override
-    public void produce(Stack<Double> calculatorStack) throws Exception {
+    public void use(Stack<Double> calculatorStack) throws Exception {
         if (calculatorStack.size() < 1) {
             throw new Exception("Not enough elements in calculatorStack");
         }
@@ -23,6 +35,13 @@ public class FunctionCos implements CalculatorFunction {
         calculatorStack.push(result);
     }
 
+    /**
+     * Checks that specified token is token of cosine function.
+     * Token of cosine function is {@code "cos"}.
+     *
+     * @param token expression token
+     * @return {@code true} if token is {@code "cos"}.
+     */
     @Override
     public boolean parse(String token) {
         return token.equals("cos");

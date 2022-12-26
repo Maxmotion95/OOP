@@ -4,12 +4,24 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 
 import java.util.Stack;
 
+/**
+ * Function multiplication which implements interface {@code CalculatorFunction}.
+ */
 public class FunctionMultiply implements CalculatorFunction {
+    /**
+     * Constructs function multiplication.
+     */
     public FunctionMultiply() {
     }
 
+    /**
+     * Uses multiplication on calculator stack.
+     *
+     * @param calculatorStack calculator stack
+     * @throws Exception if multiplication cannot be used
+     */
     @Override
-    public void produce(Stack<Double> calculatorStack) throws Exception {
+    public void use(Stack<Double> calculatorStack) throws Exception {
         if (calculatorStack.size() < 2) {
             throw new Exception("Not enough elements in calculatorStack");
         }
@@ -22,6 +34,13 @@ public class FunctionMultiply implements CalculatorFunction {
         calculatorStack.push(result);
     }
 
+    /**
+     * Checks that specified token is token of multiplication function.
+     * Token of multiplication function is {@code "*"}.
+     *
+     * @param token expression token
+     * @return {@code true} if token is {@code "*"}.
+     */
     @Override
     public boolean parse(String token) {
         return token.equals("*");

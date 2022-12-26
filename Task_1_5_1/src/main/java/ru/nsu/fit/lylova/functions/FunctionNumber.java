@@ -4,18 +4,38 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 
 import java.util.Stack;
 
+/**
+ * Function number which implements interface {@code CalculatorFunction}.
+ */
 public class FunctionNumber implements CalculatorFunction {
-    double number;
+    private double number;
 
+    /**
+     * Constructs function with specified number.
+     *
+     * @param number number
+     */
     public FunctionNumber(double number) {
         this.number = number;
     }
 
+    /**
+     * Adds number that was saved in this function.
+     *
+     * @param calculatorStack calculator stack
+     * @throws Exception never
+     */
     @Override
-    public void produce(Stack<Double> calculatorStack) throws Exception {
+    public void use(Stack<Double> calculatorStack) throws Exception {
         calculatorStack.add(number);
     }
 
+    /**
+     * Parse token to double number and saves this number in this function.
+     *
+     * @param token expression token
+     * @return {@code true} if token is double number
+     */
     @Override
     public boolean parse(String token) {
         try
