@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":9};
-var tabs = {65535:["t0","All Methods"],1:["t1","Static Methods"],8:["t4","Concrete Methods"]};
+var data = {"i0":10};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -162,7 +162,9 @@ implements <a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylov
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">KnuthMorrisPrattAlgorithmWithZFunction</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Constructs OccurrencesFinder that uses Knuth-Morris-Pratt algorithm with z-function.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -176,14 +178,14 @@ implements <a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylov
 </a>
 <h3>Method Summary</h3>
 <table class="memberSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t1" class="tableTab"><span><a href="javascript:show(1);">Static Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Concrete Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Modifier and Type</th>
 <th class="colSecond" scope="col">Method</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><code>static java.util.List&lt;java.lang.Integer&gt;</code></td>
+<td class="colFirst"><code>java.util.List&lt;java.lang.Integer&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#find(java.io.InputStream,java.lang.String)">find</a></span>&#8203;(java.io.InputStream&nbsp;inputStream,
     java.lang.String&nbsp;pattern)</code></th>
 <td class="colLast">
@@ -222,6 +224,7 @@ implements <a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylov
 <li class="blockList">
 <h4>KnuthMorrisPrattAlgorithmWithZFunction</h4>
 <pre>public&nbsp;KnuthMorrisPrattAlgorithmWithZFunction()</pre>
+<div class="block">Constructs OccurrencesFinder that uses Knuth-Morris-Pratt algorithm with z-function.</div>
 </li>
 </ul>
 </li>
@@ -240,9 +243,9 @@ implements <a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylov
 <ul class="blockListLast">
 <li class="blockList">
 <h4>find</h4>
-<pre class="methodSignature">public static&nbsp;java.util.List&lt;java.lang.Integer&gt;&nbsp;find&#8203;(java.io.InputStream&nbsp;inputStream,
-                                                     java.lang.String&nbsp;pattern)
-                                              throws java.io.IOException</pre>
+<pre class="methodSignature">public&nbsp;java.util.List&lt;java.lang.Integer&gt;&nbsp;find&#8203;(java.io.InputStream&nbsp;inputStream,
+                                              java.lang.String&nbsp;pattern)
+                                       throws java.io.IOException</pre>
 <div class="block">Function that finds all occurrences of string <code>pattern</code>
  in the text that is contained in the stream <code>inputStream</code>.
  The function is an implementation of the Knuth–Morris–Pratt algorithm using
@@ -250,6 +253,8 @@ implements <a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylov
  Time complexity is O(n + m), space complexity is O(m)
  where n - length of text, m - length of string <code>pattern</code>.</div>
 <dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="OccurrencesFinder.html#find(java.io.InputStream,java.lang.String)">find</a></code>&nbsp;in interface&nbsp;<code><a href="OccurrencesFinder.html" title="interface in ru.nsu.fit.lylova.OccurencesFinder">OccurrencesFinder</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>inputStream</code> - stream that contains text</dd>
 <dd><code>pattern</code> - pattern string</dd>
