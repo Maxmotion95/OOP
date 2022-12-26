@@ -24,7 +24,8 @@ class ApostolicoCrochemoreAlgorithmTest {
         Scanner patternScanner = new Scanner(patternFile, StandardCharsets.UTF_8);
         String pattern = patternScanner.nextLine();
 
-        var result = ApostolicoCrochemoreAlgorithm.find(textInputStream, pattern);
+        OccurrencesFinder occurrencesFinder = new ApostolicoCrochemoreAlgorithm();
+        var result = occurrencesFinder.find(textInputStream, pattern);
 
         File answerFile = new File("src/test/resources/answers/answer" + testNumber + ".txt");
         Scanner answerScanner = new Scanner(answerFile);
