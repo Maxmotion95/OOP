@@ -5,9 +5,8 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 import java.util.Stack;
 
 import static java.lang.Math.log;
-import static java.lang.Math.sin;
 
-public class FunctionLog extends CalculatorFunction {
+public class FunctionLog implements CalculatorFunction {
     public FunctionLog() {
     }
 
@@ -22,5 +21,10 @@ public class FunctionLog extends CalculatorFunction {
             throw new Exception("Cannot calculate log");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("log");
     }
 }

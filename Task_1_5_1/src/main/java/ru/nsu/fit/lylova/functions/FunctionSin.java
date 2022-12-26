@@ -6,7 +6,7 @@ import java.util.Stack;
 
 import static java.lang.Math.sin;
 
-public class FunctionSin extends CalculatorFunction {
+public class FunctionSin implements CalculatorFunction {
     public FunctionSin() {
     }
 
@@ -21,5 +21,10 @@ public class FunctionSin extends CalculatorFunction {
             throw new Exception("Cannot calculate sin");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("sin");
     }
 }

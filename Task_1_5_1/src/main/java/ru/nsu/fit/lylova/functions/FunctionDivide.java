@@ -4,9 +4,7 @@ import ru.nsu.fit.lylova.CalculatorFunction;
 
 import java.util.Stack;
 
-import static java.lang.Math.pow;
-
-public class FunctionDivide extends CalculatorFunction {
+public class FunctionDivide implements CalculatorFunction {
     public FunctionDivide() {
     }
 
@@ -22,5 +20,10 @@ public class FunctionDivide extends CalculatorFunction {
             throw new Exception("Cannot divide");
         }
         calculatorStack.push(result);
+    }
+
+    @Override
+    public boolean parse(String token) {
+        return token.equals("/");
     }
 }
