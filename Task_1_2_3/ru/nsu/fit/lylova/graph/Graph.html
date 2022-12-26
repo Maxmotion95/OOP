@@ -218,9 +218,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializationFromScanner(java.util.function.Function,java.util.function.Function,java.util.Scanner)">initializationFromScanner</a></span>&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
-                         java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
-                         java.util.Scanner&nbsp;scanner)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#initializeFromScanner(java.util.function.Function,java.util.function.Function,java.io.InputStream)">initializeFromScanner</a></span>&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
+                     java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
+                     java.io.InputStream&nbsp;inputStream)</code></th>
 <td class="colLast">
 <div class="block">Initializes graph from scanner data.</div>
 </td>
@@ -403,18 +403,19 @@ extends java.lang.Object</pre>
 </dl>
 </li>
 </ul>
-<a id="initializationFromScanner(java.util.function.Function,java.util.function.Function,java.util.Scanner)">
+<a id="initializeFromScanner(java.util.function.Function,java.util.function.Function,java.io.InputStream)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>initializationFromScanner</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;initializationFromScanner&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
-                                      java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
-                                      java.util.Scanner&nbsp;scanner)</pre>
+<h4>initializeFromScanner</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;initializeFromScanner&#8203;(java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">V</a>&gt;&nbsp;vertexParser,
+                                  java.util.function.Function&lt;java.lang.String,&#8203;<a href="Graph.html" title="type parameter in Graph">E</a>&gt;&nbsp;edgeParser,
+                                  java.io.InputStream&nbsp;inputStream)</pre>
 <div class="block">Initializes graph from scanner data.
  Does not clean the graph before initialization,
- but only adds the graph described in the scanner.
+ but only adds the graph described in the <code>inputStream</code>.
+ A scanner is used to split <code>inputStream</code> into tokens.
  To parse the scanner token into a vertex, the <code>vertexParser</code> function is used.
  To parse the scanner token into an edge, the <code>edgeParser</code> function is used.
  <br>Format of graph data:
@@ -431,7 +432,7 @@ extends java.lang.Object</pre>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>vertexParser</code> - function that parses vertex</dd>
 <dd><code>edgeParser</code> - function that parses edge</dd>
-<dd><code>scanner</code> - scanner with graph data</dd>
+<dd><code>inputStream</code> - stream with graph data</dd>
 </dl>
 </li>
 </ul>
