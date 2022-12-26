@@ -1,8 +1,7 @@
 package ru.nsu.fit.lylova.functions;
 
-import ru.nsu.fit.lylova.CalculatorFunction;
-
 import java.util.Stack;
+import ru.nsu.fit.lylova.CalculatorFunction;
 
 /**
  * Function number which implements interface {@code CalculatorFunction}.
@@ -38,12 +37,9 @@ public class FunctionNumber implements CalculatorFunction {
      */
     @Override
     public boolean parse(String token) {
-        try
-        {
+        try {
             number = Double.parseDouble(token);
-        }
-        catch(NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             return false;
         }
         return true;

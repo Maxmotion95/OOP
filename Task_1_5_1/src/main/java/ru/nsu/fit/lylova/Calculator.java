@@ -1,5 +1,11 @@
 package ru.nsu.fit.lylova;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Stack;
 import ru.nsu.fit.lylova.functions.FunctionAdd;
 import ru.nsu.fit.lylova.functions.FunctionCos;
 import ru.nsu.fit.lylova.functions.FunctionDivide;
@@ -10,13 +16,6 @@ import ru.nsu.fit.lylova.functions.FunctionPow;
 import ru.nsu.fit.lylova.functions.FunctionSin;
 import ru.nsu.fit.lylova.functions.FunctionSqrt;
 import ru.nsu.fit.lylova.functions.FunctionSub;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Stack;
 
 /**
  * Class calculator.
