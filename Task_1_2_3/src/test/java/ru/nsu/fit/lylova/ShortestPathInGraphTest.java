@@ -19,10 +19,7 @@ import ru.nsu.fit.lylova.graph.IncidenceMatrixGraph;
 class ShortestPathInGraphTest {
 
     void init(Graph<Integer, Edge> g, String filepath) throws FileNotFoundException {
-        Function<String, Integer> vertexParser = str -> {
-            Scanner sc = new Scanner(str);
-            return sc.nextInt();
-        };
+        Function<String, Integer> vertexParser = Integer::parseInt;
 
         Function<String, Edge> edgeParser = str -> new Edge(Integer.parseInt(str));
 
