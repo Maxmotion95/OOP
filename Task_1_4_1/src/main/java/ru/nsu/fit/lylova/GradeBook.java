@@ -50,7 +50,7 @@ public class GradeBook {
         GradeBook result = new GradeBook(student, gradeBookNumber);
 
         var semesters = gradeBook.getJSONArray("semesters");
-        int semesterID = 0;
+        int semesterId = 0;
         for (var semester : semesters) {
             result.addSemester();
             for (var jsonSubject : (JSONArray) semester) {
@@ -60,11 +60,11 @@ public class GradeBook {
 
                 ArrayList<Teacher> teachers = new ArrayList<>();
                 for (var teacher : subject.getJSONArray("teachers")) {
-                    JSONObject teacherJSONObject = (JSONObject) teacher;
+                    JSONObject teacherJsonObject = (JSONObject) teacher;
                     teachers.add(new Teacher(
-                            teacherJSONObject.getString("name"),
-                            teacherJSONObject.getString("surname"),
-                            teacherJSONObject.getString("patronymic")
+                            teacherJsonObject.getString("name"),
+                            teacherJsonObject.getString("surname"),
+                            teacherJsonObject.getString("patronymic")
                     ));
                 }
 
@@ -75,9 +75,9 @@ public class GradeBook {
                         teachers,
                         type,
                         subject.getInt("grade")
-                ), semesterID);
+                ), semesterId);
             }
-            ++semesterID;
+            ++semesterId;
         }
         return result;
     }
@@ -234,23 +234,23 @@ public class GradeBook {
 
     /**
      * Checks whether a student can have an increased scholarship
-     * in semester with number {@code semesterID}.
+     * in semester with number {@code semesterId}.
      * Requirements for an increased scholarship:
      * <ul>
      *     <li>All grades in previous semester are excellent (5)</li>
      * </ul>
      * Semesters are numbered from 0.
      *
-     * @param semesterID number of semester
+     * @param semesterId number of semester
      * @return {@code true} if student will have increased scholarship
-     *         in semester with number {@code semesterID}
+     *         in semester with number {@code semesterId}
      */
-    public boolean isIncreasedScholarshipInSemester(int semesterID) {
-        if (semesterID <= 0 || semesterID - 1 >= semesters.size()) {
+    public boolean isIncreasedScholarshipInSemester(int semesterId) {
+        if (semesterId <= 0 || semesterId - 1 >= semesters.size()) {
             return false;
         }
         return semesters
-                .get(semesterID - 1)
+                .get(semesterId - 1)
                 .getSubjects()
                 .stream()
                 .allMatch(subject -> subject
@@ -259,17 +259,17 @@ public class GradeBook {
 
     /**
      * Returns count of subjects with exam type - {@code examType}
-     * in semester with number {@code semesterID}.
+     * in semester with number {@code semesterId}.
      * Semesters are numbered from 0.
      *
-     * @param semesterID number of semester
+     * @param semesterId number of semester
      * @param examType   exam type
      * @return count of subjects with specified exam type in specified semester
      */
-    public int getCountOfSubjectWithExamTypeInSemester(int semesterID, Subject.ExamType examType) {
-        if (semesterID < 0 || semesterID >= semesters.size()) {
+    public int getCountOfSubjectWithExamTypeInSemester(int semesterId, Subject.ExamType examType) {
+        if (semesterId < 0 || semesterId >= semesters.size()) {
             return 0;
         }
-        return semesters.get(semesterID).getCountOfSubjectWithExamType(examType);
+        return semesters.get(semesterId).getCountOfSubjectWithExamType(examType);
     }
 }
