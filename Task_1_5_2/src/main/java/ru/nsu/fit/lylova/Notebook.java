@@ -9,14 +9,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * Notebook class.
  */
 public class Notebook {
-    List<NotebookRecord> records;
+    private final List<NotebookRecord> records;
 
     /**
      * Constructs an empty notebook.
