@@ -16,6 +16,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Class application notebook.
+ */
 @Command(name = "notebook", mixinStandardHelpOptions = true, version = "checksum 0.1",
         description = "A notebook with a set of functions: " +
                 "add an entry, delete an entry, " +
@@ -27,6 +30,13 @@ import java.util.Date;
 class NotebookApp {
     private Notebook notebook;
     private String notebookFilePath;
+
+    /**
+     * Constructs application with notebook with data from {@code notebookFilePath}.
+     * If such file doesn't exist then notebook is empty.
+     *
+     * @param notebookFilePath filepath of file with notebook data
+     */
     public NotebookApp(String notebookFilePath) {
         this.notebookFilePath = notebookFilePath;
         File dataFile = new File(notebookFilePath);
@@ -60,6 +70,9 @@ class NotebookApp {
         }
     }
 
+    /**
+     * Class command add record to notebook.
+     */
     @Command(name = "-add", mixinStandardHelpOptions = true,
             description = "Add record with specified title and content. \n" +
                     "First parameter is title. Second is content of record.")
@@ -76,6 +89,9 @@ class NotebookApp {
         @Parameters(index = "1")
         private String content;
 
+        /**
+         * Adds record to notebook.
+         */
         @Override
         public void run() {
             parent.notebook.addRecord(new NotebookRecord(title, content));
@@ -83,6 +99,9 @@ class NotebookApp {
         }
     }
 
+    /**
+     * Class command remove records with some title from notebook.
+     */
     @Command(name = "-rm", mixinStandardHelpOptions = true,
             description = "Remove all records with specified title.\n" +
                     "First parameter is title.")
@@ -96,6 +115,9 @@ class NotebookApp {
         @Parameters(index = "0")
         private String title;
 
+        /**
+         * Removes records from notebook.
+         */
         @Override
         public void run() {
             parent.notebook.removeRecordsWithTitle(title);
@@ -103,6 +125,9 @@ class NotebookApp {
         }
     }
 
+    /**
+     * Class command show notebook.
+     */
     @Command(name = "-show", mixinStandardHelpOptions = true,
             description = "Show all records if no parameters or show filtered records. \n" +
                     "To show filtered records first and second parameters must be dates of format \"dd.MM.yyyy hh:mm\". " +
@@ -118,6 +143,9 @@ class NotebookApp {
         @Parameters
         private String[] params;
 
+        /**
+         * Shows notebook according to command parameters.
+         */
         @Override
         public void run() {
             if (params == null) {
