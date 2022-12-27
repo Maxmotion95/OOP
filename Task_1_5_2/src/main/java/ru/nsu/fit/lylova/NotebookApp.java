@@ -27,7 +27,7 @@ import java.util.Date;
 class NotebookApp {
     private Notebook notebook;
     private String notebookFilePath;
-    NotebookApp(String notebookFilePath) {
+    public NotebookApp(String notebookFilePath) {
         this.notebookFilePath = notebookFilePath;
         File dataFile = new File(notebookFilePath);
         try {
@@ -37,7 +37,7 @@ class NotebookApp {
         }
     }
 
-    public void loadChanges() {
+    private void loadChanges() {
         FileOutputStream outputStream = null;
         try {
             outputStream = new FileOutputStream(notebookFilePath);
@@ -63,18 +63,18 @@ class NotebookApp {
     @Command(name = "-add", mixinStandardHelpOptions = true,
             description = "Add record with specified title and content. \n" +
                     "First parameter is title. Second is content of record.")
-    static class AddCommand implements Runnable {
+    public static class AddCommand implements Runnable {
 
         @ParentCommand
         NotebookApp parent;
 
         @Option(names = "-add")
-        public boolean add;
+        private boolean add;
 
         @Parameters(index = "0")
-        public String title;
+        private String title;
         @Parameters(index = "1")
-        public String content;
+        private String content;
 
         @Override
         public void run() {
@@ -86,15 +86,15 @@ class NotebookApp {
     @Command(name = "-rm", mixinStandardHelpOptions = true,
             description = "Remove all records with specified title.\n" +
                     "First parameter is title.")
-    static class RmCommand implements Runnable {
+    public static class RmCommand implements Runnable {
         @ParentCommand
         NotebookApp parent;
 
         @Option(names = "-rm")
-        public boolean rm;
+        private boolean rm;
 
         @Parameters(index = "0")
-        public String title;
+        private String title;
 
         @Override
         public void run() {
@@ -108,15 +108,15 @@ class NotebookApp {
                     "To show filtered records first and second parameters must be dates of format \"dd.MM.yyyy hh:mm\". " +
                     "First is minimal date of creation and second is maximal date of creation. " +
                     "The next parameters will be list of keywords which title of record must contain.")
-    static class ShowCommand implements Runnable {
+    public static class ShowCommand implements Runnable {
         @ParentCommand
         NotebookApp parent;
 
         @Option(names = "-show")
-        public boolean rm;
+        private boolean rm;
 
         @Parameters
-        public String[] params;
+        private String[] params;
 
         @Override
         public void run() {
