@@ -138,7 +138,7 @@ class NotebookApp {
         NotebookApp parent;
 
         @Option(names = "-show")
-        private boolean rm;
+        private boolean show;
 
         @Parameters
         private String[] params;
