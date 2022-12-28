@@ -23,9 +23,9 @@ import picocli.CommandLine.ParentCommand;
                 + "add an entry, delete an entry, "
                 + "display all entries sorted by the time of addition.",
         subcommands = {
-                NotebookApp.AddCommand.class,
-                NotebookApp.RmCommand.class,
-                NotebookApp.ShowCommand.class})
+            NotebookApp.AddCommand.class,
+            NotebookApp.RmCommand.class,
+            NotebookApp.ShowCommand.class})
 class NotebookApp {
     private Notebook notebook;
     private String notebookFilePath;
