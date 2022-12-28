@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import picocli.CommandLine;
 
 class NotebookAppTest {
+    // Check that file by path expectedFileFilepath and file by path actualFileFilepath are equal.
     private void assertFilesEquals(
             String expectedFileFilepath,
             String actualFileFilepath) throws IOException {
@@ -21,6 +22,9 @@ class NotebookAppTest {
         assertArrayEquals(f1, f2);
     }
 
+    // Checks that the files are equal except for fields with the date of creation of records.
+    // In the file located by the expectedFileFilepath path,
+    // all date of creation are replaced with "*".
     private void smartAssertFileEquals(
             String expectedFileFilepath,
             String actualFileFilepath) throws IOException {
