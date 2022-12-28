@@ -54,7 +54,7 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             String text = String.valueOf(firstPartOfText, 0, countSymbolsInFirstPartOfText)
                     + String.valueOf(secondPartOfText, 0, countSymbolsInSecondPartOfText);
 
-            ArrayList<Integer> tmp = apostolicoCrochemoreAlgorithm(pattern, text);
+            ArrayList<Integer> tmp = useApostolicoCrochemoreAlgorithm(pattern, text);
             for (int i : tmp) {
                 if (i < countSymbolsInFirstPartOfText) {
                     result.add(i + currentPos);
@@ -77,28 +77,28 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
         return offset;
     }
 
-    private static void getT(String str, int[] t) {
+    private static void getBiggestTaggedBorder(String str, int[] biggestTaggedBorder) {
         int i = 0;
-        int j = t[0] = -1;
+        int j = biggestTaggedBorder[0] = -1;
         while (i < str.length()) {
             while (j > -1 && str.charAt(i) != str.charAt(j)) {
-                j = t[j];
+                j = biggestTaggedBorder[j];
             }
             ++i;
             ++j;
             if (i < str.length() && str.charAt(i) == str.charAt(j)) {
-                t[i] = t[j];
+                biggestTaggedBorder[i] = biggestTaggedBorder[j];
             } else {
-                t[i] = j;
+                biggestTaggedBorder[i] = j;
             }
         }
     }
 
-    private static ArrayList<Integer> apostolicoCrochemoreAlgorithm(String pattern, String text) {
-        int[] t = new int[pattern.length() + 1];
+    private static ArrayList<Integer> useApostolicoCrochemoreAlgorithm(String pattern, String text) {
+        int[] biggestTaggedBorder = new int[pattern.length() + 1];
         ArrayList<Integer> result = new ArrayList<>();
 
-        getT(pattern, t);
+        getBiggestTaggedBorder(pattern, biggestTaggedBorder);
 
         int l = 1;
         while (l < pattern.length() && pattern.charAt(l - 1) == pattern.charAt(l)) {
@@ -123,15 +123,15 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
                     result.add(j);
                 }
             }
-            j += i - t[i];
+            j += i - biggestTaggedBorder[i];
             if (i == l) {
                 k = max(0, k - 1);
-            } else if (t[i] <= l) {
-                k = max(0, t[i]);
+            } else if (biggestTaggedBorder[i] <= l) {
+                k = max(0, biggestTaggedBorder[i]);
                 i = l;
             } else {
                 k = l;
-                i = t[i];
+                i = biggestTaggedBorder[i];
             }
         }
         return result;
