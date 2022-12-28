@@ -1,10 +1,5 @@
 package ru.nsu.fit.lylova;
 
-import picocli.CommandLine.Command;
-import picocli.CommandLine.Option;
-import picocli.CommandLine.Parameters;
-import picocli.CommandLine.ParentCommand;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -15,6 +10,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import picocli.CommandLine.Command;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
+import picocli.CommandLine.ParentCommand;
 
 /**
  * Class application notebook.
@@ -130,9 +129,11 @@ class NotebookApp {
      */
     @Command(name = "-show", mixinStandardHelpOptions = true,
             description = "Show all records if no parameters or show filtered records. \n" +
-                    "To show filtered records first and second parameters must be dates of format \"dd.MM.yyyy hh:mm\". " +
+                    "To show filtered records first and second parameters " +
+                    "must be dates of format \"dd.MM.yyyy hh:mm\". " +
                     "First is minimal date of creation and second is maximal date of creation. " +
-                    "The next parameters will be list of keywords which title of record must contain.")
+                    "The next parameters will be list of keywords " +
+                    "which title of record must contain.")
     public static class ShowCommand implements Runnable {
         @ParentCommand
         NotebookApp parent;
@@ -154,7 +155,8 @@ class NotebookApp {
             }
 
             if (params.length < 2) {
-                System.err.println("Invalid command line arguments. First 2 parameters must be starDate and endDate");
+                System.err.println("Invalid command line arguments. " +
+                        "First 2 parameters must be starDate and endDate");
                 return;
             }
 
@@ -166,14 +168,16 @@ class NotebookApp {
             try {
                 startDate = dateFormat.parse(params[0]);
             } catch (ParseException e) {
-                System.err.println("Invalid command line arguments. Correct format of startDate: \"dd.MM.yyyy hh:mm\"");
+                System.err.println("Invalid command line arguments. " +
+                        "Correct format of startDate: \"dd.MM.yyyy hh:mm\"");
                 return;
             }
             Date endDate;
             try {
                 endDate = dateFormat.parse(params[1]);
             } catch (ParseException e) {
-                System.err.println("Invalid command line arguments. Correct format of endDate: \"dd.MM.yyyy hh:mm\"");
+                System.err.println("Invalid command line arguments. " +
+                        "Correct format of endDate: \"dd.MM.yyyy hh:mm\"");
                 return;
             }
             System.out.println(parent.notebook.showAllWithFilter(startDate, endDate, keywords));
