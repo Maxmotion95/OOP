@@ -12,7 +12,7 @@ import java.util.Date;
 public class NotebookRecord {
     private final String title;
     private final String content;
-    private final Date date_of_creation;
+    private final Date dateOfCreation;
 
     /**
      * Creates record with specified {@code title} and {@code content}.
@@ -24,7 +24,7 @@ public class NotebookRecord {
     public NotebookRecord(String title, String content) {
         this.title = title;
         this.content = content;
-        date_of_creation = new Date();
+        dateOfCreation = new Date();
     }
 
     /**
@@ -38,7 +38,7 @@ public class NotebookRecord {
         return "Заголовок заметки: "
                 + new String(title.getBytes(StandardCharsets.UTF_8))
                 + "\nВремя создания: "
-                + dateFormat.format(date_of_creation)
+                + dateFormat.format(dateOfCreation)
                 + "\nСодержание заметки:\n"
                 + new String(content.getBytes(StandardCharsets.UTF_8))
                 + "\n";
@@ -67,8 +67,8 @@ public class NotebookRecord {
      *
      * @return date of creation of record
      */
-    public Date getDate_of_creation() {
-        return date_of_creation;
+    public Date getDateOfCreation() {
+        return dateOfCreation;
     }
 
     /**
@@ -78,7 +78,7 @@ public class NotebookRecord {
 
         @Override
         public int compare(NotebookRecord o1, NotebookRecord o2) {
-            return o1.date_of_creation.compareTo(o2.date_of_creation);
+            return o1.dateOfCreation.compareTo(o2.dateOfCreation);
         }
     }
 }

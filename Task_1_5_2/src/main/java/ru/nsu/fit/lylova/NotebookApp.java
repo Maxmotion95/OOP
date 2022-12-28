@@ -19,9 +19,9 @@ import picocli.CommandLine.ParentCommand;
  * Class application notebook.
  */
 @Command(name = "notebook", mixinStandardHelpOptions = true, version = "checksum 0.1",
-        description = "A notebook with a set of functions: " +
-                "add an entry, delete an entry, " +
-                "display all entries sorted by the time of addition.",
+        description = "A notebook with a set of functions: "
+                + "add an entry, delete an entry, "
+                + "display all entries sorted by the time of addition.",
         subcommands = {
                 NotebookApp.AddCommand.class,
                 NotebookApp.RmCommand.class,
@@ -29,6 +29,8 @@ import picocli.CommandLine.ParentCommand;
 class NotebookApp {
     private Notebook notebook;
     private String notebookFilePath;
+    @Option(names = {"-h", "--help"}, usageHelp = true, description = "display a help message")
+    private boolean helpRequested = false;
 
     /**
      * Constructs application with notebook with data from {@code notebookFilePath}.
@@ -73,8 +75,8 @@ class NotebookApp {
      * Class command add record to notebook.
      */
     @Command(name = "-add", mixinStandardHelpOptions = true,
-            description = "Add record with specified title and content. \n" +
-                    "First parameter is title. Second is content of record.")
+            description = "Add record with specified title and content. \n"
+                    + "First parameter is title. Second is content of record.")
     public static class AddCommand implements Runnable {
 
         @ParentCommand
@@ -102,8 +104,8 @@ class NotebookApp {
      * Class command remove records with some title from notebook.
      */
     @Command(name = "-rm", mixinStandardHelpOptions = true,
-            description = "Remove all records with specified title.\n" +
-                    "First parameter is title.")
+            description = "Remove all records with specified title.\n"
+                    + "First parameter is title.")
     public static class RmCommand implements Runnable {
         @ParentCommand
         NotebookApp parent;
@@ -128,12 +130,12 @@ class NotebookApp {
      * Class command show notebook.
      */
     @Command(name = "-show", mixinStandardHelpOptions = true,
-            description = "Show all records if no parameters or show filtered records. \n" +
-                    "To show filtered records first and second parameters " +
-                    "must be dates of format \"dd.MM.yyyy hh:mm\". " +
-                    "First is minimal date of creation and second is maximal date of creation. " +
-                    "The next parameters will be list of keywords " +
-                    "which title of record must contain.")
+            description = "Show all records if no parameters or show filtered records. \n"
+                    + "To show filtered records first and second parameters "
+                    + "must be dates of format \"dd.MM.yyyy hh:mm\". "
+                    + "First is minimal date of creation and second is maximal date of creation. "
+                    + "The next parameters will be list of keywords "
+                    + "which title of record must contain.")
     public static class ShowCommand implements Runnable {
         @ParentCommand
         NotebookApp parent;
@@ -155,8 +157,8 @@ class NotebookApp {
             }
 
             if (params.length < 2) {
-                System.err.println("Invalid command line arguments. " +
-                        "First 2 parameters must be starDate and endDate");
+                System.err.println("Invalid command line arguments. "
+                        + "First 2 parameters must be starDate and endDate");
                 return;
             }
 
@@ -168,22 +170,19 @@ class NotebookApp {
             try {
                 startDate = dateFormat.parse(params[0]);
             } catch (ParseException e) {
-                System.err.println("Invalid command line arguments. " +
-                        "Correct format of startDate: \"dd.MM.yyyy hh:mm\"");
+                System.err.println("Invalid command line arguments. "
+                        + "Correct format of startDate: \"dd.MM.yyyy hh:mm\"");
                 return;
             }
             Date endDate;
             try {
                 endDate = dateFormat.parse(params[1]);
             } catch (ParseException e) {
-                System.err.println("Invalid command line arguments. " +
-                        "Correct format of endDate: \"dd.MM.yyyy hh:mm\"");
+                System.err.println("Invalid command line arguments. "
+                        + "Correct format of endDate: \"dd.MM.yyyy hh:mm\"");
                 return;
             }
             System.out.println(parent.notebook.showAllWithFilter(startDate, endDate, keywords));
         }
     }
-
-    @Option(names = {"-h", "--help"}, usageHelp = true, description = "display a help message")
-    private boolean helpRequested = false;
 }

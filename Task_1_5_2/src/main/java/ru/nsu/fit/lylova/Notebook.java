@@ -67,7 +67,7 @@ public class Notebook {
     }
 
     /**
-     * Returns string with all records of notebook
+     * Returns string with all records of notebook.
      *
      * @return string with all records of notebook
      */
@@ -101,8 +101,8 @@ public class Notebook {
             }
 
             if (containKeyword
-                    && record.getDate_of_creation().compareTo(startDate) >= 0
-                    && record.getDate_of_creation().compareTo(endDate) <= 0) {
+                    && record.getDateOfCreation().compareTo(startDate) >= 0
+                    && record.getDateOfCreation().compareTo(endDate) <= 0) {
                 res.append(record.toString());
                 res.append('\n');
             }
