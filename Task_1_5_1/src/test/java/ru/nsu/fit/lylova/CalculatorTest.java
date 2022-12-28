@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 class CalculatorTest {
     @Test
-    void test() throws Exception {
+    void testCalculateExpression() throws Exception {
         Calculator calculator = new Calculator();
 
         assertEquals(123, calculator.calculateExpression("123"));
