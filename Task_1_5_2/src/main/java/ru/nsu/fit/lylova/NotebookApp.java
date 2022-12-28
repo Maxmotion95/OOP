@@ -28,7 +28,7 @@ import picocli.CommandLine.ParentCommand;
             NotebookApp.ShowCommand.class})
 class NotebookApp {
     private Notebook notebook;
-    private String notebookFilePath;
+    private final String notebookFilePath;
     @Option(names = {"-h", "--help"}, usageHelp = true, description = "display a help message")
     private boolean helpRequested = false;
 
