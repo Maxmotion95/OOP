@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class GradeBookTest {
 
     @Test
-    void test() throws IOException {
+    void testWithMyGradeBookData() throws IOException {
         File initialFile = new File("src/test/resources/myGrades.json").getAbsoluteFile();
         JSONTokener tokener = new JSONTokener(new FileReader(initialFile, StandardCharsets.UTF_8));
         JSONObject root = new JSONObject(tokener);
