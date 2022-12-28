@@ -44,6 +44,9 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             return result;
         }
 
+        int[] biggestTaggedBorderOfPattern = new int[pattern.length() + 1];
+        getBiggestTaggedBorder(pattern, biggestTaggedBorderOfPattern);
+
         char[] firstPartOfText = new char[Math.max(pattern.length(), MIN_BUFFER_SIZE)];
         char[] secondPartOfText = new char[Math.max(pattern.length(), MIN_BUFFER_SIZE)];
         int countSymbolsInFirstPartOfText = readBuf(firstPartOfText, in);
@@ -54,7 +57,11 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
             String text = String.valueOf(firstPartOfText, 0, countSymbolsInFirstPartOfText)
                     + String.valueOf(secondPartOfText, 0, countSymbolsInSecondPartOfText);
 
-            ArrayList<Integer> tmp = useApostolicoCrochemoreAlgorithm(pattern, text);
+            ArrayList<Integer> tmp = useApostolicoCrochemoreAlgorithm(
+                    pattern,
+                    text,
+                    biggestTaggedBorderOfPattern
+            );
             for (int i : tmp) {
                 if (i < countSymbolsInFirstPartOfText) {
                     result.add(i + currentPos);
@@ -94,11 +101,11 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
         }
     }
 
-    private static ArrayList<Integer> useApostolicoCrochemoreAlgorithm(String pattern, String text) {
-        int[] biggestTaggedBorder = new int[pattern.length() + 1];
+    private static ArrayList<Integer> useApostolicoCrochemoreAlgorithm(
+            String pattern,
+            String text,
+            int[] biggestTaggedBorderOfPattern) {
         ArrayList<Integer> result = new ArrayList<>();
-
-        getBiggestTaggedBorder(pattern, biggestTaggedBorder);
 
         int l = 1;
         while (l < pattern.length() && pattern.charAt(l - 1) == pattern.charAt(l)) {
@@ -123,15 +130,15 @@ public class ApostolicoCrochemoreAlgorithm implements OccurrencesFinder {
                     result.add(j);
                 }
             }
-            j += i - biggestTaggedBorder[i];
+            j += i - biggestTaggedBorderOfPattern[i];
             if (i == l) {
                 k = max(0, k - 1);
-            } else if (biggestTaggedBorder[i] <= l) {
-                k = max(0, biggestTaggedBorder[i]);
+            } else if (biggestTaggedBorderOfPattern[i] <= l) {
+                k = max(0, biggestTaggedBorderOfPattern[i]);
                 i = l;
             } else {
                 k = l;
-                i = biggestTaggedBorder[i];
+                i = biggestTaggedBorderOfPattern[i];
             }
         }
         return result;
