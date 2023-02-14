@@ -2,7 +2,7 @@ package ru.nsu.fit.lylova;
 
 import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
 
-public class ParallelCheckerWithThreads implements CheckerOfArrayForContentNonSimpleNumbers{
+public class ParallelCheckerWithThreads implements CheckerOfArrayForContentNonSimpleNumbers {
     boolean result = false;
     int threadsCount;
 
