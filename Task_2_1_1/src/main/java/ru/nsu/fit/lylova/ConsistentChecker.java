@@ -2,7 +2,7 @@ package ru.nsu.fit.lylova;
 
 import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
 
-public class ConsistentChecker implements CheckerOfArrayForContentNonSimpleNumbers{
+public class ConsistentChecker implements CheckerOfArrayForNonSimpleNumbers {
     public ConsistentChecker(){
     }
     @Override

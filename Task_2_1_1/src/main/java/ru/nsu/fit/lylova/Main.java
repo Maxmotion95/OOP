@@ -11,7 +11,7 @@ public class Main {
             numbers[i] = scanner.nextInt();
         }
 
-        CheckerOfArrayForContentNonSimpleNumbers checker = new ConsistentChecker();
+        CheckerOfArrayForNonSimpleNumbers checker = new ConsistentChecker();
         System.out.println(checker.hasNonPrimeNumber(numbers));
         checker = new ParallelCheckerWithParallelStream();
         System.out.println(checker.hasNonPrimeNumber(numbers));

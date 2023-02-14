@@ -1,5 +1,5 @@
 package ru.nsu.fit.lylova;
 
-public interface CheckerOfArrayForContentNonSimpleNumbers {
+public interface CheckerOfArrayForNonSimpleNumbers {
     boolean hasNonPrimeNumber(int[] numbers);
 }

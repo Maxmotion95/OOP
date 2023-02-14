@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CheckerOfArrayForNonSimpleNumbersTest {
-    private static Stream<CheckerOfArrayForContentNonSimpleNumbers> provideCheckerForTest() {
+    private static Stream<CheckerOfArrayForNonSimpleNumbers> provideCheckerForTest() {
         return Stream.of(
                 new ParallelCheckerWithThreads(5),
                 new ConsistentChecker(),
@@ -19,7 +19,7 @@ class CheckerOfArrayForNonSimpleNumbersTest {
 
     @ParameterizedTest
     @MethodSource("provideCheckerForTest")
-    void test(CheckerOfArrayForContentNonSimpleNumbers checker) {
+    void test(CheckerOfArrayForNonSimpleNumbers checker) {
         int[] numbers = new int[1000];
         Arrays.fill(numbers, 1000000007);
         assertFalse(checker.hasNonPrimeNumber(numbers));

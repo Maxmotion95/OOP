@@ -2,7 +2,7 @@ package ru.nsu.fit.lylova;
 
 import java.util.Arrays;
 
-public class ParallelCheckerWithParallelStream implements CheckerOfArrayForContentNonSimpleNumbers{
+public class ParallelCheckerWithParallelStream implements CheckerOfArrayForNonSimpleNumbers {
     public ParallelCheckerWithParallelStream(){
     }
     @Override
