@@ -10,7 +10,7 @@ class ParallelCheckerWithThreadsTest {
     @Test
     void test() {
         CheckerOfArrayForContentNonSimpleNumbers checker = new ConsistentChecker();
-        int[] numbers = new int[10000];
+        int[] numbers = new int[1000];
         Arrays.fill(numbers, 1000000007);
 //        numbers[1] = 4;
         System.out.println(checker.hasNonPrimeNumber(numbers));
