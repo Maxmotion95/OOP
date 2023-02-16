@@ -28,10 +28,6 @@ test {
 }
 
 jmh {
-    warmupIterations = 1
-//    warmupBatchSize = 3
-//    iterations = 3
-//    fork = 1
     resultsFile = project.file("/results/jmh/results.txt")
 }
 

@@ -15,7 +15,7 @@ public class Main {
         System.out.println(checker.hasNonPrimeNumber(numbers));
         checker = new ParallelCheckerWithParallelStream();
         System.out.println(checker.hasNonPrimeNumber(numbers));
-        checker = new ParallelCheckerWithThreads(10);
+        checker = new ParallelCheckerWithThreads();
         System.out.println(checker.hasNonPrimeNumber(numbers));
     }
 }

@@ -1,10 +1,16 @@
 package ru.nsu.fit.lylova;
 
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
 
 public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNumbers {
-    boolean result = false;
-    int threadsCount;
+    private final AtomicBoolean result = new AtomicBoolean(false);
+    int threadsCount = 8;
+
+    ParallelCheckerWithThreads() {
+    }
 
     ParallelCheckerWithThreads(int threadsCount) {
         this.threadsCount = threadsCount > 0 ? threadsCount : 1;
@@ -12,7 +18,7 @@ public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNum
 
     @Override
     public boolean hasNonPrimeNumber(int[] numbers) {
-        result = false;
+        result.set(false);
         int count = numbers.length;
 
         Thread[] threads = new Thread[threadsCount];
@@ -30,7 +36,19 @@ public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNum
                 throw new RuntimeException(e);
             }
         }
-        return result;
+        while (true) {
+            boolean isAnyThreadAlive = Arrays.stream(threads).allMatch(Thread::isAlive);
+            if (!isAnyThreadAlive) {
+                break;
+            }
+            if (result.get()) {
+                for (var thread : threads) {
+                    thread.interrupt();
+                }
+                break;
+            }
+        }
+        return result.get();
     }
 
     class CheckerOfSubArray extends Thread {
@@ -46,9 +64,9 @@ public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNum
 
         @Override
         public void run() {
-            for (int i = left; i < right && !result; ++i) {
+            for (int i = left; i < right && !this.isInterrupted(); ++i) {
                 if (!isPrime(numbers[i])) {
-                    result = true;
+                    result.set(true);
                     break;
                 }
             }
