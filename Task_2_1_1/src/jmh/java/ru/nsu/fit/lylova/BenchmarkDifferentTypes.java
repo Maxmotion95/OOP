@@ -13,6 +13,9 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
+/**
+ * Benchmark for different checkers.
+ */
 public class BenchmarkDifferentTypes {
     @BenchmarkMode(Mode.AverageTime)
     @Fork(value = 1, warmups = 1)
@@ -20,7 +23,7 @@ public class BenchmarkDifferentTypes {
     @Measurement(iterations = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
-    public boolean ParallelThread(BenchmarkState state) {
+    public boolean parallelThread(BenchmarkState state) {
         CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(32);
         return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
     }
@@ -31,7 +34,7 @@ public class BenchmarkDifferentTypes {
     @Measurement(iterations = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
-    public boolean ParallelStream(BenchmarkState state) {
+    public boolean parallelStream(BenchmarkState state) {
         CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithParallelStream();
         return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
     }
@@ -42,17 +45,23 @@ public class BenchmarkDifferentTypes {
     @Measurement(iterations = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
-    public boolean Linear(BenchmarkState state) {
+    public boolean linear(BenchmarkState state) {
         CheckerOfArrayForNonSimpleNumbers finder = new ConsistentChecker();
         return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
     }
 
+    /**
+     * Class with state of benchmark.
+     */
     @State(Scope.Benchmark)
     public static class BenchmarkState {
         @Param({"10", "30", "50", "100", "500", "1000", "5000", "10000", "50000"})//
         public int numberOfPrimeNumbers;
         public int[] bigPrimeNumbers;
 
+        /**
+         * Fill array {@code bigPrimeNumbers} with prime numbers.
+         */
         @Setup(Level.Trial)
         public void setUp() {
             bigPrimeNumbers = new int[numberOfPrimeNumbers];

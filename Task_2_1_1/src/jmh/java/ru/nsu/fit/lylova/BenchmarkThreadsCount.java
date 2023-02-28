@@ -13,6 +13,9 @@ import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 
+/**
+ * Benchmark for checker {@code ParallelCheckerWithThreads}.
+ */
 public class BenchmarkThreadsCount {
     @BenchmarkMode(Mode.AverageTime)
     @Fork(value = 1, warmups = 1)
@@ -21,10 +24,15 @@ public class BenchmarkThreadsCount {
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
     public boolean ParallelThread2(BenchmarkThreadsCount.BenchmarkState state) {
-        CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(state.threadsCount);
+        CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(
+                state.threadsCount
+        );
         return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
     }
 
+    /**
+     * Class with state of benchmark.
+     */
     @State(Scope.Benchmark)
     public static class BenchmarkState {
 
@@ -33,7 +41,9 @@ public class BenchmarkThreadsCount {
         public int numberOfPrimeNumbers = 50000;
         public int[] bigPrimeNumbers;
 
-
+        /**
+         * Fill array {@code bigPrimeNumbers} with prime numbers.
+         */
         @Setup(Level.Trial)
         public void setUp() {
             bigPrimeNumbers = new int[numberOfPrimeNumbers];
