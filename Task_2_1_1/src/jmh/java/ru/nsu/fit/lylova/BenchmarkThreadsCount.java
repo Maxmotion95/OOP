@@ -1,14 +1,34 @@
 package ru.nsu.fit.lylova;
 
-import org.openjdk.jmh.annotations.*;
-
 import java.util.concurrent.TimeUnit;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Fork;
+import org.openjdk.jmh.annotations.Level;
+import org.openjdk.jmh.annotations.Measurement;
+import org.openjdk.jmh.annotations.Mode;
+import org.openjdk.jmh.annotations.OutputTimeUnit;
+import org.openjdk.jmh.annotations.Param;
+import org.openjdk.jmh.annotations.Scope;
+import org.openjdk.jmh.annotations.Setup;
+import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.Warmup;
 
 public class BenchmarkThreadsCount {
+    @BenchmarkMode(Mode.AverageTime)
+    @Fork(value = 1, warmups = 1)
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 1)
+    @OutputTimeUnit(TimeUnit.MILLISECONDS)
+    @org.openjdk.jmh.annotations.Benchmark
+    public boolean ParallelThread2(BenchmarkThreadsCount.BenchmarkState state) {
+        CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(state.threadsCount);
+        return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
+    }
+
     @State(Scope.Benchmark)
     public static class BenchmarkState {
 
-        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "40", "50"})
+        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "40", "50"})//
         public int threadsCount;
         public int numberOfPrimeNumbers = 50000;
         public int[] bigPrimeNumbers;
@@ -25,18 +45,5 @@ public class BenchmarkThreadsCount {
                 }
             }
         }
-    }
-
-
-
-    @BenchmarkMode(Mode.AverageTime)
-    @Fork(value = 1, warmups = 1)
-    @Warmup(iterations = 3)
-    @Measurement(iterations = 1)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    @org.openjdk.jmh.annotations.Benchmark
-    public boolean ParallelThread2(BenchmarkThreadsCount.BenchmarkState state) {
-        CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(state.threadsCount);
-        return finder.hasNonPrimeNumber(state.bigPrimeNumbers);
     }
 }
