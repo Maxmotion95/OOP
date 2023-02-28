@@ -4,8 +4,9 @@ package ru.nsu.fit.lylova;
  * A class with a function for checking a number for simplicity.
  */
 public class CheckerOfPrimeNumber {
-
     /**
+     * Checks is number {@code number} is prime.
+     *
      * @param number number
      * @return {@code true} if {@code number} is prime, otherwise {@code false}
      */

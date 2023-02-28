@@ -23,7 +23,7 @@ public class BenchmarkThreadsCount {
     @Measurement(iterations = 1)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
-    public boolean ParallelThread2(BenchmarkThreadsCount.BenchmarkState state) {
+    public boolean parallelThread(BenchmarkThreadsCount.BenchmarkState state) {
         CheckerOfArrayForNonSimpleNumbers finder = new ParallelCheckerWithThreads(
                 state.threadsCount
         );
