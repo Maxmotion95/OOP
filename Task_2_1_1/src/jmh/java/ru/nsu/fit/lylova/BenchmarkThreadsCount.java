@@ -1,7 +1,6 @@
 package ru.nsu.fit.lylova;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
