@@ -2,7 +2,19 @@ package ru.nsu.fit.lylova;
 
 import java.util.Scanner;
 
+/**
+ * Main class with method main.
+ */
 public class Main {
+    /**
+     * Method main, that reads from standard input count of numbers and array of numbers.
+     * After that, the result of checking this array
+     * for the content of a non-simple number is output using
+     * {@code ConsistentChecker}, {@code ParallelCheckerWithParallelStream},
+     * {@code ParallelCheckerWithThreads}.
+     *
+     * @param args command line arguments (ignored)
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();

@@ -1,21 +1,39 @@
 package ru.nsu.fit.lylova;
 
+import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
+
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
-
+/**
+ * Class that implements interface {@code CheckerOfArrayForNonSimpleNumbers}.
+ * Threads are used to parallelize array validation.
+ */
 public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNumbers {
     private final AtomicBoolean result = new AtomicBoolean(false);
-    int threadsCount = 8;
+    private int threadsCount = 8;
 
-    ParallelCheckerWithThreads() {
+    /**
+     * Constructs checker which will use 8 threads.
+     */
+    public ParallelCheckerWithThreads() {
     }
 
-    ParallelCheckerWithThreads(int threadsCount) {
+    /**
+     * Constructs checker which will use {@code threadsCount} threads.
+     *
+     * @param threadsCount count of threads
+     */
+    public ParallelCheckerWithThreads(int threadsCount) {
         this.threadsCount = threadsCount > 0 ? threadsCount : 1;
     }
 
+    /**
+     * Checks array for content of non-prime number.
+     *
+     * @param numbers array of numbers
+     * @return {@code true} if array has non-prime number, otherwise {@code false}
+     */
     @Override
     public boolean hasNonPrimeNumber(int[] numbers) {
         result.set(false);
@@ -30,11 +48,6 @@ public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNum
         }
         for (Thread thread : threads) {
             thread.start();
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
         while (true) {
             boolean isAnyThreadAlive = Arrays.stream(threads).allMatch(Thread::isAlive);
@@ -51,7 +64,7 @@ public class ParallelCheckerWithThreads implements CheckerOfArrayForNonSimpleNum
         return result.get();
     }
 
-    class CheckerOfSubArray extends Thread {
+    private class CheckerOfSubArray extends Thread {
         final int[] numbers;
         final int left;
         final int right;
