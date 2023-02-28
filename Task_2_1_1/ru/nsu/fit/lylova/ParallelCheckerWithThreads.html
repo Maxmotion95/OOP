@@ -89,13 +89,13 @@ loadScripts(document, 'script');</script>
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
@@ -137,12 +137,43 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <pre>public class <span class="typeNameLabel">ParallelCheckerWithThreads</span>
 extends java.lang.Object
 implements <a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in ru.nsu.fit.lylova">CheckerOfArrayForNonSimpleNumbers</a></pre>
+<div class="block">Class that implements interface <code>CheckerOfArrayForNonSimpleNumbers</code>.
+ Threads are used to parallelize array validation.</div>
 </li>
 </ul>
 </div>
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.summary">
+<!--   -->
+</a>
+<h3>Constructor Summary</h3>
+<table class="memberSummary">
+<caption><span>Constructors</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Constructor</th>
+<th class="colLast" scope="col">Description</th>
+</tr>
+<tr class="altColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">ParallelCheckerWithThreads</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Constructs checker which will use 8 threads.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E(int)">ParallelCheckerWithThreads</a></span>&#8203;(int&nbsp;threadsCount)</code></th>
+<td class="colLast">
+<div class="block">Constructs checker which will use <code>threadsCount</code> threads.</div>
+</td>
+</tr>
+</table>
+</li>
+</ul>
+</section>
 <!-- ========== METHOD SUMMARY =========== -->
 <section>
 <ul class="blockList">
@@ -160,7 +191,9 @@ implements <a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in 
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#hasNonPrimeNumber(int%5B%5D)">hasNonPrimeNumber</a></span>&#8203;(int[]&nbsp;numbers)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Checks array for content of non-prime number.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -179,6 +212,40 @@ implements <a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in 
 <div class="details">
 <ul class="blockList">
 <li class="blockList">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<section>
+<ul class="blockList">
+<li class="blockList"><a id="constructor.detail">
+<!--   -->
+</a>
+<h3>Constructor Detail</h3>
+<a id="&lt;init&gt;()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>ParallelCheckerWithThreads</h4>
+<pre>public&nbsp;ParallelCheckerWithThreads()</pre>
+<div class="block">Constructs checker which will use 8 threads.</div>
+</li>
+</ul>
+<a id="&lt;init&gt;(int)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>ParallelCheckerWithThreads</h4>
+<pre>public&nbsp;ParallelCheckerWithThreads&#8203;(int&nbsp;threadsCount)</pre>
+<div class="block">Constructs checker which will use <code>threadsCount</code> threads.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>threadsCount</code> - count of threads</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ul>
+</section>
 <!-- ============ METHOD DETAIL ========== -->
 <section>
 <ul class="blockList">
@@ -193,9 +260,14 @@ implements <a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in 
 <li class="blockList">
 <h4>hasNonPrimeNumber</h4>
 <pre class="methodSignature">public&nbsp;boolean&nbsp;hasNonPrimeNumber&#8203;(int[]&nbsp;numbers)</pre>
+<div class="block">Checks array for content of non-prime number.</div>
 <dl>
 <dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
 <dd><code><a href="CheckerOfArrayForNonSimpleNumbers.html#hasNonPrimeNumber(int%5B%5D)">hasNonPrimeNumber</a></code>&nbsp;in interface&nbsp;<code><a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in ru.nsu.fit.lylova">CheckerOfArrayForNonSimpleNumbers</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>numbers</code> - array of numbers</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd><code>true</code> if array has non-prime number, otherwise <code>false</code></dd>
 </dl>
 </li>
 </ul>
@@ -251,13 +323,13 @@ implements <a href="CheckerOfArrayForNonSimpleNumbers.html" title="interface in 
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li><a href="#constructor.detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
