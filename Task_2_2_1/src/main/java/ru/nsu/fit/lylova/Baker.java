@@ -18,24 +18,32 @@ public class Baker extends Thread {
     public void run() {
         logger.info("baker " + bakerName + " started working");
         PizzaOrder order = null;
-        while (!currentThread().isInterrupted()) {
-            try {
-                order = orderQueue.getOrder();
-            } catch (InterruptedException e) {
-                if (orderQueue.getOrdersCount() == 0) {
+        boolean isEndOfWork = false;
+        while (true) {
+            isEndOfWork |= currentThread().isInterrupted();
+            synchronized (orderQueue) {
+                if (isEndOfWork && orderQueue.getOrdersCount() == 0) {
                     break;
                 }
-            }
-            if (order != null) {
-                logger.info("order " + order.getOrderId() + " started baking by baker" + bakerName);
-                try {
-                    Thread.sleep(cooking_speed);
-                    logger.info("order " + order.getOrderId() + " baked by baker" + bakerName);
-                } catch (InterruptedException e) {
-                    logger.info("order " + order.getOrderId() + " baked urgently by baker" + bakerName);
+                order = orderQueue.getOrder();
+                if (order == null) {
+                    try {
+                        orderQueue.wait();
+                        order = orderQueue.getOrder();
+                    } catch (InterruptedException e) {
+                        isEndOfWork = true;
+                        continue;
+                    }
                 }
-            } else {
-                break;
+            }
+            // Baker received an order from the queue and starting to prepare it
+            logger.info("order " + order.getOrderId() + " started baking by baker" + bakerName);
+            try {
+                Thread.sleep(cooking_speed);
+                logger.info("order " + order.getOrderId() + " baked by baker" + bakerName);
+            } catch (InterruptedException e) {
+                logger.info("order " + order.getOrderId() + " baked urgently by baker" + bakerName);
+                isEndOfWork = true;
             }
         }
         logger.info("baker " + bakerName + " finished the job");
