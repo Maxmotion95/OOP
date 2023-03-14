@@ -9,9 +9,10 @@ public class Main {
         log.info("logging started");
 
         PizzeriaOrderQueue orderQueue = new PizzeriaOrderQueue();
-        Baker b1 = new Baker(2000, orderQueue, "VASYA", log);
+        PizzaWarehouse warehouse = new PizzaWarehouse(3);
+        Baker b1 = new Baker(2000, orderQueue, warehouse, "VASYA", log);
         b1.start();
-        Baker b2 = new Baker(3000, orderQueue, "ANTON", log);
+        Baker b2 = new Baker(3000, orderQueue, warehouse,"ANTON", log);
         b2.start();
 
         Scanner sc = new Scanner(System.in);
