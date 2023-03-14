@@ -5,12 +5,14 @@ import java.util.logging.Logger;
 public class Baker extends Thread {
     private final long cooking_speed;
     private final PizzeriaOrderQueue orderQueue;
+    private final PizzaWarehouse warehouse;
     private final String bakerName;
     private final Logger logger;
 
-    Baker(long cooking_speed, PizzeriaOrderQueue orderQueue, String bakerName, Logger logger) {
+    Baker(long cooking_speed, PizzeriaOrderQueue orderQueue, PizzaWarehouse warehouse, String bakerName, Logger logger) {
         this.cooking_speed = cooking_speed;
         this.orderQueue = orderQueue;
+        this.warehouse = warehouse;
         this.bakerName = bakerName;
         this.logger = logger;
     }
@@ -45,6 +47,27 @@ public class Baker extends Thread {
                 logger.info("order " + order.getOrderId() + " baked urgently by baker" + bakerName);
                 isEndOfWork = true;
             }
+
+            // add order to warehouse
+            boolean res = false;
+            while (!res) {
+                synchronized (warehouse.warehouseForBakers) {
+                    synchronized (warehouse.warehouseForCourier) {
+                        res = warehouse.addOrder(order);
+                    }
+                    if (!res) {
+                        try {
+                            warehouse.warehouseForBakers.wait();
+                            synchronized (warehouse.warehouseForCourier) {
+                                res = warehouse.addOrder(order);
+                            }
+                        } catch (InterruptedException e) {
+                            isEndOfWork = true;
+                        }
+                    }
+                }
+            }
+            logger.info("order " + order.getOrderId() + " added to warehouse");
         }
         logger.info("baker " + bakerName + " finished the job");
     }
