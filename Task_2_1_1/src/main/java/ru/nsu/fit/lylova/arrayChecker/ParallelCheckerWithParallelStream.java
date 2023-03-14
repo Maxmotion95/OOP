@@ -1,4 +1,6 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.arrayChecker;
+
+import ru.nsu.fit.lylova.primeNumberChecker.CheckerOfPrimeNumber;
 
 import java.util.Arrays;
 

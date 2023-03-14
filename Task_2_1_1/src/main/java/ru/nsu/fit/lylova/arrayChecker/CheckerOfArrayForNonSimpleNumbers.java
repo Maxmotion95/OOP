@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.arrayChecker;
 
 /**
  * The interface of the array verifier for the content of a non-prime number.

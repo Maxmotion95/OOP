@@ -1,6 +1,6 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.arrayChecker;
 
-import static ru.nsu.fit.lylova.CheckerOfPrimeNumber.isPrime;
+import static ru.nsu.fit.lylova.primeNumberChecker.CheckerOfPrimeNumber.isPrime;
 
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;

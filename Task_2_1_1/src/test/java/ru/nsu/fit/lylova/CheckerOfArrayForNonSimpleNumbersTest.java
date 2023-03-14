@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
+import ru.nsu.fit.lylova.arrayChecker.CheckerOfArrayForNonSimpleNumbers;
+import ru.nsu.fit.lylova.arrayChecker.ConsistentChecker;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithParallelStream;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithThreads;
 
 class CheckerOfArrayForNonSimpleNumbersTest {
     private static Stream<CheckerOfArrayForNonSimpleNumbers> provideCheckerForTest() {

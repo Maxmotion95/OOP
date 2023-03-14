@@ -1,5 +1,10 @@
 package ru.nsu.fit.lylova;
 
+import ru.nsu.fit.lylova.arrayChecker.CheckerOfArrayForNonSimpleNumbers;
+import ru.nsu.fit.lylova.arrayChecker.ConsistentChecker;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithParallelStream;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithThreads;
+
 import java.util.Scanner;
 
 /**

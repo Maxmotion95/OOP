@@ -12,6 +12,10 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
+import ru.nsu.fit.lylova.arrayChecker.CheckerOfArrayForNonSimpleNumbers;
+import ru.nsu.fit.lylova.arrayChecker.ConsistentChecker;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithParallelStream;
+import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithThreads;
 
 /**
  * Benchmark for different checkers.

@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.primeNumberChecker;
 
 /**
  * A class with a function for checking a number for simplicity.
