@@ -25,7 +25,10 @@ public class Main {
                 b2.join();
                 break;
             } else {
-                orderQueue.addOrder(new PizzaOrder(pastOrderId));
+                synchronized (orderQueue) {
+                    orderQueue.addOrder(new PizzaOrder(pastOrderId));
+                    log.info("order " + pastOrderId + " accepted");
+                }
                 pastOrderId++;
             }
         }
