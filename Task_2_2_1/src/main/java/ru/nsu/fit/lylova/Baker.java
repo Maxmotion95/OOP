@@ -31,11 +31,11 @@ public class Baker extends Thread {
                 if (order == null) {
                     try {
                         orderQueue.wait();
-                        order = orderQueue.getOrder();
                     } catch (InterruptedException e) {
                         isEndOfWork = true;
                         continue;
                     }
+                    order = orderQueue.getOrder();
                 }
             }
             // Baker received an order from the queue and starting to prepare it
@@ -51,20 +51,18 @@ public class Baker extends Thread {
             // add order to warehouse
             boolean res = false;
             while (!res) {
-                synchronized (warehouse.warehouseForBakers) {
-                    synchronized (warehouse.warehouseForCourier) {
-                        res = warehouse.addOrder(order);
-                    }
-                    if (!res) {
+                synchronized (warehouse) {
+                    res = warehouse.addOrder(order);
+                    while (!res) {
                         try {
-                            warehouse.warehouseForBakers.wait();
-                            synchronized (warehouse.warehouseForCourier) {
-                                res = warehouse.addOrder(order);
-                            }
+                            warehouse.wait();
                         } catch (InterruptedException e) {
                             isEndOfWork = true;
+                            continue;
                         }
+                        res = warehouse.addOrder(order);
                     }
+                    warehouse.notifyAll();
                 }
             }
             logger.info("order " + order.getOrderId() + " added to warehouse");

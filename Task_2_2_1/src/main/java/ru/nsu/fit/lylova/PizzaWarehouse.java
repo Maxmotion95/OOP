@@ -14,6 +14,10 @@ public class PizzaWarehouse {
         this.capacity = capacity;
     }
 
+    public int getOrdersCount() {
+        return ordersQueue.size();
+    }
+
     public boolean addOrder(PizzaOrder order) {
         if (ordersQueue.size() >= capacity) {
             return false;
