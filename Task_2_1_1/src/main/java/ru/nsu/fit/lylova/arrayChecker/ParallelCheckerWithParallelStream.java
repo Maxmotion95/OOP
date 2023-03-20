@@ -23,9 +23,9 @@ public class ParallelCheckerWithParallelStream implements CheckerOfArrayForNonSi
      */
     @Override
     public boolean hasNonPrimeNumber(int[] numbers) {
-        return !Arrays.stream(numbers)
+        return Arrays.stream(numbers)
                 .parallel()
                 .unordered()
-                .allMatch(CheckerOfPrimeNumber::isPrime);
+                .anyMatch(x -> !CheckerOfPrimeNumber.isPrime(x));
     }
 }
