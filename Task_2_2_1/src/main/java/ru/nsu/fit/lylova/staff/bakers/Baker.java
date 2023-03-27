@@ -1,8 +1,8 @@
 package ru.nsu.fit.lylova.staff.bakers;
 
-import ru.nsu.fit.lylova.PizzaOrder;
-import ru.nsu.fit.lylova.PizzaWarehouse;
-import ru.nsu.fit.lylova.PizzeriaOrderQueue;
+import ru.nsu.fit.lylova.environment.PizzaOrder;
+import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 
 import java.util.logging.Logger;
 

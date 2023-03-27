@@ -1,4 +1,6 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.environment;
+
+import ru.nsu.fit.lylova.environment.PizzaOrder;
 
 import java.util.LinkedList;
 import java.util.Queue;

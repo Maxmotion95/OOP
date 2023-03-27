@@ -1,7 +1,7 @@
 package ru.nsu.fit.lylova.staff.couriers;
 
-import ru.nsu.fit.lylova.PizzaOrder;
-import ru.nsu.fit.lylova.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaOrder;
+import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 
 import java.util.LinkedList;
 import java.util.Queue;

@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova;
+package ru.nsu.fit.lylova.environment;
 
 public class PizzaOrder {
     private final int orderId;
