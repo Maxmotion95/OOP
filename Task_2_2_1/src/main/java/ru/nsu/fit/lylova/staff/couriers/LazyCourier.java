@@ -10,7 +10,7 @@ public class LazyCourier extends Courier {
     private final long deliveryTime;
     private final int trunkSize;
 
-    public LazyCourier(long deliveryTime, int trunkSize, PizzaWarehouse warehouse, String name, Logger logger) {
+    public LazyCourier(PizzaWarehouse warehouse, String name, Logger logger, long deliveryTime, int trunkSize) {
         super(warehouse, name, logger);
         this.deliveryTime = deliveryTime;
         this.trunkSize = trunkSize;
