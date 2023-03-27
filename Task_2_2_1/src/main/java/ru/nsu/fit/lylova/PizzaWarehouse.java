@@ -4,9 +4,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class PizzaWarehouse {
-
-    public final Object warehouseForBakers = new Object();
-    public final Object warehouseForCourier = new Object();
     private final Queue<PizzaOrder> ordersQueue = new LinkedList<>();
     private final int capacity;
 
@@ -15,18 +12,33 @@ public class PizzaWarehouse {
     }
 
     public int getOrdersCount() {
-        return ordersQueue.size();
-    }
-
-    public boolean addOrder(PizzaOrder order) {
-        if (ordersQueue.size() >= capacity) {
-            return false;
+        synchronized (this) {
+            return ordersQueue.size();
         }
-        ordersQueue.add(order);
-        return true;
     }
 
-    public PizzaOrder getOrder() {
-        return ordersQueue.poll();
+    public void addOrder(PizzaOrder order) throws InterruptedException {
+        synchronized (this) {
+            while (ordersQueue.size() >= capacity) {
+                this.wait();
+            }
+            ordersQueue.add(order);
+            this.notifyAll();
+        }
+    }
+
+    public PizzaOrder getOrderWithBlocking() throws InterruptedException {
+        synchronized (this) {
+            while (ordersQueue.isEmpty()) {
+                this.wait();
+            }
+            return ordersQueue.poll();
+        }
+    }
+
+    public PizzaOrder getOrderWithoutBlocking() {
+        synchronized (this) {
+            return ordersQueue.poll();
+        }
     }
 }
