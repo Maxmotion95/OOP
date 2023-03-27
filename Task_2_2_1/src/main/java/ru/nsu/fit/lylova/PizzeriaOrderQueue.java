@@ -6,7 +6,7 @@ import java.util.Queue;
 public class PizzeriaOrderQueue {
     private final Queue<PizzaOrder> ordersQueue = new LinkedList<>();
 
-    PizzeriaOrderQueue() {
+    public PizzeriaOrderQueue() {
     }
 
     public int getOrdersCount() {

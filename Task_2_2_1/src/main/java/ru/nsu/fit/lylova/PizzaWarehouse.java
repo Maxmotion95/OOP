@@ -7,7 +7,7 @@ public class PizzaWarehouse {
     private final Queue<PizzaOrder> ordersQueue = new LinkedList<>();
     private final int capacity;
 
-    PizzaWarehouse(int capacity) {
+    public PizzaWarehouse(int capacity) {
         this.capacity = capacity;
     }
 
