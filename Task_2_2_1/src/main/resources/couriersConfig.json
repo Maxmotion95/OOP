@@ -1,0 +1,16 @@
+{
+  "couriers": [
+    {
+      "type": "lazy",
+      "deliveryTime": 5000,
+      "trunkSize": 3,
+      "name": "TORT"
+    },
+    {
+      "type": "active",
+      "deliveryTime": 2000,
+      "trunkSize": 2,
+      "name": "DOTTORE"
+    }
+  ]
+}
