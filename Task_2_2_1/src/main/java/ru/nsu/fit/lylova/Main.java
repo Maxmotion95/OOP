@@ -1,5 +1,11 @@
 package ru.nsu.fit.lylova;
 
+import ru.nsu.fit.lylova.environment.PizzaOrder;
+import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
+import ru.nsu.fit.lylova.staff.bakers.Baker;
+import ru.nsu.fit.lylova.staff.couriers.LazyCourier;
+
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -14,26 +20,32 @@ public class Main {
         b1.start();
         Baker b2 = new Baker(3000, orderQueue, warehouse,"ANTON", log);
         b2.start();
-        Courier c1 = new Courier(5000, 3, orderQueue, warehouse, "OLEG", log);
+        LazyCourier c1 = new LazyCourier(5000, 3, warehouse, "OLEG", log);
         c1.start();
 
         Scanner sc = new Scanner(System.in);
         int pastOrderId = 0;
         while (true) {
             String s = sc.next();
-            if (s.equals("exit")) {
-                b1.interrupt();
-                b2.interrupt();
+            if (s.equals("softShutdown")) {
+                b1.softShutdown();
+                b2.softShutdown();
                 b1.join();
                 b2.join();
-                c1.interrupt();
+                c1.softShutdown();
+                c1.join();
+                break;
+            } else if (s.equals("forceShutdown")) {
+                b1.forceShutdown();
+                b2.forceShutdown();
+                c1.forceShutdown();
+                b1.join();
+                b2.join();
                 c1.join();
                 break;
             } else {
-                synchronized (orderQueue) {
-                    orderQueue.addOrder(new PizzaOrder(pastOrderId));
-                    log.info("order " + pastOrderId + " accepted");
-                }
+                orderQueue.addOrder(new PizzaOrder(pastOrderId));
+                log.info("order " + pastOrderId + " accepted");
                 pastOrderId++;
             }
         }
