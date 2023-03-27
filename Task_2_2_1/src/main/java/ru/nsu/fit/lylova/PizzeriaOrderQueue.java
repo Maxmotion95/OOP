@@ -10,15 +10,31 @@ public class PizzeriaOrderQueue {
     }
 
     public int getOrdersCount() {
-        return ordersQueue.size();
+        synchronized (this) {
+            return ordersQueue.size();
+        }
     }
 
-    public PizzaOrder getOrder() {
-        return ordersQueue.poll();
+    public PizzaOrder getOrderWithBlocking() throws InterruptedException {
+        synchronized (this) {
+            if (!ordersQueue.isEmpty()) {
+                return ordersQueue.poll();
+            }
+            this.wait();
+            return ordersQueue.poll();
+        }
+    }
+
+    public PizzaOrder getOrderWithoutBlocking() {
+        synchronized (this) {
+            return ordersQueue.poll();
+        }
     }
 
     void addOrder(PizzaOrder order) {
-        ordersQueue.add(order);
-        this.notify();
+        synchronized (this) {
+            ordersQueue.add(order);
+            this.notify();
+        }
     }
 }
