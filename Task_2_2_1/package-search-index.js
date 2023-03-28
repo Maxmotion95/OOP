@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ru.nsu.fit.lylova"},{"l":"ru.nsu.fit.lylova.environment"},{"l":"ru.nsu.fit.lylova.services"},{"l":"ru.nsu.fit.lylova.staff.bakers"},{"l":"ru.nsu.fit.lylova.staff.couriers"}]
