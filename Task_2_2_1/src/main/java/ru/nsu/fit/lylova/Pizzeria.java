@@ -47,4 +47,12 @@ public class Pizzeria {
         orderQueue.addOrder(order);
         logger.info("order " + order.getOrderId() + " accepted");
     }
+
+    public PizzeriaOrderQueue getOrderQueue() {
+        return this.orderQueue;
+    }
+
+    public PizzaWarehouse getWarehouse() {
+        return this.warehouse;
+    }
 }
