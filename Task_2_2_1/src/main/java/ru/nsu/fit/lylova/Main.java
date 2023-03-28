@@ -18,34 +18,27 @@ public class Main {
         Logger log = Logger.getLogger(Main.class.getName());
         log.info("logging started");
 
-        PizzeriaOrderQueue orderQueue = new PizzeriaOrderQueue();
-        PizzaWarehouse warehouse = new PizzaWarehouse(3);
+        Pizzeria pizzeria = new Pizzeria(
+                3,
+                log,
+                "Task_2_2_1/src/main/resources/bakersConfig.json",
+                "Task_2_2_1/src/main/resources/couriersConfig.json"
+        );
 
-        CourierService courierService = new CourierService(warehouse, log, "Task_2_2_1/src/main/resources/couriersConfig.json");
-        BakerService bakerService = new BakerService(orderQueue, warehouse, log, "Task_2_2_1/src/main/resources/bakersConfig.json");
-
-        bakerService.startAll();
-        courierService.startAll();
+        pizzeria.startWork();
 
         Scanner sc = new Scanner(System.in);
         int pastOrderId = 0;
         while (true) {
             String s = sc.next();
             if (s.equals("softShutdown") || s.equals("s")) {
-                bakerService.softShutdownAll();
-                bakerService.joinAll();
-                courierService.softShutdownAll();
-                courierService.joinAll();
+                pizzeria.softShutdown();
                 break;
             } else if (s.equals("forceShutdown") || s.equals("f")) {
-                bakerService.forceShutdownAll();
-                courierService.forceShutdownAll();
-                bakerService.joinAll();
-                courierService.joinAll();
+                pizzeria.forceShutdown();
                 break;
             } else {
-                orderQueue.addOrder(new PizzaOrder(pastOrderId));
-                log.info("order " + pastOrderId + " accepted");
+                pizzeria.addOrder(new PizzaOrder(pastOrderId));
                 pastOrderId++;
             }
         }
