@@ -30,15 +30,17 @@ public class ActiveCourier extends Courier {
             if (order == null) {
                 return;
             }
-            trunk.add(order);
         } else {
             order = warehouse.getOrderWithBlocking();
-            trunk.add(order);
         }
+        trunk.add(order);
+        logger.info("order " + order.getOrderId() + " taken for delivery by active courier " + name);
+        
         while (trunk.size() < trunkSize && order != null) {
             order = warehouse.getOrderWithoutBlocking();
             if (order != null) {
                 trunk.add(order);
+                logger.info("order " + order.getOrderId() + " taken for delivery by active courier " + name);
             }
         }
     }
