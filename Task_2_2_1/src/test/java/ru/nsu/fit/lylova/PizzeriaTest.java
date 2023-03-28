@@ -36,7 +36,14 @@ class PizzeriaTest {
     }
 
     @Test
-    void forceShutdown() throws InterruptedException {
+    void forceShutdown() throws InterruptedException, IOException {
+        Logger log = Logger.getLogger(Main.class.getName());
+        pizzeria = new Pizzeria(
+                3,
+                log,
+                "src/test/resources/bakersConfigEmpty.json",
+                "src/test/resources/couriersConfig.json"
+        );
         pizzeria.startWork();
         pizzeria.addOrder(new PizzaOrder(100));
         pizzeria.addOrder(new PizzaOrder(200));
@@ -46,9 +53,29 @@ class PizzeriaTest {
         pizzeria.addOrder(new PizzaOrder(600));
         pizzeria.addOrder(new PizzaOrder(700));
         pizzeria.addOrder(new PizzaOrder(800));
-        Thread.sleep(7000);
+        Thread.sleep(10000);
         pizzeria.forceShutdown();
-        assertEquals(1, pizzeria.getOrderQueue().getOrdersCount());
+        assertEquals(8, pizzeria.getOrderQueue().getOrdersCount());
         assertEquals(0, pizzeria.getWarehouse().getOrdersCount());
+
+        pizzeria = new Pizzeria(
+                3,
+                log,
+                "src/test/resources/bakersConfig.json",
+                "src/test/resources/couriersConfigEmpty.json"
+        );
+        pizzeria.startWork();
+        pizzeria.addOrder(new PizzaOrder(100));
+        pizzeria.addOrder(new PizzaOrder(200));
+        pizzeria.addOrder(new PizzaOrder(300));
+        pizzeria.addOrder(new PizzaOrder(400));
+        pizzeria.addOrder(new PizzaOrder(500));
+        pizzeria.addOrder(new PizzaOrder(600));
+        pizzeria.addOrder(new PizzaOrder(700));
+        pizzeria.addOrder(new PizzaOrder(800));
+        Thread.sleep(10000);
+        pizzeria.forceShutdown();
+        assertEquals(3, pizzeria.getOrderQueue().getOrdersCount());
+        assertEquals(3, pizzeria.getWarehouse().getOrdersCount());
     }
 }
