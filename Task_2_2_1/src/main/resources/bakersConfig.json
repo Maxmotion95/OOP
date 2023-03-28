@@ -1,12 +1,14 @@
-[
-  {
-    "type": "norm",
-    "cookingSpeed": 2000,
-    "name": "VASYA"
-  },
-  {
-    "type": "norm",
-    "cookingSpeed": 3000,
-    "name": "ANTON"
-  }
-]
+{
+  "bakers": [
+    {
+      "type": "norm",
+      "cookingSpeed": 2000,
+      "name": "VASYA"
+    },
+    {
+      "type": "norm",
+      "cookingSpeed": 3000,
+      "name": "ANTON"
+    }
+  ]
+}
