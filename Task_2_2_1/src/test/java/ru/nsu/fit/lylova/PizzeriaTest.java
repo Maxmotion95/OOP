@@ -26,7 +26,7 @@ class PizzeriaTest {
     }
 
     @Test
-    void softShutdown() throws InterruptedException {
+    void softShutdownTest() throws InterruptedException {
         pizzeria.startWork();
         pizzeria.addOrder(new PizzaOrder(100));
         pizzeria.addOrder(new PizzaOrder(200));
@@ -36,7 +36,7 @@ class PizzeriaTest {
     }
 
     @Test
-    void forceShutdown() throws InterruptedException, IOException {
+    void forceShutdownTest() throws InterruptedException, IOException {
         Logger log = Logger.getLogger(Main.class.getName());
         pizzeria = new Pizzeria(
                 3,
