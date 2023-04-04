@@ -1,11 +1,14 @@
 package ru.nsu.fit.lylova.staff.couriers;
 
+import java.util.Queue;
+import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
 import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 
-import java.util.Queue;
-import java.util.logging.Logger;
-
+/**
+ * Class of active courier, which takes the maximum number of orders that he can take now
+ * and immediately goes to deliver them.
+ */
 public class ActiveCourier extends Courier {
     private final long deliveryTime;
     private final int trunkSize;
@@ -24,7 +27,7 @@ public class ActiveCourier extends Courier {
 
     @Override
     protected void fillTrunk(Queue<PizzaOrder> trunk) throws InterruptedException {
-        PizzaOrder order = null;
+        PizzaOrder order;
         if (isSoftShutdown) {
             order = warehouse.getOrderWithoutBlocking();
             if (order == null) {
@@ -35,7 +38,7 @@ public class ActiveCourier extends Courier {
         }
         trunk.add(order);
         logger.info("order " + order.getOrderId() + " taken for delivery by active courier " + name);
-        
+
         while (trunk.size() < trunkSize && order != null) {
             order = warehouse.getOrderWithoutBlocking();
             if (order != null) {

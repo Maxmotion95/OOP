@@ -1,20 +1,33 @@
 package ru.nsu.fit.lylova;
 
-import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
-import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
-import ru.nsu.fit.lylova.services.BakerService;
-import ru.nsu.fit.lylova.services.CourierService;
-import ru.nsu.fit.lylova.staff.bakers.NormalBaker;
-import ru.nsu.fit.lylova.staff.couriers.Courier;
-import ru.nsu.fit.lylova.staff.couriers.LazyCourier;
-
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Logger;
+import ru.nsu.fit.lylova.environment.PizzaOrder;
 
+/**
+ * Class Main with method main, that starts pizzeria.
+ */
 public class Main {
-    public static void main(String[] args) throws InterruptedException, IOException {
+    /**
+     * Method main, that starts pizzeria. <br>
+     * Interaction protocol:
+     * <ul>
+     *     <li>
+     *         "softShutdown" or "s" - the pizzeria closes completing all orders.
+     *     </li>
+     *     <li>
+     *         "forceShutdown" or "f" - pizzeria closes urgently without completing all orders.
+     *     </li>
+     *     <li>
+     *          any other token - a new order is being created.
+     *     </li>
+     * </ul>
+     *
+     * @param args arguments command line (not used)
+     * @throws IOException if the pizzeria configuration files are missing
+     */
+    public static void main(String[] args) throws IOException {
         Logger log = Logger.getLogger(Main.class.getName());
         log.info("logging started");
 
@@ -32,10 +45,18 @@ public class Main {
         while (true) {
             String s = sc.next();
             if (s.equals("softShutdown") || s.equals("s")) {
-                pizzeria.softShutdown();
+                try {
+                    pizzeria.softShutdown();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             } else if (s.equals("forceShutdown") || s.equals("f")) {
-                pizzeria.forceShutdown();
+                try {
+                    pizzeria.forceShutdown();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             } else {
                 pizzeria.addOrder(new PizzaOrder(pastOrderId));

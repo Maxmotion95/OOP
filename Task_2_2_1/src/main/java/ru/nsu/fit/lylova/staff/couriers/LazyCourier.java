@@ -6,6 +6,10 @@ import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 import java.util.Queue;
 import java.util.logging.Logger;
 
+/**
+ * Class of lazy courier, which does not go to deliver orders until his trunk is fully filled
+ * or the working day is over.
+ */
 public class LazyCourier extends Courier {
     private final long deliveryTime;
     private final int trunkSize;

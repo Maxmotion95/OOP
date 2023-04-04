@@ -1,5 +1,11 @@
 package ru.nsu.fit.lylova.services;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Logger;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -9,16 +15,21 @@ import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 import ru.nsu.fit.lylova.staff.bakers.Baker;
 import ru.nsu.fit.lylova.staff.bakers.NormalBaker;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
-
+/**
+ * Baker service class.
+ */
 public class BakerService {
     private final List<Baker> bakers;
 
+    /**
+     * Create baker service with specified parameters.
+     *
+     * @param orderQueue pizzeria order queue
+     * @param warehouse  pizzeria warehouse
+     * @param logger     logger
+     * @param configPath path to bakers configuration file
+     * @throws IOException if configuration file is missing
+     */
     public BakerService(PizzeriaOrderQueue orderQueue, PizzaWarehouse warehouse, Logger logger, String configPath) throws IOException {
         bakers = new ArrayList<>();
         Path filePath = Path.of(configPath);
@@ -49,18 +60,32 @@ public class BakerService {
         }
     }
 
+    /**
+     * Start the work of all bakers.
+     */
     public void startAll() {
         bakers.forEach(Thread::start);
     }
 
+    /**
+     * Shuts down all bakers so that they finish all orders.
+     */
     public void softShutdownAll() {
         bakers.forEach(Baker::softShutdown);
     }
 
+    /**
+     * Shuts down all bakers urgently so that they don't finish all orders.
+     */
     public void forceShutdownAll() {
         bakers.forEach(Baker::forceShutdown);
     }
 
+    /**
+     * Waits for all bakers to complete their work.
+     *
+     * @throws InterruptedException if thread was interrupted
+     */
     public void joinAll() throws InterruptedException {
         for (Baker baker : bakers) {
             baker.join();
