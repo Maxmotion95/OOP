@@ -2,7 +2,7 @@ package ru.nsu.fit.lylova.staff.bakers;
 
 import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker;
 import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 
 /**
@@ -21,7 +21,7 @@ public class NormalBaker extends Baker {
      * @param cookingSpeed baking time of one order in milliseconds
      */
     public NormalBaker(PizzeriaOrderQueue orderQueue,
-                       PizzaWarehouse warehouse,
+                       PizzaWarehouseForBaker warehouse,
                        String bakerName,
                        Logger logger,
                        long cookingSpeed) {

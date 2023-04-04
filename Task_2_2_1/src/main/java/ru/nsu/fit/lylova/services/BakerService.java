@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker;
 import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 import ru.nsu.fit.lylova.staff.bakers.Baker;
 import ru.nsu.fit.lylova.staff.bakers.NormalBaker;
@@ -31,7 +31,7 @@ public class BakerService {
      * @throws IOException if configuration file is missing
      */
     public BakerService(PizzeriaOrderQueue orderQueue,
-                        PizzaWarehouse warehouse,
+                        PizzaWarehouseForBaker warehouse,
                         Logger logger,
                         String configPath) throws IOException {
         bakers = new ArrayList<>();

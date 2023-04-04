@@ -2,7 +2,7 @@ package ru.nsu.fit.lylova.staff.bakers;
 
 import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker;
 import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 
 /**
@@ -16,7 +16,7 @@ public abstract class Baker extends Thread {
     /**
      * Pizzeria warehouse.
      */
-    protected final PizzaWarehouse warehouse;
+    protected final PizzaWarehouseForBaker warehouse;
     /**
      * Baker name.
      */
@@ -43,7 +43,7 @@ public abstract class Baker extends Thread {
      * @param logger logger
      */
     protected Baker(PizzeriaOrderQueue orderQueue,
-                    PizzaWarehouse warehouse,
+                    PizzaWarehouseForBaker warehouse,
                     String name,
                     Logger logger) {
         this.orderQueue = orderQueue;

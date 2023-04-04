@@ -3,7 +3,7 @@ package ru.nsu.fit.lylova.staff.couriers;
 import java.util.Queue;
 import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier;
 
 /**
  * Class of active courier, which takes the maximum number of orders that he can take now
@@ -22,7 +22,7 @@ public class ActiveCourier extends Courier {
      * @param deliveryTime time of delivery in milliseconds
      * @param trunkSize    maximal number of orders in trunk
      */
-    public ActiveCourier(PizzaWarehouse warehouse, String name, Logger logger,
+    public ActiveCourier(PizzaWarehouseForCourier warehouse, String name, Logger logger,
                          long deliveryTime, int trunkSize) {
         super(warehouse, name, logger);
         this.deliveryTime = deliveryTime;

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier;
 
 /**
  * Abstract class Courier.
@@ -13,7 +13,7 @@ public abstract class Courier extends Thread {
     /**
      * Pizzeria warehouse.
      */
-    protected final PizzaWarehouse warehouse;
+    protected final PizzaWarehouseForCourier warehouse;
     /**
      * Courier name.
      */
@@ -38,7 +38,7 @@ public abstract class Courier extends Thread {
      * @param name      courier name
      * @param logger    logger
      */
-    protected Courier(PizzaWarehouse warehouse, String name, Logger logger) {
+    protected Courier(PizzaWarehouseForCourier warehouse, String name, Logger logger) {
         this.warehouse = warehouse;
         this.name = name;
         this.logger = logger;
