@@ -102,11 +102,15 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Class of active courier, which takes the maximum number of orders that he can take now
  and immediately goes to deliver them.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/ActiveCourier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouse,java.lang.String,java.util.logging.Logger,long,int)">ActiveCourier(PizzaWarehouse, String, Logger, long, int)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/ActiveCourier.html" title="class in ru.nsu.fit.lylova.staff.couriers">ActiveCourier</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/ActiveCourier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier,java.lang.String,java.util.logging.Logger,long,int)">ActiveCourier(PizzaWarehouseForCourier, String, Logger, long, int)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/ActiveCourier.html" title="class in ru.nsu.fit.lylova.staff.couriers">ActiveCourier</a></dt>
 <dd>
 <div class="block">Creates courier with specified parameters.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html#addOrder(ru.nsu.fit.lylova.environment.PizzaOrder)">addOrder(PizzaOrder)</a></span> - Method in class ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a></dt>
+<dd>
+<div class="block">Adds an order to the warehouse.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForBaker.html#addOrder(ru.nsu.fit.lylova.environment.PizzaOrder)">addOrder(PizzaOrder)</a></span> - Method in interface ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForBaker.html" title="interface in ru.nsu.fit.lylova.environment">PizzaWarehouseForBaker</a></dt>
 <dd>
 <div class="block">Adds an order to the warehouse.</div>
 </dd>
@@ -128,7 +132,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Abstract class Baker.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/bakers/Baker.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouse,java.lang.String,java.util.logging.Logger)">Baker(PizzeriaOrderQueue, PizzaWarehouse, String, Logger)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.bakers.<a href="ru/nsu/fit/lylova/staff/bakers/Baker.html" title="class in ru.nsu.fit.lylova.staff.bakers">Baker</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/bakers/Baker.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker,java.lang.String,java.util.logging.Logger)">Baker(PizzeriaOrderQueue, PizzaWarehouseForBaker, String, Logger)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.bakers.<a href="ru/nsu/fit/lylova/staff/bakers/Baker.html" title="class in ru.nsu.fit.lylova.staff.bakers">Baker</a></dt>
 <dd>
 <div class="block">Creates baker with specified parameters.</div>
 </dd>
@@ -136,7 +140,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Baker service class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/services/BakerService.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouse,java.util.logging.Logger,java.lang.String)">BakerService(PizzeriaOrderQueue, PizzaWarehouse, Logger, String)</a></span> - Constructor for class ru.nsu.fit.lylova.services.<a href="ru/nsu/fit/lylova/services/BakerService.html" title="class in ru.nsu.fit.lylova.services">BakerService</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/services/BakerService.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker,java.util.logging.Logger,java.lang.String)">BakerService(PizzeriaOrderQueue, PizzaWarehouseForBaker, Logger, String)</a></span> - Constructor for class ru.nsu.fit.lylova.services.<a href="ru/nsu/fit/lylova/services/BakerService.html" title="class in ru.nsu.fit.lylova.services">BakerService</a></dt>
 <dd>
 <div class="block">Create baker service with specified parameters.</div>
 </dd>
@@ -156,7 +160,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Abstract class Courier.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/Courier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouse,java.lang.String,java.util.logging.Logger)">Courier(PizzaWarehouse, String, Logger)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/Courier.html" title="class in ru.nsu.fit.lylova.staff.couriers">Courier</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/Courier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier,java.lang.String,java.util.logging.Logger)">Courier(PizzaWarehouseForCourier, String, Logger)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/Courier.html" title="class in ru.nsu.fit.lylova.staff.couriers">Courier</a></dt>
 <dd>
 <div class="block">Creates courier with specified parameters.</div>
 </dd>
@@ -164,7 +168,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Courier service class.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/services/CourierService.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouse,java.util.logging.Logger,java.lang.String)">CourierService(PizzaWarehouse, Logger, String)</a></span> - Constructor for class ru.nsu.fit.lylova.services.<a href="ru/nsu/fit/lylova/services/CourierService.html" title="class in ru.nsu.fit.lylova.services">CourierService</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/services/CourierService.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier,java.util.logging.Logger,java.lang.String)">CourierService(PizzaWarehouseForCourier, Logger, String)</a></span> - Constructor for class ru.nsu.fit.lylova.services.<a href="ru/nsu/fit/lylova/services/CourierService.html" title="class in ru.nsu.fit.lylova.services">CourierService</a></dt>
 <dd>
 <div class="block">Create courier service with specified parameters.</div>
 </dd>
@@ -268,11 +272,19 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Deletes and returns order.</div>
 </dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForCourier.html#getOrderWithBlocking()">getOrderWithBlocking()</a></span> - Method in interface ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForCourier.html" title="interface in ru.nsu.fit.lylova.environment">PizzaWarehouseForCourier</a></dt>
+<dd>
+<div class="block">Deletes and returns order.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzeriaOrderQueue.html#getOrderWithBlocking()">getOrderWithBlocking()</a></span> - Method in class ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzeriaOrderQueue.html" title="class in ru.nsu.fit.lylova.environment">PizzeriaOrderQueue</a></dt>
 <dd>
 <div class="block">Deletes and returns order.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html#getOrderWithoutBlocking()">getOrderWithoutBlocking()</a></span> - Method in class ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a></dt>
+<dd>
+<div class="block">Deletes and returns order.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForCourier.html#getOrderWithoutBlocking()">getOrderWithoutBlocking()</a></span> - Method in interface ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForCourier.html" title="interface in ru.nsu.fit.lylova.environment">PizzaWarehouseForCourier</a></dt>
 <dd>
 <div class="block">Deletes and returns order.</div>
 </dd>
@@ -331,7 +343,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Class of lazy courier, which does not go to deliver orders until his trunk is fully filled
  or the working day is over.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/LazyCourier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouse,java.lang.String,java.util.logging.Logger,long,int)">LazyCourier(PizzaWarehouse, String, Logger, long, int)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/LazyCourier.html" title="class in ru.nsu.fit.lylova.staff.couriers">LazyCourier</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/couriers/LazyCourier.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier,java.lang.String,java.util.logging.Logger,long,int)">LazyCourier(PizzaWarehouseForCourier, String, Logger, long, int)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.couriers.<a href="ru/nsu/fit/lylova/staff/couriers/LazyCourier.html" title="class in ru.nsu.fit.lylova.staff.couriers">LazyCourier</a></dt>
 <dd>
 <div class="block">Creates courier with specified parameters.</div>
 </dd>
@@ -377,7 +389,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd>
 <div class="block">Class of normal baker, which takes one order from the queue and bakes it for a certain time.</div>
 </dd>
-<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/bakers/NormalBaker.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouse,java.lang.String,java.util.logging.Logger,long)">NormalBaker(PizzeriaOrderQueue, PizzaWarehouse, String, Logger, long)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.bakers.<a href="ru/nsu/fit/lylova/staff/bakers/NormalBaker.html" title="class in ru.nsu.fit.lylova.staff.bakers">NormalBaker</a></dt>
+<dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/staff/bakers/NormalBaker.html#%3Cinit%3E(ru.nsu.fit.lylova.environment.PizzeriaOrderQueue,ru.nsu.fit.lylova.environment.PizzaWarehouseForBaker,java.lang.String,java.util.logging.Logger,long)">NormalBaker(PizzeriaOrderQueue, PizzaWarehouseForBaker, String, Logger, long)</a></span> - Constructor for class ru.nsu.fit.lylova.staff.bakers.<a href="ru/nsu/fit/lylova/staff/bakers/NormalBaker.html" title="class in ru.nsu.fit.lylova.staff.bakers">NormalBaker</a></dt>
 <dd>
 <div class="block">Creates baker with specified parameters.</div>
 </dd>
@@ -412,6 +424,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html#%3Cinit%3E(int)">PizzaWarehouse(int)</a></span> - Constructor for class ru.nsu.fit.lylova.environment.<a href="ru/nsu/fit/lylova/environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a></dt>
 <dd>
 <div class="block">Creates warehouse with specified capacity.</div>
+</dd>
+<dt><a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForBaker.html" title="interface in ru.nsu.fit.lylova.environment"><span class="typeNameLink">PizzaWarehouseForBaker</span></a> - Interface in <a href="ru/nsu/fit/lylova/environment/package-summary.html">ru.nsu.fit.lylova.environment</a></dt>
+<dd>
+<div class="block">Interface baker warehouse.</div>
+</dd>
+<dt><a href="ru/nsu/fit/lylova/environment/PizzaWarehouseForCourier.html" title="interface in ru.nsu.fit.lylova.environment"><span class="typeNameLink">PizzaWarehouseForCourier</span></a> - Interface in <a href="ru/nsu/fit/lylova/environment/package-summary.html">ru.nsu.fit.lylova.environment</a></dt>
+<dd>
+<div class="block">Interface courier warehouse.</div>
 </dd>
 <dt><a href="ru/nsu/fit/lylova/Pizzeria.html" title="class in ru.nsu.fit.lylova"><span class="typeNameLink">Pizzeria</span></a> - Class in <a href="ru/nsu/fit/lylova/package-summary.html">ru.nsu.fit.lylova</a></dt>
 <dd>
