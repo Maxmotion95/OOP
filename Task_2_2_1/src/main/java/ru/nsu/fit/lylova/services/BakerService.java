@@ -1,15 +1,15 @@
 package ru.nsu.fit.lylova.services;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 import ru.nsu.fit.lylova.staff.bakers.Baker;
@@ -30,7 +30,10 @@ public class BakerService {
      * @param configPath path to bakers configuration file
      * @throws IOException if configuration file is missing
      */
-    public BakerService(PizzeriaOrderQueue orderQueue, PizzaWarehouse warehouse, Logger logger, String configPath) throws IOException {
+    public BakerService(PizzeriaOrderQueue orderQueue,
+                        PizzaWarehouse warehouse,
+                        Logger logger,
+                        String configPath) throws IOException {
         bakers = new ArrayList<>();
         Path filePath = Path.of(configPath);
         String configString = Files.readString(filePath);

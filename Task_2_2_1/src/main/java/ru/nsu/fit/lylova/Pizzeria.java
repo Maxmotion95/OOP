@@ -28,7 +28,10 @@ public class Pizzeria {
      * @param couriersConfigPath path to couriers configuration file
      * @throws IOException if bakers or couriers configuration files is missing
      */
-    public Pizzeria(int warehouseCapacity, Logger logger, String bakersConfigPath, String couriersConfigPath) throws IOException {
+    public Pizzeria(int warehouseCapacity,
+                    Logger logger,
+                    String bakersConfigPath,
+                    String couriersConfigPath) throws IOException {
         this.orderQueue = new PizzeriaOrderQueue();
         this.warehouse = new PizzaWarehouse(warehouseCapacity);
         this.logger = logger;

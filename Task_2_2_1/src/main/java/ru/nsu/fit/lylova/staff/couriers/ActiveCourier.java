@@ -13,6 +13,15 @@ public class ActiveCourier extends Courier {
     private final long deliveryTime;
     private final int trunkSize;
 
+    /**
+     * Creates courier with specified parameters.
+     *
+     * @param warehouse    pizzeria warehouse
+     * @param name         courier name
+     * @param logger       logger
+     * @param deliveryTime time of delivery in milliseconds
+     * @param trunkSize    maximal number of orders in trunk
+     */
     public ActiveCourier(PizzaWarehouse warehouse, String name, Logger logger,
                          long deliveryTime, int trunkSize) {
         super(warehouse, name, logger);
@@ -37,13 +46,17 @@ public class ActiveCourier extends Courier {
             order = warehouse.getOrderWithBlocking();
         }
         trunk.add(order);
-        logger.info("order " + order.getOrderId() + " taken for delivery by active courier " + name);
+        logger.info("order "
+                + order.getOrderId()
+                + " taken for delivery by active courier " + name);
 
         while (trunk.size() < trunkSize && order != null) {
             order = warehouse.getOrderWithoutBlocking();
             if (order != null) {
                 trunk.add(order);
-                logger.info("order " + order.getOrderId() + " taken for delivery by active courier " + name);
+                logger.info("order "
+                        + order.getOrderId()
+                        + " taken for delivery by active courier " + name);
             }
         }
     }
@@ -62,7 +75,10 @@ public class ActiveCourier extends Courier {
         while (!trunk.isEmpty()) {
             PizzaOrder order = trunk.poll();
             if (normalDelivery) {
-                logger.info("order " + order.getOrderId() + " delivered by active courier " + name);
+                logger.info("order "
+                        + order.getOrderId()
+                        + " delivered by active courier "
+                        + name);
             } else {
                 logger.info(
                         "order "

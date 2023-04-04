@@ -42,7 +42,10 @@ public abstract class Baker extends Thread {
      * @param name baker name
      * @param logger logger
      */
-    protected Baker(PizzeriaOrderQueue orderQueue, PizzaWarehouse warehouse, String name, Logger logger) {
+    protected Baker(PizzeriaOrderQueue orderQueue,
+                    PizzaWarehouse warehouse,
+                    String name,
+                    Logger logger) {
         this.orderQueue = orderQueue;
         this.warehouse = warehouse;
         this.name = name;
