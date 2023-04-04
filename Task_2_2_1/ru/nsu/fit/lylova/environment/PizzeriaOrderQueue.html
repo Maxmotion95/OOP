@@ -133,6 +133,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">PizzeriaOrderQueue</span>
 extends java.lang.Object</pre>
+<div class="block">Pizzeria order queue class.</div>
 </li>
 </ul>
 </div>
@@ -154,7 +155,9 @@ extends java.lang.Object</pre>
 </tr>
 <tr class="altColor">
 <th class="colConstructorName" scope="row"><code><span class="memberNameLink"><a href="#%3Cinit%3E()">PizzeriaOrderQueue</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates empty order queue.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -177,22 +180,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addOrder(ru.nsu.fit.lylova.environment.PizzaOrder)">addOrder</a></span>&#8203;(<a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;order)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds an order to the order queue.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrdersCount()">getOrdersCount</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns number of orders in order queue.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderWithBlocking()">getOrderWithBlocking</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Deletes and returns order.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderWithoutBlocking()">getOrderWithoutBlocking</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Deletes and returns order.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -225,6 +236,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>PizzeriaOrderQueue</h4>
 <pre>public&nbsp;PizzeriaOrderQueue()</pre>
+<div class="block">Creates empty order queue.</div>
 </li>
 </ul>
 </li>
@@ -244,6 +256,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getOrdersCount</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getOrdersCount()</pre>
+<div class="block">Returns number of orders in order queue.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>number of orders in order queue</dd>
+</dl>
 </li>
 </ul>
 <a id="getOrderWithBlocking()">
@@ -254,9 +271,13 @@ extends java.lang.Object</pre>
 <h4>getOrderWithBlocking</h4>
 <pre class="methodSignature">public&nbsp;<a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;getOrderWithBlocking()
                                 throws java.lang.InterruptedException</pre>
+<div class="block">Deletes and returns order.
+ Blocks until the thread is interrupted or a new order appears in the order queue.</div>
 <dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>pizza order</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.InterruptedException</code></dd>
+<dd><code>java.lang.InterruptedException</code> - if thread was interrupted</dd>
 </dl>
 </li>
 </ul>
@@ -267,6 +288,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getOrderWithoutBlocking</h4>
 <pre class="methodSignature">public&nbsp;<a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;getOrderWithoutBlocking()</pre>
+<div class="block">Deletes and returns order.
+ If order queue is empty, it immediately returns <code>null</code>.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>pizza order or <code>null</code> if order queue empty.</dd>
+</dl>
 </li>
 </ul>
 <a id="addOrder(ru.nsu.fit.lylova.environment.PizzaOrder)">
@@ -276,6 +303,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addOrder</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addOrder&#8203;(<a href="PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;order)</pre>
+<div class="block">Adds an order to the order queue.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>order</code> - pizza order</dd>
+</dl>
 </li>
 </ul>
 </li>

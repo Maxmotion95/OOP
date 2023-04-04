@@ -133,6 +133,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">BakerService</span>
 extends java.lang.Object</pre>
+<div class="block">Baker service class.</div>
 </li>
 </ul>
 </div>
@@ -157,7 +158,9 @@ extends java.lang.Object</pre>
             <a href="../environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a>&nbsp;warehouse,
             java.util.logging.Logger&nbsp;logger,
             java.lang.String&nbsp;configPath)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Create baker service with specified parameters.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -180,22 +183,30 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forceShutdownAll()">forceShutdownAll</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Shuts down all bakers urgently so that they don't finish all orders.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#joinAll()">joinAll</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Waits for all bakers to complete their work.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#softShutdownAll()">softShutdownAll</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Shuts down all bakers so that they finish all orders.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startAll()">startAll</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Start the work of all bakers.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -232,9 +243,15 @@ extends java.lang.Object</pre>
                     java.util.logging.Logger&nbsp;logger,
                     java.lang.String&nbsp;configPath)
              throws java.io.IOException</pre>
+<div class="block">Create baker service with specified parameters.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>orderQueue</code> - pizzeria order queue</dd>
+<dd><code>warehouse</code> - pizzeria warehouse</dd>
+<dd><code>logger</code> - logger</dd>
+<dd><code>configPath</code> - path to bakers configuration file</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - if configuration file is missing</dd>
 </dl>
 </li>
 </ul>
@@ -255,6 +272,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>startAll</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;startAll()</pre>
+<div class="block">Start the work of all bakers.</div>
 </li>
 </ul>
 <a id="softShutdownAll()">
@@ -264,6 +282,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>softShutdownAll</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;softShutdownAll()</pre>
+<div class="block">Shuts down all bakers so that they finish all orders.</div>
 </li>
 </ul>
 <a id="forceShutdownAll()">
@@ -273,6 +292,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>forceShutdownAll</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;forceShutdownAll()</pre>
+<div class="block">Shuts down all bakers urgently so that they don't finish all orders.</div>
 </li>
 </ul>
 <a id="joinAll()">
@@ -283,9 +303,10 @@ extends java.lang.Object</pre>
 <h4>joinAll</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;joinAll()
              throws java.lang.InterruptedException</pre>
+<div class="block">Waits for all bakers to complete their work.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.InterruptedException</code></dd>
+<dd><code>java.lang.InterruptedException</code> - if thread was interrupted</dd>
 </dl>
 </li>
 </ul>

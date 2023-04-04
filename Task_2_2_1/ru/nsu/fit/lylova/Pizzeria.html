@@ -133,6 +133,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <hr>
 <pre>public class <span class="typeNameLabel">Pizzeria</span>
 extends java.lang.Object</pre>
+<div class="block">Class Pizzeria.</div>
 </li>
 </ul>
 </div>
@@ -157,7 +158,9 @@ extends java.lang.Object</pre>
         java.util.logging.Logger&nbsp;logger,
         java.lang.String&nbsp;bakersConfigPath,
         java.lang.String&nbsp;couriersConfigPath)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Creates a pizzeria with the provided parameters.</div>
+</td>
 </tr>
 </table>
 </li>
@@ -180,32 +183,44 @@ extends java.lang.Object</pre>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#addOrder(ru.nsu.fit.lylova.environment.PizzaOrder)">addOrder</a></span>&#8203;(<a href="environment/PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;order)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Adds an order to the order queue of pizzeria.</div>
+</td>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#forceShutdown()">forceShutdown</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Finishes the pizzeria's work urgently without completing all orders.</div>
+</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code><a href="environment/PizzeriaOrderQueue.html" title="class in ru.nsu.fit.lylova.environment">PizzeriaOrderQueue</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOrderQueue()">getOrderQueue</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns order queue of pizzeria.</div>
+</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code><a href="environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWarehouse()">getWarehouse</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Returns warehouse of pizzeria.</div>
+</td>
 </tr>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#softShutdown()">softShutdown</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Finishes the work of the pizzeria with the completion of all orders.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startWork()">startWork</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Starts work of pizzeria.</div>
+</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -242,9 +257,15 @@ extends java.lang.Object</pre>
                 java.lang.String&nbsp;bakersConfigPath,
                 java.lang.String&nbsp;couriersConfigPath)
          throws java.io.IOException</pre>
+<div class="block">Creates a pizzeria with the provided parameters.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>warehouseCapacity</code> - capacity of pizzeria warehouse</dd>
+<dd><code>logger</code> - logger</dd>
+<dd><code>bakersConfigPath</code> - path to bakers configuration file</dd>
+<dd><code>couriersConfigPath</code> - path to couriers configuration file</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.io.IOException</code></dd>
+<dd><code>java.io.IOException</code> - if bakers or couriers configuration files is missing</dd>
 </dl>
 </li>
 </ul>
@@ -265,6 +286,7 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>startWork</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;startWork()</pre>
+<div class="block">Starts work of pizzeria.</div>
 </li>
 </ul>
 <a id="softShutdown()">
@@ -275,9 +297,10 @@ extends java.lang.Object</pre>
 <h4>softShutdown</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;softShutdown()
                   throws java.lang.InterruptedException</pre>
+<div class="block">Finishes the work of the pizzeria with the completion of all orders.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.InterruptedException</code></dd>
+<dd><code>java.lang.InterruptedException</code> - if thread with pizzeria was interrupted</dd>
 </dl>
 </li>
 </ul>
@@ -289,9 +312,10 @@ extends java.lang.Object</pre>
 <h4>forceShutdown</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;forceShutdown()
                    throws java.lang.InterruptedException</pre>
+<div class="block">Finishes the pizzeria's work urgently without completing all orders.</div>
 <dl>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.InterruptedException</code></dd>
+<dd><code>java.lang.InterruptedException</code> - if thread with pizzeria was interrupted</dd>
 </dl>
 </li>
 </ul>
@@ -302,6 +326,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addOrder</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addOrder&#8203;(<a href="environment/PizzaOrder.html" title="class in ru.nsu.fit.lylova.environment">PizzaOrder</a>&nbsp;order)</pre>
+<div class="block">Adds an order to the order queue of pizzeria.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>order</code> - new order</dd>
+</dl>
 </li>
 </ul>
 <a id="getOrderQueue()">
@@ -311,6 +340,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getOrderQueue</h4>
 <pre class="methodSignature">public&nbsp;<a href="environment/PizzeriaOrderQueue.html" title="class in ru.nsu.fit.lylova.environment">PizzeriaOrderQueue</a>&nbsp;getOrderQueue()</pre>
+<div class="block">Returns order queue of pizzeria.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>pizzeria's order queue</dd>
+</dl>
 </li>
 </ul>
 <a id="getWarehouse()">
@@ -320,6 +354,11 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>getWarehouse</h4>
 <pre class="methodSignature">public&nbsp;<a href="environment/PizzaWarehouse.html" title="class in ru.nsu.fit.lylova.environment">PizzaWarehouse</a>&nbsp;getWarehouse()</pre>
+<div class="block">Returns warehouse of pizzeria.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>pizzeria's warehouse</dd>
+</dl>
 </li>
 </ul>
 </li>
