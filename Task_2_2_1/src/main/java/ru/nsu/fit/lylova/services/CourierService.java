@@ -10,7 +10,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier;
 import ru.nsu.fit.lylova.staff.couriers.ActiveCourier;
 import ru.nsu.fit.lylova.staff.couriers.Courier;
 import ru.nsu.fit.lylova.staff.couriers.LazyCourier;
@@ -29,7 +29,7 @@ public class CourierService {
      * @param configPath path to couriers configuration file
      * @throws IOException if configuration file is missing
      */
-    public CourierService(PizzaWarehouse warehouse,
+    public CourierService(PizzaWarehouseForCourier warehouse,
                           Logger logger,
                           String configPath) throws IOException {
         couriers = new ArrayList<>();

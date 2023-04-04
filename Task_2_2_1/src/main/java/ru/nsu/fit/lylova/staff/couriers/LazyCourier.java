@@ -3,7 +3,7 @@ package ru.nsu.fit.lylova.staff.couriers;
 import java.util.Queue;
 import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
-import ru.nsu.fit.lylova.environment.PizzaWarehouse;
+import ru.nsu.fit.lylova.environment.PizzaWarehouseForCourier;
 
 /**
  * Class of lazy courier, which does not go to deliver orders until his trunk is fully filled
@@ -22,7 +22,7 @@ public class LazyCourier extends Courier {
      * @param deliveryTime time of delivery in milliseconds
      * @param trunkSize    maximal number of orders in trunk
      */
-    public LazyCourier(PizzaWarehouse warehouse,
+    public LazyCourier(PizzaWarehouseForCourier warehouse,
                        String name,
                        Logger logger,
                        long deliveryTime,

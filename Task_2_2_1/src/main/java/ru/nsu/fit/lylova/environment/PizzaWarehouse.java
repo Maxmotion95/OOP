@@ -7,7 +7,7 @@ import java.util.Queue;
  * Pizzeria warehouse class.
  * Orders made by bakers, but not taken for delivery by couriers, are stored in the warehouse.
  */
-public class PizzaWarehouse {
+public class PizzaWarehouse implements PizzaWarehouseForBaker, PizzaWarehouseForCourier {
     private final Queue<PizzaOrder> ordersQueue = new LinkedList<>();
     private final int capacity;
 
