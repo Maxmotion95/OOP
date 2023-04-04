@@ -1,13 +1,12 @@
 package ru.nsu.fit.lylova;
 
+import java.io.IOException;
+import java.util.logging.Logger;
 import ru.nsu.fit.lylova.environment.PizzaOrder;
 import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 import ru.nsu.fit.lylova.environment.PizzeriaOrderQueue;
 import ru.nsu.fit.lylova.services.BakerService;
 import ru.nsu.fit.lylova.services.CourierService;
-
-import java.io.IOException;
-import java.util.logging.Logger;
 
 /**
  * Class Pizzeria.
