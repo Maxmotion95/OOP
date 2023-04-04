@@ -2,7 +2,6 @@ package ru.nsu.fit.lylova.staff.couriers;
 
 import java.util.Queue;
 import java.util.logging.Logger;
-
 import ru.nsu.fit.lylova.environment.PizzaOrder;
 import ru.nsu.fit.lylova.environment.PizzaWarehouse;
 
