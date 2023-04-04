@@ -21,7 +21,7 @@ class PizzaWarehouseTest {
         }
         consumesFlag.set(true);
         Thread.sleep(3500);
-        for (var consumer: consumers) {
+        for (var consumer : consumers) {
             consumer.interrupt();
         }
         assertEquals(3, warehouse.getOrdersCount());
