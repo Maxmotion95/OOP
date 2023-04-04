@@ -29,7 +29,9 @@ public class CourierService {
      * @param configPath path to couriers configuration file
      * @throws IOException if configuration file is missing
      */
-    public CourierService(PizzaWarehouse warehouse, Logger logger, String configPath) throws IOException {
+    public CourierService(PizzaWarehouse warehouse,
+                          Logger logger,
+                          String configPath) throws IOException {
         couriers = new ArrayList<>();
         Path filePath = Path.of(configPath);
         String configString = Files.readString(filePath);

@@ -1,14 +1,12 @@
 package ru.nsu.fit.lylova;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import ru.nsu.fit.lylova.environment.PizzaOrder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.logging.Logger;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import ru.nsu.fit.lylova.environment.PizzaOrder;
 
 class PizzeriaTest {
 
