@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsanke;
+package ru.nsu.fit.lylova.javafxsnake;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

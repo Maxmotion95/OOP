@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsanke;
+package ru.nsu.fit.lylova.javafxsnake;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
