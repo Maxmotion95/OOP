@@ -1,13 +1,17 @@
 package ru.nsu.fit.lylova.javafxsnake;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 
 import java.io.File;
@@ -22,6 +26,7 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.stage.Stage;
 import org.yaml.snakeyaml.Yaml;
 import ru.nsu.fit.lylova.javafxsnake.cellControllers.CellController;
 import ru.nsu.fit.lylova.model.Direction;
@@ -38,22 +43,33 @@ public class SnakeFieldController implements Initializable {
     @FXML
     private Label scoreLabel;
 
+    @FXML
+    private Pane pausePane;
+
+    @FXML
+    Pane gameOverPane;
+
+    @FXML
+    Label gameOverScoreLabel;
+
     private CellController[][] controllers;
     private Node[][] cells;
     private Game game;
-    private Timer timer;
+    private Timer timer = null;
     private int fieldWidth;
     private int fieldHeight;
-    private boolean isGameWorking = false;
+    private boolean wasGameStarted = false;
+    private boolean inPause = false;
+    private Map<String, Object> config;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File file = new File(Objects.requireNonNull(getClass().getResource("config.yml")).getFile());
-        Map<String, Object> data;
+//        Map<String, Object> data;
         try {
             InputStream inputStream = new FileInputStream(file);
             Yaml yaml = new Yaml();
-            data = yaml.load(inputStream);
+            config = yaml.load(inputStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return;
@@ -63,12 +79,12 @@ public class SnakeFieldController implements Initializable {
         field.getColumnConstraints().clear();
         field.getChildren().clear();
 
-        fieldHeight = (Integer) data.get("height");
-        fieldWidth = (Integer) data.get("width");
-        this.game = new Game(fieldWidth, fieldHeight, 3, 3, (Integer) data.get("rocks_count"), (Integer) data.get("food_count"));
+        fieldHeight = (Integer) config.get("height");
+        fieldWidth = (Integer) config.get("width");
+        this.game = new Game(fieldWidth, fieldHeight, 3, 3, (Integer) config.get("rocks_count"), (Integer) config.get("food_count"));
 
         double cellSize = 50;
-        data.put("cell_size", cellSize);
+        config.put("cell_size", cellSize);
 
         for (int i = 0; i < fieldHeight; ++i) {
             field.getRowConstraints().add(new RowConstraints(cellSize));
@@ -94,8 +110,30 @@ public class SnakeFieldController implements Initializable {
                     e.printStackTrace();
                     return;
                 }
-                controllers[i][j].setConfig(data, i, j);
+                controllers[i][j].setConfig(config, i, j);
                 field.add(cells[i][j], i, j);
+            }
+        }
+        updateScoreLabel();
+    }
+
+    public void restartGame() {
+        gameOverPane.setVisible(false);
+        inPause = false;
+        wasGameStarted = false;
+        this.game = new Game(fieldWidth, fieldHeight, 3, 3, (Integer) config.get("rocks_count"), (Integer) config.get("food_count"));
+        for (int i = 0; i < fieldWidth; ++i) {
+            for (int j = 0; j < fieldHeight; ++j) {
+                var nodeCellControllerPair = controllers[i][j].changeCellType(game.getCellType(i, j));
+                if (nodeCellControllerPair != null) {
+                    field.getChildren().remove(cells[i][j]);
+                    cells[i][j] = nodeCellControllerPair.getKey();
+                    controllers[i][j] = nodeCellControllerPair.getValue();
+
+                    field.add(cells[i][j], i, j);
+                }
+
+                cells[i][j].setRotate(getRotateAngleOfCell(i, j));
             }
         }
         updateScoreLabel();
@@ -155,29 +193,39 @@ public class SnakeFieldController implements Initializable {
         return 180;
     }
 
-    public void startTimer() {
-        if (!isGameWorking && !game.getIsEndOfGame()) {
+    public void startGame() {
+        if (!inPause && !wasGameStarted) {
             timer = new Timer();
             timer.schedule(new GameTimerTask(), 500, 500);
-            isGameWorking = true;
+            wasGameStarted = true;
         }
     }
 
-    public void stopTimer() {
-        if (isGameWorking) {
-            timer.cancel();
-            isGameWorking = false;
+    public void exitFromPause() {
+        inPause = false;
+        pausePane.setVisible(false);
+        if (wasGameStarted) {
+            timer = new Timer();
+            timer.schedule(new GameTimerTask(), 500, 500);
+        }
+    }
+
+    public void stopGame() {
+        if (!inPause) {
+            if (timer != null) {
+                timer.cancel();
+            }
+            inPause = true;
+            pausePane.setVisible(true);
         }
     }
 
     public void proceedGameTurn() {
-        //timer.stop();
         game.proceedGame();
-        game.printField();
-//
+
         if (game.getIsEndOfGame()) {
             timer.cancel();
-            System.out.println("Game over!!!!!!!!");
+            displayGameOver();
             return;
         }
 
@@ -199,11 +247,32 @@ public class SnakeFieldController implements Initializable {
         updateScoreLabel();
     }
 
+    private void displayGameOver() {
+        gameOverPane.setVisible(true);
+        gameOverScoreLabel.setText(Integer.toString(game.getScore()));
+    }
+
     public void setSnakeDirection(Direction direction) {
-        if (isGameWorking) {
+        if (!inPause && !game.getIsEndOfGame() && wasGameStarted) {
             game.setSnakeDirection(direction);
         }
     }
+
+    public void switchToStartScreen(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("start_screen.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
+
+
+
+
 
 
     class GameTimerTask extends TimerTask {
