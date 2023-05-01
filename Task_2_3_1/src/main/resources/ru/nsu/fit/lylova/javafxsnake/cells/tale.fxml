@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cellControllers.TaleController">
+    <children>
+        <Rectangle fx:id="body_rect" arcHeight="15.0" arcWidth="15.0" fill="#4674e9" height="30.0"
+                   layoutX="27.5" layoutY="15.0" stroke="BLACK" strokeType="INSIDE"
+                   strokeWidth="0.0" width="30.0"/>
+        <Ellipse fx:id="body_ellipse" fill="#4674e9" layoutX="33.0" layoutY="30.0" radiusX="22.5"
+                 radiusY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+    </children>
+</Pane>

@@ -1,16 +1,22 @@
 package ru.nsu.fit.lylova.model;
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+
 
 public class Snake {
-    private final LinkedList<Point> pointsOfSnake = new LinkedList<>();
-    private Direction direction = Direction.LEFT;
+    private final ArrayDeque<Point> pointsOfSnake = new ArrayDeque<>();
+    private Direction direction;
 
-    Snake() {
+    Snake(Direction direction) {
+        this.direction = direction;
     }
 
     public void addPointToTale(Point point) {
         pointsOfSnake.add(point);
+    }
+
+    public void addPointToHead(Point point) {
+        pointsOfSnake.addFirst(point);
     }
 
     public boolean removePointFromTale() {
@@ -42,29 +48,26 @@ public class Snake {
     }
 
     public void setDirection(Direction direction) {
-        if (direction != getOppositeDirection(this.direction)) {
+        Point head = pointsOfSnake.removeFirst();
+        Point pointAfterHead = pointsOfSnake.getFirst();
+        pointsOfSnake.addFirst(head);
+
+        if (!head.getNextPointInDirection(direction).equals(pointAfterHead)) {
             this.direction = direction;
         }
     }
 
-    private Direction getOppositeDirection(Direction direction) {
-        switch (direction) {
-            case UP:
-                return Direction.DOWN;
-            case DOWN:
-                return Direction.UP;
-            case LEFT:
-                return Direction.RIGHT;
-            case RIGHT:
-                return Direction.LEFT;
-        }
-        return null;
+
+    public Point getNextHeadPoint() {
+        return this.getHeadPoint().getNextPointInDirection(direction);
     }
 
-    public enum Direction {
-        LEFT,
-        RIGHT,
-        DOWN,
-        UP
+    public int getLength() {
+        return pointsOfSnake.size();
     }
+
+    public ArrayDeque<Point> getPointsOfSnake() {
+        return pointsOfSnake;
+    }
+
 }
