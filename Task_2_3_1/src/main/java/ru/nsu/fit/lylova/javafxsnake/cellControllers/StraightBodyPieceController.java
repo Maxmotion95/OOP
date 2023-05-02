@@ -14,9 +14,8 @@ import java.io.IOException;
 import static ru.nsu.fit.lylova.javafxsnake.CellType.STRAIGHT_BODY;
 
 public class StraightBodyPieceController extends CellController {
-
     @FXML
-    Rectangle body;
+    private Rectangle body;
 
     @Override
     protected void applyConfig() {

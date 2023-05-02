@@ -14,9 +14,9 @@ import java.io.IOException;
 public class AngularBodyPieceController extends CellController {
 
     @FXML
-    Rectangle body_rect_1;
+    private Rectangle body_rect_1;
     @FXML
-    Rectangle body_rect_2;
+    private Rectangle body_rect_2;
 
     @Override
     protected void applyConfig() {

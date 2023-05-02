@@ -14,9 +14,9 @@ import java.io.IOException;
 
 public class TaleController extends CellController {
     @FXML
-    Rectangle body_rect;
+    private Rectangle body_rect;
     @FXML
-    Ellipse body_ellipse;
+    private Ellipse body_ellipse;
 
     @Override
     protected void applyConfig() {

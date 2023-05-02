@@ -14,21 +14,21 @@ import java.io.IOException;
 
 public class HeadController extends CellController {
     @FXML
-    Rectangle body_rect1;
+    private Rectangle body_rect1;
     @FXML
-    Circle body_circ1;
+    private Circle body_circ1;
     @FXML
-    Circle body_circ2;
+    private Circle body_circ2;
     @FXML
-    Circle body_circ3;
+    private Circle body_circ3;
     @FXML
-    Circle eye_circ1;
+    private Circle eye_circ1;
     @FXML
-    Circle eye_circ2;
+    private Circle eye_circ2;
     @FXML
-    Circle nose_circ1;
+    private Circle nose_circ1;
     @FXML
-    Circle nose_circ2;
+    private Circle nose_circ2;
 
     @Override
     protected void applyConfig() {

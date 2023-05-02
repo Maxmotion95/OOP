@@ -9,6 +9,7 @@ import ru.nsu.fit.lylova.javafxsnake.CellType;
 import java.io.IOException;
 
 public class RockController extends CellController {
+
     @Override
     protected void applyConfig() {
         setBackgroundColor((String) config.get("rock_color"));

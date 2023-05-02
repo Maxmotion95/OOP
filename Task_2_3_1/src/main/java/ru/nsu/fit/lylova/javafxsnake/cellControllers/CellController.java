@@ -13,7 +13,7 @@ public abstract class CellController {
     protected int y;
     protected Map<String, Object> config;
     @FXML
-    Pane background;
+    protected Pane background;
 
     public void setConfig(Map<String, Object> config, int x, int y) {
         this.config = config;
@@ -37,20 +37,4 @@ public abstract class CellController {
     protected abstract void applyConfig();
 
     abstract public Pair<Node, CellController> changeCellType(CellType type);
-//    {
-//        if (type == cellType) {
-//            return null;
-//        }
-//        FXMLLoader result;
-//        result = CellFactory.createCell(type);
-//        try {
-//            result.load();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        CellController controller = result.getController();
-//        controller.changeSnakeColor(bodyColor, eyeColor);
-//        controller.changeBackgroundColor(backgroundColor);
-//        return result;
-//    }
 }

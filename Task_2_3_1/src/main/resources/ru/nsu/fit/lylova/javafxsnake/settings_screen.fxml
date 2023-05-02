@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #725e1d;"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.SettingsScreenController">
+    <children>
+        <Button layoutX="91.0" layoutY="412.0" mnemonicParsing="false" onAction="#saveSettings"
+                prefHeight="99.0" prefWidth="389.0" style="-fx-background-color: black;"
+                text="SAVE SETTINGS" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="40.0"/>
+            </font>
+        </Button>
+        <AnchorPane layoutX="57.0" layoutY="47.0" prefHeight="79.0" prefWidth="356.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="182.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseFieldWidth" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="fieldWidthLabel" alignment="CENTER" layoutX="234.0" layoutY="20.0"
+                       prefHeight="35.0" prefWidth="51.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="285.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#increaseFieldWidth" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="142.0"
+                       text="FIELD WIDTH" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="57.0" layoutY="131.0" prefHeight="79.0" prefWidth="356.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="182.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseFieldHeight" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="fieldHeightLabel" alignment="CENTER" layoutX="234.0" layoutY="20.0"
+                       prefHeight="35.0" prefWidth="51.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="285.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#increaseFieldHeight" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="142.0"
+                       text="FIELD HEIGHT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="57.0" layoutY="215.0" prefHeight="79.0" prefWidth="356.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="182.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseFoodCount" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="foodCountLabel" alignment="CENTER" layoutX="234.0" layoutY="20.0"
+                       prefHeight="35.0" prefWidth="51.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="285.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#increaseFoodCount" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="142.0"
+                       text="FOOD COUNT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="57.0" layoutY="300.0" prefHeight="79.0" prefWidth="356.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="182.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseStonesCount" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label fx:id="stonesCountLabel" alignment="CENTER" layoutX="234.0" layoutY="20.0"
+                       prefHeight="35.0" prefWidth="51.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="285.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#increaseStonesCount" prefHeight="49.0" prefWidth="52.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Button>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="157.0"
+                       text="STONES COUNT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button layoutX="533.0" layoutY="412.0" mnemonicParsing="false"
+                onAction="#switchToStartScreen" prefHeight="99.0" prefWidth="389.0"
+                style="-fx-background-color: black;" text="RETURN TO MENU" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="40.0"/>
+            </font>
+        </Button>
+        <AnchorPane layoutX="474.0" layoutY="47.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF SNAKE BODY" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <ColorPicker fx:id="snakeBodyColorPicker" layoutX="259.0" layoutY="15.0"
+                             onAction="#updateBodyColor" prefHeight="49.0" prefWidth="142.0">
+                    <value>
+                        <Color red="0.41228070855140686" green="0.19214317202568054"
+                               blue="0.19214317202568054"/>
+                    </value>
+                </ColorPicker>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="474.0" layoutY="131.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF SNAKE EYES" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <ColorPicker fx:id="snakeEyesColorPicker" layoutX="259.0" layoutY="15.0"
+                             onAction="#updateEyeColor" prefHeight="49.0" prefWidth="142.0">
+                    <value>
+                        <Color red="0.41228070855140686" green="0.19214317202568054"
+                               blue="0.19214317202568054"/>
+                    </value>
+                </ColorPicker>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="474.0" layoutY="215.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF STONE" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <ColorPicker fx:id="stoneColorPicker" layoutX="259.0" layoutY="15.0"
+                             onAction="#updateStoneColor" prefHeight="49.0" prefWidth="142.0">
+                    <value>
+                        <Color red="0.41228070855140686" green="0.19214317202568054"
+                               blue="0.19214317202568054"/>
+                    </value>
+                </ColorPicker>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="474.0" layoutY="300.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="67.0"
+                       text="SPEED:" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <RadioButton layoutX="87.0" layoutY="22.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="SLOW" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="speedGroup"/>
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton layoutX="195.0" layoutY="22.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="MEDIUM" textFill="WHITE"
+                             toggleGroup="$speedGroup">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </RadioButton>
+                <RadioButton layoutX="318.0" layoutY="22.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="FAST" textFill="WHITE"
+                             toggleGroup="$speedGroup">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </RadioButton>
+            </children>
+        </AnchorPane>
+    </children>
+</Pane>

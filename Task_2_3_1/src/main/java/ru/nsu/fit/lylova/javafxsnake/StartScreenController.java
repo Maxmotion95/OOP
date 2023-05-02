@@ -11,12 +11,14 @@ import javafx.stage.Stage;
 import ru.nsu.fit.lylova.model.Direction;
 
 import java.io.IOException;
+
 public class StartScreenController {
 
-    SnakeFieldController fieldController;
+    private SnakeFieldController fieldController;
 
     public void switchToGameField(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("snake_field.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                SnakeApplication.class.getResource("snake_field.fxml"));
         Parent root = fxmlLoader.load();
         fieldController = fxmlLoader.getController();
 
@@ -31,9 +33,9 @@ public class StartScreenController {
     }
 
     public void switchToSettingsScreen(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SnakeApplication.class.getResource("settings_screen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                SnakeApplication.class.getResource("settings_screen.fxml"));
         Parent root = fxmlLoader.load();
-        fieldController = fxmlLoader.getController();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -46,7 +48,6 @@ public class StartScreenController {
     }
 
     private class KeyHandler implements EventHandler<KeyEvent> {
-
         @Override
         public void handle(KeyEvent event) {
             switch (event.getCode()) {
