@@ -220,7 +220,8 @@ public class SnakeFieldScreenController implements Initializable {
         pausePane.setVisible(false);
         if (wasGameStarted) {
             timer = new Timer();
-            timer.schedule(new GameTimerTask(), 500, 500);
+            int speed = (Integer) speedConfig.get((String) gameConfig.get("speed"));
+            timer.schedule(new GameTimerTask(), speed, speed);
         }
     }
 
