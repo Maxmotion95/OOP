@@ -1,23 +1,27 @@
-package ru.nsu.fit.lylova.javafxsnake.cellControllers;
+package ru.nsu.fit.lylova.javafxsnake.cell.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.util.Pair;
-import ru.nsu.fit.lylova.javafxsnake.CellFactory;
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellFactory;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.io.IOException;
 
-public class RockController extends CellController {
+public class EmptyCellController extends CellController {
 
     @Override
     protected void applyConfig() {
-        setBackgroundColor((String) config.get("rock_color"));
+        if ((x + y) % 2 == 0) {
+            setBackgroundColor((String) config.get("field_color_1"));
+        } else {
+            setBackgroundColor((String) config.get("field_color_2"));
+        }
     }
 
     @Override
     public Pair<Node, CellController> changeCellType(CellType type) {
-        if (type == CellType.ROCK) {
+        if (type == CellType.EMPTY) {
             return null;
         }
         FXMLLoader result;

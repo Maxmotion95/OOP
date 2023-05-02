@@ -1,6 +1,7 @@
-package ru.nsu.fit.lylova.javafxsnake;
+package ru.nsu.fit.lylova.javafxsnake.cell;
 
 import javafx.fxml.FXMLLoader;
+import ru.nsu.fit.lylova.javafxsnake.SnakeApplication;
 
 public class CellFactory {
     static public FXMLLoader createCell(CellType cellType) {

@@ -6,7 +6,7 @@
 <Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.nsu.fit.lylova.javafxsnake.cellControllers.AngularBodyPieceController">
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cell.controller.AngularBodyPieceController">
     <children>
         <Rectangle fx:id="body_rect_1" arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE"
                    height="30.0" layoutX="15.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE"

@@ -1,6 +1,6 @@
 package ru.nsu.fit.lylova.model;
 
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.util.Random;
 

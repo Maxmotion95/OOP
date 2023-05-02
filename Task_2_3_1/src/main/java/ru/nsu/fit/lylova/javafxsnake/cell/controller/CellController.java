@@ -1,10 +1,10 @@
-package ru.nsu.fit.lylova.javafxsnake.cellControllers;
+package ru.nsu.fit.lylova.javafxsnake.cell.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.util.Pair;
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.util.Map;
 

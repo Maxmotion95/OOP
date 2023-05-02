@@ -8,7 +8,7 @@
 <Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.nsu.fit.lylova.javafxsnake.cellControllers.TaleController">
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cell.controller.TaleController">
     <children>
         <Rectangle fx:id="body_rect" arcHeight="15.0" arcWidth="15.0" fill="#4674e9" height="30.0"
                    layoutX="27.5" layoutY="15.0" stroke="BLACK" strokeType="INSIDE"

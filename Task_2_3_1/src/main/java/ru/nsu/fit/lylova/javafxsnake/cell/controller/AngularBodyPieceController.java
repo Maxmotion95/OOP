@@ -1,28 +1,27 @@
-package ru.nsu.fit.lylova.javafxsnake.cellControllers;
+package ru.nsu.fit.lylova.javafxsnake.cell.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.paint.Paint;
-import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
-import ru.nsu.fit.lylova.javafxsnake.CellFactory;
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellFactory;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.io.IOException;
 
-public class TaleController extends CellController {
+public class AngularBodyPieceController extends CellController {
+
     @FXML
-    private Rectangle body_rect;
+    private Rectangle body_rect_1;
     @FXML
-    private Ellipse body_ellipse;
+    private Rectangle body_rect_2;
 
     @Override
     protected void applyConfig() {
-        String bodyColor = (String) config.get("body_color");
-        body_rect.setFill(Paint.valueOf(bodyColor));
-        body_ellipse.setFill(Paint.valueOf(bodyColor));
+        body_rect_1.setFill(Paint.valueOf((String) config.get("body_color")));
+        body_rect_2.setFill(Paint.valueOf((String) config.get("body_color")));
 
         if ((x + y) % 2 == 0) {
             setBackgroundColor((String) config.get("field_color_1"));
@@ -33,7 +32,7 @@ public class TaleController extends CellController {
 
     @Override
     public Pair<Node, CellController> changeCellType(CellType type) {
-        if (type == CellType.TALE) {
+        if (type == CellType.ANGULAR_BODY) {
             return null;
         }
         FXMLLoader result;

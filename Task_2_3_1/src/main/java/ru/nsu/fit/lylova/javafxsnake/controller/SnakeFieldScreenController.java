@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsnake;
+package ru.nsu.fit.lylova.javafxsnake.controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -28,7 +28,10 @@ import java.util.TimerTask;
 
 import javafx.stage.Stage;
 import org.yaml.snakeyaml.Yaml;
-import ru.nsu.fit.lylova.javafxsnake.cellControllers.CellController;
+import ru.nsu.fit.lylova.javafxsnake.SnakeApplication;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellFactory;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.controller.CellController;
 import ru.nsu.fit.lylova.model.Direction;
 import ru.nsu.fit.lylova.model.Game;
 import ru.nsu.fit.lylova.model.Point;
@@ -36,7 +39,7 @@ import ru.nsu.fit.lylova.model.Point;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
-public class SnakeFieldController implements Initializable {
+public class SnakeFieldScreenController implements Initializable {
     @FXML
     private Pane gameOverPane;
     @FXML
@@ -63,7 +66,7 @@ public class SnakeFieldController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         {
             File file = new File(Objects.requireNonNull(
-                    getClass().getResource("current_game_config.yml")).getFile());
+                    SnakeApplication.class.getResource("current_game_config.yml")).getFile());
             try {
                 InputStream inputStream = new FileInputStream(file);
                 Yaml yaml = new Yaml();
@@ -75,7 +78,7 @@ public class SnakeFieldController implements Initializable {
         }
         {
             File file = new File(Objects.requireNonNull(
-                    getClass().getResource("speed_config.yml")).getFile());
+                    SnakeApplication.class.getResource("speed_config.yml")).getFile());
             try {
                 InputStream inputStream = new FileInputStream(file);
                 Yaml yaml = new Yaml();
@@ -222,7 +225,7 @@ public class SnakeFieldController implements Initializable {
     }
 
     public void stopGame() {
-        if (!inPause) {
+        if (!inPause && !game.getIsEndOfGame()) {
             if (timer != null) {
                 timer.cancel();
             }
@@ -272,7 +275,7 @@ public class SnakeFieldController implements Initializable {
 
     public void switchToStartScreen(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                SnakeApplication.class.getResource("start_screen.fxml"));
+                SnakeApplication.class.getResource("screens/start_screen.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -287,7 +290,7 @@ public class SnakeFieldController implements Initializable {
     class GameTimerTask extends TimerTask {
         @Override
         public void run() {
-            Platform.runLater(SnakeFieldController.this::proceedGameTurn);
+            Platform.runLater(SnakeFieldScreenController.this::proceedGameTurn);
         }
     }
 }

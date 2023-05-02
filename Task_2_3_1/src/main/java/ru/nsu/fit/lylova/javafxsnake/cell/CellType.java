@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsnake;
+package ru.nsu.fit.lylova.javafxsnake.cell;
 
 public enum CellType {
     HEAD,

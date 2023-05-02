@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsnake;
+package ru.nsu.fit.lylova.javafxsnake.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.yaml.snakeyaml.Yaml;
+import ru.nsu.fit.lylova.javafxsnake.SnakeApplication;
 
 import java.io.*;
 import java.net.URL;
@@ -51,7 +52,7 @@ public class SettingsScreenController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         File file = new File(Objects.requireNonNull(
-                getClass().getResource("current_game_config.yml")).getFile());
+                SnakeApplication.class.getResource("current_game_config.yml")).getFile());
         try {
             InputStream inputStream = new FileInputStream(file);
             Yaml yaml = new Yaml();
@@ -81,7 +82,7 @@ public class SettingsScreenController implements Initializable {
         String configString = yaml.dump(config);
 
         FileWriter fr = new FileWriter(Objects.requireNonNull(
-                getClass().getResource("current_game_config.yml")).getFile());
+                SnakeApplication.class.getResource("current_game_config.yml")).getFile());
         fr.write(configString);
         fr.close();
     }
@@ -183,7 +184,7 @@ public class SettingsScreenController implements Initializable {
 
     public void switchToStartScreen(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                SnakeApplication.class.getResource("start_screen.fxml"));
+                SnakeApplication.class.getResource("screens/start_screen.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

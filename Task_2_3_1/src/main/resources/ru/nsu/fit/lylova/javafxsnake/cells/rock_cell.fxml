@@ -6,4 +6,4 @@
 <Pane fx:id="background" maxHeight="60.0" maxWidth="60.0" minHeight="60.0"
       minWidth="60.0" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="ru.nsu.fit.lylova.javafxsnake.cellControllers.RockController"/>
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cell.controller.RockController"/>

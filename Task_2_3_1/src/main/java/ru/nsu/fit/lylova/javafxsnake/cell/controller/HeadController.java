@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsnake.cellControllers;
+package ru.nsu.fit.lylova.javafxsnake.cell.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +7,8 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
-import ru.nsu.fit.lylova.javafxsnake.CellFactory;
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellFactory;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.io.IOException;
 

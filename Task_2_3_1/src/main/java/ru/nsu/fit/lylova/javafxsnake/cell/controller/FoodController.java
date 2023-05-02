@@ -1,27 +1,16 @@
-package ru.nsu.fit.lylova.javafxsnake.cellControllers;
+package ru.nsu.fit.lylova.javafxsnake.cell.controller;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Pair;
-import ru.nsu.fit.lylova.javafxsnake.CellFactory;
-import ru.nsu.fit.lylova.javafxsnake.CellType;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellFactory;
+import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
 import java.io.IOException;
 
-import static ru.nsu.fit.lylova.javafxsnake.CellType.STRAIGHT_BODY;
-
-public class StraightBodyPieceController extends CellController {
-    @FXML
-    private Rectangle body;
-
+public class FoodController extends CellController {
     @Override
     protected void applyConfig() {
-        String bodyColor = (String) config.get("body_color");
-        body.setFill(Paint.valueOf(bodyColor));
-
         if ((x + y) % 2 == 0) {
             setBackgroundColor((String) config.get("field_color_1"));
         } else {
@@ -31,7 +20,7 @@ public class StraightBodyPieceController extends CellController {
 
     @Override
     public Pair<Node, CellController> changeCellType(CellType type) {
-        if (type == STRAIGHT_BODY) {
+        if (type == CellType.FOOD) {
             return null;
         }
         FXMLLoader result;

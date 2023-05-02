@@ -1,4 +1,4 @@
-package ru.nsu.fit.lylova.javafxsnake;
+package ru.nsu.fit.lylova.javafxsnake.controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,18 +8,25 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import ru.nsu.fit.lylova.javafxsnake.SnakeApplication;
 import ru.nsu.fit.lylova.model.Direction;
 
 import java.io.IOException;
 
 public class StartScreenController {
 
-    private SnakeFieldController fieldController;
+    private SnakeFieldScreenController fieldController;
 
-    public void switchToGameField(ActionEvent event) throws IOException {
+    public void switchToGameField(ActionEvent event) {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                SnakeApplication.class.getResource("snake_field.fxml"));
-        Parent root = fxmlLoader.load();
+                SnakeApplication.class.getResource("screens/snake_field.fxml"));
+        Parent root;
+        try {
+            root = fxmlLoader.load();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
         fieldController = fxmlLoader.getController();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -34,7 +41,7 @@ public class StartScreenController {
 
     public void switchToSettingsScreen(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(
-                SnakeApplication.class.getResource("settings_screen.fxml"));
+                SnakeApplication.class.getResource("screens/settings_screen.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
