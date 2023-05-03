@@ -182,12 +182,12 @@ public class Game {
         userSnake.addPointToHead(nextHead);
     }
 
-    public void setSnakeDirection(Direction direction) {
-        userSnake.setDirection(direction);
-    }
-
     public Direction getSnakeDirection() {
         return userSnake.getDirection();
+    }
+
+    public void setSnakeDirection(Direction direction) {
+        userSnake.setDirection(direction);
     }
 
     public CellType getCellType(int x, int y) {
@@ -211,7 +211,7 @@ public class Game {
             return null;
         }
         Random random = new Random();
-        int pointId = random.nextInt(0, count);
+        int pointId = random.nextInt(count);
         count = 0;
         for (int x = 0; x < fieldWidth; ++x) {
             for (int y = 0; y < fieldHeight; ++y) {
