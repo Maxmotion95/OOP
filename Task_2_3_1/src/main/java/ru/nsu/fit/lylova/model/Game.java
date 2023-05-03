@@ -36,25 +36,21 @@ public class Game {
         }
         for (int i = 0; i < rockCount; ++i) {
             Point p = generateNewFreePoint(headY);
-            if (p == null) {
-                isEndOfGame = true;
-                return;
-            }
-            int x = p.getX();
-            int y = p.getY();
+            if (p != null) {
+                int x = p.getX();
+                int y = p.getY();
 
-            field[x][y] = CellType.ROCK;
+                field[x][y] = CellType.ROCK;
+            }
         }
         for (int i = 0; i < foodCount; ++i) {
             Point p = generateNewFreePoint(headY);
-            if (p == null) {
-                isEndOfGame = true;
-                return;
-            }
-            int x = p.getX();
-            int y = p.getY();
+            if (p != null) {
+                int x = p.getX();
+                int y = p.getY();
 
-            field[x][y] = CellType.FOOD;
+                field[x][y] = CellType.FOOD;
+            }
         }
 
         updateNextAndPrevPointsOfSnake(userSnake);
@@ -139,14 +135,12 @@ public class Game {
         if (isPointOnField(newHead) && field[x][y] == CellType.FOOD) {
             ++score;
             Point p = generateNewFreePoint(-1);
-            if (p == null) {
-                isEndOfGame = true;
-                return;
-            }
-            int xNewFood = p.getX();
-            int yNewFood = p.getY();
+            if (p != null) {
+                int xNewFood = p.getX();
+                int yNewFood = p.getY();
 
-            field[xNewFood][yNewFood] = CellType.FOOD;
+                field[xNewFood][yNewFood] = CellType.FOOD;
+            }
         } else {
             Point tale = userSnake.getTalePoint();
             field[tale.getX()][tale.getY()] = CellType.EMPTY;
@@ -190,6 +184,10 @@ public class Game {
 
     public void setSnakeDirection(Direction direction) {
         userSnake.setDirection(direction);
+    }
+
+    public Direction getSnakeDirection() {
+        return userSnake.getDirection();
     }
 
     public CellType getCellType(int x, int y) {
