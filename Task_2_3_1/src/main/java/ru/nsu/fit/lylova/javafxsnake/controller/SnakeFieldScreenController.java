@@ -17,6 +17,7 @@ import javafx.scene.layout.RowConstraints;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -34,10 +35,8 @@ import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 import ru.nsu.fit.lylova.javafxsnake.cell.controller.CellController;
 import ru.nsu.fit.lylova.model.Direction;
 import ru.nsu.fit.lylova.model.Game;
-import ru.nsu.fit.lylova.model.Point;
 
 import static java.lang.Math.max;
-import static java.lang.Math.min;
 
 public class SnakeFieldScreenController implements Initializable {
     @FXML
@@ -50,6 +49,10 @@ public class SnakeFieldScreenController implements Initializable {
     private Label scoreLabel;
     @FXML
     private Pane pausePane;
+    @FXML
+    private Label recordLabel;
+    @FXML
+    private Label gameOverRecordScoreLabel;
 
     private CellController[][] controllers;
     private Node[][] cells;
@@ -126,6 +129,7 @@ public class SnakeFieldScreenController implements Initializable {
                 field.add(cells[i][j], i, j);
             }
         }
+        showRecordScore(recordLabel);
         updateScoreLabel();
     }
 
@@ -149,7 +153,34 @@ public class SnakeFieldScreenController implements Initializable {
                 cells[i][j].setRotate(getRotateAngleOfCell(i, j));
             }
         }
+        showRecordScore(recordLabel);
         updateScoreLabel();
+    }
+
+    private void updateRecordScore() {
+        int score = game.getScore();
+        int record_score = (int) gameConfig.get("record_score");
+        gameConfig.put("record_score", max(score, record_score));
+        // Saving record score
+        {
+            Yaml yaml = new Yaml();
+            String configString = yaml.dump(gameConfig);
+
+            FileWriter fileWriter;
+            try {
+                fileWriter = new FileWriter(Objects.requireNonNull(
+                        SnakeApplication.class.getResource("current_game_config.yml")).getFile());
+                fileWriter.write(configString);
+                fileWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        showRecordScore(gameOverRecordScoreLabel);
+    }
+
+    private void showRecordScore(Label label) {
+        label.setText(Integer.toString((Integer) gameConfig.get("record_score")));
     }
 
     private void updateScoreLabel() {
@@ -163,47 +194,43 @@ public class SnakeFieldScreenController implements Initializable {
             return 0;
         }
 
-        Point prevPoint = game.getPrevSnakePoint(x, y);
-        Point nextPoint = game.getNextSnakePoint(x, y);
         if (type == CellType.TALE) {
-            return (360 - getVectorAngle(x, y, nextPoint.getX(), nextPoint.getY())) % 360;
+            int result = 45;
+            switch (game.getConnectedCellSides(x, y)) {
+                case UP -> result = 270;
+                case RIGHT -> result = 0;
+                case DOWN -> result = 90;
+                case LEFT -> result = 180;
+            }
+            return result;
         }
         if (type == CellType.HEAD) {
-            return (180 - getVectorAngle(x, y, prevPoint.getX(), prevPoint.getY()) + 360) % 360;
+            int result = 45;
+            switch (game.getConnectedCellSides(x, y)) {
+                case UP -> result = 90;
+                case RIGHT -> result = 180;
+                case DOWN -> result = 270;
+                case LEFT -> result = 0;
+            }
+            return result;
         }
         if (type == CellType.STRAIGHT_BODY) {
-            if (prevPoint.getX() == nextPoint.getX()) {
-                return 90;
+            int result = 45;
+            switch (game.getConnectedCellSides(x, y)) {
+                case RIGHT_LEFT -> result = 0;
+                case UP_DOWN -> result = 90;
             }
-            return 0;
+            return result;
         }
         // type == CellType.ANGULAR_BODY
-        int angleWithPrevPoint = getVectorAngle(x, y, prevPoint.getX(), prevPoint.getY());
-        int angleWithNextPoint = getVectorAngle(x, y, nextPoint.getX(), nextPoint.getY());
-        if (min(angleWithNextPoint, angleWithPrevPoint) == 0) {
-            if (max(angleWithNextPoint, angleWithPrevPoint) == 90) {
-                return 0;
-            }
-            return 90;
+        int result = 45;
+        switch (game.getConnectedCellSides(x, y)) {
+            case UP_LEFT -> result = 270;
+            case UP_RIGHT -> result = 0;
+            case DOWN_LEFT -> result = 180;
+            case DOWN_RIGHT -> result = 90;
         }
-        return (360 - min(angleWithNextPoint, angleWithPrevPoint)) % 360;
-    }
-
-    private int getVectorAngle(int x1, int y1, int x2, int y2) {
-        if (x1 == x2 && y1 == y2) {
-            return 0;
-        }
-        if (x1 == x2) {
-            if (y2 == y1 + 1) {
-                return 270;
-            }
-            return 90;
-        }
-        // otherwise y1 == y2;
-        if (x2 == x1 + 1) {
-            return 0;
-        }
-        return 180;
+        return result;
     }
 
     public void startGame() {
@@ -241,6 +268,7 @@ public class SnakeFieldScreenController implements Initializable {
         if (game.getIsEndOfGame()) {
             timer.cancel();
             displayGameOver();
+            updateRecordScore();
             return;
         }
 

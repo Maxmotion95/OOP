@@ -12,13 +12,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import org.yaml.snakeyaml.Yaml;
 import ru.nsu.fit.lylova.javafxsnake.SnakeApplication;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -42,6 +47,7 @@ public class SettingsScreenController implements Initializable {
     @FXML
     private ToggleGroup speedGroup;
     private Map<String, Object> config;
+    private Map<String, Object> past_config;
     private int maxFieldWidth = 20;
     private int minFieldWidth = 5;
     private int maxFieldHeight = 20;
@@ -57,6 +63,7 @@ public class SettingsScreenController implements Initializable {
             InputStream inputStream = new FileInputStream(file);
             Yaml yaml = new Yaml();
             config = yaml.load(inputStream);
+            past_config = new HashMap<>(config);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return;
@@ -78,13 +85,24 @@ public class SettingsScreenController implements Initializable {
     }
 
     public void saveSettings() throws IOException {
+        //checking that has differences
+        boolean isDiffInConfigs = false;
+        for (var i : past_config.keySet()) {
+            if (!i.contains("color")) {
+                isDiffInConfigs |= !past_config.get(i).equals(config.get(i));
+            }
+        }
+        if (isDiffInConfigs) {
+            config.put("record_score", 0);
+        }
+
         Yaml yaml = new Yaml();
         String configString = yaml.dump(config);
 
-        FileWriter fr = new FileWriter(Objects.requireNonNull(
+        FileWriter fileWriter = new FileWriter(Objects.requireNonNull(
                 SnakeApplication.class.getResource("current_game_config.yml")).getFile());
-        fr.write(configString);
-        fr.close();
+        fileWriter.write(configString);
+        fileWriter.close();
     }
 
     public void increaseFieldWidth() {

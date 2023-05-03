@@ -10,11 +10,11 @@ public class Game {
     private final CellType[][] field;
     private final Point[][] prevPoint;
     private final Point[][] nextPoint;
+    private final int fieldWidth;
+    private final int fieldHeight;
     Snake userSnake = new Snake(Direction.RIGHT);
     private boolean isEndOfGame = false;
     private int score = 0;
-    private int fieldWidth;
-    private int fieldHeight;
 
     public Game(int width, int height, int headX, int headY, int rockCount, int foodCount) {
         fieldWidth = width;
@@ -72,12 +72,64 @@ public class Game {
         }
     }
 
-    public Point getNextSnakePoint(int x, int y) {
-        return nextPoint[x][y];
-    }
+    public ConnectedCellSides getConnectedCellSides(int x, int y) {
+        if (field[x][y] == CellType.EMPTY || field[x][y] == CellType.FOOD || field[x][y] == CellType.ROCK) {
+            return ConnectedCellSides.NONE;
+        }
+        if (field[x][y] == CellType.HEAD || field[x][y] == CellType.TALE) {
+            Point connectedPoint;
+            if (field[x][y] == CellType.HEAD) {
+                connectedPoint = prevPoint[x][y];
+            } else {
+                connectedPoint = nextPoint[x][y];
+            }
+            int vectorX = connectedPoint.getX() - x;
+            int vectorY = connectedPoint.getY() - y;
+            if (vectorX == 0) {
+                if (vectorY == 1) {
+                    return ConnectedCellSides.DOWN;
+                }
+                return ConnectedCellSides.UP;
+            }
+            if (vectorX == 1) {
+                return ConnectedCellSides.RIGHT;
+            }
+            return ConnectedCellSides.LEFT;
+        }
+        if (field[x][y] == CellType.STRAIGHT_BODY) {
+            Point prevCurPoint = prevPoint[x][y];
+            Point nextCurPoint = nextPoint[x][y];
 
-    public Point getPrevSnakePoint(int x, int y) {
-        return prevPoint[x][y];
+            if (abs(prevCurPoint.getX() - nextCurPoint.getX()) == 2) {
+                return ConnectedCellSides.RIGHT_LEFT;
+            }
+            return ConnectedCellSides.UP_DOWN;
+        }
+        if (field[x][y] == CellType.ANGULAR_BODY) {
+            Point prevCurPoint = prevPoint[x][y];
+            Point nextCurPoint = nextPoint[x][y];
+
+            int dx = prevCurPoint.getX() - x;
+            if (dx == 0) {
+                dx = nextCurPoint.getX() - x;
+            }
+            int dy = prevCurPoint.getY() - y;
+            if (dy == 0) {
+                dy = nextCurPoint.getY() - y;
+            }
+
+            if (dx == 1) {
+                if (dy == 1) {
+                    return ConnectedCellSides.DOWN_RIGHT;
+                }
+                return ConnectedCellSides.UP_RIGHT;
+            }
+            if (dy == 1) {
+                return ConnectedCellSides.DOWN_LEFT;
+            }
+            return ConnectedCellSides.UP_LEFT;
+        }
+        return null;
     }
 
     public void proceedGame() {
@@ -174,25 +226,6 @@ public class Game {
             }
         }
         return null;
-    }
-
-    public void printField() {
-        for (int j = 0; j < fieldHeight; ++j) {
-            for (int i = 0; i < fieldWidth; ++i) {
-                char c = 'n';
-                switch (field[i][j]) {
-                    case EMPTY -> c = ' ';
-                    case STRAIGHT_BODY -> c = 's';
-                    case FOOD -> c = 'f';
-                    case ROCK -> c = '#';
-                    case TALE -> c = 't';
-                    case HEAD -> c = 'h';
-                    case ANGULAR_BODY -> c = 'a';
-                }
-                System.out.print(c);
-            }
-            System.out.print('\n');
-        }
     }
 
     public int getScore() {

@@ -13,7 +13,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #725e1d;"
-      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.nsu.fit.lylova.javafxsnake.controller.SettingsScreenController">
     <children>
         <Button layoutX="91.0" layoutY="412.0" mnemonicParsing="false" onAction="#saveSettings"

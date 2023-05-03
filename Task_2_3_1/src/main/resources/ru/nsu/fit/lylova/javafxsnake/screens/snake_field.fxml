@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19"
-      xmlns:fx="http://javafx.com/fxml/1"
+<Pane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
       fx:controller="ru.nsu.fit.lylova.javafxsnake.controller.SnakeFieldScreenController">
     <children>
         <Pane prefHeight="540.0" prefWidth="540.0"
@@ -67,16 +67,15 @@
         <Pane layoutX="540.0" prefHeight="540.0" prefWidth="420.0"
               style="-fx-background-color: #725e1d;">
             <children>
-                <Label contentDisplay="CENTER" layoutX="120.0" layoutY="31.0" prefHeight="107.0"
-                       prefWidth="180.0" text="SCORE" textAlignment="CENTER" textFill="WHITE"
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="32.0" prefHeight="107.0"
+                       prefWidth="210.0" text="SCORE" textAlignment="CENTER" textFill="WHITE"
                        wrapText="true">
                     <font>
                         <Font name="Dubai Medium" size="60.0"/>
                     </font>
                 </Label>
-                <Label fx:id="scoreLabel" alignment="CENTER" layoutX="2.0" layoutY="112.0"
-                       prefHeight="88.0" prefWidth="420.0" text="0" textAlignment="CENTER"
-                       textFill="#e7471d">
+                <Label fx:id="scoreLabel" alignment="CENTER" layoutY="113.0" prefHeight="88.0"
+                       prefWidth="210.0" text="0" textAlignment="CENTER" textFill="#e7471d">
                     <font>
                         <Font name="Dubai Medium" size="60.0"/>
                     </font>
@@ -118,6 +117,20 @@
                        prefWidth="400.0" text="ENTER or SPACE - start game" textFill="#fdee47">
                     <font>
                         <Font size="20.0"/>
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="210.0" layoutY="32.0"
+                       prefHeight="107.0" prefWidth="210.0" text="🏆" textAlignment="CENTER"
+                       textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font name="Dubai Medium" size="60.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="recordLabel" alignment="CENTER" layoutX="210.0" layoutY="113.0"
+                       prefHeight="88.0" prefWidth="210.0" text="0" textAlignment="CENTER"
+                       textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="60.0"/>
                     </font>
                 </Label>
             </children>
@@ -166,14 +179,14 @@
                                 <Font name="Dubai Medium" size="60.0"/>
                             </font>
                         </Label>
-                        <Label alignment="CENTER" layoutY="163.0" prefHeight="72.0"
-                               prefWidth="199.0" text="Score:">
+                        <Label alignment="CENTER" layoutX="3.0" layoutY="145.0" prefHeight="72.0"
+                               prefWidth="114.0" text="Score:">
                             <font>
                                 <Font name="Dubai Medium" size="40.0"/>
                             </font>
                         </Label>
-                        <Label fx:id="gameOverScoreLabel" alignment="CENTER" layoutX="212.0"
-                               layoutY="145.0" prefHeight="107.0" prefWidth="186.0" text="0"
+                        <Label fx:id="gameOverScoreLabel" alignment="CENTER" layoutX="111.0"
+                               layoutY="128.0" prefHeight="107.0" prefWidth="114.0" text="100"
                                textFill="#e7471d">
                             <font>
                                 <Font name="Dubai Medium" size="60.0"/>
@@ -201,6 +214,19 @@
                                 <Cursor fx:constant="HAND"/>
                             </cursor>
                         </Button>
+                        <Label alignment="CENTER" layoutX="209.0" layoutY="145.0" prefHeight="72.0"
+                               prefWidth="114.0" text="🏆">
+                            <font>
+                                <Font name="Dubai Medium" size="40.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="gameOverRecordScoreLabel" alignment="CENTER" layoutX="286.0"
+                               layoutY="128.0" prefHeight="107.0" prefWidth="114.0" text="100"
+                               textFill="#e7471d">
+                            <font>
+                                <Font name="Dubai Medium" size="60.0"/>
+                            </font>
+                        </Label>
                     </children>
                 </Pane>
             </children>

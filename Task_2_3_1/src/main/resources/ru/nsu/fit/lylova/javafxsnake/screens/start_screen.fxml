@@ -10,7 +10,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="540.0" prefWidth="960.0"
             style="-fx-background-color: #725e1d; -fx-scale-shape: true;"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
             fx:controller="ru.nsu.fit.lylova.javafxsnake.controller.StartScreenController">
     <children>
         <Button alignment="CENTER" contentDisplay="CENTER" layoutX="85.0" layoutY="343.0"
