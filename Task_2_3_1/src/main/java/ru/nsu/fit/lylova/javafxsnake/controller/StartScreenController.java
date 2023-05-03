@@ -58,19 +58,24 @@ public class StartScreenController {
         @Override
         public void handle(KeyEvent event) {
             switch (event.getCode()) {
-                case UP, W:
+                case UP:
+                case W:
                     fieldController.setSnakeDirection(Direction.UP);
                     break;
-                case RIGHT, D:
+                case RIGHT:
+                case D:
                     fieldController.setSnakeDirection(Direction.RIGHT);
                     break;
-                case DOWN, S:
+                case DOWN:
+                case S:
                     fieldController.setSnakeDirection(Direction.DOWN);
                     break;
-                case LEFT, A:
+                case LEFT:
+                case A:
                     fieldController.setSnakeDirection(Direction.LEFT);
                     break;
-                case ENTER, SPACE:
+                case ENTER:
+                case SPACE:
                     fieldController.startGame();
                     break;
                 case ESCAPE:
