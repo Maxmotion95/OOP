@@ -33,10 +33,17 @@ public class Point {
     public Point getNextPointInDirection(Direction direction) {
         Point result = new Point(x, y);
         switch (direction) {
-            case LEFT -> result.setX(result.getX() - 1);
-            case RIGHT -> result.setX(result.getX() + 1);
-            case DOWN -> result.setY(result.getY() + 1);
-            case UP -> result.setY(result.getY() - 1);
+            case LEFT:
+                result.setX(result.getX() - 1);
+                break;
+            case RIGHT:
+                result.setX(result.getX() + 1);
+                break;
+            case DOWN:
+                result.setY(result.getY() + 1);
+                break;
+            case UP:
+                result.setY(result.getY() - 1);
         }
         return result;
     }

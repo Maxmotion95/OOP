@@ -197,38 +197,62 @@ public class SnakeFieldScreenController implements Initializable {
         if (type == CellType.TALE) {
             int result = 45;
             switch (game.getConnectedCellSides(x, y)) {
-                case UP -> result = 270;
-                case RIGHT -> result = 0;
-                case DOWN -> result = 90;
-                case LEFT -> result = 180;
+                case UP:
+                    result = 270;
+                    break;
+                case RIGHT:
+                    result = 0;
+                    break;
+                case DOWN:
+                    result = 90;
+                    break;
+                case LEFT:
+                    result = 180;
             }
             return result;
         }
         if (type == CellType.HEAD) {
             int result = 45;
             switch (game.getConnectedCellSides(x, y)) {
-                case UP -> result = 90;
-                case RIGHT -> result = 180;
-                case DOWN -> result = 270;
-                case LEFT -> result = 0;
+                case UP:
+                    result = 90;
+                    break;
+                case RIGHT:
+                    result = 180;
+                    break;
+                case DOWN:
+                    result = 270;
+                    break;
+                case LEFT:
+                    result = 0;
             }
             return result;
         }
         if (type == CellType.STRAIGHT_BODY) {
             int result = 45;
             switch (game.getConnectedCellSides(x, y)) {
-                case RIGHT_LEFT -> result = 0;
-                case UP_DOWN -> result = 90;
+                case RIGHT_LEFT:
+                    result = 0;
+                    break;
+                case UP_DOWN:
+                    result = 90;
             }
             return result;
         }
         // type == CellType.ANGULAR_BODY
         int result = 45;
         switch (game.getConnectedCellSides(x, y)) {
-            case UP_LEFT -> result = 270;
-            case UP_RIGHT -> result = 0;
-            case DOWN_LEFT -> result = 180;
-            case DOWN_RIGHT -> result = 90;
+            case UP_LEFT:
+                result = 270;
+                break;
+            case UP_RIGHT:
+                result = 0;
+                break;
+            case DOWN_LEFT:
+                result = 180;
+                break;
+            case DOWN_RIGHT:
+                result = 90;
         }
         return result;
     }
