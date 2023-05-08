@@ -1,4 +1,5 @@
 module:ru.nsu.fit.lylova.javafxsnake
+ru.nsu.fit.lylova.console
 ru.nsu.fit.lylova.javafxsnake
 ru.nsu.fit.lylova.javafxsnake.cell
 ru.nsu.fit.lylova.javafxsnake.cell.controller
