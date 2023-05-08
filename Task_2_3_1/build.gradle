@@ -25,7 +25,8 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'ru.nsu.fit.lylova.javafxsnake'
-    mainClass = 'ru.nsu.fit.lylova.javafxsnake.SnakeApplication'
+//    mainClass = 'ru.nsu.fit.lylova.javafxsnake.SnakeApplication'
+    mainClass = 'ru.nsu.fit.lylova.javafxsnake.ConsoleApplication'
 }
 
 javafx {

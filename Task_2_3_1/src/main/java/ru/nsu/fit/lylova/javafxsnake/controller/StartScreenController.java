@@ -47,8 +47,6 @@ public class StartScreenController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
 
-        scene.setOnKeyPressed(new KeyHandler());
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

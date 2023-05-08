@@ -5,8 +5,6 @@
   field_color_1: '#eccd79',
   field_color_2: '#f2d78c',
   rock_color: '#977b26',
-  eye_color: '#1c469d',
-  body_color: '#4572e7',
   speed: 'fast',
   record_score: 0,
   preset_id: 0,
