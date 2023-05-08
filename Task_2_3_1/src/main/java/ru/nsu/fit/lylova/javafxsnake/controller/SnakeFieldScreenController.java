@@ -102,7 +102,7 @@ public class SnakeFieldScreenController implements Initializable {
                 (fieldWidth - 1) / 2, (fieldHeight - 1) / 2,
                 (Integer) gameConfig.get("rocks_count"), (Integer) gameConfig.get("food_count"));
 
-        double cellSize = 500.0 / max(fieldHeight, fieldWidth);
+        double cellSize = 800.0 / max(fieldHeight, fieldWidth);
         gameConfig.put("cell_size", cellSize);
 
         for (int i = 0; i < fieldHeight; ++i) {
