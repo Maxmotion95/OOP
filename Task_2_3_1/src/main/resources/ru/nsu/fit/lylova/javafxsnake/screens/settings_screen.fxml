@@ -2,13 +2,14 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
@@ -61,6 +62,18 @@
                         <Font name="Dubai Medium" size="40.0"/>
                     </font>
                 </Label>
+                <Label fx:id="minWidthLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxWidthLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="63.0" layoutY="262.0" prefHeight="125.0" prefWidth="700.0"
@@ -96,6 +109,18 @@
                        text="FIELD HEIGHT" textFill="WHITE">
                     <font>
                         <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="minHeightLabel" layoutX="338.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxHeightLabel" layoutX="338.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
                     </font>
                 </Label>
             </children>
@@ -135,6 +160,18 @@
                         <Font name="Dubai Medium" size="40.0"/>
                     </font>
                 </Label>
+                <Label fx:id="minFoodCountLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxFoodCountLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="63.0" layoutY="532.0" prefHeight="125.0" prefWidth="700.0"
@@ -172,6 +209,18 @@
                         <Font name="Dubai Medium" size="40.0"/>
                     </font>
                 </Label>
+                <Label fx:id="minStonesCountLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxStonesCountLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
             </children>
         </AnchorPane>
         <Button layoutX="825.0" layoutY="716.0" mnemonicParsing="false"
@@ -185,7 +234,7 @@
             </cursor>
         </Button>
         <AnchorPane layoutX="919.0" layoutY="171.0" prefHeight="79.0" prefWidth="415.0"
-                    style="-fx-background-color: black; -fx-background-radius: 20;">
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
             <children>
                 <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
                        text="COLOR OF SNAKE BODY" textFill="WHITE">
@@ -193,20 +242,10 @@
                         <Font name="Dubai Medium" size="20.0"/>
                     </font>
                 </Label>
-                <ColorPicker fx:id="snakeBodyColorPicker" layoutX="259.0" layoutY="15.0"
-                             onAction="#updateBodyColor" prefHeight="49.0" prefWidth="142.0">
-                    <value>
-                        <Color red="0.41228070855140686" green="0.19214317202568054"
-                               blue="0.19214317202568054"/>
-                    </value>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                </ColorPicker>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="919.0" layoutY="293.0" prefHeight="79.0" prefWidth="415.0"
-                    style="-fx-background-color: black; -fx-background-radius: 20;">
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
             <children>
                 <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
                        text="COLOR OF SNAKE EYES" textFill="WHITE">
@@ -214,20 +253,10 @@
                         <Font name="Dubai Medium" size="20.0"/>
                     </font>
                 </Label>
-                <ColorPicker fx:id="snakeEyesColorPicker" layoutX="259.0" layoutY="15.0"
-                             onAction="#updateEyeColor" prefHeight="49.0" prefWidth="142.0">
-                    <value>
-                        <Color red="0.41228070855140686" green="0.19214317202568054"
-                               blue="0.19214317202568054"/>
-                    </value>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                </ColorPicker>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="928.0" layoutY="380.0" prefHeight="79.0" prefWidth="415.0"
-                    style="-fx-background-color: black; -fx-background-radius: 20;">
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
             <children>
                 <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
                        text="COLOR OF STONE" textFill="WHITE">
@@ -235,16 +264,6 @@
                         <Font name="Dubai Medium" size="20.0"/>
                     </font>
                 </Label>
-                <ColorPicker fx:id="stoneColorPicker" layoutX="259.0" layoutY="15.0"
-                             onAction="#updateStoneColor" prefHeight="49.0" prefWidth="142.0">
-                    <value>
-                        <Color red="0.41228070855140686" green="0.19214317202568054"
-                               blue="0.19214317202568054"/>
-                    </value>
-                    <cursor>
-                        <Cursor fx:constant="HAND"/>
-                    </cursor>
-                </ColorPicker>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="838.0" layoutY="532.0" prefHeight="125.0" prefWidth="700.0"
@@ -290,5 +309,38 @@
                 </RadioButton>
             </children>
         </AnchorPane>
+        <GridPane fx:id="presetsGridPane" layoutX="888.0" layoutY="272.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="180.0" prefWidth="120.0"
+                      GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            </children>
+        </GridPane>
+        <AnchorPane layoutX="1038.0" layoutY="125.0" prefHeight="125.0" prefWidth="300.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label alignment="CENTER" layoutY="31.0" prefHeight="63.0" prefWidth="300.0"
+                       text="SNAKE COLOR" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label alignment="CENTER" layoutY="19.0" prefHeight="72.0" prefWidth="1600.0"
+               text="SETTINGS OF CLASSIC MODE" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="40.0"/>
+            </font>
+        </Label>
     </children>
 </Pane>

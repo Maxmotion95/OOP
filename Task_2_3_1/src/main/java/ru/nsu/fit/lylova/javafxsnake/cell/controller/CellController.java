@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.Pair;
 import ru.nsu.fit.lylova.javafxsnake.cell.CellType;
 
+import java.util.List;
 import java.util.Map;
 
 public abstract class CellController {
@@ -19,6 +20,13 @@ public abstract class CellController {
         this.config = config;
         this.x = x;
         this.y = y;
+        int preset_id = (Integer) config.get("preset_id");
+        List presets = (List) config.get("presets");
+        Map preset = (Map) presets.get(preset_id);
+        for (var preset_key: preset.keySet()) {
+            config.put((String) preset_key, preset.get(preset_key));
+        }
+
         resizeCell();
         applyConfig();
     }
@@ -29,9 +37,11 @@ public abstract class CellController {
 
     protected void resizeCell() {
         double currentSize = background.getPrefHeight();
-        double cellSize = (Double) config.get("cell_size");
-        background.setScaleX(cellSize / currentSize);
-        background.setScaleY(cellSize / currentSize);
+        if (config.get("cell_size") != null) {
+            double cellSize = (Double) config.get("cell_size");
+            background.setScaleX(cellSize / currentSize);
+            background.setScaleY(cellSize / currentSize);
+        }
     }
 
     protected abstract void applyConfig();

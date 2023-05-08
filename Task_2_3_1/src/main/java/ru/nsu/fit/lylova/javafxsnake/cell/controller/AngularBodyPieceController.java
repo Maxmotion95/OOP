@@ -20,6 +20,7 @@ public class AngularBodyPieceController extends CellController {
 
     @Override
     protected void applyConfig() {
+
         body_rect_1.setFill(Paint.valueOf((String) config.get("body_color")));
         body_rect_2.setFill(Paint.valueOf((String) config.get("body_color")));
 
