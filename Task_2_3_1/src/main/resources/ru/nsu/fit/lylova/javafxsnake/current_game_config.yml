@@ -1,0 +1,17 @@
+{ height: 7,
+  width: 7,
+  rocks_count: 2,
+  food_count: 2,
+  field_color_1: '#eccd79',
+  field_color_2: '#f2d78c',
+  rock_color: '#977b26',
+  speed: 'fast',
+  record_score: 0,
+  preset_id: 0,
+  presets:[
+    {eye_color: '#1c469d', body_color: '#4572e7'},
+    {eye_color: '#0e7c83', body_color: '#18d2e0'},
+    {eye_color: '#1e6823', body_color: '#33b13b'},
+    {eye_color: '#710ca7', body_color: '#b03eee'}
+  ]
+}

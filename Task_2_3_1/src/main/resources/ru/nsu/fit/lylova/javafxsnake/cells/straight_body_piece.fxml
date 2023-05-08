@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cell.controller.StraightBodyPieceController">
+    <children>
+        <Rectangle fx:id="body" arcHeight="15.0" arcWidth="15.0" fill="#4674e9" height="30.0"
+                   layoutX="2.5" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"
+                   width="55.0"/>
+    </children>
+</Pane>

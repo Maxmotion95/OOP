@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+
+<Pane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="60.0" prefWidth="60.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.cell.controller.HeadController">
+    <children>
+        <Rectangle fx:id="body_rect1" arcHeight="15.0" arcWidth="15.0" fill="DODGERBLUE"
+                   height="30.0" layoutX="2.5" layoutY="15.0" stroke="BLACK" strokeType="INSIDE"
+                   strokeWidth="0.0" width="42.5"/>
+        <Circle fx:id="body_circ3" fill="DODGERBLUE" layoutX="37.5" layoutY="30.0" radius="15.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="body_circ2" fill="DODGERBLUE" layoutX="32.0" layoutY="41.0" radius="9.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="body_circ1" fill="DODGERBLUE" layoutX="32.0" layoutY="19.0" radius="9.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fill="WHITE" layoutX="32.0" layoutY="19.0" radius="7.0" stroke="BLACK"
+                strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fill="WHITE" layoutX="32.0" layoutY="41.0" radius="7.0" stroke="BLACK"
+                strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="eye_circ1" fill="#1c469d" layoutX="34.0" layoutY="19.0" radius="3.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="eye_circ2" fill="#1c469d" layoutX="34.0" layoutY="41.0" radius="3.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="nose_circ1" fill="#1c469d" layoutX="45.0" layoutY="22.0" radius="1.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+        <Circle fx:id="nose_circ2" fill="#1c469d" layoutX="45.0" layoutY="34.0" radius="1.0"
+                stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0"/>
+    </children>
+</Pane>

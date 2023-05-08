@@ -1,0 +1,6 @@
+{ height: 10,
+  width: 10,
+  rocks_count: 2,
+  food_count: 2,
+  speed: 500,
+}

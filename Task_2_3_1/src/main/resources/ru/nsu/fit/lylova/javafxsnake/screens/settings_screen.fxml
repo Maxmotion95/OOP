@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #725e1d;"
+      xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ru.nsu.fit.lylova.javafxsnake.controller.SettingsScreenController">
+    <children>
+        <Button layoutX="50.0" layoutY="716.0" mnemonicParsing="false" onAction="#saveSettings"
+                prefHeight="100.0" prefWidth="725.0" style="-fx-background-color: black;"
+                text="SAVE SETTINGS" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="60.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <AnchorPane layoutX="63.0" layoutY="125.0" prefHeight="125.0" prefWidth="700.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="415.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseFieldWidth" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label fx:id="fieldWidthLabel" alignment="CENTER" layoutX="509.0" layoutY="27.0"
+                       prefHeight="72.0" prefWidth="83.0" text="10" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="594.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#increaseFieldWidth" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label layoutX="14.0" layoutY="27.0" prefHeight="72.0" prefWidth="381.0"
+                       text="FIELD WIDTH" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="minWidthLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxWidthLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="63.0" layoutY="262.0" prefHeight="125.0" prefWidth="700.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="414.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#decreaseFieldHeight" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label fx:id="fieldHeightLabel" alignment="CENTER" layoutX="508.0" layoutY="26.0"
+                       prefHeight="72.0" prefWidth="83.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="594.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#increaseFieldHeight" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label layoutX="14.0" layoutY="27.0" prefHeight="72.0" prefWidth="381.0"
+                       text="FIELD HEIGHT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="minHeightLabel" layoutX="338.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxHeightLabel" layoutX="338.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="63.0" layoutY="396.0" prefHeight="125.0" prefWidth="700.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="415.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#decreaseFoodCount" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label fx:id="foodCountLabel" alignment="CENTER" layoutX="509.0" layoutY="27.0"
+                       prefHeight="72.0" prefWidth="83.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="594.0" layoutY="12.0" mnemonicParsing="false"
+                        onAction="#increaseFoodCount" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label layoutX="14.0" layoutY="27.0" prefHeight="72.0" prefWidth="381.0"
+                       text="FOOD COUNT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="minFoodCountLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxFoodCountLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="63.0" layoutY="532.0" prefHeight="125.0" prefWidth="700.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Button cache="true" layoutX="415.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#decreaseStonesCount" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="-" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label fx:id="stonesCountLabel" alignment="CENTER" layoutX="513.0" layoutY="27.0"
+                       prefHeight="72.0" prefWidth="76.0" text="5" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Button cache="true" layoutX="594.0" layoutY="13.0" mnemonicParsing="false"
+                        onAction="#increaseStonesCount" prefHeight="99.0" prefWidth="91.0"
+                        style="-fx-background-color: #725e1d;" text="+" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Button>
+                <Label layoutX="14.0" layoutY="27.0" prefHeight="72.0" prefWidth="381.0"
+                       text="STONES COUNT" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="40.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="minStonesCountLabel" layoutX="339.0" layoutY="14.0" prefHeight="35.0"
+                       prefWidth="76.0" text="min:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="maxStonesCountLabel" layoutX="339.0" layoutY="75.0" prefHeight="35.0"
+                       prefWidth="76.0" text="max:" textFill="#e7471d">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button layoutX="825.0" layoutY="716.0" mnemonicParsing="false"
+                onAction="#switchToStartScreen" prefHeight="100.0" prefWidth="725.0"
+                style="-fx-background-color: black;" text="RETURN TO MENU" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="60.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+        <AnchorPane layoutX="919.0" layoutY="171.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF SNAKE BODY" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="919.0" layoutY="293.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF SNAKE EYES" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="928.0" layoutY="380.0" prefHeight="79.0" prefWidth="415.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="20.0" prefHeight="35.0" prefWidth="237.0"
+                       text="COLOR OF STONE" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="20.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="838.0" layoutY="532.0" prefHeight="125.0" prefWidth="700.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label layoutX="14.0" layoutY="31.0" prefHeight="63.0" prefWidth="131.0"
+                       text="SPEED:" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                </Label>
+                <RadioButton layoutX="156.0" layoutY="31.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="SLOW" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="speedGroup"/>
+                    </toggleGroup>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </RadioButton>
+                <RadioButton layoutX="334.0" layoutY="31.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="MEDIUM" textFill="WHITE"
+                             toggleGroup="$speedGroup">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </RadioButton>
+                <RadioButton layoutX="550.0" layoutY="31.0" mnemonicParsing="false"
+                             onAction="#updateSpeed" text="FAST" textFill="WHITE"
+                             toggleGroup="$speedGroup">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </RadioButton>
+            </children>
+        </AnchorPane>
+        <GridPane fx:id="presetsGridPane" layoutX="888.0" layoutY="272.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                      minWidth="-Infinity" prefHeight="180.0" prefWidth="120.0"
+                      GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            </children>
+        </GridPane>
+        <AnchorPane layoutX="1038.0" layoutY="125.0" prefHeight="125.0" prefWidth="300.0"
+                    style="-fx-background-color: black; -fx-background-radius: 20;">
+            <children>
+                <Label alignment="CENTER" layoutY="31.0" prefHeight="63.0" prefWidth="300.0"
+                       text="SNAKE COLOR" textFill="WHITE">
+                    <font>
+                        <Font name="Dubai Medium" size="35.0"/>
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Label alignment="CENTER" layoutY="19.0" prefHeight="72.0" prefWidth="1600.0"
+               text="SETTINGS OF CLASSIC MODE" textFill="WHITE">
+            <font>
+                <Font name="Dubai Medium" size="40.0"/>
+            </font>
+        </Label>
+    </children>
+</Pane>
