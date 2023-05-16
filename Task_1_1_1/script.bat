@@ -14,8 +14,8 @@ for %%i in (%*) do (
     )
 )
 @echo on
-if [%doc_flag%] == [1] javadoc src\main\java\ru\nsu\fit\lylova\*.java -d for_javadoc
-if [%comp_flag%] == [1] javac src\main\java\ru\nsu\fit\lylova\*.java -d for_build
+if [%doc_flag%] == [1] javadoc src\application\java\ru\nsu\fit\lylova\*.java -d for_javadoc
+if [%comp_flag%] == [1] javac src\application\java\ru\nsu\fit\lylova\*.java -d for_build
 cd for_build
-if [%exec_flag%] == [1] java ru.nsu.fit.lylova.Main
+if [%exec_flag%] == [1] java ru.nsu.fit.lylova.Application
  
