@@ -17,5 +17,5 @@ for %%i in (%*) do (
 if [%doc_flag%] == [1] javadoc src\application\java\ru\nsu\fit\lylova\*.java -d for_javadoc
 if [%comp_flag%] == [1] javac src\application\java\ru\nsu\fit\lylova\*.java -d for_build
 cd for_build
-if [%exec_flag%] == [1] java ru.nsu.fit.lylova.Application
+if [%exec_flag%] == [1] java ru.nsu.fit.lylova.ru.nsu.fit.lylova.Application
  
