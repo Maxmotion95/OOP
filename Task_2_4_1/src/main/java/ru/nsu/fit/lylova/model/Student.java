@@ -1,4 +1,5 @@
 package ru.nsu.fit.lylova.model;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

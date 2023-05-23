@@ -18,7 +18,6 @@ import java.nio.file.Paths;
 import java.util.Collection;
 
 
-
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class GroovyConfigurable extends GroovyObjectSupport {
@@ -57,7 +56,7 @@ public class GroovyConfigurable extends GroovyObjectSupport {
         CompilerConfiguration cc = new CompilerConfiguration();
         cc.setScriptBaseClass(DelegatingScript.class.getName());
         GroovyShell sh = new GroovyShell(Application.class.getClassLoader(), new Binding(), cc);
-        DelegatingScript script = (DelegatingScript)sh.parse(uri);
+        DelegatingScript script = (DelegatingScript) sh.parse(uri);
         script.setDelegate(this);
         script.run();
     }
