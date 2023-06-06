@@ -1,6 +1,7 @@
 package ru.nsu.fit.lylova;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
@@ -37,7 +38,7 @@ public class BenchmarkThreadsCount {
      */
     @State(Scope.Benchmark)
     public static class BenchmarkState {
-        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "40", "50"})//
+        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "64", "128", "256", "512"})
         public int threadsCount;
         public int numberOfPrimeNumbers = 50000;
         public int[] bigPrimeNumbers;

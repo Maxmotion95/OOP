@@ -1,6 +1,7 @@
 package ru.nsu.fit.lylova;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Fork;
 import org.openjdk.jmh.annotations.Level;
@@ -59,7 +60,7 @@ public class BenchmarkDifferentTypes {
      */
     @State(Scope.Benchmark)
     public static class BenchmarkState {
-        @Param({"10", "30", "50", "100", "500", "1000", "5000", "10000", "50000"})//
+        @Param({"10", "30", "50", "100", "500", "1000", "5000", "10000", "50000"})
         public int numberOfPrimeNumbers;
         public int[] bigPrimeNumbers;
 
