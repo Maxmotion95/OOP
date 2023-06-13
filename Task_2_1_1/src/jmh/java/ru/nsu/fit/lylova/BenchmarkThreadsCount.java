@@ -1,5 +1,6 @@
 package ru.nsu.fit.lylova;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -21,9 +22,9 @@ import ru.nsu.fit.lylova.arrayChecker.ParallelCheckerWithThreads;
  */
 public class BenchmarkThreadsCount {
     @BenchmarkMode(Mode.AverageTime)
-    @Fork(value = 1, warmups = 1)
+    @Fork(value = 3, warmups = 1)
     @Warmup(iterations = 3)
-    @Measurement(iterations = 1)
+    @Measurement(iterations = 3)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)
     @org.openjdk.jmh.annotations.Benchmark
     public boolean parallelThread(BenchmarkThreadsCount.BenchmarkState state) {
@@ -38,7 +39,7 @@ public class BenchmarkThreadsCount {
      */
     @State(Scope.Benchmark)
     public static class BenchmarkState {
-        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "64", "128", "256", "512"})
+        @Param({"1", "2", "4", "6", "8", "12", "16", "24", "32", "64", "128", "256", "512", "1024", "2048", "4096"})
         public int threadsCount;
         public int numberOfPrimeNumbers = 50000;
         public int[] bigPrimeNumbers;
@@ -49,12 +50,10 @@ public class BenchmarkThreadsCount {
         @Setup(Level.Trial)
         public void setUp() {
             bigPrimeNumbers = new int[numberOfPrimeNumbers];
+            Random random = new Random(3243);
+            int[] numbers = new int[]{1000000007, 998244353};
             for (int i = 0; i < numberOfPrimeNumbers; i++) {
-                if (i < numberOfPrimeNumbers / 2) {
-                    bigPrimeNumbers[i] = 1000000007;
-                } else {
-                    bigPrimeNumbers[i] = 998244353;
-                }
+                bigPrimeNumbers[i] = numbers[random.nextInt(numbers.length)];
             }
         }
     }
